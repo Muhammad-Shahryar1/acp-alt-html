@@ -14,8 +14,13 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Inter", sans-serif;
+        scroll-behavior: smooth;
       }
 
       /* Underline indicator style */
@@ -26,7 +31,7 @@
         bottom: -2px;
         height: 3px;
         width: 0;
-        background-color: #56b796; /* teal color */
+        background-color: #56b796;
         transition: width 0.3s;
         border-radius: 2px;
       }
@@ -44,7 +49,8 @@
             <div class="flex items-center space-x-3">
               <div class="flex-shrink-0">
                 <!-- Logo placeholder - you can replace with actual logo -->
-                <div
+                <a
+                  href="./index.html"
                   class="w-48 h-14 sm:w-auto sm:h-auto flex items-center justify-center"
                 >
                   <img
@@ -52,7 +58,7 @@
                     alt="Wizz Air"
                     class="w-full h-full opacity-100 hover:opacity-100 transition-opacity"
                   />
-                </div>
+                </a>
               </div>
             </div>
 
@@ -69,19 +75,19 @@
                 >Routes</a
               >
               <a
-                href="#"
+                href="./saudiDestinations.html"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 >Saudi Destinations</a
               >
               <a
-                href="#"
+                href="./media.html"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 >Media Center</a
               >
               <a
-                href="#"
+                href="./contact.html"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                >Contact</a
+                >Contact Us</a
               >
               <a
                 href="#"
@@ -104,11 +110,12 @@
               </div>
 
               <!-- Become a Partner Button -->
-              <button
-                class="hidden md:block bg-[#785FDC] text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors duration-200"
+              <a
+                href="./contact.html"
+                class="hidden md:block hover:text-black bg-[#785FDC] text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors duration-200"
               >
                 Become a Partner
-              </button>
+              </a>
 
               <!-- Mobile Menu Button -->
               <button
@@ -146,13 +153,19 @@
             <a href="#" class="block hover:text-[#32D2A0] transition-colors"
               >Routes</a
             >
-            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+            <a
+              href="./saudiDestinations.html"
+              class="block hover:text-[#32D2A0] transition-colors"
               >Saudi Destinations</a
             >
-            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+            <a
+              href="./media.html"
+              class="block hover:text-[#32D2A0] transition-colors"
               >Media Center</a
             >
-            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+            <a
+              href="./contact.html"
+              class="block hover:text-[#32D2A0] transition-colors"
               >Contact</a
             >
             <a href="#" class="block hover:text-[#32D2A0] transition-colors"
@@ -170,11 +183,12 @@
                   <span class="text-sm">AR</span>
                 </div>
               </div>
-              <button
-                class="w-full bg-[#785FDC] text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
+              <a
+                href="./contact.html"
+                class="w-full bg-[#785FDC] hover:text-black text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
               >
                 Become a Partner
-              </button>
+              </a>
             </div>
           </div>
         </div>
@@ -185,8 +199,9 @@
       </nav>
     </header>
 
-    <section class="max-w-7xl mx-auto py-12 sm:py-24 px-4 sm:px-6 lg:px-8">
-   
+    <section
+      class="max-w-7xl mx-auto py-12 sm:pb-20 sm:pt-10 px-4 sm:px-6 lg:px-8"
+    >
       <div
         class="container bg-[#b8dadc] py-10 px-5 sm:px-10 xl:px-20 rounded-2xl mx-auto"
       >
@@ -195,22 +210,12 @@
             <a
               href="#"
               class="relative text-gray-800 pb-2 mb-4 md:mb-0 font-medium text-sm nav-item active"
-              >placeholder text</a
+              >News</a
             >
             <a
-              href="#"
+              href="#video-123"
               class="relative text-gray-800 pb-2 mb-4 md:mb-0 font-medium text-sm nav-item"
-              >placeholder text</a
-            >
-            <a
-              href="#"
-              class="relative text-gray-800 pb-2 mb-4 md:mb-0 font-medium text-sm nav-item"
-              >placeholder text</a
-            >
-            <a
-              href="#"
-              class="relative text-gray-800 pb-2 mb-4 md:mb-0 font-medium text-sm nav-item"
-              >placeholder text</a
+              >Video</a
             >
           </nav>
         </div>
@@ -220,14 +225,14 @@
             alt="Pen"
             class="w-10 h-10 inline-block object-cover"
           />
-          <h2 class="font-bold text-[#495057] text-2xl">Placeholder text</h2>
+          <h2 class="font-bold text-[#495057] text-2xl">News</h2>
         </div>
-        <div class="flex gap-2 my-5 justify-end">
+        <!-- <div class="flex gap-2 my-5 justify-end">
           <button class="bg-white px-3 py-1.5 rounded-md text-sm text-gray-600">
             Placeholder Text
           </button>
-        </div>
-        <hr class="border border-white/70 w-full" />
+        </div> -->
+        <hr class="border my-5 border-white/70 w-full" />
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10">
           <div class="col-span-1">
             <!-- Single Card with Progress Bar and Auto Image Slider -->
@@ -378,134 +383,9 @@
         </div>
       </div>
     </section>
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- First Row: Search Bar and Navigation -->
-      <div
-        class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4"
-      >
-        <!-- Search Bar -->
-        <div class="relative flex-1 max-w-2xl">
-          <div class="relative flex bg-white rounded-lg">
-            <button
-                class="p-2 rounded-lg pl-4 transition-colors duration-200"
-                aria-label="Filter articles"
-              >
-                <div class="space-y-[2px]">
-                  <div class="h-[2px] w-5 bg-gray-500"></div>
-                  <div class="h-[2px] w-5 bg-gray-500"></div>
-                  <div class="h-[2px] w-5 bg-gray-500"></div>
-                </div>
-              </button>
-            <input
-              type="text"
-              id="searchInput"
-              placeholder="This is a placeholder text"
-              class="bg-white w-full px-4 py-3 pr-10 rounded-lg focus:outline-none"
-            />
-            <button class="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <svg
-                class="w-5 h-5 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                ></path>
-              </svg>
-            </button>
-          </div>
-          <!-- Search Dropdown -->
-          <!-- Replaced custom CSS classes with Tailwind classes -->
-          <div
-            id="searchDropdown"
-            class="hidden absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg mt-1 shadow-lg z-10 max-h-48 overflow-y-auto"
-          ></div>
-        </div>
-
-        <!-- Slider Navigation with Progress Bar -->
-        <div class="flex items-center">
-          <!-- Current Slide Number -->
-          <span
-            id="currentSlide"
-            class="text-lg font-medium text-[#AAB1BB] min-w-[2ch] text-right"
-            >01</span
-          >
-
-          <!-- Navigation Controls -->
-          <div class="flex items-center">
-            <button id="prevBtn" class="p-1 rounded-full cursor-pointer">
-              <svg
-                class="w-7 h-7 text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 19l-7-7 7-7"
-                ></path>
-              </svg>
-            </button>
-
-            <!-- Progress Bar -->
-            <div class="w-24 h-1 bg-gray-200 rounded-full overflow-hidden">
-              <!-- Added Tailwind transition classes -->
-              <div
-                id="progressBar"
-                class="h-full bg-gray-800 rounded-full transition-all duration-300 ease-in-out"
-                style="width: 4%"
-              ></div>
-            </div>
-
-            <button id="nextBtn" class="p-1 rounded-full cursor-pointer">
-              <svg
-                class="w-7 h-7 text-gray-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                ></path>
-              </svg>
-            </button>
-          </div>
-
-          <!-- Total Slides -->
-          <span
-            id="totalSlides"
-            class="text-lg font-medium text-[#AAB1BB] min-w-[2ch]"
-            >25</span
-          >
-        </div>
-      </div>
-
-      <!-- Second Row: Cards Slider -->
-      <!-- Replaced custom slider-container class with Tailwind overflow-hidden -->
-      <div class="overflow-hidden">
-        <!-- Replaced custom slider-track class with Tailwind classes -->
-        <div
-          id="sliderTrack"
-          class="flex transition-transform duration-300 ease-in-out"
-        >
-          <!-- Slides will be generated by JavaScript -->
-        </div>
-      </div>
-    </section>
 
     <!-- Added new video section with two-column layout -->
-    <section
-      class="max-w-7xl mx-auto mt-16 px-4 sm:px-6 lg:px-8"
-    >
+    <section class="max-w-7xl mx-auto mt-16 px-4 sm:px-6 lg:px-8">
       <div class="bg-white py-12 sm:py-24 rounded-lg">
         <!-- First Row: Title and Horizontal Line -->
         <div class="mb-16 px-16 flex items-center space-x-3">
@@ -603,17 +483,14 @@
           >
             <div class="w-full sm:w-1/2">
               <h3 class="text-4xl font-bold text-[#44505E] mb-4">
-                Placeholder Text
+                Latest News
               </h3>
-              <p class="text-[#A5A5A5] mb-12 text-lg  leading-5">
-                Placeholder Text Used To Fill Space is used to test design
-                layouts before final content is ready.
+              <p class="text-[#A5A5A5] mb-12 text-lg leading-5">
+                Stay updated with the most recent announcements, press releases,
+                and updates from the Air Connectivity Program. Watch our
+                featured stories and explore the latest developments shaping
+                Saudi Arabia’s aviation and tourism sector.
               </p>
-              <button
-                class="bg-white text-sm text-[#44505E] px-3 py-2 rounded-md w-fit"
-              >
-                Placeholder Text
-              </button>
             </div>
           </div>
         </div>
@@ -621,7 +498,10 @@
     </section>
 
     <!-- Adding new video cards slider section as separate section -->
-    <section class="max-w-7xl mx-auto my-32 px-4 sm:px-6 lg:px-8">
+    <section
+      id="video-123"
+      class="max-w-7xl mx-auto my-32 px-4 sm:px-6 lg:px-8"
+    >
       <!-- First Row: Title and Navigation -->
       <div
         class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4"
@@ -644,7 +524,7 @@
           </button>
 
           <!-- Text -->
-          <h2 class="text-2xl font-bold text-[#566578]">Placeholder Text</h2>
+          <h2 class="text-2xl font-bold text-[#566578]">Media Highlights</h2>
         </div>
 
         <!-- Video Cards Slider Navigation with Progress Bar -->
@@ -730,16 +610,19 @@
           <!-- Column 1: Logo -->
           <div class="lg:col-span-1">
             <div class="mb-6">
-              <div class="w-auto h-auto flex items-center lg:justify-center">
+              <a
+                href="./index.html"
+                class="w-auto h-auto flex items-center lg:justify-center"
+              >
+                <!-- src="./assets/logos/header-logo.png" -->
                 <img
-                  src="./assets/logos/header-logo.png"
+                  src="./white-logo.png.png"
                   alt="Wizz Air"
                   class="w-auto opacity-100 hover:opacity-100 transition-opacity"
                 />
-              </div>
+              </a>
             </div>
           </div>
-
           <!-- Column 2: Overview -->
           <div class="lg:col-span-1">
             <h3 class="text-lg font-semibold mb-6 text-white">Overview</h3>
@@ -767,7 +650,6 @@
               </li>
             </ul>
           </div>
-
           <!-- Column 3: Contact and Support -->
           <div class="lg:col-span-1">
             <h3 class="text-lg font-semibold mb-6 text-white">
@@ -776,14 +658,14 @@
             <ul class="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="./contact.html"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   >Contact us</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  href="./media.html"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   >Media Center</a
                 >
@@ -797,7 +679,6 @@
               </li>
             </ul>
           </div>
-
           <!-- Column 4: Related Links -->
           <div class="lg:col-span-1">
             <h3 class="text-lg font-semibold mb-6 text-white">Related Links</h3>
@@ -839,18 +720,20 @@
               </li>
             </ul>
           </div>
-
           <!-- Column 5: Follow us on -->
           <div class="lg:col-span-1">
             <h3 class="text-lg font-semibold mb-6 text-white">Follow us on</h3>
-
             <!-- Social Media Icons -->
             <div class="flex space-x-4 mb-8">
               <a
                 href="#"
-                class="text-gray-300 hover:text-white transition-colors duration-200"
+                class="hover:text-white transition-colors duration-200"
               >
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  class="w-6 h-6 text-[#56B796]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
                   />
@@ -860,43 +743,48 @@
                 href="#"
                 class="text-gray-300 hover:text-white transition-colors duration-200"
               >
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <svg
+                  class="w-6 h-6 text-[#56B796]"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
                   />
                 </svg>
               </a>
             </div>
-
             <!-- Address -->
             <div class="flex items-start space-x-3">
               <svg
-                class="w-5 h-5 text-gray-300 mt-1 flex-shrink-0"
-                fill="none"
-                stroke="currentColor"
+                class="w-8 h-8 mt-1 text-[#56B796] flex-shrink-0"
+                width="100"
+                height="130"
                 viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  d="M12 2C8.13 2 5 5.13 5 9C5 13.25 9.75 20 12 22C14.25 20 19 13.25 19 9C19 5.13 15.87 2 12 2Z"
+                  stroke="#5DE0B0"
+                  stroke-width="1.5"
+                  fill="none"
                 />
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                <circle
+                  cx="12"
+                  cy="9"
+                  r="2.5"
+                  stroke="#5DE0B0"
+                  stroke-width="1.5"
+                  fill="none"
                 />
               </svg>
               <div class="text-sm text-gray-300 leading-relaxed">
-                <p>2nd Floor, Building 6 GACA</p>
-                <p>Complex, Riyadh 12519, Saudi</p>
+                <p>2nd Floor, Building 6 GACA Complex, Riyadh 12519, Saudi</p>
               </div>
             </div>
           </div>
         </div>
-
         <!-- Copyright Section -->
         <div class="border-t border-gray-600 mt-12 pt-8">
           <p class="text-gray-400 text-sm text-center lg:text-left">
@@ -936,125 +824,102 @@
         featured: [
           {
             id: 1,
-            title: "The Future of Web Development",
-            date: "2nd Sep 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            title:
+              "Flights between Abha and Doha Resumed, First Aircraft Landed at Abha International Airport",
+            date: "02 January 2025",
+            image: "./assets/news/abha.png",
             category: "featured",
           },
           {
             id: 2,
-            title: "Building Scalable Applications",
-            date: "1st Sep 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            title:
+              "Air Connectivity Program Welcomes Lufthansa's New Direct Munich to Riyadh Flights",
+            date: "19 August 2025",
+            image: "./assets/news/munich.png",
             category: "featured",
           },
           {
             id: 3,
-            title: "Modern Design Principles",
-            date: "31st Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            title:
+              "China Southern Airlines Launches New Route between Guangzhou, Riyadh",
+            date: "17 July 2025",
+            image: "./assets/news/china.jpg",
             category: "featured",
           },
           {
             id: 4,
-            title: "Remote Work Best Practices",
-            date: "30th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            title:
+              "Direct Flights Between Dammam, London to Launch in November via Saudia",
+            date: "09 July 2025",
+            image: "./assets/news/dammam.jpg",
             category: "featured",
           },
           {
             id: 5,
-            title: "AI Revolution in 2024",
-            date: "29th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            title:
+              "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
+            date: "28 July 2025",
+            image: "./assets/news/haikou.jpg",
             category: "featured",
           },
           {
             id: 6,
-            title: "Sustainable Technology Trends",
-            date: "28th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            title:
+              "Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status",
+            date: "23 April 2025",
+            image: "./assets/news/virgin.png",
+            category: "featured",
+          },
+          {
+            id: 7,
+            title:
+              "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
+            date: "17 April 2025",
+            image: "./assets/news/madina.jpg",
+            category: "featured",
+          },
+          {
+            id: 8,
+            title:
+              "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
+            date: "05 March 2025",
+            image: "./assets/news/stuttgart.jpg",
             category: "featured",
           },
         ],
         mostliked: [
           {
-            id: 7,
-            title: "10 Tips for Better Productivity",
-            date: "27th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
-            category: "mostliked",
-          },
-          {
-            id: 8,
-            title: "The Art of Minimalist Design",
-            date: "26th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
-            category: "mostliked",
-          },
-          {
             id: 9,
-            title: "Mastering JavaScript in 2024",
-            date: "25th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            title:
+              "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
+            date: "17 April 2025",
+            image: "./assets/news/madina.jpg",
             category: "mostliked",
           },
           {
             id: 10,
-            title: "Creative Problem Solving",
-            date: "24th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
-            category: "mostliked",
-          },
-          {
-            id: 11,
-            title: "Building Better User Experiences",
-            date: "23rd Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            title:
+              "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
+            date: "05 March 2025",
+            image: "./assets/news/stuttgart.jpg",
             category: "mostliked",
           },
         ],
         trending: [
           {
-            id: 12,
-            title: "ChatGPT vs Claude: AI Comparison",
-            date: "22nd Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            id: 4,
+            title:
+              "Direct Flights Between Dammam, London to Launch in November via Saudia",
+            date: "09 July 2025",
+            image: "./assets/news/dammam.jpg",
             category: "trending",
           },
           {
-            id: 13,
-            title: "Crypto Market Analysis 2024",
-            date: "21st Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
-            category: "trending",
-          },
-          {
-            id: 14,
-            title: "Remote Work Revolution",
-            date: "20th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
-            category: "trending",
-          },
-          {
-            id: 15,
-            title: "Green Energy Breakthrough",
-            date: "19th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
-            category: "trending",
-          },
-          {
-            id: 16,
-            title: "Space Tourism Updates",
-            date: "18th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
-            category: "trending",
-          },
-          {
-            id: 17,
-            title: "Quantum Computing Progress",
-            date: "17th Aug 2024 • placeholder",
-            image: "./assets/slide1.jpg",
+            id: 5,
+            title:
+              "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
+            date: "28 July 2025",
+            image: "./assets/news/haikou.jpg",
             category: "trending",
           },
         ],
@@ -1172,17 +1037,6 @@
       renderArticles(currentFilter);
       updateSectionTitle(currentFilter);
 
-      // JS Nav to toggle active state
-      document.querySelectorAll(".nav-item").forEach((item) => {
-        item.addEventListener("click", function (e) {
-          e.preventDefault();
-          document
-            .querySelectorAll(".nav-item")
-            .forEach((el) => el.classList.remove("active"));
-          this.classList.add("active");
-        });
-      });
-
       // Single card image gallery with progress bar
       const gallery = document.querySelector(".image-gallery");
       const images = gallery.querySelectorAll(".gallery-image");
@@ -1241,242 +1095,6 @@
         updateProgress();
         clearInterval(imageInterval);
         imageInterval = setInterval(nextImage, 3000);
-      });
-
-      // Sample card data
-      const cardData = [
-        {
-          image:
-            "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-dJNz1hQkibE31xh0QHtZ6ULycD41EK.png",
-          title: "City Skyline Adventure",
-          text: "Placeholder Text Used To Fill Space",
-          link: "./assets/slide1.jpg",
-        },
-        {
-          image: "/placeholder.svg?height=200&width=300",
-          title: "Business Innovation",
-          text: "Placeholder Text Used To Fill Space",
-          link: "./assets/slide1.jpg",
-        },
-        {
-          image: "/placeholder.svg?height=200&width=300",
-          title: "Mountain Explorer",
-          text: "Placeholder Text Used To Fill Space",
-          link: "./assets/slide1.jpg",
-        },
-        {
-          image: "/placeholder.svg?height=200&width=300",
-          title: "Ocean Waves",
-          text: "Placeholder Text Used To Fill Space",
-          link: "./assets/slide1.jpg",
-        },
-        {
-          image: "/placeholder.svg?height=200&width=300",
-          title: "Forest Journey",
-          text: "Placeholder Text Used To Fill Space",
-          link: "./assets/slide1.jpg",
-        },
-        {
-          image: "/placeholder.svg?height=200&width=300",
-          title: "Urban Architecture",
-          text: "Placeholder Text Used To Fill Space",
-          link: "./assets/slide1.jpg",
-        },
-        {
-          image: "/placeholder.svg?height=200&width=300",
-          title: "Desert Sunset",
-          text: "Placeholder Text Used To Fill Space",
-          link: "./assets/slide1.jpg",
-        },
-        {
-          image: "/placeholder.svg?height=200&width=300",
-          title: "Winter Wonderland",
-          text: "Placeholder Text Used To Fill Space",
-          link: "./assets/slide1.jpg",
-        },
-      ];
-
-      let filteredCards = [...cardData];
-      let currentSlideIndex = 0;
-      let cardsPerSlide = window.innerWidth >= 768 ? 2 : 1;
-
-      // Update cards per slide on resize
-      window.addEventListener("resize", () => {
-        const newCardsPerSlide = window.innerWidth >= 768 ? 2 : 1;
-        if (newCardsPerSlide !== cardsPerSlide) {
-          cardsPerSlide = newCardsPerSlide;
-          currentSlideIndex = 0;
-          renderSlider();
-          updateNavigation();
-        }
-      });
-
-      function createCardHTML(card) {
-        return `
-                <div class="p-6 space-y-4 bg-white rounded-lg shadow-md overflow-hidden flex-1">
-                    <div class="aspect-[10/5] overflow-hidden rounded-md">
-                        <img src="${card.link}" alt="${card.title}" class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex justify-between">
-                        <div>
-                            <h3 class="font-bold text-2xl text-[#44505E] mb-2">${card.title}</h3>
-                            <p class="text-gray-600 text-sm mb-4">${card.text}</p>
-                        </div>
-                        <a href="${card.link}" class="inline-flex items-center text-sm text-[#566578] font-light">
-                            Read More
-                            <span class="ml-2 flex items-center justify-center w-4 h-4 rounded-full bg-[#566578]">
-                                <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                                </svg>
-                            </span>
-                        </a>
-
-                    </div>
-                </div>
-            `;
-      }
-
-      function renderSlider() {
-        const sliderTrack = document.getElementById("sliderTrack");
-        const totalSlides = Math.ceil(filteredCards.length / cardsPerSlide);
-
-        sliderTrack.innerHTML = "";
-
-        for (let i = 0; i < totalSlides; i++) {
-          const slideDiv = document.createElement("div");
-          slideDiv.className = "flex-none w-full flex gap-4 ";
-
-          const startIndex = i * cardsPerSlide;
-          const endIndex = Math.min(
-            startIndex + cardsPerSlide,
-            filteredCards.length
-          );
-
-          for (let j = startIndex; j < endIndex; j++) {
-            slideDiv.innerHTML += createCardHTML(filteredCards[j]);
-          }
-
-          /* Add empty placeholders for incomplete slides to maintain layout */
-          const cardsInSlide = endIndex - startIndex;
-          for (let k = cardsInSlide; k < cardsPerSlide; k++) {
-            slideDiv.innerHTML += '<div class="flex-1"></div>';
-          }
-
-          sliderTrack.appendChild(slideDiv);
-        }
-      }
-
-      function updateNavigation() {
-        const totalSlides = Math.ceil(filteredCards.length / cardsPerSlide);
-        const currentSlideElement = document.getElementById("currentSlide");
-        const totalSlidesElement = document.getElementById("totalSlides");
-        const progressBar = document.getElementById("progressBar");
-
-        // Update slide numbers
-        currentSlideElement.textContent = String(
-          currentSlideIndex + 1
-        ).padStart(2, "0");
-        totalSlidesElement.textContent = String(totalSlides).padStart(2, "0");
-
-        // Update progress bar
-        // const progressPercentage =
-        //   totalSlides > 1 ? (currentSlideIndex / (totalSlides - 1)) * 100 : 0;
-        const progressPercentage =
-          totalSlides > 1
-            ? 4 + (currentSlideIndex / (totalSlides - 1)) * 96
-            : 4;
-        // videoCardsProgressBar.style.width = `${progressPercentage}%`;
-        progressBar.style.width = `${progressPercentage}%`;
-
-        // Update slider position
-        const sliderTrack = document.getElementById("sliderTrack");
-        const translateX = -currentSlideIndex * 100;
-        sliderTrack.style.transform = `translateX(${translateX}%)`;
-      }
-
-      function filterCards(searchTerm) {
-        if (!searchTerm.trim()) {
-          filteredCards = [...cardData];
-        } else {
-          filteredCards = cardData.filter((card) =>
-            card.title.toLowerCase().includes(searchTerm.toLowerCase())
-          );
-        }
-        currentSlideIndex = 0;
-        renderSlider();
-        updateNavigation();
-      }
-
-      function showSearchSuggestions(searchTerm) {
-        const dropdown = document.getElementById("searchDropdown");
-
-        if (!searchTerm.trim()) {
-          dropdown.classList.add("hidden");
-          return;
-        }
-
-        const suggestions = cardData
-          .filter((card) =>
-            card.title.toLowerCase().includes(searchTerm.toLowerCase())
-          )
-          .slice(0, 5);
-
-        if (suggestions.length > 0) {
-          dropdown.innerHTML = suggestions
-            .map(
-              (card) => `
-                        <div class="px-4 py-2 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0" 
-                             onclick="selectSuggestion('${card.title}')">
-                            ${card.title}
-                        </div>
-                    `
-            )
-            .join("");
-          dropdown.classList.remove("hidden");
-        } else {
-          dropdown.classList.add("hidden");
-        }
-      }
-
-      function selectSuggestion(title) {
-        document.getElementById("searchInput").value = title;
-        document.getElementById("searchDropdown").classList.add("hidden");
-        filterCards(title);
-      }
-
-      // Event listeners
-      document.getElementById("searchInput").addEventListener("input", (e) => {
-        const searchTerm = e.target.value;
-        showSearchSuggestions(searchTerm);
-        filterCards(searchTerm);
-      });
-
-      document.getElementById("searchInput").addEventListener("blur", () => {
-        setTimeout(() => {
-          document.getElementById("searchDropdown").classList.add("hidden");
-        }, 200);
-      });
-
-      document.getElementById("prevBtn").addEventListener("click", () => {
-        const totalSlides = Math.ceil(filteredCards.length / cardsPerSlide);
-        if (currentSlideIndex > 0) {
-          currentSlideIndex--;
-        } else {
-          // Go to last slide when on first slide
-          currentSlideIndex = totalSlides - 1;
-        }
-        updateNavigation();
-      });
-
-      document.getElementById("nextBtn").addEventListener("click", () => {
-        const totalSlides = Math.ceil(filteredCards.length / cardsPerSlide);
-        if (currentSlideIndex < totalSlides - 1) {
-          currentSlideIndex++;
-        } else {
-          // Go to first slide when on last slide
-          currentSlideIndex = 0;
-        }
-        updateNavigation();
       });
 
       // Video player controls for the main video section
@@ -1538,76 +1156,64 @@
 
       const videoCardsData = [
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
         {
-          video:
-            "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WeAreGoingOnBullrun.mp4",
-          title: "Placeholder Text",
-          text: "This is Placeholder Text Used To Fill Space on Website Or Design Mockups",
+          video: "./assets/hero-video.mp4",
+          title: "Featured News",
+          text: "Watch the latest updates and stories from the Air Connectivity Program.",
         },
       ];
 
@@ -1813,8 +1419,6 @@
           updateVideoCardsNavigation();
         });
 
-      renderSlider();
-      updateNavigation();
       renderVideoCardsSlider();
       updateVideoCardsNavigation();
     </script>
