@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Page</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+  </style>
+  <body>
+    <header class="right-0 z-50 bg-[#EDEDED] text-white shadow-lg py-6">
+      <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-8xl">
+          <div class="flex justify-between items-center h-16">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-3">
+              <div class="flex-shrink-0">
+                <!-- Logo placeholder - you can replace with actual logo -->
+                <div
+                  class="w-48 h-14 sm:w-auto sm:h-auto flex items-center justify-center"
+                >
+                  <!-- src="./assets/logos/header-logo2.png" -->
+                  <img
+                    src="./logo.png"
+                    alt="Wizz Air"
+                    class="w-full h-full opacity-100 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              </div>
+            </div>
+            <!-- Desktop Navigation -->
+            <div class="hidden xl:flex items-center space-x-8 text-black">
+              <a
+                href="#"
+                class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >About</a
+              >
+              <a
+                href="#"
+                class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Routes</a
+              >
+              <a
+                href="#"
+                class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Saudi Destinations</a
+              >
+              <a
+                href="#"
+                class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Media Center</a
+              >
+              <a
+                href="#"
+                class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Contact</a
+              >
+              <a
+                href="#"
+                class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Visit Saudi</a
+              >
+            </div>
+            <!-- Right Side Actions -->
+            <div class="flex items-center space-x-4 text-black">
+              <!-- Arabic Text -->
+              <!--<span class="hidden md:block text-sm">العربية</span>-->
+              <!-- Language Selector -->
+              <div class="hidden md:flex items-center space-x-1 bg-gray-300 rounded px-2 py-1">
+                <span class="text-xs">🇸🇦</span>
+                <span class="text-sm">AR</span>
+              </div>
+              <!-- Become a Partner Button -->
+              <button
+                class="hidden md:block bg-[#785FDC] text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors duration-200"
+              >
+                Become a Partner
+              </button>
+              <!-- Mobile Menu Button -->
+              <button
+                id="mobile-menu-button"
+                class="xl:hidden p-2 rounded-md cursor-pointer hover:bg-opacity-20 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="xl:hidden hidden bg-[#EDEDED] border-t border-black border-opacity-20"
+        >
+          <div class="px-4 py-4 space-y-3 text-black">
+            <!-- Mobile About Dropdown -->
+            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+              >About</a
+            >
+            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+              >Routes</a
+            >
+            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+              >Saudi Destinations</a
+            >
+            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+              >Media Center</a
+            >
+            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+              >Contact</a
+            >
+            <a href="#" class="block hover:text-[#32D2A0] transition-colors"
+              >Visit Saudi</a
+            >
+            <!-- Mobile Actions -->
+            <div class="pt-4 border-t border-black border-opacity-20 space-y-3">
+              <div class="flex items-center space-x-2 text-black">
+                <span class="text-sm">العربية</span>
+                <div
+                  class="flex items-center space-x-1 bg-gray-300 rounded px-2 py-1"
+                >
+                  <span class="text-xs">:flag-sa:</span>
+                  <span class="text-sm">AR</span>
+                </div>
+              </div>
+              <button
+                class="w-full bg-[#785FDC] text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
+              >
+                Become a Partner
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- <div
+          id="nav-overlay"
+          class="absolute inset-0 bg-black/50 z-[-10]"
+        ></div> -->
+      </nav>
+    </header>
+    <!-- Hero Section -->
+    <div class="bg-[#009595]">
+      <div
+        class="max-h-screen py-20 container mx-auto px-4 xl:px-16 pb-10 md:pt-28  gap-5 flex flex-col items-center justify-center"
+      >
+        <!-- Made breadcrumb responsive with better mobile spacing -->
+        <!-- <div
+          class="flex gap-2 mb-6 sm:mb-10 pl-2 sm:pl-6 md:pl-10 w-full text-xs font-medium lowercase text-white"
+        >
+          <span> Placeholder Text > </span>
+          <span> Placeholder Text > </span>
+          <span> Placeholder Text > </span>
+        </div> -->
+        <div class="relative w-full  flex justify-center">
+          <!-- Green card -->
+          <div
+            class="absolute top-0 right-8 md:right-0 w-[90%] xl:h-[100%] lg:h-[110%] md:h-[400px] sm:h-[350px] h-[400px] bg-[#32D2A0] -rotate-5 z-10"
+          ></div>
+          <!-- White card -->
+          <div
+            class="relative bg-white rounded-2xl  space-y-12 sm:space-y-16 md:space-y-20 -mb-32 md:-mb-40 shadow-md w-full p-6 sm:p-8 md:p-12 xl:pl-40 xl:pr-24 lg:py-40 py-10 z-10"
+          >
+            <!-- Header Text -->
+            <div class="mb-4 sm:mb-6">
+              
+              <!-- Made main heading responsive with proper line height -->
+              <h1
+                class="text-2xl md:text-3xl lg:text-4xl xl:text-[56px] mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-[1.1em] text-[#566578] font-bold"
+              >
+                Any questions? We are here to answer them!
+              </h1>
+            </div>
+
+            <!-- Form -->
+            <form class="space-y-6">
+              <!-- Made form grid responsive - single column on mobile, 3 columns on larger screens -->
+              <div
+                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+              >
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"
+                />
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"
+                />
+                <input
+                  type="tel"
+                  placeholder="Phone Number (optional)"
+                  class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm sm:col-span-2 lg:col-span-1"
+                />
+              </div>
+
+              <textarea
+                placeholder="Message"
+                rows="3"
+                class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"
+              ></textarea>
+
+              <!-- Made button responsive with better mobile sizing -->
+              <button
+                type="submit"
+                class="bg-[#32D2A0] text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg shadow text-sm w-full sm:w-auto"
+              >
+                Send
+                <!-- Put this inside your button after the text -->
+                <svg
+                  class="w-4 h-4 ml-2 inline-block"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true"
+                  focusable="false"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <title>Send</title>
+                  <path
+                    d="M13.293 5.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L16.586 12 13.293 8.707a1 1 0 0 1 0-1.414zM3 12a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"
+                  />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Details -->
+    <!-- Made contact section responsive with better mobile padding -->
+    <div
+      class="bg-[#E9ECEF] pt-32 sm:pt-40 lg:pt-60 px-4 sm:px-8 md:px-16 lg:px-20 pb-8 sm:pb-12 md:pb-16"
+    >
+      <div class="max-w-5xl mx-auto">
+        <!-- Section Heading -->
+        <!-- Made section heading responsive -->
+        <p
+          class="text-2xl sm:text-3xl md:text-[32px] text-black mb-6 sm:mb-8 md:mb-10"
+        >
+          Contact Info
+        </p>
+
+        <!-- Contact Info Grid -->
+        <!-- Made contact grid responsive - single column on mobile -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
+          <!-- Left Container -->
+          <div>
+            <p class="text-base sm:text-lg font-semibold text-gray-700 mb-2">
+              Email Address
+            </p>
+            <div class="w-8 h-0.5 bg-teal-500 mb-2"></div>
+            <p
+              class="text-base sm:text-lg font-medium text-gray-800 break-all sm:break-normal"
+            >
+              communications@acp.gov.sa
+            </p>
+          </div>
+
+          <!-- Right Container -->
+          <div>
+            <p class="text-base sm:text-lg font-semibold text-gray-700 mb-2">
+              Address
+            </p>
+            <div class="w-8 h-0.5 bg-teal-500 mb-2"></div>
+            <p class="text-base sm:text-lg font-medium text-gray-800">
+              2nd Floor, Building 6 GACA Complex,Riyadh 12512, Saudi Arabia
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Letter Section -->
+    <!-- Made newsletter section responsive with better mobile padding -->
+    <div
+      class="bg-[#E9ECEF] px-4  py-6 sm:py-8 md:py-10"
+    >
+      <div
+        class="bg-[#635DA5] max-w-[1400px] xl:px-16 rounded-2xl py-12 sm:py-16 md:py-20 px-6 sm:px-12 md:px-20 lg:px-28 w-full mx-auto"
+      >
+        <!-- Made newsletter grid responsive - single column on mobile -->
+        <div
+          class="grid grid-cols-1 lg:grid-cols-2 items-center gap-6 sm:gap-8"
+        >
+          <!-- Left Content -->
+          <div class="text-center lg:text-left">
+            <h2 class="text-white font-bold text-xl sm:text-2xl">
+              Subscribe to our Newsletter
+            </h2>
+          </div>
+
+          <!-- Right Input Field -->
+          <div>
+            <!-- Made newsletter input responsive - stacked on mobile -->
+            <div class="flex flex-col sm:flex-row rounded-xl overflow-hidden">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="flex-1 px-4 py-3 bg-white/10 text-white text-sm placeholder-gray-300 focus:outline-none rounded-t-xl sm:rounded-t-none sm:rounded-l-xl"
+              />
+              <button
+                class="px-6 py-3 bg-white text-[#635DA5] font-semibold text-sm hover:bg-gray-100 rounded-b-xl sm:rounded-b-none sm:rounded-r-xl"
+              >
+                Subscribe
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-700 text-white py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Footer Content Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12"
+        >
+          <!-- Column 1: Logo -->
+          <div class="lg:col-span-1">
+            <div class="mb-6">
+              <div class="w-auto h-auto flex items-center lg:justify-center">
+                <!-- src="./assets/logos/header-logo.png" -->
+                <img
+                  src="./white-logo.png.png"
+                  alt="Wizz Air"
+                  class="w-auto opacity-100 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Column 2: Overview -->
+          <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-6 text-white">Overview</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Brief</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Our Partners</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Become a Partner</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Column 3: Contact and Support -->
+          <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-6 text-white">
+              Contact and Support
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Contact us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Media Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Privacy and Terms of Use</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Column 4: Related Links -->
+          <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-6 text-white">Related Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Vision 2030</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Ministry of Tourism</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >GACA</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Saudi Tourism Authority</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >TDF & Red Sea Authority</a
+                >
+              </li>
+            </ul>
+          </div>
+          <!-- Column 5: Follow us on -->
+          <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-6 text-white">Follow us on</h3>
+            <!-- Social Media Icons -->
+            <div class="flex space-x-4 mb-8">
+              <a
+                href="#"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+            </div>
+            <!-- Address -->
+            <div class="flex items-start space-x-3">
+              <svg
+                class="w-5 h-5 text-gray-300 mt-1 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <div class="text-sm text-gray-300 leading-relaxed">
+                <p>2nd Floor, Building 6 GACA</p>
+                <p>Complex, Riyadh 12519, Saudi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-600 mt-12 pt-8">
+          <p class="text-gray-400 text-sm text-center lg:text-left">
+            All rights reserved to the Digital Government Authority © 2025
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+      // Mobile about dropdown toggle
+      const mobileAboutButton = document.getElementById("mobile-about-button");
+      const mobileAboutDropdown = document.getElementById(
+        "mobile-about-dropdown"
+      );
+      const mobileAboutArrow = document.getElementById("mobile-about-arrow");
+      if (mobileAboutButton && mobileAboutDropdown && mobileAboutArrow) {
+        mobileAboutButton.addEventListener("click", function () {
+          mobileAboutDropdown.classList.toggle("hidden");
+          mobileAboutArrow.classList.toggle("rotate-180");
+        });
+      }
+    </script>
+  </body>
+</html>

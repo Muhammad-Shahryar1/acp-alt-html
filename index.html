@@ -1,0 +1,3020 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saudi Air Connectivity Program</title>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-avenir: "AvenirArabic", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-white overflow-x-hidden font-avenir">
+    <header class="absolute top-0 left-0 right-0 z-50 bg-transparent text-white shadow-lg py-6">
+      <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-8xl ">
+          <div class="flex justify-between items-center h-16">
+            <!-- Logo Section -->
+            <div class="flex items-center space-x-3">
+              <div class="flex-shrink-0">
+                <!-- Logo placeholder - you can replace with actual logo -->
+                <div
+                  class="w-48 h-14 sm:w-auto sm:h-auto flex items-center justify-center"
+                >
+                  <img
+                    src="./assets/logos/header-logo.png"
+                    alt="Wizz Air"
+                    class="w-full h-full opacity-100 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden xl:flex items-center space-x-8">
+              <a
+                href="#"
+                class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >About</a
+              >
+              <a
+                href="#routes"
+                class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Routes</a
+              >
+              <a
+                href="#"
+                class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Saudi Destinations</a
+              >
+              <a
+                href="#"
+                class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Media Center</a
+              >
+              <a
+                href="#"
+                class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Contact</a
+              >
+              <a
+                href="https://www.visitsaudi.com/en"
+                class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
+                >Visit Saudi</a
+              >
+            </div>
+
+            <!-- Right Side Actions -->
+            <div class="flex items-center space-x-4">
+              <!-- Arabic Text -->
+              <!--<span class="hidden md:block text-sm">العربية</span>-->
+
+              <!-- Language Selector -->
+              <div
+                class="hidden md:flex items-center space-x-1 bg-[#C5BBFF]/20 rounded px-2 py-1"
+              >
+                <span class="text-xs">🇸🇦</span>
+                <span class="text-sm">AR</span>
+              </div>
+
+              <!-- Become a Partner Button -->
+              <button
+                class="hidden md:block bg-white text-[#1e3a8a] px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors duration-200"
+              >
+                Become a Partner
+              </button>
+
+              <!-- Mobile Menu Button -->
+              <button
+                id="mobile-menu-button"
+                class="xl:hidden p-2 rounded-md cursor-pointer hover:bg-opacity-20 transition-colors"
+              >
+                <svg
+                  class="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div
+          id="mobile-menu"
+          class="xl:hidden hidden bg-black/85 border-t border-white border-opacity-20"
+        >
+          <div class="px-4 py-4 space-y-3">
+            <!-- Mobile About Dropdown -->
+            <a href="#" class="block hover:text-gray-200 transition-colors"
+              >About</a
+            >
+            <a href="#routes" class="block hover:text-gray-200 transition-colors"
+              >Routes</a
+            >
+            <a href="#" class="block hover:text-gray-200 transition-colors"
+              >Saudi Destinations</a
+            >
+            <a href="#" class="block hover:text-gray-200 transition-colors"
+              >Media Center</a
+            >
+            <a href="#" class="block hover:text-gray-200 transition-colors"
+              >Contact</a
+            >
+            <a href="#" class="block hover:text-gray-200 transition-colors"
+              >Visit Saudi</a
+            >
+
+            <!-- Mobile Actions -->
+            <div class="pt-4 border-t border-white border-opacity-20 space-y-3">
+              <div class="flex items-center space-x-2">
+                <span class="text-sm">العربية</span>
+                <div
+                  class="flex items-center space-x-1 bg-[#C5BBFF]/20 rounded px-2 py-1"
+                >
+                  <span class="text-xs">🇸🇦</span>
+                  <span class="text-sm">AR</span>
+                </div>
+              </div>
+              <button
+                class="w-full bg-white text-[#1e3a8a] px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
+              >
+                Become a Partner
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          id="nav-overlay"
+          class="absolute inset-0 bg-black/50 z-[-10]"
+        ></div>
+      </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative h-[90vh] md:h-[90vh] w-full overflow-hidden">
+      <!-- Background Video -->
+      <video
+        class="absolute inset-0 w-full h-full"
+        style="object-fit: none"
+        autoplay
+        loop
+        muted
+        playsinline
+      >
+        <source src="./assets/hero-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div class="absolute inset-0 bg-black/40"></div>
+      <!-- Hero Content -->
+      <div class="relative z-10 h-full">
+        <div class="absolute top-[25%] left-[5%] mx-auto">
+          <div class="max-w-4xl">
+            <!-- Main Heading -->
+            <h1
+              class="text-4xl font-normal sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
+            >
+              <span class="block">Connecting the World</span>
+              <span class="mt-3 block">to Saudi Arabia</span>
+            </h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Added Air Connectivity Program content section -->
+    <!-- Content Section -->
+    <section
+      class="py-16 sm:py-20 lg:py-24 bg-[#EDEDED] rounded-3xl mt-[-1rem] relative z-20"
+    >
+      <!-- Panel container -->
+      <div
+        class="absolute top-[-35%] md:top-[-45%] left-[5%] max-w-3xl mx-auto pr-4 py-8"
+      >
+        <section
+          class="relative bg-[#596b74] rounded-2xl px-8 sm:px-10 py-4 md:py-8 shadow-md overflow-visible"
+        >
+          <!-- green accent bar overlapping top-left -->
+          <span
+            class="absolute -top-2 md:-top-3 left-6 md:left-8 w-28 md:w-36 h-2 md:h-3 bg-lime-400 rounded-sm"
+          ></span>
+
+          <div class="">
+            <div class="w-full">
+              <!-- Large multi-line headline (white) -->
+              <h1
+                class="text-white font-normal text-lg md:text-xl lg:text-2xl font-semibold"
+              >
+                Discover the Kingdom’s exciting air connectivity opportunities
+                and remarkable new tourism growth.
+              </h1>
+
+              <!-- Buttons row (labels above each button) -->
+              <div class="mt-6 flex flex-wrap items-start gap-4">
+                <!-- button 1 with small label -->
+                <div class="flex flex-col">
+                 
+                  <a
+                    href="#"
+                    class="text-xs inline-flex items-center justify-center px-5 py-2 rounded-md bg-lime-400 text-gray-900 font-semibold shadow-sm hover:brightness-95 transition"
+                    aria-label="Become a Partner"
+                  >
+                    Become a Partner
+                  </a>
+                </div>
+
+                <!-- button 2 with small label -->
+                <div class="flex flex-col">
+                  <a
+                    href="#routes"
+                    class="text-xs inline-flex items-center justify-center px-5 py-2 rounded-md border border-white/60 text-white font-medium hover:bg-white/5 transition"
+                    aria-label="Explore Routes"
+                  >
+                    Explore Routes
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- RIGHT: empty spacer to keep layout like screenshot (approx 34% on md+) -->
+            <!-- <div class="md:w-1/3 mt-6 md:mt-0"></div> -->
+          </div>
+        </section>
+      </div>
+      <div class="relative container mx-auto px-4 sm:px-6 lg:px-8" id="animated-section">
+        <div class="max-w-4xl mx-auto text-center">
+          <!-- Section Heading -->
+          <h2
+            class="text-3xl text-normal sm:text-4xl lg:text-5xl font-bold text-gray-800 mb-8 text-balance"
+          >
+            Air Connectivity Program
+          </h2>
+
+          <!-- Section Description -->
+          <p id="gsap-text"
+            class="text-lg sm:text-xl text-gray-600 leading-relaxed text-pretty"
+          >
+            Aims to boost tourism growth in the Kingdom by enhancing air
+            connectivity and developing existing and potential air routes to
+            connect Saudi Arabia with new global destinations. Acting as the
+            executive enabler of the National Tourism Strategy and the Aviation
+            Program, the ACP fosters collaboration and builds partnerships
+            between key public and private stakeholders in tourism and aviation
+            to strengthen the Kingdom's position as a leading global destination
+            for air connectivity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Added new two-column statistics section -->
+    <!-- Statistics Section -->
+    <section class="bg-white">
+      <div class=" mx-auto px-4 lg:px-0 mt-[3rem] lg:!ml-0 lg:mt-0">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <!-- Left Column - Content -->
+          <div class="space-y-6 bg-[#F6F6F6] text-center lg:text-left lg:!pl-[180px] py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+            <!-- Placeholder text -->
+            <p class="text-sm text-gray-500 uppercase tracking-wide">
+              DRIVING GLOBAL CONNECTIONS
+            </p>
+
+            <!-- Main Heading -->
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight">
+              The Saudi<br>
+              Air Connectivity
+            </h2>
+
+            <!-- Subheading -->
+            <h3 class="text-xl sm:text-2xl text-gray-600 font-medium">
+              A Vision 2030 initiative expanding routes and global connectivity.
+            </h3>
+
+            <!-- Button -->
+            <!--<div class="pt-4">-->
+            <!--  <button class="bg-gray-800 text-white px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-700 transition-colors">-->
+            <!--    Placeholder text-->
+            <!--  </button>-->
+            <!--</div>-->
+          </div>
+
+          <!-- Right Column - Statistics Cards -->
+          <div class="grid grid-cols-2 gap-4 sm:gap-6 lg:!pr-[180px]">
+            <!-- Routes Activated Card -->
+            <div class="border border-gray-300 text-gray-800 p-6 rounded-md">
+              <div class="flex items-center justify-between mb-3">
+                <!-- Airplane Icon -->
+                <img src="./assets/icons/acp.svg" class="w-8 h-8" alt="ACP icon">
+
+                <span class="text-5xl text-[#44505E] font-semibold">67</span>
+              </div>
+              <div>
+                <p class="font-semibold text-md">Routes Activated</p>
+                <p class="text-xs text-[#9D9D9C]">
+                  Activated Routes in 2024 YTD
+                </p>
+              </div>
+            </div>
+            <!-- Carrier Collaboration Card -->
+            <div class="border border-gray-300 text-gray-800 p-6 rounded-md">
+              <div class="flex items-center justify-between mb-3">
+                <!-- Building Icon -->
+                <img src="./assets/icons/acp_1.svg" class="w-8 h-8" alt="ACP icon">
+
+                <span class="text-5xl text-[#44505E] font-semibold">15</span>
+              </div>
+              <div>
+                <p class="font-semibold text-md">Carrier Collaboration</p>
+                <p class="text-xs text-[#9D9D9C]">Carriers in 2024 YTD</p>
+              </div>
+            </div>
+
+            <!-- Seats Generated Card -->
+            <div class="border border-gray-300 text-gray-800 p-6 rounded-md">
+              <div class="flex items-center justify-between mb-3">
+                <!-- Chart Icon -->
+                <img src="./assets/icons/acp_3.svg" class="w-8 h-8" alt="ACP icon">
+
+                <span class="text-5xl text-[#44505E] font-semibold">4.5</span>
+              </div>
+              <div>
+                <p class="font-semibold text-md">Seats Generated</p>
+                <p class="text-xs text-[#9D9D9C]">
+                  4,5 million generated seats in 2024 YTD.
+                </p>
+              </div>
+            </div>
+
+            <!-- Placeholder Card -->
+            <div class="border border-gray-300 text-gray-800 p-6 rounded-md">
+              <div class="flex items-center justify-between mb-3">
+                <!-- Building Icon -->
+                <img src="./assets/icons/acp_2.svg" class="w-8 h-8" alt="ACP icon">
+
+                <span class="text-5xl text-[#44505E] font-semibold">5</span>
+              </div>
+              <div>
+                <p class="font-semibold text-md">Airlines</p>
+                <p class="text-xs text-[#9D9D9C]">Strategic Partnerships With Local and International Carriers</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Added new Kingdom Airports section with functional search -->
+    <!-- Kingdom Airports Section -->
+    <section class="py-16 sm:py-20 lg:py-10">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"> -->
+        <div class="grid grid-cols-12 gap-8 lg:gap-12 items-center">
+          <!-- Left Column - Content with Search -->
+          <div class="col-span-12 lg:col-span-4 space-y-6">
+            <!-- Main Heading -->
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 leading-tight"
+            >
+              Kingdom <br>Airports
+            </h2>
+
+            <!-- Subheading -->
+            <!--<h3 class="text-xl sm:text-2xl text-gray-500 font-medium">-->
+            <!--  Placeholder Text-->
+            <!--</h3>-->
+
+            <!-- Search Bar -->
+            <div class="relative">
+              <div class="relative">
+                <select id="airport-select" class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition-colors" >
+                      <option value="" selected>Saudi Arabia airports...</option>
+                    </select>
+              </div>
+
+              <!-- Search Results Dropdown -->
+              <div
+                id="search-results"
+                class="absolute z-10 w-full mt-1 bg-white border border-gray-200 rounded-lg shadow-lg hidden max-h-60 overflow-y-auto"
+              >
+                <!-- Results will be populated by JavaScript -->
+              </div>
+            </div>
+
+            <!-- Description Text -->
+            <div class="space-y-3 text-gray-600">
+              <!--<p>-->
+              <!--  This is placeholder text used to fill space on a website or-->
+              <!--  design mockup.-->
+              <!--</p>-->
+              <!--<p>-->
+              <!--  This is placeholder text used to fill space on a website or-->
+              <!--  design mockup.-->
+              <!--</p>-->
+            </div>
+          </div>
+
+          <!-- Right Column - Image Placeholder -->
+          <div class="col-span-12 lg:col-span-8">
+            <!-- <div class="w-full max-w-md lg:max-w-lg"> -->
+              <div id="saudi-map" class="relative w-full h-auto scale-110">
+              <!-- Inline SVG mount point -->
+              <div id="saudi-map-inline" class="w-full" style="height:5px;"></div>
+              <!-- Fallback image (also used as fetch source) -->
+              <img id="saudi-map-fallback" src="./assets/svg/map.svg" alt="Saudi Arabia Map" class="w-full h-auto select-none" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Added new airport slider section with complex functionality -->
+    <!-- Airport Slider Section -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-12 gap-8 lg:gap-12">
+          <!-- Left Column - Narrower (4 columns) -->
+          <div class="col-span-12 lg:col-span-4 space-y-6">
+            <!-- Top Row - Image Box with Auto Slider -->
+            <div
+              class="relative h-92 rounded-xl overflow-hidden bg-gradient-to-br from-purple-400 to-pink-400"
+            >
+              <div id="airport-image-slider" class="relative w-full h-full">
+                <!-- Images will be populated by JavaScript -->
+              </div>
+
+              <!-- Overlay Text -->
+             
+            </div>
+
+            <!-- Bottom Row - Airport Data Card -->
+            <div
+              class="bg-gradient-to-br from-purple-500 to-blue-600 text-white p-6 rounded-xl"
+            >
+
+              <div class="grid grid-cols-3 gap-4 mb-4">
+                <!-- Temperature -->
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                    />
+                  </svg>
+                  <span id="airport-temp" class="text-xl font-bold">25°</span>
+                </div>
+
+                <!-- Time -->
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2ZM16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z"
+                    />
+                  </svg>
+                  <span id="airport-time" class="text-xl font-bold">12:00</span>
+                </div>
+
+                <!-- Location -->
+                <div class="flex items-center space-x-2">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                    />
+                  </svg>
+                  <span id="airport-location" class="text-lg font-semibold"
+                    >Riyadh</span
+                  >
+                </div>
+              </div>
+
+             
+            </div>
+
+            <!-- Description Text -->
+            
+          </div>
+
+          <!-- Right Column - Wider (8 columns) -->
+          <div class="col-span-12 lg:col-span-8">
+            <!-- Airport Slider Header -->
+            <div class="flex items-center justify-between mb-6">
+              <!-- <div> -->
+              <!-- <h2 class="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
+                  Airports Name
+                </h2> -->
+              <div class="flex items-center space-x-2 text-sm text-gray-600">
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"
+                  />
+                </svg>
+                <span id="current-airport-name">Riyadh saudi al abha</span>
+              </div>
+              <!-- </div> -->
+
+              <!-- navigation controls -->
+              <div class="flex items-center justify-center space-x-4">
+                <span
+                  id="first-current-airport-index"
+                  class="text-sm text-gray-600"
+                  >01</span
+                >
+                <div class="flex items-center space-x-2">
+                  <button
+                    id="prev-airport"
+                    class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4 text-gray-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="w-16 h-1 bg-gray-300 rounded-full">
+                    <div
+                      id="first-airport-progress"
+                      class="h-full bg-gray-600 rounded-full transition-all duration-300"
+                      style="width: 7.14286%"
+                    ></div>
+                  </div>
+                  <button
+                    id="next-airport"
+                    class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4 text-gray-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <span id="first-total-airports" class="text-sm text-gray-600"
+                  >03</span
+                >
+              </div>
+            </div>
+
+            <!-- Main Airport Image Display -->
+            <div
+              class="relative h-107 rounded-2xl overflow-hidden bg-gradient-to-br from-orange-300 to-pink-400"
+            >
+              <div id="main-airport-image" class="relative w-full h-full">
+                <!-- Main airport image will be populated by JavaScript -->
+              </div>
+
+              <!-- Progress Slider -->
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <div id="main-progress-container" class="flex space-x-1 mb-4">
+                  <!-- Progress segments will be populated by JavaScript -->
+                </div>
+              </div>
+
+              <!-- Overlay Content -->
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Added comprehensive flight search section with 3-row layout, functional search, toggles, sliders, and pagination -->
+    <!-- Flight Search Section -->
+    <section id="routes">
+      <div
+        class="container mx-auto px-4 sm:px-6 lg:px-8 bg-[#F5F5F5] py-12 sm:py-16 lg:py-20 rounded-md"
+      >
+        <!-- Row 1: Header -->
+        <div class="flex justify-between items-start mb-8">
+          <h2 class="text-2xl sm:text-3xl font-bold text-gray-800">Routes</h2>
+          <p class="text-gray-600 max-w-md text-right">
+            Discover routes linking Saudi airports to global destinations.
+          </p>
+        </div>
+
+        <!-- Row 2: Search Controls -->
+        <div
+          class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12"
+        >
+          <!-- Search Bar -->
+          <div class="flex-1 max-w-md">
+            <div class="relative">
+              <input
+                type="text"
+                id="flight-search"
+                placeholder="Search airports..."
+                class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition-colors"
+                autocomplete="off"
+              />
+              <button
+                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </button>
+              <!-- Added search suggestions dropdown -->
+              <div
+                id="flight-search-results"
+                class="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden max-h-60 overflow-y-auto"
+              >
+                <!-- Search results will be populated here -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Local/International Toggle -->
+          <div class="flex bg-gray-200 rounded-lg p-1 w-fit">
+            <!-- <button
+              id="local-btn"
+              class="px-6 py-2 rounded-md text-sm font-medium transition-colors bg-gray-400 text-white"
+            >
+              Local
+            </button>
+            <button
+              id="international-btn"
+              class="px-6 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 hover:text-gray-800"
+            >
+              International
+            </button> -->
+          </div>
+
+          <!-- Airport Slider Navigation -->
+          <div class="flex items-center space-x-4">
+            <!-- Made slider text dynamic based on current airport position -->
+            <span id="current-airport-index" class="text-sm text-gray-600"
+              >01</span
+            >
+            <div class="flex items-center space-x-2">
+              <button
+                id="flight-prev-airport"
+                class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="w-16 h-1 bg-gray-300 rounded-full">
+                <div
+                  id="airport-progress"
+                  class="h-full bg-gray-600 rounded-full transition-all duration-300"
+                  style="width: 4%"
+                ></div>
+              </div>
+              <button
+                id="flight-next-airport"
+                class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <!-- Made total airports count dynamic -->
+            <span id="total-airports" class="text-sm text-gray-600">14</span>
+          </div>
+        </div>
+
+        <!-- Row 3: Flight Cards and Continent Sidebar -->
+        <div class="grid grid-cols-12 gap-8">
+          <!-- Flight Cards Grid (9 columns) -->
+          <div class="col-span-12 lg:col-span-10">
+            <div
+              id="flight-cards-grid"
+              class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              <!-- Flight cards will be populated by JavaScript -->
+            </div>
+
+            <!-- Added flight pagination controls -->
+            <div class="flex items-center justify-center space-x-4 pt-8">
+              <span id="current-flight-page" class="text-sm text-gray-600"
+                >01</span
+              >
+              <div class="flex items-center space-x-2">
+                <button
+                  id="flight-prev-page"
+                  class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                >
+                  <svg
+                    class="w-4 h-4 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 19l-7-7 7-7"
+                    ></path>
+                  </svg>
+                </button>
+                <div class="w-16 h-1 bg-gray-300 rounded-full">
+                  <div
+                    id="flight-page-progress"
+                    class="h-full bg-gray-600 rounded-full transition-all duration-300"
+                    style="width: 100%"
+                  ></div>
+                </div>
+                <button
+                  id="flight-next-page"
+                  class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                >
+                  <svg
+                    class="w-4 h-4 text-gray-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </button>
+              </div>
+              <span id="total-flight-pages" class="text-sm text-gray-600"
+                >01</span
+              >
+            </div>
+          </div>
+
+          <!-- Continent Sidebar (3 columns) -->
+          <div class="col-span-12 lg:col-span-2">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                Choose A Continent
+              </h3>
+            <div class="space-y-6 p-6">
+              <!-- Continent Cards -->
+              <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+                <div
+                  class="flex flex-col items-center mt-2 mb-6">
+                <img src="assets/svg/map1.png" 
+                  alt="Continent Map" 
+                  class="w-24 aspect-square object-cover rounded mb-3 border border-gray-200">
+                  <p class="text-sm text-gray-600 text-center">
+                    Africa
+                  </p>
+                </div>
+
+                <div
+                class="flex flex-col items-center mt-2 mb-6">
+                <img src="assets/svg/map2.png" 
+                  alt="Continent Map" 
+                  class="w-24 aspect-square object-cover rounded mb-3 border border-gray-200">
+                  <p class="text-sm text-gray-600 text-center">
+                    South America
+                  </p>
+                </div>
+
+                <div
+                class="flex flex-col items-center mt-2 mb-6">
+                <img src="assets/svg/map3.png" 
+                  alt="Continent Map" 
+                  class="w-24 aspect-square object-cover rounded mb-3 border border-gray-200">
+                  <p class="text-sm text-gray-600 text-center">
+                    Europe
+                  </p>
+                </div>
+              </div>
+
+              <!-- Pagination Controls -->
+              <div class="flex items-center justify-center space-x-4 pt-4">
+                <!-- Made continent pagination dynamic -->
+                <span id="current-continent-page" class="text-sm text-gray-600"
+                  >01</span
+                >
+                <div class="flex items-center space-x-2">
+                  <button
+                    id="continent-prev"
+                    class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4 text-gray-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M15 19l-7-7 7-7"
+                      ></path>
+                    </svg>
+                  </button>
+                  <div class="w-16 h-1 bg-gray-300 rounded-full">
+                    <div
+                      id="continent-progress"
+                      class="h-full bg-gray-600 rounded-full transition-all duration-300"
+                      style="width: 4%"
+                    ></div>
+                  </div>
+                  <button
+                    id="continent-next"
+                    class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    <svg
+                      class="w-4 h-4 text-gray-600"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 5l7 7-7 7"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+                <span id="total-continent-pages" class="text-sm text-gray-600"
+                  >03</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Added comprehensive news section with 3-row layout, slider functionality, and dynamic navigation -->
+    <!-- News Section -->
+    <section class="py-16 sm:py-20 lg:py-24 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Row 1: Header with Read More Button -->
+        <div
+          class="flex flex-col space-y-4 md:flex-row justify-between items-center mb-12"
+        >
+          <div class="flex items-center space-x-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-[#32D2A0]">News</h2>
+          </div>
+          <div class="flex items-center space-x-8">
+            <h3 class="text-3xl sm:text-4xl font-bold text-[#44505E]">
+              The Saudi Air Connectivity
+            </h3>
+          </div>
+          <button
+            class="bg-gray-200 hover:bg-gray-300 text-gray-700 px-6 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2"
+          >
+            <span>Read More</span>
+          </button>
+        </div>
+
+        <!-- Row 2: News Cards Slider -->
+        <div class="mb-8">
+          <div id="news-slider" class="overflow-hidden">
+            <div
+              id="news-slider-track"
+              class="flex transition-transform duration-500 ease-in-out"
+            >
+              <!-- News slides will be populated by JavaScript -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Progress Slider and Navigation -->
+        <div
+          class="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between items-center"
+        >
+          <!-- Left: Progress Slider -->
+          <div class="flex-1 w-full max-w-md">
+            <div id="news-progress-container" class="flex space-x-1">
+              <!-- Progress segments will be populated by JavaScript -->
+            </div>
+          </div>
+
+          <!-- Right: Navigation Controls -->
+          <div class="flex items-center space-x-4">
+            <span id="current-news-slide" class="text-sm text-gray-600"
+              >01</span
+            >
+            <div class="flex items-center space-x-2">
+              <button
+                id="news-prev"
+                class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  ></path>
+                </svg>
+              </button>
+              <div class="w-16 h-1 bg-gray-300 rounded-full">
+                <div
+                  id="news-slider-progress"
+                  class="h-full bg-gray-600 rounded-full transition-all duration-300"
+                  style="width: 50%"
+                ></div>
+              </div>
+              <button
+                id="news-next"
+                class="p-2 rounded-full hover:bg-gray-200 transition-colors"
+              >
+                <svg
+                  class="w-4 h-4 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
+            <span id="total-news-slides" class="text-sm text-gray-600">25</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Added partners section with infinite scrolling logo carousel -->
+    <!-- Partners Section -->
+    <section class="py-16 sm:py-20 lg:py-24">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Row 1: Header Text -->
+        <div
+          class="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16"
+        >
+          <div class="mb-8 lg:mb-0">
+            <h2
+              class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#44505E] mb-2"
+            >
+              The Saudi Air Connectivity
+            </h2>
+            <!--<p class="text-lg text-gray-500">Placeholder Text</p>-->
+          </div>
+          <div class="lg:max-w-md">
+            <p class="text-gray-600 leading-relaxed">
+              Working with key aviation and tourismleaders to expand connectivity.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Moved carousel outside container to remove padding/margins and extend to full viewport width -->
+      <!-- Row 2: Infinite Logo Carousel -->
+      <div class="overflow-hidden w-full">
+        <div class="infinite-scroll flex items-center space-x-16">
+          <!-- First set of logos -->
+          <div class="flex items-center space-x-16 animate-scroll">
+            <img
+              src="./assets/logos/Gaca.svg"
+              alt="Wizz Air"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Jedco.svg"
+              alt="Saudia"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Riyadh-airports-01.svg"
+              alt="Flynas"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Saudi Airlines-En.svg"
+              alt="Emirates"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Saudi Tourism Authority-01.svg"
+              alt="Qatar Airways"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Riyadh-airports-01.svg"
+              alt="Etihad"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Gaca.svg"
+              alt="Wizz Air"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Jedco.svg"
+              alt="Saudia"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Riyadh-airports-01.svg"
+              alt="Flynas"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Saudi Airlines-En.svg"
+              alt="Emirates"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Saudi Tourism Authority-01.svg"
+              alt="Qatar Airways"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+            <img
+              src="./assets/logos/Riyadh-airports-01.svg"
+              alt="Etihad"
+              class="h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-700 text-white py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Footer Content Grid -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12"
+        >
+          <!-- Column 1: Logo -->
+          <div class="lg:col-span-1">
+            <div class="mb-6">
+              <div class="w-auto h-auto flex items-center lg:justify-center">
+                <img
+                  src="./assets/logos/header-logo.png"
+                  alt="Wizz Air"
+                  class="w-auto opacity-100 hover:opacity-100 transition-opacity"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Overview -->
+          <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-6 text-white">Overview</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Brief</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Our Partners</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Become a Partner</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Contact and Support -->
+          <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-6 text-white">
+              Contact and Support
+            </h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="contact.html"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Contact us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Media Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Privacy and Terms of Use</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Related Links -->
+          <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-6 text-white">Related Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="https://www.vision2030.gov.sa/ar/"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Vision 2030</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://mt.gov.sa/"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Ministry of Tourism</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://gaca.gov.sa/"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >GACA</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.sta.gov.sa/en/home"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >Saudi Tourism Authority</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://redsea.gov.sa/"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  >TDF & Red Sea Authority</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 5: Follow us on -->
+          <div class="lg:col-span-1">
+            <h3 class="text-lg font-semibold mb-6 text-white">Follow us on</h3>
+
+            <!-- Social Media Icons -->
+            <div class="flex space-x-4 mb-8">
+              <a
+                href="https://x.com/ACP_Saudi"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/saudi-air-connectivity-program/"
+                class="text-gray-300 hover:text-white transition-colors duration-200"
+              >
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <!-- Address -->
+            <div class="flex items-start space-x-3">
+              <svg
+                class="w-5 h-5 text-gray-300 mt-1 flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+              </svg>
+              <div class="text-sm text-gray-300 leading-relaxed">
+                <p>2nd Floor, Building 6 GACA</p>
+                <p>Complex, Riyadh 12519, Saudi</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copyright Section -->
+        <div class="border-t border-gray-600 mt-12 pt-8">
+          <p class="text-gray-400 text-sm text-center lg:text-left">
+            All rights reserved to the Digital Government Authority © 2025
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      }
+
+      // Mobile about dropdown toggle
+      const mobileAboutButton = document.getElementById("mobile-about-button");
+      const mobileAboutDropdown = document.getElementById(
+        "mobile-about-dropdown"
+      );
+      const mobileAboutArrow = document.getElementById("mobile-about-arrow");
+
+      if (mobileAboutButton && mobileAboutDropdown && mobileAboutArrow) {
+        mobileAboutButton.addEventListener("click", function () {
+          mobileAboutDropdown.classList.toggle("hidden");
+          mobileAboutArrow.classList.toggle("rotate-180");
+        });
+      }
+
+    //   const saudiAirports = [
+    //     {
+    //       name: "King Khalid International Airport",
+    //       city: "Riyadh",
+    //       code: "RUH",
+    //       images: [
+    //         "./assets/Riyadh-Airport/Riyadh-Airport/Image.jpg",
+    //         "./assets/Riyadh-Airport/Riyadh-Airport/riyadh-airport-2.jpg",
+    //         "./assets/Riyadh-Airport/Riyadh-Airport/2.jpeg",
+    //         "./assets/Riyadh-Airport/Riyadh-Airport/3.png",
+    //       ],
+    //       temp: "28°",
+    //       time: "",
+    //       timezone: "Asia/Riyadh",
+    //     },
+    //     {
+    //       name: "King Abdulaziz International Airport",
+    //       city: "Jeddah",
+    //       code: "JED",
+    //       images: [
+    //         "./assets/JEDDAH/JEDDAH/bg-2-b.jpg",
+    //         "./assets/JEDDAH/JEDDAH/images.jpeg",
+    //         "./assets/JEDDAH/JEDDAH/images%20(1).jpeg",
+    //         "./assets/JEDDAH/JEDDAH/images4.jpeg",
+    //       ],
+    //       temp: "32°",
+    //       time: "",
+    //       timezone: "Asia/Riyadh",
+    //     },
+    //     {
+    //       name: "King Fahd International Airport",
+    //       city: "Dammam",
+    //       code: "DMM",
+    //       images: [
+    //         "./assets/Dammam/Dammam/download.jpeg",
+    //         "./assets/Dammam/Dammam/download%20(1).jpeg",
+    //         "./assets/Dammam/Dammam/download%20(2).jpeg",
+    //         "./assets/Dammam/Dammam/images.jpeg",
+    //       ],
+    //       temp: "30°",
+    //       time: "",
+    //       timezone: "Asia/Riyadh",
+    //     },
+    //   ];
+
+      // Expose airports and a setter to other scripts (e.g., map highlighter)
+    //   window.saudiAirports = saudiAirports;
+    //   window.setAirportByCode = function (code) {
+    //     try {
+    //       const idx = saudiAirports.findIndex((a) => a.code === code);
+    //       if (idx >= 0) {
+    //         // Sync both carousels/contexts
+    //         currentAirportIndex = idx;
+    //         currentFlightAirportIndex = idx;
+    //         // Update UI and rotations
+    //         againInitializeAirportSlider();
+    //         updateAirportSliderProgress();
+    //         // Reflect in search box if present
+    //         const ap = saudiAirports[idx];
+    //         const si = document.getElementById('airport-search');
+    //         if (si && ap) si.value = `${ap.name} - ${ap.city} (${ap.code})`;
+    //       }
+    //     } catch (_) {}
+    //   };
+   //window.saudiAirports = saudiAirports;
+
+    document.addEventListener('DOMContentLoaded', () => {
+    const saudiAirports = [
+        {
+          name: "King Khalid International Airport",
+          city: "Riyadh",
+          code: "RUH",
+          images: [
+            "./assets/Riyadh-Airport/Riyadh-Airport/Image.jpg",
+            "./assets/Riyadh-Airport/Riyadh-Airport/riyadh-airport-2.jpg",
+            "./assets/Riyadh-Airport/Riyadh-Airport/2.jpeg",
+            "./assets/Riyadh-Airport/Riyadh-Airport/3.png",
+          ],
+          temp: "28°",
+          time: "",
+          timezone: "Asia/Riyadh",
+        },
+        {
+          name: "King Abdulaziz International Airport",
+          city: "Jeddah",
+          code: "JED",
+          images: [
+            "./assets/JEDDAH/JEDDAH/bg-2-b.jpg",
+            "./assets/JEDDAH/JEDDAH/images.jpeg",
+            "./assets/JEDDAH/JEDDAH/images%20(1).jpeg",
+            "./assets/JEDDAH/JEDDAH/images4.jpeg",
+          ],
+          temp: "32°",
+          time: "",
+          timezone: "Asia/Riyadh",
+        },
+        {
+          name: "King Fahd International Airport",
+          city: "Dammam",
+          code: "DMM",
+          images: [
+            "./assets/Dammam/Dammam/download.jpeg",
+            "./assets/Dammam/Dammam/download%20(1).jpeg",
+            "./assets/Dammam/Dammam/download%20(2).jpeg",
+            "./assets/Dammam/Dammam/images.jpeg",
+          ],
+          temp: "30°",
+          time: "",
+          timezone: "Asia/Riyadh",
+        },
+      ];
+
+      // Make sure this is global
+      window.saudiAirports = saudiAirports;
+    
+      window.setAirportByCode = function (code) {
+        const idx = (window.saudiAirports || []).findIndex(a => a.code === code);
+        if (idx < 0) return console.warn('Airport code not found:', code);
+        // Sync both carousels/contexts
+        currentAirportIndex = idx;
+        currentImageIndex = 0; // reset image rotation to first image
+        // Keep flight section in sync too
+        if (typeof currentFlightAirportIndex !== 'undefined') {
+          currentFlightAirportIndex = idx;
+        }
+
+        // Update UI and timers for the main airport slider
+        againInitializeAirportSlider();
+        
+        // Update progress indicators and flights list
+        if (typeof updateAirportSliderProgress === 'function') {
+          updateAirportSliderProgress();
+        }
+        if (typeof filterFlightsByAirport === 'function') {
+          filterFlightsByAirport();
+        }
+
+        // Highlight on map; if not ready yet, store pending code
+        if (typeof setActiveAirportArrow === 'function') {
+          try { setActiveAirportArrow(code); } catch(_) {}
+        } else if (typeof window !== 'undefined') {
+          window.pendingMapHighlight = code;
+        }
+
+        // Reflect in the select element if available
+        const sel = document.getElementById('airport-select');
+        if (sel && sel.value !== code) sel.value = code;
+      };
+    
+      // populate select
+      const selectEl = document.getElementById('airport-select');
+      saudiAirports.forEach(ap => {
+        const opt = document.createElement('option');
+        opt.value = ap.code;
+        opt.textContent = `${ap.name} - ${ap.city} (${ap.code})`;
+        selectEl.appendChild(opt);
+      });
+    
+      // safe call with guard
+      selectEl.addEventListener('change', (e) => {
+        if (!e.target.value) return;
+        if (typeof window.setAirportByCode === 'function') {
+          window.setAirportByCode(e.target.value);
+        } else {
+          console.error('setAirportByCode is not a function:', window.setAirportByCode);
+        }
+      });
+    });
+
+      const FLIGHTS_PER_PAGE = 12;
+      let currentFlightPage = 0;
+      let totalFlightPages = 1;
+
+      function generateFlightData() {
+        const flights = [];
+        const destinations = [
+          { "Route": "PKX-RUH", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-HAK", "airline": "HAINAN", "started": "Yes", "yearStarted": 2025, "ContractedSupportedYear": 2023 },
+          { "Route": "XYI-RUH", "airline": "HAINAN", "started": "No", "yearStarted": '-', "ContractedSupportedYear": 2023 },
+          { "Route": "BCN-JED", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "ZRH-RUH", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "TUN-JED", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "KUL-JED", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "AMS-JED", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "ICN-RUH", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "MRS-JED", "airline": "Flynas", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "ALA-JED", "airline": "Flynas", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "JED-ALG-MED", "airline": "Flynas", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "JED-CMN-MED", "airline": "Flynas", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "FCO-DMM", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "VIE-DMM", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "BUD-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "BUD-JED", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "TIA-DMM", "airline": "Wizz Air", "started": "No", "yearStarted": '-', "ContractedSupportedYear": 2022 },
+          { "Route": "BUD-DMM", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2022, "ContractedSupportedYear": 2022 },
+          { "Route": "TIA-JED", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "MXP-DMM", "airline": "Wizz Air", "started": "No", "yearStarted": '-', "ContractedSupportedYear": 2022 },
+          { "Route": "AUH-DMM", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "AUH-MAD", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "CTA-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "FCO-JED", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "FCO-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "VCE-JED", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "VCE-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "VIE-JED", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "VIE-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "MXP-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "NAP-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "OTP-JED", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "OTP-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "SOF-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "LCA-DMM", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "LCA-JED", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "LCA-RUH", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "MXP-JED", "airline": "Wizz Air", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2022 },
+          { "Route": "JED-BHX", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-JNB", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-KAN", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-TAS", "airline": "Flynas", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-OSS", "airline": "Flynas", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-FRU", "airline": "Flynas", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-ABV", "airline": "Flynas", "started": "No", "yearStarted": '-', "ContractedSupportedYear": 2023 },
+          { "Route": "JED-BGW-MED", "airline": "Flynas", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-BRU", "airline": "Flynas", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "JED-BER", "airline": "Flynas", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2023 },
+          { "Route": "WAW-RUH", "airline": "LOT", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "YYZ-JED", "airline": "SAUDIA", "started": "Yes", "yearStarted": 2023, "ContractedSupportedYear": 2023 },
+          { "Route": "HKG-RUH", "airline": "CATHAY", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "SZX-RUH", "airline": "China Southern", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "PKX-RUH", "airline": "China Southern", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "BER-JED", "airline": "Eurowings", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "CGN-JED", "airline": "Eurowings", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "LHR-JED", "airline": "BA", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "ORY-JED", "airline": "Transavia", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "LYS-JED", "airline": "Transavia", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "PVG-RUH", "airline": "China Eastern", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "FCO-RUH", "airline": "ITA", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "FCO-JED", "airline": "ITA", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "SKD-JED", "airline": "Air Samarkand", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "LHR-RUH", "airline": "Virgin", "started": "Yes", "yearStarted": 2025, "ContractedSupportedYear": 2024 },
+          { "Route": "DOH-NUM", "airline": "Qatar", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "DOH-ABH", "airline": "Qatar", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "SAW-DMM", "airline": "Ajet", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "SAW-JED", "airline": "Ajet", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "SAW-RUH", "airline": "Ajet", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "SAW-MED", "airline": "Ajet", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "ESB-JED", "airline": "Ajet", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "ESB-MED", "airline": "Ajet", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+          { "Route": "PEK-RUH", "airline": "Air China", "started": "Yes", "yearStarted": 2024, "ContractedSupportedYear": 2024 },
+        ];
+
+        destinations.forEach((d) => {
+          if (d.Route) {
+            const parts = d.Route.split("-");
+            if (parts.length === 2) {
+              flights.push({
+                from: parts[0],
+                to: parts[1],
+                airline: d.airline,
+                started: d.started,
+                yearStarted: d.yearStarted,
+                contractedYear: d.ContractedSupportedYear,
+              });
+            } else if (parts.length > 2) {
+              for (let i = 0; i < parts.length - 1; i++) {
+                flights.push({
+                  from: parts[i],
+                  to: parts[i + 1],
+                  airline: d.airline,
+                  started: d.started,
+                  yearStarted: d.yearStarted,
+                  contractedYear: d.ContractedSupportedYear,
+                });
+              }
+            }
+          }
+        });
+        return flights;
+      }
+
+      let flightData = generateFlightData();
+
+      let currentAirportIndex = 0;
+      let currentImageIndex = 0;
+      let imageRotationInterval;
+      let airportImageRotationInterval;
+      let progressAnimationInterval;
+
+      function initializeAirportSlider() {
+        updateAirportDisplay();
+        startImageRotation();
+        startAirportImageRotation();
+        initializeProgressSlider();
+
+        // Navigation event listeners
+        // Airport slider navigation
+        document
+          .getElementById("prev-airport")
+          .addEventListener("click", () => {
+            currentAirportIndex = Math.max(0, currentAirportIndex - 1);
+            currentImageIndex = 0;
+            updateFirstAirportSliderProgress();
+            updateAirportDisplay();
+            restartImageRotation();
+          });
+
+        document
+          .getElementById("next-airport")
+          .addEventListener("click", () => {
+            currentAirportIndex = Math.min(
+              saudiAirports.length - 1,
+              currentAirportIndex + 1
+            );
+            currentImageIndex = 0;
+            updateFirstAirportSliderProgress();
+            updateAirportDisplay();
+            restartImageRotation();
+          });
+      }
+
+      // run when airport is selected from map, this will set airport slider
+      function againInitializeAirportSlider() {
+        // updateAirportDisplay();
+        // startImageRotation();
+        // startAirportImageRotation();
+        // initializeProgressSlider();
+        // updateFirstAirportSliderProgress();
+        updateFirstAirportSliderProgress();
+        updateAirportDisplay();
+        restartImageRotation();
+      }
+
+      function initializeProgressSlider() {
+        createProgressSegments();
+        startProgressAnimation();
+      }
+
+      function createProgressSegments() {
+        const airport = saudiAirports[currentAirportIndex];
+        const progressContainer = document.getElementById(
+          "main-progress-container"
+        );
+
+        progressContainer.innerHTML = "";
+
+        airport.images.forEach((_, index) => {
+          const segment = document.createElement("div");
+          segment.className =
+            "flex-1 h-1 bg-white/30 rounded-full overflow-hidden";
+          segment.innerHTML = `
+                    <div class="main-progress-fill h-full bg-white rounded-full transition-all duration-100 ease-linear" 
+                         style="width: ${
+                           index < currentImageIndex
+                             ? "100%"
+                             : index === currentImageIndex
+                             ? "0%"
+                             : "0%"
+                         }"></div>
+                `;
+          progressContainer.appendChild(segment);
+        });
+      }
+
+      function startProgressAnimation() {
+        const progressFills = document.querySelectorAll(".main-progress-fill");
+        const currentFill = progressFills[currentImageIndex];
+
+        if (currentFill) {
+          // Reset current progress
+          currentFill.style.width = "0%";
+
+          // Animate current segment
+          setTimeout(() => {
+            currentFill.style.transition = "width 3s linear";
+            currentFill.style.width = "100%";
+          }, 50);
+        }
+      }
+
+      function resetProgress() {
+        const progressFills = document.querySelectorAll(".main-progress-fill");
+        progressFills.forEach((fill, index) => {
+          fill.style.transition = "width 0.1s ease-linear";
+          if (index < currentImageIndex) {
+            fill.style.width = "100%";
+          } else if (index === currentImageIndex) {
+            fill.style.width = "0%";
+          } else {
+            fill.style.width = "0%";
+          }
+        });
+      }
+
+      function updateAirportDisplay() {
+        const airport = saudiAirports[currentAirportIndex];
+
+        // Update airport info
+        document.getElementById(
+          "current-airport-name"
+        ).textContent = `${airport.city} ${airport.name}`;
+        document.getElementById("airport-temp").textContent = airport.temp;
+
+        document.getElementById("airport-location").textContent = airport.city;
+
+        // Update main airport image
+        updateMainAirportImage();
+        updateAirportImageSlider();
+        createProgressSegments();
+
+        // Start/refresh dynamic time updater
+        startTimeUpdater();
+      }
+
+      function updateMainAirportImage() {
+        const airport = saudiAirports[currentAirportIndex];
+        const mainImageContainer =
+          document.getElementById("main-airport-image");
+
+        mainImageContainer.innerHTML = `
+                <img src="${airport.images[currentImageIndex]}" 
+                     alt="${airport.name}" 
+                     class="w-full h-full object-cover transition-opacity duration-500">
+            `;
+      }
+
+      function updateAirportImageSlider() {
+        const airport = saudiAirports[currentAirportIndex];
+        const imageSliderContainer = document.getElementById(
+          "airport-image-slider"
+        );
+
+        imageSliderContainer.innerHTML = `
+                <img src="${airport.images[currentImageIndex]}" 
+                     alt="${airport.name}" 
+                     class="w-full h-full object-cover transition-opacity duration-500">
+            `;
+      }
+
+      function startImageRotation() {
+        imageRotationInterval = setInterval(() => {
+          const airport = saudiAirports[currentAirportIndex];
+          currentImageIndex = (currentImageIndex + 1) % airport.images.length;
+          updateMainAirportImage();
+          resetProgress();
+          setTimeout(() => startProgressAnimation(), 100);
+        }, 3000);
+      }
+
+      function startAirportImageRotation() {
+        airportImageRotationInterval = setInterval(() => {
+          const airport = saudiAirports[currentAirportIndex];
+          const nextImageIndex =
+            (currentImageIndex + 1) % airport.images.length;
+          updateAirportImageSlider();
+        }, 3000);
+      }
+
+      function restartImageRotation() {
+        clearInterval(imageRotationInterval);
+        clearInterval(airportImageRotationInterval);
+        clearInterval(progressAnimationInterval);
+        if (timeUpdateInterval) clearInterval(timeUpdateInterval);
+        startImageRotation();
+        startAirportImageRotation();
+        resetProgress();
+        setTimeout(() => startProgressAnimation(), 100);
+        startTimeUpdater();
+      }
+
+      // Dynamic time updater for the active airport (Asia/Riyadh timezone)
+      let timeUpdateInterval;
+      function getTimeString(timeZone) {
+        try {
+          return new Intl.DateTimeFormat("en-GB", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+            timeZone,
+          }).format(new Date());
+        } catch (e) {
+          // Fallback if timezone not supported
+          const d = new Date();
+          const hh = `${d.getHours()}`.padStart(2, "0");
+          const mm = `${d.getMinutes()}`.padStart(2, "0");
+          return `${hh}:${mm}`;
+        }
+      }
+      function startTimeUpdater() {
+        if (timeUpdateInterval) clearInterval(timeUpdateInterval);
+        const airport = saudiAirports[currentAirportIndex];
+        const tz = airport.timezone || "Asia/Riyadh";
+        const timeEl = document.getElementById("airport-time");
+        if (!timeEl) return;
+        const tick = () => {
+          timeEl.textContent = getTimeString(tz);
+        };
+        tick();
+        timeUpdateInterval = setInterval(tick, 1000);
+      }
+
+      // Existing search functionality (guarded in case the input was replaced by <select>)
+      const searchInput = document.getElementById("airport-search");
+      const searchResults = document.getElementById("search-results");
+
+      // Search functionality (only bind if #airport-search exists)
+      if (searchInput) {
+        searchInput.addEventListener("input", function () {
+          const query = this.value.toLowerCase().trim();
+
+          if (query.length === 0) {
+            searchResults.classList.add("hidden");
+            return;
+          }
+
+          const filteredAirports = saudiAirports.filter(
+            (airport) =>
+              airport.name.toLowerCase().includes(query) ||
+              airport.city.toLowerCase().includes(query) ||
+              airport.code.toLowerCase().includes(query)
+          );
+
+          displayResults(filteredAirports);
+        });
+      }
+
+      // Display search results
+      function displayResults(airports) {
+        if (airports.length === 0) {
+          searchResults.innerHTML =
+            '<div class="p-3 text-gray-500 text-sm">No airports found</div>';
+          searchResults.classList.remove("hidden");
+          return;
+        }
+
+        const resultsHTML = airports
+          .map(
+            (airport) => `
+                <div class="p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0" onclick="selectAirport('${
+                  airport.name
+                }', '${airport.city}', '${
+              airport.code
+            }',${saudiAirports.indexOf(airport)})">
+                    <div class="font-medium text-gray-800">${airport.name}</div>
+                    <div class="text-sm text-gray-600">${airport.city} (${
+              airport.code
+            })</div>
+                </div>
+            `
+          )
+          .join("");
+
+        searchResults.innerHTML = resultsHTML;
+        searchResults.classList.remove("hidden");
+      }
+
+      // Select airport from results
+      function selectAirport(name, city, code, index) {
+        if (searchInput) {
+          searchInput.value = `${name} - ${city} (${code})`;
+        }
+        if (searchResults) {
+          searchResults.classList.add("hidden");
+        }
+        currentAirportIndex = index;
+        againInitializeAirportSlider();
+        // Also sync the select if present
+        const sel = document.getElementById('airport-select');
+        if (sel) sel.value = code;
+        if (typeof updateAirportSliderProgress === 'function') updateAirportSliderProgress();
+        if (typeof filterFlightsByAirport === 'function') filterFlightsByAirport();
+      }
+
+      // Hide results when clicking outside (only if search input exists)
+      if (searchInput && searchResults) {
+        document.addEventListener("click", function (event) {
+          if (
+            !searchInput.contains(event.target) &&
+            !searchResults.contains(event.target)
+          ) {
+            searchResults.classList.add("hidden");
+          }
+        });
+      }
+
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        const hamburger = document.querySelector(".hamburger");
+
+        mobileMenu.classList.toggle("hidden");
+        hamburger.classList.toggle("active");
+      }
+
+      function toggleMobileDropdown() {
+        const dropdown = document.getElementById("mobile-about-dropdown");
+        const arrow = document.querySelector("#mobile-about-arrow");
+
+        dropdown.classList.toggle("hidden");
+        arrow.classList.toggle("rotate-180");
+      }
+
+      // Flight data is already generated by generateFlightData() function above
+
+      // currentFlightPage is already declared at line 707
+      let currentFlightAirportIndex = 0;
+      let currentContinentPage = 0;
+      let filteredFlights = [...flightData];
+      let isLocalMode = true;
+      const flightsPerPage = 12;
+
+      function initializeFlightSearch() {
+        renderFlightCards();
+        setupFlightSearchListeners();
+        updateAirportSliderProgress();
+        updateContinentProgress();
+      }
+
+      function setupFlightSearchListeners() {
+        // Search functionality
+        const searchInput = document.getElementById("flight-search");
+        searchInput.addEventListener("input", function () {
+          const query = this.value.toLowerCase().trim();
+          filterFlights(query);
+        });
+
+        // Local/International toggle
+        // document
+        //   .getElementById("local-btn")
+        //   .addEventListener("click", () => toggleFlightMode(true));
+        // document
+        //   .getElementById("international-btn")
+        //   .addEventListener("click", () => toggleFlightMode(false));
+
+        // Airport slider navigation
+        document
+          .getElementById("flight-prev-airport")
+          .addEventListener("click", () => {
+            currentFlightAirportIndex = Math.max(
+              0,
+              currentFlightAirportIndex - 1
+            );
+            updateAirportSliderProgress();
+            filterFlightsByAirport();
+          });
+
+        document
+          .getElementById("flight-next-airport")
+          .addEventListener("click", () => {
+            currentFlightAirportIndex = Math.min(
+              saudiAirports.length - 1,
+              currentFlightAirportIndex + 1
+            );
+            updateAirportSliderProgress();
+            filterFlightsByAirport();
+          });
+
+        // Continent pagination
+        document
+          .getElementById("continent-prev")
+          .addEventListener("click", () => {
+            currentContinentPage = Math.max(0, currentContinentPage - 1);
+            updateContinentProgress();
+          });
+
+        document
+          .getElementById("continent-next")
+          .addEventListener("click", () => {
+            currentContinentPage = Math.min(24, currentContinentPage + 1);
+            updateContinentProgress();
+          });
+      }
+
+      function filterFlights(query) {
+        if (query.length === 0) {
+          filteredFlights = [...flightData];
+        } else {
+          filteredFlights = flightData.filter(
+            (flight) =>
+              flight.from.toLowerCase().includes(query) ||
+              flight.to.toLowerCase().includes(query)
+          );
+        }
+        currentFlightPage = 0;
+        renderFlightCards();
+      }
+
+      function filterFlightsByAirport() {
+        const currentAirport = saudiAirports[currentFlightAirportIndex];
+        filteredFlights = flightData.filter(
+          (flight) =>
+            flight.from === currentAirport.code ||
+            flight.to === currentAirport.code
+        );
+        currentFlightPage = 0;
+        renderFlightCards();
+      }
+
+      function renderFlightCards() {
+        const grid = document.getElementById("flight-cards-grid");
+
+        // Calculate pagination
+        totalFlightPages = Math.ceil(filteredFlights.length / FLIGHTS_PER_PAGE);
+        const startIndex = currentFlightPage * FLIGHTS_PER_PAGE;
+        const endIndex = Math.min(
+          startIndex + FLIGHTS_PER_PAGE,
+          filteredFlights.length
+        );
+        const currentPageFlights = filteredFlights.slice(startIndex, endIndex);
+
+        // Update pagination display
+        updateFlightPaginationDisplay();
+
+        grid.innerHTML = currentPageFlights
+          .map(
+            (flight) => `
+                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-200 cursor-pointer">
+                    <!-- Airport codes with arrow -->
+                    <div class="flex items-center justify-center mb-6">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-2xl font-bold text-gray-800">${
+                              flight.from
+                            }</span>
+                            <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                            <span class="text-2xl font-bold text-gray-800">${
+                              flight.to
+                            }</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Three data sections -->
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="flex items-center justify-center mb-2">
+                                <span class="text-xs text-gray-500">Airline</span>
+                            </div>
+                            <div class="text-xl font-bold text-gray-800">${flight.airline.toLocaleString()}</div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="flex items-center justify-center mb-2">
+                                <span class="text-xs text-gray-500">Started?</span>
+                            </div>
+                            <div class="text-xl font-bold text-gray-800">${flight.started.toLocaleString()}</div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="flex items-center justify-center mb-2">
+                                <span class="text-xs text-gray-500">Year Started</span>
+                            </div>
+                            <div class="text-xl font-bold text-gray-800">${
+                              flight.yearStarted
+                            }</div>
+                        </div>
+                    </div>
+                </div>
+            `
+          )
+          .join("");
+      }
+
+      function updateFlightPaginationDisplay() {
+        document.getElementById("current-flight-page").textContent = String(
+          currentFlightPage + 1
+        ).padStart(2, "0");
+        document.getElementById("total-flight-pages").textContent = String(
+          totalFlightPages
+        ).padStart(2, "0");
+
+        const progress =
+          totalFlightPages > 1
+            ? ((currentFlightPage + 1) / totalFlightPages) * 100
+            : 100;
+        document.getElementById(
+          "flight-page-progress"
+        ).style.width = `${progress}%`;
+      }
+
+      function initializeFlightSearch() {
+        renderFlightCards();
+        setupFlightSearchListeners();
+        updateAirportSliderProgress();
+        updateContinentProgress();
+        // updateActiveAirportName();
+      }
+
+      function setupFlightSearchListeners() {
+        const searchInput = document.getElementById("flight-search");
+        const searchResults = document.getElementById("flight-search-results");
+
+        searchInput.addEventListener("input", function () {
+          const query = this.value.toLowerCase().trim();
+
+          if (query.length === 0) {
+            searchResults.classList.add("hidden");
+            // Reset to show all flights for current airport
+            filterFlightsByAirport();
+            return;
+          }
+
+          // Show search suggestions
+          const filteredAirports = saudiAirports.filter(
+            (airport) =>
+              airport.name.toLowerCase().includes(query) ||
+              airport.city.toLowerCase().includes(query) ||
+              airport.code.toLowerCase().includes(query)
+          );
+
+          displayFlightSearchResults(filteredAirports);
+
+          // Filter flights based on search
+          filterFlights(query);
+        });
+
+        // Hide results when clicking outside
+        document.addEventListener("click", function (event) {
+          if (
+            !searchInput.contains(event.target) &&
+            !searchResults.contains(event.target)
+          ) {
+            searchResults.classList.add("hidden");
+          }
+        });
+
+        // Airport slider navigation
+        document
+          .getElementById("flight-prev-airport")
+          .addEventListener("click", () => {
+            currentFlightAirportIndex = Math.max(
+              0,
+              currentFlightAirportIndex - 1
+            );
+            updateAirportSliderProgress();
+            updateActiveAirportName();
+            filterFlightsByAirport();
+          });
+
+        document
+          .getElementById("flight-next-airport")
+          .addEventListener("click", () => {
+            currentFlightAirportIndex = Math.min(
+              saudiAirports.length - 1,
+              currentFlightAirportIndex + 1
+            );
+            updateAirportSliderProgress();
+            // updateActiveAirportName();
+            filterFlightsByAirport();
+          });
+
+        // Flight pagination
+        document
+          .getElementById("flight-prev-page")
+          .addEventListener("click", () => {
+            if (currentFlightPage > 0) {
+              currentFlightPage--;
+              renderFlightCards();
+            }
+          });
+
+        document
+          .getElementById("flight-next-page")
+          .addEventListener("click", () => {
+            if (currentFlightPage < totalFlightPages - 1) {
+              currentFlightPage++;
+              renderFlightCards();
+            }
+          });
+
+        // Continent pagination
+        document
+          .getElementById("continent-prev")
+          .addEventListener("click", () => {
+            currentContinentPage = Math.max(0, currentContinentPage - 1);
+            updateContinentProgress();
+          });
+
+        document
+          .getElementById("continent-next")
+          .addEventListener("click", () => {
+            currentContinentPage = Math.min(2, currentContinentPage + 1);
+            updateContinentProgress();
+          });
+      }
+
+      function displayFlightSearchResults(airports) {
+        const searchResults = document.getElementById("flight-search-results");
+
+        if (airports.length === 0) {
+          searchResults.innerHTML =
+            '<div class="p-3 text-gray-500 text-sm">No airports found</div>';
+          searchResults.classList.remove("hidden");
+          return;
+        }
+
+        const resultsHTML = airports
+          .map(
+            (airport) => `
+                <div class="p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0" onclick="selectFlightAirport('${
+                  airport.name
+                }', '${airport.city}', '${
+              airport.code
+            }', ${saudiAirports.indexOf(airport)})">
+                    <div class="font-medium text-gray-800">${airport.name}</div>
+                    <div class="text-sm text-gray-600">${airport.city} (${
+              airport.code
+            })</div>
+                </div>
+            `
+          )
+          .join("");
+
+        searchResults.innerHTML = resultsHTML;
+        searchResults.classList.remove("hidden");
+      }
+
+      function selectFlightAirport(name, city, code, index) {
+        const searchInput = document.getElementById("flight-search");
+        const searchResults = document.getElementById("flight-search-results");
+
+        searchInput.value = `${name} - ${city} (${code})`;
+        searchResults.classList.add("hidden");
+
+        // Update current airport index and sync everything
+        currentFlightAirportIndex = index;
+        updateAirportSliderProgress();
+        // updateActiveAirportName();
+        filterFlightsByAirport();
+      }
+
+      function filterFlights(query) {
+        if (!query) {
+          filterFlightsByAirport();
+          return;
+        }
+
+        const currentAirport = saudiAirports[currentFlightAirportIndex];
+        const airportFlights = flightData.filter(
+          (flight) =>
+            flight.from === currentAirport.code ||
+            flight.to === currentAirport.code
+        );
+
+        filteredFlights = airportFlights.filter((flight) => {
+          // Search in destination airport names and codes
+          const destinationAirport = saudiAirports.find(
+            (airport) =>
+              airport.code ===
+              (flight.from === currentAirport.code ? flight.to : flight.from)
+          );
+
+          if (destinationAirport) {
+            return (
+              destinationAirport.name.toLowerCase().includes(query) ||
+              destinationAirport.city.toLowerCase().includes(query) ||
+              destinationAirport.code.toLowerCase().includes(query)
+            );
+          }
+
+          return (
+            flight.from.toLowerCase().includes(query) ||
+            flight.to.toLowerCase().includes(query)
+          );
+        });
+
+        currentFlightPage = 0;
+        renderFlightCards();
+      }
+
+      function updateFirstAirportSliderProgress() {
+        const firstProgress =
+          ((currentAirportIndex + 1) / saudiAirports.length) * 100;
+        document.getElementById(
+          "first-airport-progress"
+        ).style.width = `${firstProgress}%`;
+
+        // Update dynamic text
+        document.getElementById("first-current-airport-index").textContent =
+          String(currentAirportIndex + 1).padStart(2, "0");
+        document.getElementById("first-total-airports").textContent = String(
+          saudiAirports.length
+        ).padStart(2, "0");
+      }
+
+      function updateAirportSliderProgress() {
+        const progress =
+          ((currentFlightAirportIndex + 1) / saudiAirports.length) * 100;
+        document.getElementById(
+          "airport-progress"
+        ).style.width = `${progress}%`;
+
+        // Update dynamic text
+        document.getElementById("current-airport-index").textContent = String(
+          currentFlightAirportIndex + 1
+        ).padStart(2, "0");
+        document.getElementById("total-airports").textContent = String(
+          saudiAirports.length
+        ).padStart(2, "0");
+      }
+
+      function updateContinentProgress() {
+        const totalContinentPages = 3; // Assuming 3 continent pages
+        const progress =
+          ((currentContinentPage + 1) / totalContinentPages) * 100;
+        document.getElementById(
+          "continent-progress"
+        ).style.width = `${progress}%`;
+
+        // Update dynamic text
+        document.getElementById("current-continent-page").textContent = String(
+          currentContinentPage + 1
+        ).padStart(2, "0");
+        document.getElementById("total-continent-pages").textContent = String(
+          totalContinentPages
+        ).padStart(2, "0");
+      }
+
+      // News Slider Functionality
+      let currentNewsSlide = 0;
+      const newsData = [
+        {
+          image: "./assets/news/abha.png",
+          headline: "Flights between Abha and Doha Resumed, First Aircraft Landed at Abha International Airport",
+          description:
+            "The Air Connectivity Program (ACP) has thanked Qatar Airways for the resumption of direct flights between Doha and Abha in collaboration with Discover Aseer and Abha International Airport.",
+          location: "Abha, KSA",
+          date: "02 January 2025",
+        },
+        {
+          image: "./assets/news/munich.png",
+          headline: "Air Connectivity Program Welcomes Lufthansa’s New Direct Munich to Riyadh Flights",
+          description:
+            "The Saudi Air Connectivity Program (ACP) has welcomed Lufthansa’s launch of direct flights from Munich to Riyadh, with three weekly flights set to begin on October 27 of this year.",
+          location: "Riyadh, KSA",
+          date: "19 August 2025",
+        },
+        {
+          image: "./assets/news/china.jpg",
+          headline: "China Southern Airlines Launches New Route between Guangzhou, Riyadh",
+          description:
+            "China Southern Airlines, in cooperation with the Air Connectivity Program, the Saudi Tourism Authority, and Riyadh Airports Company, has announced the launch of a new flight route between Guangzhou in China and Riyadh, starting in September 2025. The route will operate three times per week, adding over 86,000 seats annually to this route.",
+          location: "Riyadh, KSA",
+          date: "17 July 2025",
+        },
+        {
+          image: "./assets/news/dammam.jpg",
+          headline: "Direct Flights Between Dammam, London to Launch in November via Saudia",
+          description:
+            "The Saudi Air Connectivity Program, in cooperation with the Saudi Tourism Authority, Dammam Airports Company, and Sharqia Development Authority (SDA), announced the launch of flights connecting King Fahd International Airport in Dammam with Heathrow Airport in London. The flights will be operated by Saudia, with three weekly flights each way starting in November.",
+          location: "Dammam, KSA",
+          date: "09 July 2025",
+        },
+        {
+          image: "./assets/news/haikou.jpg",
+          headline: "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
+          description:
+            "King Abdulaziz International Airport in Jeddah today welcomed the inaugural flight of China’s Hainan Airlines, marking the launch of the first direct route between Jeddah and the Chinese city of Haikou.",
+          location: "Jeddah, KSA",
+          date: "28 July 2025",
+        },
+        {
+          image: "./assets/news/virgin.png",
+          headline: "Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status",
+          description:
+            "King Khalid International Airport today welcomed the inaugural flight of British airline Virgin Atlantic, arriving from London Heathrow and carrying the company's founder, Richard Branson.",
+          location: "Riyadh, KSA",
+          date: "23 April 2025",
+        },
+        {
+          image: "./assets/news/madina.jpg",
+          headline: "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
+          description:
+            "The Air Connectivity Program (ACP), in partnership with the Al Madinah Region Development Authority (MDA), has announced the expansion of Transavia France's travel services to Saudi Arabia. Beginning in October, new routes will be launched from Paris-Orly, Lyon, Marseille, and Toulouse to Madinah.",
+          location: "Madinah, KSA",
+          date: "17 April 2025",
+        },
+        {
+          image: "./assets/news/stuttgart.jpg",
+          headline: "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
+          description:
+            "The Saudi Air Connectivity Program (ACP), in collaboration with the Saudi Tourism Authority (STA) and Jeddah Airports Company (JEDCO), announced on Tuesday the launch of direct flights from Stuttgart, Germany, to Jeddah.",
+          location: "Jeddah, KSA",
+          date: "05 March 2025",
+        },
+      ];
+
+      function createNewsCard(news) {
+        return `
+                <div class="border border-gray-300 bg-white rounded-md shadow-sm overflow-hidden hover:shadow-sm transition-shadow duration-300 p-6">
+                    <!-- Fixed column proportions: left column narrower, right column wider -->
+                    <div class="flex flex-col gap-6 h-full">
+                        <!-- Left Column: Text Content (narrower) -->
+                        <div class="flex justify-between">
+                            <!-- Headline -->
+                            <div class="w-2/5">
+                                <h4 class="text-xl font-bold text-gray-800 mb-4 line-clamp-2">
+                                    ${news.headline}
+                                </h4>
+                                
+                                <!-- Description -->
+                                <p class="text-gray-600 mb-6 line-clamp-3 flex-grow">
+                                    ${news.description}
+                                </p>
+                            </div>
+                            <!-- News Image -->
+                            <div class="w-3/5 ml-3 h-48 overflow-hidden">
+                                <img src="${news.image}" alt="News Image" class="w-full h-full object-cover">
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- Right Column: Image and Read More Button (wider) -->
+                        <div class="flex items-center justify-between">
+                            
+                            <!-- Location and Date - Inline -->
+                            <div class="text-[12px] text-gray-400">
+                                <span class="border border-gray-300 p-2 rounded-sm">${news.location}</span>
+                                <span class="border border-gray-300 p-2 rounded-sm">${news.date}</span>
+                            </div>
+                            <!-- Read More Button -->
+                            <div class="hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2">
+                                <a href="#" class="text-sm text-gray-600">Read More</a>
+                                <button class="w-8 h-8 rounded-full bg-gray-600 text-white flex items-center justify-center" aria-hidden="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            `;
+      }
+
+      function renderNewsSlider() {
+        const sliderTrack = document.getElementById("news-slider-track");
+        const totalSlides = Math.ceil(newsData.length / 2);
+
+        let slidesHTML = "";
+
+        // Create slides with 2 cards each
+        for (let i = 0; i < totalSlides; i++) {
+          const startIndex = i * 2;
+          const endIndex = Math.min(startIndex + 2, newsData.length);
+          const slideNews = newsData.slice(startIndex, endIndex);
+
+          slidesHTML += `
+                    <div class="w-full flex-shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-8 py-6">
+                        ${slideNews
+                          .map((news) => createNewsCard(news))
+                          .join("")}
+                        ${slideNews.length === 1 ? "<div></div>" : ""}
+                    </div>
+                `;
+        }
+
+        sliderTrack.innerHTML = slidesHTML;
+
+        // Update progress segments
+        updateNewsProgress();
+
+        // Update navigation text
+        updateNewsNavigation();
+      }
+
+      function updateNewsProgress() {
+        const progressContainer = document.getElementById(
+          "news-progress-container"
+        );
+        const totalSlides = Math.ceil(newsData.length / 2);
+
+        let progressHTML = "";
+        for (let i = 0; i < totalSlides; i++) {
+          const isActive = i === currentNewsSlide;
+          progressHTML += `
+                    <div class="flex-1 h-1 rounded-full ${
+                      isActive ? "bg-gray-600" : "bg-gray-300"
+                    } transition-colors duration-300"></div>
+                `;
+        }
+
+        progressContainer.innerHTML = progressHTML;
+      }
+
+      function updateNewsNavigation() {
+        const totalSlides = Math.ceil(newsData.length / 2);
+
+        // Update current slide number
+        document.getElementById("current-news-slide").textContent = String(
+          currentNewsSlide + 1
+        ).padStart(2, "0");
+
+        // Update total slides
+        document.getElementById("total-news-slides").textContent = String(
+          totalSlides
+        ).padStart(2, "0");
+
+        // Update progress bar
+        const progressPercentage =
+          totalSlides > 1 ? (currentNewsSlide / (totalSlides - 1)) * 100 : 100;
+        document.getElementById(
+          "news-slider-progress"
+        ).style.width = `${progressPercentage}%`;
+
+        // Update button states
+        const prevBtn = document.getElementById("news-prev");
+        const nextBtn = document.getElementById("news-next");
+
+        prevBtn.disabled = currentNewsSlide === 0;
+        nextBtn.disabled = currentNewsSlide === totalSlides - 1;
+
+        prevBtn.style.opacity = currentNewsSlide === 0 ? "0.5" : "1";
+        nextBtn.style.opacity =
+          currentNewsSlide === totalSlides - 1 ? "0.5" : "1";
+      }
+
+      function slideNews(direction) {
+        const totalSlides = Math.ceil(newsData.length / 2);
+        const sliderTrack = document.getElementById("news-slider-track");
+
+        if (direction === "next" && currentNewsSlide < totalSlides - 1) {
+          currentNewsSlide++;
+        } else if (direction === "prev" && currentNewsSlide > 0) {
+          currentNewsSlide--;
+        }
+
+        // Apply transform
+        const translateX = -currentNewsSlide * 100;
+        sliderTrack.style.transform = `translateX(${translateX}%)`;
+
+        // Update progress and navigation
+        updateNewsProgress();
+        updateNewsNavigation();
+      }
+
+      function initializeNewsSlider() {
+        renderNewsSlider();
+
+        // Add event listeners
+        document
+          .getElementById("news-prev")
+          .addEventListener("click", () => slideNews("prev"));
+        document
+          .getElementById("news-next")
+          .addEventListener("click", () => slideNews("next"));
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeAirportSlider();
+        initializeFlightSearch();
+        initializeNewsSlider();
+      });
+
+      const section = document.getElementById("animated-section");
+      const textEl = document.getElementById("gsap-text");
+      // Wrap characters in spans
+      textEl.innerHTML = textEl.textContent.replace(/\S/g, "<span class='letter text-gray-400'>$&</span>");
+      const letters = textEl.querySelectorAll(".letter");
+      let currentIndex = 0;
+      let insideSection = false;
+      let animationFinished = false;
+      // How many characters per scroll tick
+      const charsPerScroll = 5;
+      section.addEventListener("mouseenter", () => (insideSection = true));
+      section.addEventListener("mouseleave", () => (insideSection = false));
+      window.addEventListener(
+        "wheel",
+        (e) => {
+          if (insideSection && !animationFinished) {
+            e.preventDefault();
+            if (e.deltaY > 0 && currentIndex < letters.length) {
+              // Instantly change color to black (no tween)
+              for (let i = 0; i < charsPerScroll && currentIndex < letters.length; i++) {
+                letters[currentIndex].classList.remove("text-gray-400");
+                letters[currentIndex].classList.add("text-black");
+                currentIndex++;
+              }
+              if (currentIndex >= letters.length) {
+                animationFinished = true; // unlock scroll after finishing
+              }
+            }
+          }
+        },
+        { passive: false }
+      );
+    </script>
+
+    <style>
+      /* Existing styles */
+
+      /* Added infinite scroll animation for partner logos */
+      .infinite-scroll {
+        width: 200%;
+      }
+
+      .animate-scroll {
+        animation: scroll 30s linear infinite;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-100%);
+        }
+      }
+
+      .infinite-scroll:hover .animate-scroll {
+        animation-play-state: paused;
+      }
+    </style>
+
+    <!-- assets/js/airports-map.js: Map SVG inline loader and arrow highlighting (only map-related functionality) -->
+    <script>
+      // assets/js/airports-map.js
+      // Map SVG inline loader and arrow highlighting (only map-related functionality)
+
+      (function () {
+        // Inputs / UI elements
+        const searchInput = document.getElementById('airport-search');
+        const searchResults = document.getElementById('search-results');
+
+        // Airports data exposed from index.html
+        const airports = (typeof window !== 'undefined' && window.saudiAirports) ? window.saudiAirports : [];
+
+        // Only these three airports should be functional on the map/search for now
+        const ACTIVE_CODES = ['RUH', 'JED', 'DMM'];
+
+        // Approximate coordinates on the map (percentage positions)
+        const mapAirportCoords = {
+          RUH: { x: 56, y: 48 },
+          JED: { x: 30, y: 62 },
+          DMM: { x: 64, y: 42 },
+        };
+
+        // State for map/arrow mapping
+        let airportArrowMap = {}; // code -> SVGPolygonElement
+        let allArrowPolygons = [];
+        let pulseStyleInjected = false;
+        let mapReady = false;
+        let pendingHighlightCode = null;
+        let mappingDistances = {}; // code -> best squared distance in %
+        let tempArrowOverlay = null; // for fallback overlay
+
+        function normalize(s) {
+          return (s || '').toString().trim().toLowerCase();
+        }
+
+        function findAirportByCode(code) {
+          return airports.find((a) => a.code === code);
+        }
+
+        function debounce(fn, wait) {
+          let t;
+          return function (...args) {
+            clearTimeout(t);
+            t = setTimeout(() => fn.apply(this, args), wait);
+          };
+        }
+
+        function ensurePulseStyle() {
+          if (pulseStyleInjected) return;
+          const css = `@keyframes pulseGreen { 0% { transform: scale(1.0); filter: drop-shadow(0 0 6px rgba(34,197,94,0.45)); } 50% { transform: scale(1.15); filter: drop-shadow(0 0 10px rgba(34,197,94,0.75)); } 100% { transform: scale(1.0); filter: drop-shadow(0 0 6px rgba(34,197,94,0.45)); } }`;
+          const style = document.createElement('style');
+          style.setAttribute('data-map-pulse', '');
+          style.textContent = css;
+          document.head.appendChild(style);
+          pulseStyleInjected = true;
+        }
+
+        // Load the SVG inline (replaces fallback <img>)
+        function loadInlineMapSVG() {
+          const fallback = document.getElementById('saudi-map-fallback');
+          const mount = document.getElementById('saudi-map-inline');
+          if (!fallback || !mount) return Promise.resolve();
+          const url = fallback.getAttribute('src');
+          return fetch(url)
+            .then((r) => r.text())
+            .then((svgText) => {
+              mount.innerHTML = svgText;
+              const svg = mount.querySelector('svg');
+              if (svg) {
+                svg.style.width = '100%';
+                svg.style.height = 'auto';
+              }
+              fallback.style.visibility = 'hidden';
+            })
+            .then(() => mapPolygonsToAirports())
+            .catch((err) => {
+              // If inline SVG fails to load (e.g., file:// CORS), fall back to overlay mode
+              console.warn('Inline SVG load failed, using overlay fallback:', err);
+              mapReady = true; // allow overlay highlighting
+              if (pendingHighlightCode) {
+                const code = pendingHighlightCode;
+                pendingHighlightCode = null;
+                drawTempArrowAt(code);
+              }
+            });
+        }
+
+        function mapPolygonsToAirports() {
+          const mount = document.getElementById('saudi-map-inline');
+          const container = document.getElementById('saudi-map');
+          if (!mount || !container) return;
+          // Primary: arrow polygons with class 'cls-1'
+          allArrowPolygons = Array.from(mount.querySelectorAll('polygon.cls-1'));
+          // Secondary: any polygons if primary not found
+          if (allArrowPolygons.length === 0) {
+            allArrowPolygons = Array.from(mount.querySelectorAll('polygon'));
+          }
+          // Tertiary: paths with class 'cls-1' (some SVGs draw arrows as paths)
+          if (allArrowPolygons.length === 0) {
+            allArrowPolygons = Array.from(mount.querySelectorAll('path.cls-1'));
+          }
+          if (allArrowPolygons.length === 0) {
+            // Even if we can't find polygons, mark ready so fallback overlay can work
+            mapReady = true;
+            if (pendingHighlightCode) {
+              const code = pendingHighlightCode;
+              pendingHighlightCode = null;
+              setActiveAirportArrow(code);
+            }
+            return;
+          }
+
+          // Make polygons animatable
+          allArrowPolygons.forEach((el) => {
+            el.style.transformBox = 'fill-box';
+            el.style.transformOrigin = '50% 50%';
+            el.style.transition = 'transform 160ms ease, fill 160ms ease, filter 160ms ease, stroke 160ms ease, stroke-width 160ms ease';
+          });
+
+          const containerRect = container.getBoundingClientRect;
+
+          function centerPercent(el) {
+            const r = el.getBoundingClientRect();
+            const cx = ((r.left + r.width / 2 - containerRect.left) / containerRect.width) * 100;
+            const cy = ((r.top + r.height / 2 - containerRect.top) / containerRect.height) * 100;
+            return { x: cx, y: cy };
+          }
+
+          const centers = allArrowPolygons.map((el) => centerPercent(el));
+
+          airportArrowMap = {};
+          mappingDistances = {};
+          Object.keys(mapAirportCoords).forEach((code) => {
+            if (!ACTIVE_CODES.includes(code)) return; // map only active airports
+            const target = mapAirportCoords[code];
+            let bestIndex = 0;
+            let bestDist = Infinity;
+            centers.forEach((c, idx) => {
+              const dx = c.x - target.x;
+              const dy = c.y - target.y;
+              const d = dx * dx + dy * dy;
+              if (d < bestDist) {
+                bestDist = d;
+                bestIndex = idx;
+              }
+            });
+            airportArrowMap[code] = allArrowPolygons[bestIndex];
+            mappingDistances[code] = bestDist;
+          });
+
+          // Click support on mapped arrows
+          Object.keys(airportArrowMap).forEach((code) => {
+            const el = airportArrowMap[code];
+            if (!el) return;
+            el.style.cursor = 'pointer';
+            el.addEventListener('click', () => {
+              const a = findAirportByCode(code);
+              setActiveAirportArrow(code);
+              if (searchInput && a) searchInput.value = `${a.name} - ${a.city} (${a.code})`;
+              if (typeof window.setAirportByCode === 'function') {
+                window.setAirportByCode(code);
+              }
+            });
+          });
+
+          mapReady = true;
+          if (pendingHighlightCode) {
+            const code = pendingHighlightCode;
+            pendingHighlightCode = null;
+            setActiveAirportArrow(code);
+          }
+        }
+
+        function resetAllArrows() {
+          allArrowPolygons.forEach((el) => {
+            el.style.fill = '';
+            el.style.filter = '';
+            el.style.transform = 'scale(1)';
+            el.style.stroke = '';
+            el.style.strokeWidth = '';
+            el.style.strokeLinejoin = '';
+            el.style.animation = '';
+          });
+          if (tempArrowOverlay && tempArrowOverlay.parentNode) {
+            tempArrowOverlay.parentNode.removeChild(tempArrowOverlay);
+          }
+          tempArrowOverlay = null;
+        }
+
+        function setActiveAirportArrow(code) {
+          if (!ACTIVE_CODES.includes(code)) return; // ignore non-active codes
+          if (!mapReady) { pendingHighlightCode = code; return; }
+          if (!airportArrowMap[code]) {
+            // No mapped SVG arrow found -> use fallback overlay at coordinate
+            resetAllArrows();
+            drawTempArrowAt(code);
+            try { console.debug('Highlight via overlay for', code); } catch(_){ }
+            scrollMapIntoView();
+            return;
+          }
+          resetAllArrows();
+          const el = airportArrowMap[code];
+          const bestDist = mappingDistances[code] ?? Infinity;
+          let useFallback = !el || bestDist > 80; // threshold for mismatch
+          if (code === 'DMM') {
+            useFallback = true; // ensure visibility for DMM if mapping off
+          }
+          if (!useFallback && el) {
+            ensurePulseStyle();
+            el.style.fill = '#22c55e';
+            el.style.filter = 'drop-shadow(0 0 10px rgba(34,197,94,0.6))';
+            el.style.stroke = '#16a34a';
+            el.style.strokeWidth = '3';
+            el.style.strokeLinejoin = 'round';
+            el.style.animation = 'pulseGreen 1200ms ease-in-out infinite';
+            try { console.debug('Highlight via SVG polygon for', code, 'dist', bestDist); } catch(_){ }
+            scrollMapIntoView();
+          } else {
+            drawTempArrowAt(code);
+            try { console.debug('Highlight via overlay (threshold) for', code, 'dist', bestDist); } catch(_){ }
+            scrollMapIntoView();
+          }
+        }
+
+        // Expose highlighter globally so other scripts can invoke it
+        if (typeof window !== 'undefined') {
+          window.setActiveAirportArrow = setActiveAirportArrow;
+        }
+
+        function drawTempArrowAt(code) {
+          const wrapper = document.getElementById('saudi-map');
+          if (!wrapper) return;
+          const pos = mapAirportCoords[code];
+          if (!pos) return;
+          ensurePulseStyle();
+          if (tempArrowOverlay && tempArrowOverlay.parentNode) {
+            tempArrowOverlay.parentNode.removeChild(tempArrowOverlay);
+            tempArrowOverlay = null;
+          }
+          const el = document.createElement('div');
+          el.style.position = 'absolute';
+          el.style.left = pos.x + '%';
+          el.style.top = pos.y + '%';
+          el.style.transform = 'translate(-50%, -50%)';
+          el.style.pointerEvents = 'none';
+          el.style.width = '28px';
+          el.style.height = '28px';
+          el.style.filter = 'drop-shadow(0 0 10px rgba(34,197,94,0.6))';
+          el.style.animation = 'pulseGreen 1200ms ease-in-out infinite';
+          el.style.zIndex = '100';
+          el.innerHTML = `
+            <svg width="28" height="28" viewBox="0 0 141 253" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0 0 0 52.41 82.48 126.61 0 200.81 0 253.21 140.81 126.61 0 0" fill="#22c55e" stroke="#0f9f4a" stroke-width="10" stroke-linejoin="round"></polygon>
+            </svg>
+          `;
+          wrapper.appendChild(el);
+          tempArrowOverlay = el;
+        }
+
+        function scrollMapIntoView() {
+          try {
+            const wrapper = document.getElementById('saudi-map');
+            if (!wrapper) return;
+            const rect = wrapper.getBoundingClientRect();
+            const y = rect.top + window.scrollY - 100;
+            window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+          } catch (_) {}
+        }
+
+        // Search integration (dropdown + highlight)
+        function filterAirports(query) {
+          const q = normalize(query);
+          if (!q) return [];
+          return airports
+            .filter((ap) => ACTIVE_CODES.includes(ap.code))
+            .filter((ap) => normalize(ap.name).includes(q) || normalize(ap.city).includes(q) || normalize(ap.code).includes(q));
+        }
+
+        function populateDropdown(matches) {
+          if (!searchResults) return;
+          if (!matches.length) {
+            searchResults.classList.add('hidden');
+            searchResults.innerHTML = '';
+            return;
+          }
+          searchResults.innerHTML = matches
+            .map(
+              (ap) => `
+            <button data-code="${ap.code}" class="w-full text-left px-3 py-2 hover:bg-emerald-50">
+              <span class="font-medium text-slate-800">${ap.name} - ${ap.city} (${ap.code})</span>
+            </button>
+          `
+            )
+            .join('');
+          searchResults.classList.remove('hidden');
+
+          Array.from(searchResults.querySelectorAll('button')).forEach((btn) => {
+            btn.addEventListener('click', () => {
+              const code = btn.getAttribute('data-code');
+              const ap = airports.find((a) => a.code === code);
+              if (!ap) return;
+              if (searchInput) searchInput.value = `${ap.name} - ${ap.city} (${ap.code})`;
+              setActiveAirportArrow(ap.code);
+              searchResults.classList.add('hidden');
+              if (typeof window.setAirportByCode === 'function') {
+                window.setAirportByCode(ap.code);
+              }
+            });
+          });
+        }
+
+        function setupSearch() {
+          if (!searchInput) return;
+          searchInput.addEventListener('input', (e) => {
+            const raw = (e.target.value || '').trim();
+            // If cleared, remove any highlights and hide dropdown
+            if (raw.length === 0) {
+              if (searchResults) searchResults.classList.add('hidden');
+              resetAllArrows();
+              return;
+            }
+            const matches = filterAirports(raw);
+            populateDropdown(matches);
+            if (matches[0]) {
+              setActiveAirportArrow(matches[0].code);
+              if (typeof window.setAirportByCode === 'function') {
+                window.setAirportByCode(matches[0].code);
+              }
+            }
+          });
+
+          document.addEventListener('click', (evt) => {
+            if (!searchResults) return;
+            const inside = searchResults.contains(evt.target) || (searchInput && searchInput.contains(evt.target));
+            if (!inside) searchResults.classList.add('hidden');
+          });
+
+          // On Enter key, highlight best match and sync slider
+          searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+              const q = (searchInput.value || '').trim();
+              const matches = filterAirports(q);
+              if (matches[0]) {
+                setActiveAirportArrow(matches[0].code);
+                if (typeof window.setAirportByCode === 'function') {
+                  window.setAirportByCode(matches[0].code);
+                }
+                searchResults && searchResults.classList.add('hidden');
+              }
+              e.preventDefault();
+            }
+          });
+
+          // On blur, try highlight based on current value
+          searchInput.addEventListener('blur', () => {
+            const q = (searchInput.value || '').trim();
+            if (q.length === 0) { resetAllArrows(); return; }
+            const matches = filterAirports(q);
+            if (matches[0]) {
+              setActiveAirportArrow(matches[0].code);
+              if (typeof window.setAirportByCode === 'function') {
+                window.setAirportByCode(matches[0].code);
+              }
+            }
+          });
+        }
+
+        // Initialize on DOM ready
+        document.addEventListener('DOMContentLoaded', function () {
+          loadInlineMapSVG().then(() => {
+            // After map is ready, wire search
+            setupSearch();
+            // If a highlight was requested before map ready, apply it now
+            if (typeof window !== 'undefined' && window.pendingMapHighlight) {
+              try { setActiveAirportArrow(window.pendingMapHighlight); } catch(_) {}
+              window.pendingMapHighlight = null;
+            }
+          });
+
+          // Re-map on resize to keep mapping accurate
+          const remap = debounce(() => {
+            mapReady = false;
+            airportArrowMap = {};
+            mapPolygonsToAirports();
+            if (pendingHighlightCode) {
+              const code = pendingHighlightCode;
+              pendingHighlightCode = null;
+              setActiveAirportArrow(code);
+            }
+          }, 200);
+          window.addEventListener('resize', remap);
+        });
+      })();
+    </script>
+
+  </body>
+</html>
