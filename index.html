@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" dir="ltr" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/25.5.2/i18next.min.js" integrity="sha512-41q9Nizfj3hnJoKqqMdlUlqK4K6WUyERaAWE50zuXMDvJT/91KdN9eiulSqOFw703IKsflcvrCJSb8Q+EjtyIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style type="text/tailwindcss">
       @theme {
         --font-avenir: "AvenirArabic", sans-serif;
@@ -40,32 +41,32 @@
               <a
                 href="#"
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                >About</a
+                data-i18n="nav.about">About</a
               >
               <a
                 href="#routes"
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                >Routes</a
+                data-i18n="nav.routes">Routes</a
               >
               <a
                 href="./saudiDestinations.html"
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                >Saudi Destinations</a
+                data-i18n="nav.saudiDestinations">Saudi Destinations</a
               >
               <a
                 href="./media.html"
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                >Media Center</a
+                data-i18n="nav.mediaCenter">Media Center</a
               >
               <a
                 href="./contact.html"
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                >Contact Us</a
+                data-i18n="nav.contactUs">Contact Us</a
               >
               <a
                 href="#"
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                >Visit Saudi</a
+                data-i18n="nav.visitSaudi">Visit Saudi</a
               >
             </div>
 
@@ -74,18 +75,88 @@
               <!-- Arabic Text -->
               <!--<span class="hidden md:block text-sm">العربية</span>-->
 
-              <!-- Language Selector -->
-              <div
-                class="hidden md:flex items-center space-x-1 bg-[#C5BBFF]/20 rounded px-2 py-1"
-              >
-                <span class="text-xs">🇸🇦</span>
-                <span class="text-sm">AR</span>
+              <!-- Language Selector Dropdown -->
+              <div class="hidden md:block relative">
+                <button
+                  id="language-dropdown-button"
+                  class="flex items-center space-x-1 bg-[#C5BBFF]/20 rounded px-2 py-1 hover:bg-[#C5BBFF]/30 transition-colors duration-200"
+                  onclick="toggleLanguageDropdown()"
+                >
+                  <span class="text-xs" id="current-flag">🇸🇦</span>
+                  <span class="text-sm" id="current-lang">AR</span>
+                  <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                
+                <div
+                  id="language-dropdown"
+                  class="absolute right-0 mt-2 w-32 bg-gray-700 rounded-md shadow-lg border border-gray-200 hidden z-50"
+                >
+                  <div class="py-1">
+                    <button
+                      class="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
+                      data-lang="ar"
+                      onclick="selectLanguage('ar')"
+                    >
+                      <span>🇸🇦</span>
+                      <span>العربية</span>
+                    </button>
+                    <button
+                      class="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
+                      data-lang="en"
+                      onclick="selectLanguage('en')"
+                    >
+                      <span>🇺🇸</span>
+                      <span>English</span>
+                    </button>
+                  </div>
+                </div>
               </div>
+              
+              <script>
+                function toggleLanguageDropdown() {
+                  const dropdown = document.getElementById('language-dropdown');
+                  dropdown.classList.toggle('hidden');
+                }
+                
+                function selectLanguage(lang) {
+                  const dropdown = document.getElementById('language-dropdown');
+                  const currentFlag = document.getElementById('current-flag');
+                  const currentLang = document.getElementById('current-lang');
+                  
+                  if (lang === 'ar') {
+                    currentFlag.textContent = '🇸🇦';
+                    currentLang.textContent = 'AR';
+                  } else {
+                    currentFlag.textContent = '🇺🇸';
+                    currentLang.textContent = 'EN';
+                  }
+                  
+                  dropdown.classList.add('hidden');
+                  
+                  // Call existing language change function
+                  if (typeof setLanguage === 'function') {
+                    setLanguage(lang);
+                  }
+                }
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(event) {
+                  const dropdown = document.getElementById('language-dropdown');
+                  const button = document.getElementById('language-dropdown-button');
+                  
+                  if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.classList.add('hidden');
+                  }
+                });
+              </script>
 
               <!-- Become a Partner Button -->
               <a
               href="./contact.html"
                 class="hidden md:block bg-white text-[#7460D4] px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors duration-200 cursor-pointer"
+                data-i18n="nav.becomePartner"
               >
                 Become a Partner
               </a>
@@ -120,22 +191,22 @@
         >
           <div class="px-4 py-4 space-y-3">
             <!-- Mobile About Dropdown -->
-            <a href="#" class="block hover:text-gray-200 transition-colors"
+            <a href="#" class="block hover:text-gray-200 transition-colors" data-i18n="nav.about"
               >About</a
             >
-            <a href="#routes" class="block hover:text-gray-200 transition-colors"
+            <a href="#routes" class="block hover:text-gray-200 transition-colors" data-i18n="nav.routes"
               >Routes</a
             >
-            <a href="./saudiDestinations.html" class="block hover:text-gray-200 transition-colors"
+            <a href="./saudiDestinations.html" class="block hover:text-gray-200 transition-colors" data-i18n="nav.saudiDestinations"
               >Saudi Destinations</a
             >
-            <a href="./media.html" class="block hover:text-gray-200 transition-colors"
+            <a href="./media.html" class="block hover:text-gray-200 transition-colors" data-i18n="nav.mediaCenter"
               >Media Center</a
             >
-            <a href="./contact.html" class="block hover:text-gray-200 transition-colors"
+            <a href="./contact.html" class="block hover:text-gray-200 transition-colors" data-i18n="nav.contactUs"
               >Contact Us</a
             >
-            <a href="#" class="block hover:text-gray-200 transition-colors"
+            <a href="#" class="block hover:text-gray-200 transition-colors" data-i18n="nav.visitSaudi"
               >Visit Saudi</a
             >
 
@@ -144,6 +215,7 @@
               <div class="flex items-center space-x-2">
                 <span class="text-sm">العربية</span>
                 <div
+                id="language-selector"
                   class="flex items-center space-x-1 bg-[#C5BBFF]/20 rounded px-2 py-1"
                 >
                   <span class="text-xs">🇸🇦</span>
@@ -152,6 +224,7 @@
               </div>
               <a href="./contact.html"
                 class="w-full bg-white text-[#1e3a8a] px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors cursor-pointer"
+                data-i18n="nav.becomePartner"
               >
                 Become a Partner
               </a>
@@ -187,8 +260,8 @@
             <h1
               class="text-4xl font-normal sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
             >
-              <span class="block">Connecting the World</span>
-              <span class="mt-3 block">to Saudi Arabia</span>
+              <span class="block" data-i18n="hero.connectingWorld">Connecting the World</span>
+              <span class="mt-3 block" data-i18n="hero.toSaudiArabia">to Saudi Arabia</span>
             </h1>
           </div>
         </div>
@@ -217,8 +290,9 @@
               <!-- Large multi-line headline (white) -->
               <h1
                 class="text-white font-normal text-lg md:text-xl lg:text-2xl font-semibold"
+                data-i18n="content.discoverKingdom"
               >
-                Discover the Kingdom’s exciting air connectivity opportunities
+                Discover the Kingdom's exciting air connectivity opportunities
                 and remarkable new tourism growth.
               </h1>
 
@@ -228,9 +302,10 @@
                 <div class="flex flex-col">
                  
                   <a
-                    href="#"
+                    href="./contact.html"
                     class="text-xs inline-flex items-center justify-center px-5 py-2 rounded-md bg-lime-400 text-gray-900 font-semibold shadow-sm hover:brightness-95 transition"
                     aria-label="Become a Partner"
+                    data-i18n="buttons.becomePartner"
                   >
                     Become a Partner
                   </a>
@@ -242,6 +317,7 @@
                     href="#routes"
                     class="text-xs inline-flex items-center justify-center px-5 py-2 rounded-md border border-white/60 text-white font-medium hover:bg-white/5 transition"
                     aria-label="Explore Routes"
+                    data-i18n="buttons.exploreRoutes"
                   >
                     Explore Routes
                   </a>
@@ -259,6 +335,7 @@
           <!-- Section Heading -->
           <h2
             class="text-4xl sm:text-6xl lg:text-7xl font-medium text-[#44505E] mb-8 text-balance"
+            data-i18n="sections.airConnectivityProgram"
           >
             Air Connectivity Program
           </h2>
@@ -266,8 +343,9 @@
           <!-- Section Description -->
           <p id="gsap-text"
             class="text-3xl sm:text-4xl text-gray-600 leading-tight text-pretty"
+            data-i18n="sections.programDescription"
           >
-            aims to boost tourism growth in the Kingdom by enhancing air connectivity and developing existing and potential air routes to connect Saudi Arabia with new global destinations. Acting as the executive enabler of the National Tourism Strategy and the Aviation Program, the ACP fosters collaboration and builds partnerships between key public and private stakeholders in tourism and aviation to strengthen the Kingdom’s position as a leading global destination for air connectivity.
+            Aims to boost tourism growth in the Kingdom by enhancing air connectivity and developing existing and potential air routes to connect Saudi Arabia with new global destinations. Acting as the executive enabler of the National Tourism Strategy and the Aviation Program, the ACP fosters collaboration and builds partnerships between key public and private stakeholders in tourism and aviation to strengthen the Kingdom's position as a leading global destination for air connectivity.
           </p>
         </div>
       </div>
@@ -281,18 +359,18 @@
           <!-- Left Column - Content -->
           <div class="space-y-6 bg-[#F6F6F6] text-center lg:text-left py-16 sm:py-20 lg:py-32 px-8 sm:px-12 lg:px-16">
             <!-- Placeholder text -->
-            <p class="text-sm text-gray-500 uppercase tracking-wide">
+            <p class="text-sm text-gray-500 uppercase tracking-wide" data-i18n="stats.drivingGlobalConnections">
               DRIVING GLOBAL CONNECTIONS
             </p>
 
             <!-- Main Heading -->
-            <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#44505E] leading-tight">
+            <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#44505E] leading-tight" data-i18n="stats.saudiAirConnectivity">
               The Saudi<br>
               Air Connectivity
             </h2>
 
             <!-- Subheading -->
-            <h3 class="text-xl sm:text-2xl text-gray-600 font-medium">
+            <h3 class="text-xl sm:text-2xl text-gray-600 font-medium" data-i18n="stats.vision2030Initiative">
               A Vision 2030 initiative expanding routes and global connectivity.
             </h3>
 
@@ -315,8 +393,8 @@
                 <span class="text-5xl text-[#44505E] font-semibold">67</span>
               </div>
               <div>
-                <p class="font-semibold text-md">Routes Activated</p>
-                <p class="text-xs text-[#9D9D9C]">
+                <p class="font-semibold text-md" data-i18n="stats.routesActivated">Routes Activated</p>
+                <p class="text-xs text-[#9D9D9C]" data-i18n="stats.routesActivatedDesc">
                   Activated Routes in 2024 YTD
                 </p>
               </div>
@@ -330,8 +408,8 @@
                 <span class="text-5xl text-[#44505E] font-semibold">15</span>
               </div>
               <div>
-                <p class="font-semibold text-md">Carrier Collaboration</p>
-                <p class="text-xs text-[#9D9D9C]">Carriers in 2024 YTD</p>
+                <p class="font-semibold text-md" data-i18n="stats.carrierCollaboration">Carrier Collaboration</p>
+                <p class="text-xs text-[#9D9D9C]" data-i18n="stats.carrierCollaborationDesc">Carriers in 2024 YTD</p>
               </div>
             </div>
 
@@ -344,8 +422,8 @@
                 <span class="text-5xl text-[#44505E] font-semibold">4.5</span>
               </div>
               <div>
-                <p class="font-semibold text-md">Seats Generated</p>
-                <p class="text-xs text-[#9D9D9C]">
+                <p class="font-semibold text-md" data-i18n="stats.seatsGenerated">Seats Generated</p>
+                <p class="text-xs text-[#9D9D9C]" data-i18n="stats.seatsGeneratedDesc">
                   4,5 million generated seats in 2024 YTD.
                 </p>
               </div>
@@ -360,8 +438,8 @@
                 <span class="text-5xl text-[#44505E] font-semibold">5</span>
               </div>
               <div>
-                <p class="font-semibold text-md">Airlines</p>
-                <p class="text-xs text-[#9D9D9C]">Strategic Partnerships With Local and International Carriers</p>
+                <p class="font-semibold text-md" data-i18n="stats.airlines">Airlines</p>
+                <p class="text-xs text-[#9D9D9C]" data-i18n="stats.airlinesDesc">Strategic Partnerships With Local and International Carriers</p>
               </div>
             </div>
           </div>
@@ -380,6 +458,7 @@
             <!-- Main Heading -->
             <h2
               class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#44505E] leading-tight"
+              data-i18n="sections.kingdomAirports"
             >
               Kingdom Airports
             </h2>
@@ -393,7 +472,7 @@
             <div class="relative">
               <div class="relative">
                 <select id="airport-select" class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition-colors" >
-                      <option value="" selected>Saudi Arabia airports...</option>
+                      <option value="" selected data-i18n="search.saudiAirportsPlaceholder">Saudi Arabia airports...</option>
                     </select>
               </div>
 
@@ -604,9 +683,9 @@
         class="container mx-auto px-4 sm:px-6 lg:px-8 bg-[#F5F5F5] py-12 sm:py-16 lg:py-20 rounded-md"
       >
         <!-- Row 1: Header -->
-        <div class="flex justify-between items-start mb-8">
-          <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#44505E]">Routes</h2>
-          <p class="text-gray-600 max-w-md text-right">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#44505E]" data-i18n="sections.routes">Routes</h2>
+          <p class="text-gray-600 max-w-md text-right" data-i18n="sections.routesDescription">
             Discover routes linking Saudi airports to global destinations.
           </p>
         </div>
@@ -622,6 +701,7 @@
                 type="text"
                 id="flight-search"
                 placeholder="Search airports..."
+                data-i18n-placeholder="search.searchAirports"
                 class="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition-colors"
                 autocomplete="off"
               />
@@ -652,76 +732,8 @@
             </div>
           </div>
 
-          <!-- Local/International Toggle -->
-          <div class="flex bg-gray-200 rounded-lg p-1 w-fit">
-            <!-- <button
-              id="local-btn"
-              class="px-6 py-2 rounded-md text-sm font-medium transition-colors bg-gray-400 text-white"
-            >
-              Local
-            </button>
-            <button
-              id="international-btn"
-              class="px-6 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 hover:text-gray-800"
-            >
-              International
-            </button> -->
-          </div>
-
-          <!-- Airport Slider Navigation -->
-          <div class="flex items-center space-x-4">
-            <!-- Made slider text dynamic based on current airport position -->
-            <span id="current-airport-index" class="text-sm text-gray-600"
-              >01</span
-            >
-            <div class="flex items-center space-x-2">
-              <button
-                id="flight-prev-airport"
-                class="p-2 rounded-full hover:bg-gray-200 transition-colors"
-              >
-                <svg
-                  class="w-4 h-4 text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 19l-7-7 7-7"
-                  ></path>
-                </svg>
-              </button>
-              <div class="w-16 h-1 bg-gray-300 rounded-full">
-                <div
-                  id="airport-progress"
-                  class="h-full bg-gray-600 rounded-full transition-all duration-300"
-                  style="width: 4%"
-                ></div>
-              </div>
-              <button
-                id="flight-next-airport"
-                class="p-2 rounded-full hover:bg-gray-200 transition-colors"
-              >
-                <svg
-                  class="w-4 h-4 text-gray-600"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 5l7 7-7 7"
-                  ></path>
-                </svg>
-              </button>
-            </div>
-            <!-- Made total airports count dynamic -->
-            <span id="total-airports" class="text-sm text-gray-600">14</span>
-          </div>
+          <!-- Airport Slider Navigation (Removed)-->
+          
         </div>
 
         <!-- Row 3: Flight Cards and Continent Sidebar -->
@@ -793,7 +805,7 @@
 
           <!-- Continent Sidebar (3 columns) -->
           <div class="col-span-12 lg:col-span-2">
-            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4" data-i18n="sections.chooseContinent">
                 Choose A Continent
               </h3>
             <div class="space-y-6 p-6">
@@ -907,10 +919,10 @@
           class="flex flex-col space-y-4 md:space-y-0 md:flex-row justify-between items-center mb-12"
         >
           <div class="flex items-center space-x-8">
-            <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#32D2A0]">News</h2>
+            <h2 class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#32D2A0]" data-i18n="sections.news">News</h2>
           </div>
           <div class="flex items-center space-x-8">
-            <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#44505E]">
+            <h3 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#44505E]" data-i18n="sections.saudiAirConnectivity">
               The Saudi Air Connectivity
             </h3>
           </div>
@@ -937,7 +949,7 @@
           </span>
 
           <!-- Text -->
-          <span class="mx-1">Read More</span>
+          <span class="mx-1" data-i18n="buttons.readMore">Read More</span>
         </a>
         </div>
 
@@ -1031,13 +1043,14 @@
           <div class="">
             <h2
               class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#44505E] mb-2"
+              data-i18n="sections.saudiAirConnectivity"
             >
               The Saudi Air Connectivity
             </h2>
             <!--<p class="text-lg text-gray-500">Placeholder Text</p>-->
           </div>
           <div class="lg:max-w-md lg:self-end">
-            <p class="text-gray-600 leading-relaxed">
+            <p class="text-gray-600 leading-relaxed" data-i18n="sections.partnersDescription">
               Working with key aviation and tourism leaders to expand connectivity.
             </p>
           </div>
@@ -1139,12 +1152,13 @@
           </div>
           <!-- Column 2: Overview -->
           <div class="lg:col-span-1">
-            <h3 class="text-lg font-semibold mb-6 text-white">Overview</h3>
+            <h3 class="text-lg font-semibold mb-6 text-white" data-i18n="footer.overview">Overview</h3>
             <ul class="space-y-3">
               <li>
                 <a
                   href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.brief"
                   >Brief</a
                 >
               </li>
@@ -1152,13 +1166,15 @@
                 <a
                   href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.ourPartners"
                   >Our Partners</a
                 >
               </li>
               <li>
                 <a
-                  href="#"
+                  href="./contact.html"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.becomePartner"
                   >Become a Partner</a
                 >
               </li>
@@ -1166,7 +1182,7 @@
           </div>
           <!-- Column 3: Contact and Support -->
           <div class="lg:col-span-1">
-            <h3 class="text-lg font-semibold mb-6 text-white">
+            <h3 class="text-lg font-semibold mb-6 text-white" data-i18n="footer.contactSupport">
               Contact and Support
             </h3>
             <ul class="space-y-3">
@@ -1174,6 +1190,7 @@
                 <a
                   href="./contact.html"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.contactUs"
                   >Contact us</a
                 >
               </li>
@@ -1181,6 +1198,7 @@
                 <a
                   href="./media.html"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.mediaCenter"
                   >Media Center</a
                 >
               </li>
@@ -1188,6 +1206,7 @@
                 <a
                   href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.privacyTerms"
                   >Privacy and Terms of Use</a
                 >
               </li>
@@ -1195,12 +1214,13 @@
           </div>
           <!-- Column 4: Related Links -->
           <div class="lg:col-span-1">
-            <h3 class="text-lg font-semibold mb-6 text-white">Related Links</h3>
+            <h3 class="text-lg font-semibold mb-6 text-white" data-i18n="footer.relatedLinks">Related Links</h3>
             <ul class="space-y-3">
               <li>
                 <a
                   href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.vision2030"
                   >Vision 2030</a
                 >
               </li>
@@ -1208,6 +1228,7 @@
                 <a
                   href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.ministryTourism"
                   >Ministry of Tourism</a
                 >
               </li>
@@ -1215,6 +1236,7 @@
                 <a
                   href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.gaca"
                   >GACA</a
                 >
               </li>
@@ -1222,6 +1244,7 @@
                 <a
                   href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.saudiTourismAuthority"
                   >Saudi Tourism Authority</a
                 >
               </li>
@@ -1229,6 +1252,7 @@
                 <a
                   href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.tdfRedSea"
                   >TDF & Red Sea Authority</a
                 >
               </li>
@@ -1236,7 +1260,7 @@
           </div>
           <!-- Column 5: Follow us on -->
           <div class="lg:col-span-1">
-            <h3 class="text-lg font-semibold mb-6 text-white">Follow us on</h3>
+            <h3 class="text-lg font-semibold mb-6 text-white" data-i18n="footer.followUs">Follow us on</h3>
             <!-- Social Media Icons -->
             <div class="flex space-x-4 mb-8">
               <a
@@ -1294,19 +1318,282 @@
                 />
               </svg>
               <div class="text-sm text-gray-300 leading-relaxed">
-                <p>2nd Floor, Building 6 GACA Complex, Riyadh 12519, Saudi</p>
+                <p data-i18n="footer.address">2nd Floor, Building 6 GACA Complex, Riyadh 12512, Saudi</p>
               </div>
             </div>
           </div>
         </div>
         <!-- Copyright Section -->
         <div class="border-t border-gray-600 mt-12 pt-8">
-          <p class="text-gray-400 text-sm text-center lg:text-left">
+          <p class="text-gray-400 text-sm text-center lg:text-left" data-i18n="footer.copyright">
             All rights reserved to the Digital Government Authority © 2025
           </p>
         </div>
       </div>
     </footer>
+
+    <script>
+      // Initialize i18next
+      i18next.init({
+        lng: 'en', // default language
+        resources: {
+          en: {
+            translation: {
+              // Navigation
+              "nav.about": "About",
+              "nav.routes": "Routes",
+              "nav.saudiDestinations": "Saudi Destinations",
+              "nav.mediaCenter": "Media Center",
+              "nav.contactUs": "Contact Us",
+              "nav.visitSaudi": "Visit Saudi",
+              "nav.becomePartner": "Become a Partner",
+              
+              // Hero Section
+              "hero.connectingWorld": "Connecting the World",
+              "hero.toSaudiArabia": "to Saudi Arabia",
+              
+              // Content Section
+              "content.discoverKingdom": "Discover the Kingdom's exciting air connectivity opportunities and remarkable new tourism growth.",
+              
+              // Buttons
+              "buttons.becomePartner": "Become a Partner",
+              "buttons.exploreRoutes": "Explore Routes",
+              "buttons.readMore": "Read More",
+
+              //Airports
+              "airports.kingKhalidInternationalAirport": "King Khalid International Airport",
+              "airports.kingAbdulazizInternationalAirport": "King Abdulaziz International Airport",
+              "airports.kingFahdInternationalAirport": "King Fahd International Airport",
+              
+              // Sections
+              "sections.airConnectivityProgram": "Air Connectivity Program",
+              "sections.programDescription": "Aims to boost tourism growth in the Kingdom by enhancing air connectivity and developing existing and potential air routes to connect Saudi Arabia with new global destinations. Acting as the executive enabler of the National Tourism Strategy and the Aviation Program, the ACP fosters collaboration and builds partnerships between key public and private stakeholders in tourism and aviation to strengthen the Kingdom's position as a leading global destination for air connectivity.",
+              "sections.kingdomAirports": "Kingdom Airports",
+              "sections.routes": "Routes",
+              "sections.routesDescription": "Discover routes linking Saudi airports to global destinations.",
+              "sections.chooseContinent": "Choose A Continent",
+              "sections.news": "News",
+              "sections.saudiAirConnectivity": "The Saudi Air Connectivity",
+              "sections.partnersDescription": "Working with key aviation and tourism leaders to expand connectivity.",
+              
+              // Statistics
+              "stats.drivingGlobalConnections": "DRIVING GLOBAL CONNECTIONS",
+              "stats.saudiAirConnectivity": "The Saudi<br>Air Connectivity",
+              "stats.vision2030Initiative": "A Vision 2030 initiative expanding routes and global connectivity.",
+              "stats.routesActivated": "Routes Activated",
+              "stats.routesActivatedDesc": "Activated Routes in 2024 YTD",
+              "stats.carrierCollaboration": "Carrier Collaboration",
+              "stats.carrierCollaborationDesc": "Carriers in 2024 YTD",
+              "stats.seatsGenerated": "Seats Generated",
+              "stats.seatsGeneratedDesc": "4,5 million generated seats in 2024 YTD.",
+              "stats.airlines": "Airlines",
+              "stats.airlinesDesc": "Strategic Partnerships With Local and International Carriers",
+              
+              // Search
+              "search.saudiAirportsPlaceholder": "Saudi Arabia airports...",
+              "search.searchAirports": "Search airports...",
+              "search.noAirportsFound": "No airports found",
+              "search.King Khalid International Airport": "King Khalid International Airport - Riyadh (RUH)",
+              "search.King Abdulaziz International Airport": "King Abdulaziz International Airport - Jeddah (JED)",
+              "search.King Fahd International Airport": "King Fahd International Airport - Dammam (DMM)",
+              
+              // Flights
+              "flights.airline": "Airline",
+              "flights.started": "Started?",
+              "flights.yearStarted": "Year Started",
+              
+              // Footer
+              "footer.overview": "Overview",
+              "footer.brief": "Brief",
+              "footer.ourPartners": "Our Partners",
+              "footer.becomePartner": "Become a Partner",
+              "footer.contactSupport": "Contact and Support",
+              "footer.contactUs": "Contact us",
+              "footer.mediaCenter": "Media Center",
+              "footer.privacyTerms": "Privacy and Terms of Use",
+              "footer.relatedLinks": "Related Links",
+              "footer.vision2030": "Vision 2030",
+              "footer.ministryTourism": "Ministry of Tourism",
+              "footer.gaca": "GACA",
+              "footer.saudiTourismAuthority": "Saudi Tourism Authority",
+              "footer.tdfRedSea": "TDF & Red Sea Authority",
+              "footer.followUs": "Follow us on",
+              "footer.address": "2nd Floor, Building 6 GACA Complex, Riyadh 12512, Saudi",
+              "footer.copyright": "All rights reserved to the Digital Government Authority © 2025"
+            }
+          },
+          ar: {
+            translation: {
+              // Navigation
+              "nav.about": "حول",
+              "nav.routes": "الطرق",
+              "nav.saudiDestinations": "الوجهات السعودية",
+              "nav.mediaCenter": "المركز الإعلامي",
+              "nav.contactUs": "اتصل بنا",
+              "nav.visitSaudi": "زيارة السعودية",
+              "nav.becomePartner": "كن شريكاً",
+              
+              // Hero Section
+              "hero.connectingWorld": "ربط العالم",
+              "hero.toSaudiArabia": "بالمملكة العربية السعودية",
+              
+              // Content Section
+              "content.discoverKingdom": "اكتشف فرص الربط الجوي المثيرة للمملكة والنمو السياحي الجديد الرائع.",
+              
+              // Buttons
+              "buttons.becomePartner": "كن شريكاً",
+              "buttons.exploreRoutes": "استكشف الطرق",
+              "buttons.readMore": "اقرأ المزيد",
+              
+              // Sections
+              "sections.airConnectivityProgram": "برنامج الربط الجوي",
+              "sections.programDescription": "يهدف إلى تعزيز النمو السياحي في المملكة من خلال تعزيز الربط الجوي وتطوير الطرق الجوية الموجودة والمحتملة لربط المملكة العربية السعودية بوجهات عالمية جديدة. يعمل البرنامج كالممكن التنفيذي للاستراتيجية الوطنية للسياحة وبرنامج الطيران، حيث يعزز التعاون ويبني الشراكات بين أصحاب المصلحة الرئيسيين في القطاعين العام والخاص في السياحة والطيران لتعزيز مكانة المملكة كوجهة عالمية رائدة للربط الجوي.",
+              "sections.kingdomAirports": "مطارات المملكة",
+              "sections.routes": "الطرق",
+              "sections.routesDescription": "اكتشف الطرق التي تربط المطارات السعودية بالوجهات العالمية.",
+              "sections.chooseContinent": "اختر قارة",
+              "sections.news": "الأخبار",
+              "sections.saudiAirConnectivity": "الربط الجوي السعودي",
+              "sections.partnersDescription": "نعمل مع قادة الطيران والسياحة الرئيسيين لتوسيع الربط.",
+              
+              // Statistics
+              "stats.drivingGlobalConnections": "قيادة الاتصالات العالمية",
+              "stats.saudiAirConnectivity": "الربط الجوي<br>السعودي",
+              "stats.vision2030Initiative": "مبادرة رؤية 2030 لتوسيع الطرق والربط العالمي.",
+              "stats.routesActivated": "الطرق المفعلة",
+              "stats.routesActivatedDesc": "الطرق المفعلة في 2024 حتى الآن",
+              "stats.carrierCollaboration": "تعاون الناقلين",
+              "stats.carrierCollaborationDesc": "الناقلون في 2024 حتى الآن",
+              "stats.seatsGenerated": "المقاعد المولدة",
+              "stats.seatsGeneratedDesc": "4.5 مليون مقعد مولدة في 2024 حتى الآن.",
+              "stats.airlines": "الخطوط الجوية",
+              "stats.airlinesDesc": "الشراكات الاستراتيجية مع الناقلين المحليين والدوليين",
+              
+              // Search
+              "search.saudiAirportsPlaceholder": "مطارات المملكة العربية السعودية...",
+              "search.searchAirports": "البحث في المطارات...",
+              "search.noAirportsFound": "لم يتم العثور على مطارات",
+              "search.King Khalid International Airport": "مطار الملك خالد الدولي - الرياض (RUH)",
+              "search.King Abdulaziz International Airport": "مطار الملك عبد العزيز الدولي - جدة (JED)",
+              "search.King Fahd International Airport": "مطار الملك فهد الدولي - الدمام (DMM)",
+              
+              // Flights
+              "flights.airline": "الخطوط الجوية",
+              "flights.started": "بدأت؟",
+              "flights.yearStarted": "سنة البداية",
+              
+              // Footer
+              "footer.overview": "نظرة عامة",
+              "footer.brief": "نبذة",
+              "footer.ourPartners": "شركاؤنا",
+              "footer.becomePartner": "كن شريكاً",
+              "footer.contactSupport": "الاتصال والدعم",
+              "footer.contactUs": "اتصل بنا",
+              "footer.mediaCenter": "المركز الإعلامي",
+              "footer.privacyTerms": "الخصوصية وشروط الاستخدام",
+              "footer.relatedLinks": "الروابط ذات الصلة",
+              "footer.vision2030": "رؤية 2030",
+              "footer.ministryTourism": "وزارة السياحة",
+              "footer.gaca": "الهيئة العامة للطيران المدني",
+              "footer.saudiTourismAuthority": "هيئة السياحة السعودية",
+              "footer.tdfRedSea": "صندوق التنمية السياحية وسلطة البحر الأحمر",
+              "footer.followUs": "تابعنا على",
+              "footer.address": "الطابق الثاني، مبنى 6، مجمع الهيئة العامة للطيران المدني، الرياض 12512، السعودية",
+              "footer.copyright": "جميع الحقوق محفوظة لهيئة الحكومة الرقمية © 2025"
+            }
+          }
+        }
+      }, function(err, t) {
+        // Initialize translation
+        updateContent();
+      });
+
+      // Change language and refresh UI
+      function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
+        document.body.classList.add(lang === "ar" ? "!text-right" : "!text-left");
+        document.body.classList.remove(lang === "ar" ? "!text-left" : "!text-right");
+        
+        i18next.changeLanguage(lang, function(err, t) {
+          updateContent();
+        });
+      }
+
+      // Auto update all tags with [data-i18n]
+      function updateContent() {
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          el.innerHTML = i18next.t(key);
+        });
+        
+        // Update placeholders
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          el.placeholder = i18next.t(key);
+        });
+        
+        // Update flight search input placeholder specifically
+        const flightSearchInput = document.getElementById('flight-search');
+        if (flightSearchInput) {
+          flightSearchInput.placeholder = i18next.t('search.searchAirports');
+        }
+        
+        // Update airport dropdown options
+        updateAirportDropdown();
+      }
+      
+      // Update airport dropdown with translations
+      function updateAirportDropdown() {
+        const selectEl = document.getElementById('airport-select');
+        if (selectEl) {
+          // Update existing options
+          const options = selectEl.querySelectorAll('option');
+          options.forEach(option => {
+            const key = option.getAttribute('data-i18n');
+            if (key) {
+              option.textContent = i18next.t(key);
+            }
+          });
+        }
+        
+        // Update flight search results if they exist
+        const flightSearchResults = document.getElementById('flight-search-results');
+        if (flightSearchResults) {
+          const resultItems = flightSearchResults.querySelectorAll('[data-i18n]');
+          resultItems.forEach(item => {
+            const key = item.getAttribute('data-i18n');
+            if (key) {
+              item.textContent = i18next.t(key);
+            }
+          });
+        }
+        
+        // Update flight cards if they exist
+        const flightCardsGrid = document.getElementById('flight-cards-grid');
+        if (flightCardsGrid) {
+          const flightCards = flightCardsGrid.querySelectorAll('[data-i18n]');
+          flightCards.forEach(card => {
+            const key = card.getAttribute('data-i18n');
+            if (key) {
+              card.textContent = i18next.t(key);
+            }
+          });
+        }
+      }
+
+      // Language selector click handler
+      document.addEventListener('DOMContentLoaded', function() {
+        const languageSelector = document.getElementById('language-selector');
+        if (languageSelector) {
+          languageSelector.addEventListener('click', function() {
+            const currentLang = i18next.language;
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            setLanguage(newLang);
+          });
+        }
+      });
+    </script>
 
     <script>
       // Mobile menu toggle
@@ -1463,9 +1750,7 @@
         againInitializeAirportSlider();
         
         // Update progress indicators and flights list
-        if (typeof updateAirportSliderProgress === 'function') {
-          updateAirportSliderProgress();
-        }
+
         if (typeof filterFlightsByAirport === 'function') {
           filterFlightsByAirport();
         }
@@ -1487,9 +1772,14 @@
       saudiAirports.forEach(ap => {
         const opt = document.createElement('option');
         opt.value = ap.code;
+        opt.setAttribute('data-i18n', `search.${ap.name}`);
+        // Set initial text content - will be updated by translation system
         opt.textContent = `${ap.name} - ${ap.city} (${ap.code})`;
         selectEl.appendChild(opt);
       });
+      
+      // Update the dropdown with current language translations
+      updateAirportDropdown();
     
       // safe call with guard
       selectEl.addEventListener('change', (e) => {
@@ -1902,7 +2192,6 @@
         // Also sync the select if present
         const sel = document.getElementById('airport-select');
         if (sel) sel.value = code;
-        if (typeof updateAirportSliderProgress === 'function') updateAirportSliderProgress();
         if (typeof filterFlightsByAirport === 'function') filterFlightsByAirport();
       }
 
@@ -1947,7 +2236,6 @@
         renderFlightCards();
         // renderContinents();
         setupFlightSearchListeners();
-        updateAirportSliderProgress();
         updateContinentProgress();
       }
 
@@ -1959,14 +2247,6 @@
           filterFlights(query);
         });
 
-        // Local/International toggle
-        // document
-        //   .getElementById("local-btn")
-        //   .addEventListener("click", () => toggleFlightMode(true));
-        // document
-        //   .getElementById("international-btn")
-        //   .addEventListener("click", () => toggleFlightMode(false));
-
         // Airport slider navigation
         document
           .getElementById("flight-prev-airport")
@@ -1975,18 +2255,17 @@
               0,
               currentFlightAirportIndex - 1
             );
-            updateAirportSliderProgress();
             filterFlightsByAirport();
           });
 
         document
           .getElementById("flight-next-airport")
           .addEventListener("click", () => {
+            console.log("1st flight button");
             currentFlightAirportIndex = Math.min(
               saudiAirports.length - 1,
               currentFlightAirportIndex + 1
             );
-            updateAirportSliderProgress();
             filterFlightsByAirport();
           });
 
@@ -2070,21 +2349,21 @@
                     <div class="grid grid-cols-3 gap-4">
                         <div class="text-center">
                             <div class="flex items-center justify-center mb-2">
-                                <span class="text-xs text-gray-500">Airline</span>
+                                <span class="text-xs text-gray-500" data-i18n="flights.airline">Airline</span>
                             </div>
                             <div class="text-xl font-bold text-gray-800">${flight.airline.toLocaleString()}</div>
                         </div>
                         
                         <div class="text-center">
                             <div class="flex items-center justify-center mb-2">
-                                <span class="text-xs text-gray-500">Started?</span>
+                                <span class="text-xs text-gray-500" data-i18n="flights.started">Started?</span>
                             </div>
                             <div class="text-xl font-bold text-gray-800">${flight.started.toLocaleString()}</div>
                         </div>
                         
                         <div class="text-center">
                             <div class="flex items-center justify-center mb-2">
-                                <span class="text-xs text-gray-500">Year Started</span>
+                                <span class="text-xs text-gray-500" data-i18n="flights.yearStarted">Year Started</span>
                             </div>
                             <div class="text-xl font-bold text-gray-800">${
                               flight.yearStarted
@@ -2095,6 +2374,9 @@
             `
           )
           .join("");
+          
+        // Update translations for the newly rendered flight cards
+        updateAirportDropdown();
       }
 
       function updateFlightPaginationDisplay() {
@@ -2117,9 +2399,7 @@
       function initializeFlightSearch() {
         renderFlightCards();
         setupFlightSearchListeners();
-        updateAirportSliderProgress();
         updateContinentProgress();
-        // updateActiveAirportName();
       }
 
       function setupFlightSearchListeners() {
@@ -2160,30 +2440,32 @@
           }
         });
 
-        // Airport slider navigation
-        document
-          .getElementById("flight-prev-airport")
-          .addEventListener("click", () => {
-            currentFlightAirportIndex = Math.max(
-              0,
-              currentFlightAirportIndex - 1
-            );
-            updateAirportSliderProgress();
-            updateActiveAirportName();
-            filterFlightsByAirport();
-          });
+        // Airport slider navigation (Removed)
+        // document
+        //   .getElementById("flight-prev-airport")
+        //   .addEventListener("click", () => {
+        //     currentFlightAirportIndex = Math.max(
+        //       0,
+        //       currentFlightAirportIndex - 1
+        //     );
+        //     updateAirportSliderProgress();
+        //     // updateActiveAirportName();
+        //     filterFlightsByAirport();
+        //   });
 
-        document
-          .getElementById("flight-next-airport")
-          .addEventListener("click", () => {
-            currentFlightAirportIndex = Math.min(
-              saudiAirports.length - 1,
-              currentFlightAirportIndex + 1
-            );
-            updateAirportSliderProgress();
-            // updateActiveAirportName();
-            filterFlightsByAirport();
-          });
+        // document
+        //   .getElementById("flight-next-airport")
+        //   .addEventListener("click", () => {
+        //    console.log("2nd flight button");
+            
+        //     currentFlightAirportIndex = Math.min(
+        //       saudiAirports.length - 1,
+        //       currentFlightAirportIndex + 1
+        //     );
+        //     updateAirportSliderProgress();
+        //     // updateActiveAirportName();
+        //     filterFlightsByAirport();
+        //   });
 
         // Flight pagination
         document
@@ -2225,8 +2507,17 @@
 
         if (airports.length === 0) {
           searchResults.innerHTML =
-            '<div class="p-3 text-gray-500 text-sm">No airports found</div>';
+            '<div class="p-3 text-gray-500 text-sm" data-i18n="search.noAirportsFound">No airports found</div>';
           searchResults.classList.remove("hidden");
+          
+          // Update translation for the no results message
+          const noResultsItem = searchResults.querySelector('[data-i18n]');
+          if (noResultsItem) {
+            const key = noResultsItem.getAttribute('data-i18n');
+            if (key) {
+              noResultsItem.textContent = i18next.t(key);
+            }
+          }
           return;
         }
 
@@ -2238,7 +2529,7 @@
                 }', '${airport.city}', '${
               airport.code
             }', ${saudiAirports.indexOf(airport)})">
-                    <div class="font-medium text-gray-800">${airport.name}</div>
+                    <div class="font-medium text-gray-800" data-i18n="search.${airport.name}">${airport.name}</div>
                     <div class="text-sm text-gray-600">${airport.city} (${
               airport.code
             })</div>
@@ -2249,6 +2540,15 @@
 
         searchResults.innerHTML = resultsHTML;
         searchResults.classList.remove("hidden");
+        
+        // Update translations for the search results
+        const resultItems = searchResults.querySelectorAll('[data-i18n]');
+        resultItems.forEach(item => {
+          const key = item.getAttribute('data-i18n');
+          if (key) {
+            item.textContent = i18next.t(key);
+          }
+        });
       }
 
       function selectFlightAirport(name, city, code, index) {
@@ -2262,8 +2562,6 @@
 
         // Update current airport index and sync everything
         currentFlightAirportIndex = index;
-        updateAirportSliderProgress();
-        // updateActiveAirportName();
         filterFlightsByAirport();
       }
 
@@ -2317,22 +2615,6 @@
         document.getElementById("first-current-airport-index").textContent =
           String(currentAirportIndex + 1).padStart(2, "0");
         document.getElementById("first-total-airports").textContent = String(
-          saudiAirports.length
-        ).padStart(2, "0");
-      }
-
-      function updateAirportSliderProgress() {
-        const progress =
-          ((currentFlightAirportIndex + 1) / saudiAirports.length) * 100;
-        document.getElementById(
-          "airport-progress"
-        ).style.width = `${progress}%`;
-
-        // Update dynamic text
-        document.getElementById("current-airport-index").textContent = String(
-          currentFlightAirportIndex + 1
-        ).padStart(2, "0");
-        document.getElementById("total-airports").textContent = String(
           saudiAirports.length
         ).padStart(2, "0");
       }
@@ -2458,7 +2740,7 @@
                             </div>
                             <!-- Read More Button -->
                             <a href="./media.html" class="hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2">
-                                <span class="text-sm text-gray-600">Read More</span>
+                                <span class="text-sm text-gray-600" data-i18n="buttons.readMore">Read More</span>
                                 <span class="w-8 h-8 rounded-full bg-gray-600 text-white flex items-center justify-center" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -2597,11 +2879,11 @@
 
     // continents to show in sidebar
       const continents = [
-        { name: 'South America', image: './assets/svg/South-America.svg' },
-        { name: 'North America', image: './assets/svg/North-America.svg' },
-        { name: 'Europe', image: './assets/svg/Europe.svg' },
-        { name: 'Asia', image: './assets/svg/Asia.svg' },
-        { name: 'Africa', image: './assets/svg/Africa.svg' },
+        { name: 'South America', image: './assets/svg/South-America.png' },
+        { name: 'North America', image: './assets/svg/North-America.png' },
+        { name: 'Europe', image: './assets/svg/Europe.png' },
+        { name: 'Asia', image: './assets/svg/Asia.png' },
+        { name: 'Africa', image: './assets/svg/Africa.png' },
       ];
 
       const CONTINENTS_PER_PAGE = 3;
@@ -2657,8 +2939,6 @@
         // Update current airport index and sync everything
         // currentFlightAirportIndex = index;
         selectedContinent = (selectedContinent === name) ? null : name; // toggle selection
-        // updateAirportSliderProgress();
-        // updateActiveAirportName();
         filterFlightsByContinent();
       }
 
