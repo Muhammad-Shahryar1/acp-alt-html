@@ -4,8 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Media Center 1</title>
+    <!-- Added i18next CDN for internationalization -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/i18next/25.5.2/i18next.min.js"
+      integrity="sha512-41q9Nizfj3hnJoKqqMdlUlqK4K6WUyERaAWE50zuXMDvJT/91KdN9eiulSqOFw703IKsflcvrCJSb8Q+EjtyIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/25.5.2/i18next.min.js" integrity="sha512-41q9Nizfj3hnJoKqqMdlUlqK4K6WUyERaAWE50zuXMDvJT/91KdN9eiulSqOFw703IKsflcvrCJSb8Q+EjtyIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style type="text/tailwindcss">
       @theme {
         --font-avenir: "Inter", sans-serif;
@@ -68,77 +74,45 @@
               <a
                 href="#"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                data-i18n="nav.about">About</a
+                data-i18n="nav.about"
+                >About</a
               >
               <a
-                href="#"
+                href="./index.html#routes"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                data-i18n="nav.routes">Routes</a
-              >
-              <a
-                href="./saudiDestinations.html"
-                class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                data-i18n="nav.saudiDestinations">Saudi Destinations</a
+                data-i18n="nav.routes"
+                >Routes</a
               >
               <a
                 href="./media.html"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                data-i18n="nav.mediaCenter">Media Center</a
+                data-i18n="nav.mediaCenter"
+                >Media Center</a
               >
               <a
                 href="./contact.html"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                data-i18n="nav.contactUs">Contact Us</a
+                data-i18n="nav.contactUs"
+                >Contact Us</a
               >
               <a
                 href="#"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
-                data-i18n="nav.visitSaudi">Visit Saudi</a
+                data-i18n="nav.visitSaudi"
+                >Visit Saudi</a
               >
             </div>
 
             <!-- Right Side Actions -->
             <div class="flex items-center space-x-4 text-black">
-              <!-- Arabic Text -->
-              <!--<span class="hidden md:block text-sm">العربية</span>-->
-
-              <!-- Language Selector Dropdown -->
-              <div class="hidden md:block relative">
-                <button
-                  id="language-dropdown-button"
-                  class="flex items-center space-x-1 bg-gray-300 rounded px-2 py-1 hover:bg-gray-400 transition-colors duration-200"
-                  onclick="toggleLanguageDropdown()"
-                >
-                  <span class="text-xs" id="current-flag">🇸🇦</span>
-                  <span class="text-sm" id="current-lang">AR</span>
-                  <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </button>
-                
-                <div
-                  id="language-dropdown"
-                  class="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg border border-gray-200 hidden z-50"
-                >
-                  <div class="py-1">
-                    <button
-                      class="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
-                      data-lang="ar"
-                      onclick="selectLanguage('ar')"
-                    >
-                      <span>🇸🇦</span>
-                      <span>العربية</span>
-                    </button>
-                    <button
-                      class="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
-                      data-lang="en"
-                      onclick="selectLanguage('en')"
-                    >
-                      <span>🇺🇸</span>
-                      <span>English</span>
-                    </button>
-                  </div>
-                </div>
+              <!-- Updated language selector to match contact.html structure -->
+              <!-- Language Selector -->
+              <div
+                id="language-selector"
+                class="hidden md:flex cursor-pointer items-center space-x-1 bg-gray-300 rounded px-2 py-1"
+              >
+                <span class="text-xs">🇸🇦</span>
+                <span class="text-sm">AR</span>
               </div>
 
               <!-- Become a Partner Button -->
@@ -180,18 +154,19 @@
         >
           <div class="px-4 py-4 space-y-3 text-black">
             <!-- Mobile About Dropdown -->
-            <a href="#" class="block hover:text-[#32D2A0] transition-colors" data-i18n="nav.about"
+            <a
+              href="#"
+              class="block hover:text-[#32D2A0] transition-colors"
+              data-i18n="nav.about"
               >About</a
             >
-            <a href="#" class="block hover:text-[#32D2A0] transition-colors" data-i18n="nav.routes"
+            <a
+              href="./index.html#routes"
+              class="block hover:text-[#32D2A0] transition-colors"
+              data-i18n="nav.routes"
               >Routes</a
             >
-            <a
-              href="./saudiDestinations.html"
-              class="block hover:text-[#32D2A0] transition-colors"
-              data-i18n="nav.saudiDestinations"
-              >Saudi Destinations</a
-            >
+
             <a
               href="./media.html"
               class="block hover:text-[#32D2A0] transition-colors"
@@ -204,18 +179,23 @@
               data-i18n="nav.contactUs"
               >Contact</a
             >
-            <a href="#" class="block hover:text-[#32D2A0] transition-colors" data-i18n="nav.visitSaudi"
+            <a
+              href="#"
+              class="block hover:text-[#32D2A0] transition-colors"
+              data-i18n="nav.visitSaudi"
               >Visit Saudi</a
             >
 
             <!-- Mobile Actions -->
             <div class="pt-4 border-t border-black border-opacity-20 space-y-3">
+              <!-- Updated mobile language selector to match contact.html -->
               <div class="flex items-center space-x-2 text-black">
-                <!--<span class="text-sm">العربية</span>-->
+                <span class="text-sm">العربية</span>
                 <div
+                  id="language-selector"
                   class="flex items-center space-x-1 bg-gray-300 rounded px-2 py-1"
                 >
-                  <span class="text-xs">🇸🇦</span>
+                  <span class="text-[10px]">SA</span>
                   <span class="text-sm">AR</span>
                 </div>
               </div>
@@ -229,10 +209,6 @@
             </div>
           </div>
         </div>
-        <!-- <div
-          id="nav-overlay"
-          class="absolute inset-0 bg-black/50 z-[-10]"
-        ></div> -->
       </nav>
     </header>
 
@@ -247,12 +223,14 @@
             <a
               href="#"
               class="relative text-gray-800 pb-2 mb-4 md:mb-0 font-medium text-sm nav-item active"
-              data-i18n="media.news">News</a
+              data-i18n="media.news"
+              >News</a
             >
             <a
-              href="#video-123"
+              href="#videoSection"
               class="relative text-gray-800 pb-2 mb-4 md:mb-0 font-medium text-sm nav-item"
-              data-i18n="media.video">Video</a
+              data-i18n="media.video"
+              >Video</a
             >
           </nav>
         </div>
@@ -262,14 +240,52 @@
             alt="Pen"
             class="w-10 h-10 inline-block object-cover"
           />
-          <h2 class="font-bold text-[#495057] text-2xl" data-i18n="media.news">News</h2>
+          <h2
+            class="font-bold text-[#495057] text-2xl"
+            data-i18n="media.newsTitle"
+          >
+            News
+          </h2>
         </div>
-        <!-- <div class="flex gap-2 my-5 justify-end">
-          <button class="bg-white px-3 py-1.5 rounded-md text-sm text-gray-600">
-            Placeholder Text
-          </button>
-        </div> -->
+
         <hr class="border my-5 border-white/70 w-full" />
+        <!-- News Modal -->
+        <!-- POPUP MODAL -->
+        <div
+          id="newsModal"
+          class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
+        >
+          <div
+            class="bg-white h-[500px] overflow-y-auto rounded-xl max-w-[95%] sm:max-w-xl w-full p-6 relative"
+          >
+            <!-- Close button -->
+            <button
+              id="closeModal"
+              class="absolute cursor-pointer top-3 right-3 text-gray-600 hover:text-black text-3xl"
+            >
+              &times;
+            </button>
+
+            <!-- Modal Content -->
+            <h2
+              id="modalTitle"
+              class="text-xl font-bold mb-2 text-gray-900"
+            ></h2>
+            <p id="modalDate" class="text-sm text-gray-500 mb-4"></p>
+
+            <div class="relative w-full h-56 mb-4">
+              <img
+                id="modalImage"
+                src="/placeholder.svg"
+                alt=""
+                class="w-full h-full object-cover rounded-md"
+              />
+            </div>
+
+            <p id="modalDescription" class="text-gray-700 leading-relaxed"></p>
+          </div>
+        </div>
+        <!-- News Grid Section -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10">
           <div class="col-span-1">
             <!-- Single Card with Progress Bar and Auto Image Slider -->
@@ -292,19 +308,19 @@
                   <img
                     src="./assets/slide1.jpg"
                     alt="Gallery Image 1"
-                    class="gallery-image absolute rounded-2xl inset-0 w-full h-full object-cover transition-opacity duration-500"
+                    class="gallery-image image1 absolute rounded-2xl inset-0 w-full h-full object-cover transition-opacity duration-500"
                     style="opacity: 1"
                   />
                   <img
                     src="./assets/slide2.jpg"
                     alt="Gallery Image 2"
-                    class="gallery-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                    class="gallery-image image2 absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
                     style="opacity: 0"
                   />
                   <img
                     src="./assets/slide3.jpg"
                     alt="Gallery Image 3"
-                    class="gallery-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+                    class="gallery-image absolute image3 inset-0 w-full h-full object-cover transition-opacity duration-500"
                     style="opacity: 0"
                   />
                 </div>
@@ -312,22 +328,25 @@
 
               <!-- Text Content -->
               <div class="text-white pt-5 px-8 md:px-12 mb-8">
-                <h3 class="text-2xl md:text-4xl font-semibold mb-2" data-i18n="media.placeholderTitle">
+                <h3
+                  id="bigCardTitle"
+                  class="text-xl leading-7 md:text-2xl font-semibold mb-2"
+                >
                   Placeholder Text
                 </h3>
-                <p class="text-sm opacity-90" data-i18n="media.placeholderDescription">
+                <p id="bigCardDesc" class="text-sm opacity-90">
                   Placeholder Text Used To Fill Space
                 </p>
               </div>
 
               <!-- Button -->
-              <div class="md:px-12 px-8 pb-16">
+              <div class="md:px-12 flex flex-col items-start px-8 pb-16">
                 <a
+                  id="readMoreBtn"
                   href="#"
                   class="flex items-center gap-2 text-white font-light text-xs hover:underline"
-                  data-i18n="buttons.readMore"
                 >
-                  Read More
+                  <span data-i18n="media.readMore">Read More</span>
                   <div class="bg-white p-[1px] rounded-full">
                     <svg
                       class="w-3 h-3"
@@ -446,7 +465,12 @@
           </button>
 
           <!-- Text -->
-          <h2 class="text-2xl font-bold text-[#566578]" data-i18n="media.placeholderText">Placeholder Text</h2>
+          <h2
+            class="text-2xl font-bold text-[#566578]"
+            data-i18n="media.newsUpdates"
+          >
+            News & Updates
+          </h2>
         </div>
         <div class="mb-16 px-16">
           <hr class="border-gray-300" />
@@ -512,10 +536,16 @@
             <!-- Video Title and Description at bottom of dark container -->
             <!-- Updated text colors for dark background and positioned at bottom -->
             <div>
-              <h3 class="text-2xl font-bold text-white mb-2" data-i18n="media.placeholderTitle">
-                Placeholder Text
+              <h3
+                class="text-2xl font-bold text-white mb-2"
+                data-i18n="media.featuredNews"
+              >
+                Featured News
               </h3>
-              <p class="text-gray-300" data-i18n="media.placeholderDescription">Placeholder Text Used To Fill Space</p>
+              <p class="text-gray-300" data-i18n="media.featuredNewsDesc">
+                Watch the latest updates and stories from the Air Connectivity
+                Program.
+              </p>
             </div>
           </div>
 
@@ -524,10 +554,16 @@
             class="flex flex-col justify-start items-center bg-gradient-to-r from-[#F8F9FA] to-[#E9ECEF] lg:h-[90%] lg:my-auto px-8 sm:px-0 py-16 mx-8 sm:mx-16 mt-16 lg:pt-20 lg:pb-0 lg:mx-0 lg:my-0"
           >
             <div class="w-full sm:w-1/2">
-              <h3 class="text-4xl font-bold text-[#44505E] mb-4" data-i18n="media.latestNews">
+              <h3
+                class="text-4xl font-bold text-[#44505E] mb-4"
+                data-i18n="media.latestNews"
+              >
                 Latest News
               </h3>
-              <p class="text-[#A5A5A5] mb-12 text-lg leading-5" data-i18n="media.latestNewsDescription">
+              <p
+                class="text-[#A5A5A5] mb-12 text-lg leading-5"
+                data-i18n="media.latestNewsDesc"
+              >
                 Stay updated with the most recent announcements, press releases,
                 and updates from the Air Connectivity Program. Watch our
                 featured stories and explore the latest developments shaping
@@ -541,7 +577,7 @@
 
     <!-- Adding new video cards slider section as separate section -->
     <section
-      id="video-123"
+      id="videoSection"
       class="max-w-7xl mx-auto my-32 px-4 sm:px-6 lg:px-8"
     >
       <!-- First Row: Title and Navigation -->
@@ -566,7 +602,12 @@
           </button>
 
           <!-- Text -->
-          <h2 class="text-2xl font-bold text-[#566578]" data-i18n="media.mediaHighlights">Media Highlights</h2>
+          <h2
+            class="text-2xl font-bold text-[#566578]"
+            data-i18n="media.mediaHighlights"
+          >
+            Media Highlights
+          </h2>
         </div>
 
         <!-- Video Cards Slider Navigation with Progress Bar -->
@@ -667,7 +708,12 @@
           </div>
           <!-- Column 2: Overview -->
           <div class="lg:col-span-1">
-            <h3 class="text-lg font-semibold mb-6 text-white" data-i18n="footer.overview">Overview</h3>
+            <h3
+              class="text-lg font-semibold mb-6 text-white"
+              data-i18n="footer.overview"
+            >
+              Overview
+            </h3>
             <ul class="space-y-3">
               <li>
                 <a
@@ -687,7 +733,7 @@
               </li>
               <li>
                 <a
-                  href="./contact.html"
+                  href="#"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.becomePartner"
                   >Become a Partner</a
@@ -697,7 +743,10 @@
           </div>
           <!-- Column 3: Contact and Support -->
           <div class="lg:col-span-1">
-            <h3 class="text-lg font-semibold mb-6 text-white" data-i18n="footer.contactSupport">
+            <h3
+              class="text-lg font-semibold mb-6 text-white"
+              data-i18n="footer.contactSupport"
+            >
               Contact and Support
             </h3>
             <ul class="space-y-3">
@@ -729,11 +778,16 @@
           </div>
           <!-- Column 4: Related Links -->
           <div class="lg:col-span-1">
-            <h3 class="text-lg font-semibold mb-6 text-white" data-i18n="footer.relatedLinks">Related Links</h3>
+            <h3
+              class="text-lg font-semibold mb-6 text-white"
+              data-i18n="footer.relatedLinks"
+            >
+              Related Links
+            </h3>
             <ul class="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="https://www.vision2030.gov.sa/ar/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.vision2030"
                   >Vision 2030</a
@@ -741,7 +795,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://mt.gov.sa/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.ministryTourism"
                   >Ministry of Tourism</a
@@ -749,7 +803,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://gaca.gov.sa/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.gaca"
                   >GACA</a
@@ -757,7 +811,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.sta.gov.sa/en/home"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.saudiTourismAuthority"
                   >Saudi Tourism Authority</a
@@ -765,7 +819,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.tdf.gov.sa/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.tdfRedSea"
                   >TDF & Red Sea Authority</a
@@ -775,7 +829,12 @@
           </div>
           <!-- Column 5: Follow us on -->
           <div class="lg:col-span-1">
-            <h3 class="text-lg font-semibold mb-6 text-white" data-i18n="footer.followUs">Follow us on</h3>
+            <h3
+              class="text-lg font-semibold mb-6 text-white"
+              data-i18n="footer.followUs"
+            >
+              Follow us on
+            </h3>
             <!-- Social Media Icons -->
             <div class="flex space-x-4 mb-8">
               <a
@@ -833,38 +892,200 @@
                 />
               </svg>
               <div class="text-sm text-gray-300 leading-relaxed">
-                <p data-i18n="footer.address">2nd Floor, Building 6 GACA Complex, Riyadh 12512, Saudi</p>
+                <p data-i18n="footer.address">
+                  2nd Floor, Building 6 GACA Complex, Riyadh 12519, Saudi
+                </p>
               </div>
             </div>
           </div>
         </div>
         <!-- Copyright Section -->
         <div class="border-t border-gray-600 mt-12 pt-8">
-          <p class="text-gray-400 text-sm text-center lg:text-left" data-i18n="footer.copyright">
+          <p
+            class="text-gray-400 text-sm text-center lg:text-left"
+            data-i18n="footer.copyright"
+          >
             All rights reserved to the Digital Government Authority © 2025
           </p>
         </div>
       </div>
     </footer>
-    
+
     <script>
+      // Initialize i18next
+      i18next.init(
+        {
+          lng: "en", // default language
+          resources: {
+            en: {
+              translation: {
+                // Navigation
+                "nav.about": "About",
+                "nav.routes": "Routes",
+                "nav.mediaCenter": "Media Center",
+                "nav.contactUs": "Contact Us",
+                "nav.visitSaudi": "Visit Saudi",
+                "nav.becomePartner": "Become a Partner",
+
+                // Media content
+                "media.news": "News",
+                "media.video": "Video",
+                "media.newsTitle": "News",
+                "media.readMore": "Read More",
+                "media.featured": "Featured",
+                "media.mostLiked": "Most Liked",
+                "media.topTrending": "Top Trending",
+                "media.featuredArticles": "Featured Articles",
+                "media.newsUpdates": "News & Updates",
+                "media.featuredNews": "Featured News",
+                "media.featuredNewsDesc":
+                  "Watch the latest updates and stories from the Air Connectivity Program.",
+                "media.latestNews": "Latest News",
+                "media.latestNewsDesc":
+                  "Stay updated with the most recent announcements, press releases, and updates from the Air Connectivity Program. Watch our featured stories and explore the latest developments shaping Saudi Arabia's aviation and tourism sector.",
+                "media.mediaHighlights": "Media Highlights",
+
+                // Footer
+                "footer.overview": "Overview",
+                "footer.brief": "Brief",
+                "footer.ourPartners": "Our Partners",
+                "footer.becomePartner": "Become a Partner",
+                "footer.contactSupport": "Contact and Support",
+                "footer.contactUs": "Contact us",
+                "footer.mediaCenter": "Media Center",
+                "footer.privacyTerms": "Privacy and Terms of Use",
+                "footer.relatedLinks": "Related Links",
+                "footer.vision2030": "Vision 2030",
+                "footer.ministryTourism": "Ministry of Tourism",
+                "footer.gaca": "GACA",
+                "footer.saudiTourismAuthority": "Saudi Tourism Authority",
+                "footer.tdfRedSea": "TDF & Red Sea Authority",
+                "footer.followUs": "Follow us on",
+                "footer.address":
+                  "2nd Floor, Building 6 GACA Complex, Riyadh 12519, Saudi",
+                "footer.copyright":
+                  "All rights reserved to the Digital Government Authority © 2025",
+              },
+            },
+            ar: {
+              translation: {
+                // Navigation
+                "nav.about": "حول البرنامج",
+                "nav.routes": "الطرق",
+                "nav.mediaCenter": "المركز الإعلامي",
+                "nav.contactUs": "تواصل معنا",
+                "nav.visitSaudi": "زوروا السعودية",
+                "nav.becomePartner": "كن شريكاً",
+
+                // Media content
+                "media.news": "الأخبار",
+                "media.video": "فيديو",
+                "media.newsTitle": "الأخبار",
+                "media.readMore": "اقرأ المزيد",
+                "media.featured": "مميز",
+                "media.mostLiked": "الأكثر إعجاباً",
+                "media.topTrending": "الأكثر رواجاً",
+                "media.featuredArticles": "المقالات المميزة",
+                "media.newsUpdates": "الأخبار والتحديثات",
+                "media.featuredNews": "الأخبار المميزة",
+                "media.featuredNewsDesc":
+                  "شاهد أحدث التحديثات والقصص من برنامج الربط الجوي.",
+                "media.latestNews": "آخر الأخبار",
+                "media.latestNewsDesc":
+                  "ابق على اطلاع بأحدث الإعلانات والبيانات الصحفية والتحديثات من برنامج الربط الجوي. شاهد قصصنا المميزة واستكشف أحدث التطورات التي تشكل قطاع الطيران والسياحة في المملكة العربية السعودية.",
+                "media.mediaHighlights": "تغطيات إعلامية",
+
+                //Footer
+                "footer.overview": "لمحة عامة",
+                "footer.brief": "نبذة",
+                "footer.ourPartners": "شركاؤنا",
+                "footer.becomePartner": "كن شريكاً",
+                "footer.contactSupport": "لتواصل والدعم",
+                "footer.contactUs": "اتصل بنا",
+                "footer.mediaCenter": "المركز الإعلامي",
+                "footer.privacyTerms": "الخصوصية وشروط الاستخدام",
+                "footer.relatedLinks": "روابط ذات صلة",
+                "footer.vision2030": "رؤية٢٠٣٠",
+                "footer.ministryTourism": "وزارة السياحة",
+                "footer.gaca": "هيئة الطيران المدني",
+                "footer.saudiTourismAuthority": "الهيئة السعودية للسياحة",
+                "footer.tdfRedSea": "صندوق التنمية السياحية وسلطة البحر الأحمر",
+                "footer.followUs": "تابعنا على",
+                "footer.address":
+                  "الطابق الثاني، المبنى ٦ مجمع هيئة الطيران المدني، الرياض، ١٢٥١٩ السعودية",
+                "footer.copyright":
+                  "جميع الحقوق محفوظة لهيئة الحكومة الرقمية © 2025",
+              },
+            },
+          },
+        },
+        function () {
+          updateContent(); // render initial text
+        }
+      );
+
+      // Change language and refresh UI
+      function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
+
+        document
+          .querySelector("footer")
+          .classList.add(lang === "ar" ? "!text-right" : "!text-left");
+        document
+          .querySelector("footer")
+          .classList.remove(lang === "ar" ? "!text-left" : "!text-right");
+        
+
+        i18next.changeLanguage(lang, () => {
+          updateContent();
+          renderVideoCardsSlider();
+        });
+      }
+
+      // Auto update all tags with [data-i18n]
+      function updateContent() {
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          el.innerHTML = i18next.t(key);
+        });
+
+        // Update placeholders
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          el.placeholder = i18next.t(key);
+        });
+      }
+
+      // Language selector click handler
+      document.addEventListener("DOMContentLoaded", function () {
+        const languageSelectors =
+          document.querySelectorAll("#language-selector");
+        languageSelectors.forEach((selector) => {
+          selector.addEventListener("click", function () {
+            const currentLang = i18next.language;
+            const newLang = currentLang === "en" ? "ar" : "en";
+            setLanguage(newLang);
+          });
+        });
+      });
+
+      let currentBigCardArticle = null;
+
       // Mobile menu toggle
       const mobileMenuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
-
       if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener("click", function () {
           mobileMenu.classList.toggle("hidden");
         });
       }
-
       // Mobile about dropdown toggle
       const mobileAboutButton = document.getElementById("mobile-about-button");
       const mobileAboutDropdown = document.getElementById(
         "mobile-about-dropdown"
       );
       const mobileAboutArrow = document.getElementById("mobile-about-arrow");
-
       if (mobileAboutButton && mobileAboutDropdown && mobileAboutArrow) {
         mobileAboutButton.addEventListener("click", function () {
           mobileAboutDropdown.classList.toggle("hidden");
@@ -879,105 +1100,236 @@
             id: 1,
             title:
               "Flights between Abha and Doha Resumed, First Aircraft Landed at Abha International Airport",
+            description:
+              "The Air Connectivity Program (ACP) has thanked Qatar Airways for the resumption of direct flights between Doha and Abha in collaboration with Discover Aseer and Abha International Airport.",
             date: "02 January 2025",
-            image: "./assets/news/abha.png",
+            images: [
+              "./assets/news/abha.png",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Abha, KSA",
             category: "featured",
           },
           {
             id: 2,
             title:
               "Air Connectivity Program Welcomes Lufthansa's New Direct Munich to Riyadh Flights",
+            description:
+              "The Saudi Air Connectivity Program (ACP) has welcomed Lufthansa's launch of direct flights from Munich to Riyadh, with three weekly flights set to begin on October 27 of this year.",
             date: "19 August 2025",
-            image: "./assets/news/munich.png",
+            images: [
+              "./assets/news/munich.png",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Riyadh, KSA",
             category: "featured",
           },
           {
             id: 3,
             title:
               "China Southern Airlines Launches New Route between Guangzhou, Riyadh",
+            description:
+              "China Southern Airlines, in cooperation with the Air Connectivity Program, the Saudi Tourism Authority, and Riyadh Airports Company, has announced the launch of a new flight route between Guangzhou in China and Riyadh, starting in September 2025. The route will operate three times per week, adding over 86,000 seats annually to this route.",
             date: "17 July 2025",
-            image: "./assets/news/china.jpg",
+            images: [
+              "./assets/news/china.jpg",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Riyadh, KSA",
             category: "featured",
           },
           {
             id: 4,
             title:
               "Direct Flights Between Dammam, London to Launch in November via Saudia",
+            description:
+              "The Saudi Air Connectivity Program, in cooperation with the Saudi Tourism Authority, Dammam Airports Company, and Sharqia Development Authority (SDA), announced the launch of flights connecting King Fahd International Airport in Dammam with Heathrow Airport in London. The flights will be operated by Saudia, with three weekly flights each way starting in November.",
             date: "09 July 2025",
-            image: "./assets/news/dammam.jpg",
+            images: [
+              "./assets/news/dammam.jpg",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Dammam, KSA",
             category: "featured",
           },
           {
             id: 5,
             title:
               "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
+            description:
+              "King Abdulaziz International Airport in Jeddah today welcomed the inaugural flight of China's Hainan Airlines, marking the launch of the first direct route between Jeddah and the Chinese city of Haikou.",
             date: "28 July 2025",
-            image: "./assets/news/haikou.jpg",
+            images: [
+              "./assets/news/haikou.jpg",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Jeddah, KSA",
             category: "featured",
           },
           {
             id: 6,
             title:
               "Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status",
+            description:
+              "King Khalid International Airport today welcomed the inaugural flight of British airline Virgin Atlantic, arriving from London Heathrow and carrying the company's founder, Richard Branson.",
             date: "23 April 2025",
-            image: "./assets/news/virgin.png",
+            images: [
+              "./assets/news/virgin.png",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Riyadh, KSA",
             category: "featured",
           },
           {
             id: 7,
             title:
               "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
+            description:
+              "The Air Connectivity Program (ACP), in partnership with the Al Madinah Region Development Authority (MDA), has announced the expansion of Transavia France's travel services to Saudi Arabia. Beginning in October, new routes will be launched from Paris-Orly, Lyon, Marseille, and Toulouse to Madinah.",
             date: "17 April 2025",
-            image: "./assets/news/madina.jpg",
+            images: [
+              "./assets/news/madina.jpg",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Madinah, KSA",
             category: "featured",
           },
           {
             id: 8,
             title:
               "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
+            description:
+              "The Saudi Air Connectivity Program (ACP), in collaboration with the Saudi Tourism Authority (STA) and Jeddah Airports Company (JEDCO), announced on Tuesday the launch of direct flights from Stuttgart, Germany, to Jeddah.",
             date: "05 March 2025",
-            image: "./assets/news/stuttgart.jpg",
+            images: [
+              "./assets/news/stuttgart.jpg",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Jeddah, KSA",
             category: "featured",
           },
         ],
         mostliked: [
           {
-            id: 9,
+            id: 7,
             title:
               "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
+            description:
+              "The Air Connectivity Program (ACP), in partnership with the Al Madinah Region Development Authority (MDA), has announced the expansion of Transavia France's travel services to Saudi Arabia. Beginning in October, new routes will be launched from Paris-Orly, Lyon, Marseille, and Toulouse to Madinah.",
             date: "17 April 2025",
-            image: "./assets/news/madina.jpg",
-            category: "mostliked",
+            images: [
+              "./assets/news/madina.jpg",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Madinah, KSA",
+            category: "featured",
           },
           {
-            id: 10,
+            id: 8,
             title:
               "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
+            description:
+              "The Saudi Air Connectivity Program (ACP), in collaboration with the Saudi Tourism Authority (STA) and Jeddah Airports Company (JEDCO), announced on Tuesday the launch of direct flights from Stuttgart, Germany, to Jeddah.",
             date: "05 March 2025",
-            image: "./assets/news/stuttgart.jpg",
-            category: "mostliked",
+            images: [
+              "./assets/news/stuttgart.jpg",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Jeddah, KSA",
+            category: "featured",
           },
         ],
         trending: [
           {
-            id: 4,
-            title:
-              "Direct Flights Between Dammam, London to Launch in November via Saudia",
-            date: "09 July 2025",
-            image: "./assets/news/dammam.jpg",
-            category: "trending",
-          },
-          {
             id: 5,
             title:
               "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
+            description:
+              "King Abdulaziz International Airport in Jeddah today welcomed the inaugural flight of China's Hainan Airlines, marking the launch of the first direct route between Jeddah and the Chinese city of Haikou.",
             date: "28 July 2025",
-            image: "./assets/news/haikou.jpg",
-            category: "trending",
+            images: [
+              "./assets/news/haikou.jpg",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Jeddah, KSA",
+            category: "featured",
+          },
+          {
+            id: 6,
+            title:
+              "Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status",
+            description:
+              "King Khalid International Airport today welcomed the inaugural flight of British airline Virgin Atlantic, arriving from London Heathrow and carrying the company's founder, Richard Branson.",
+            date: "23 April 2025",
+            images: [
+              "./assets/news/virgin.png",
+              "./assets/slide2.jpg",
+              "./assets/slide3.jpg",
+            ],
+            location: "Riyadh, KSA",
+            category: "featured",
           },
         ],
       };
+      // Modal Functionality
 
+      // Modal references
+      const newsModal = document.getElementById("newsModal");
+      const closeModalBtn = document.getElementById("closeModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDate = document.getElementById("modalDate");
+      const modalImage = document.getElementById("modalImage");
+      const modalDescription = document.getElementById("modalDescription");
+
+      // Read More button
+      const readMoreBtn = document.querySelector("#readMoreBtn"); // your Read More link
+      // Show modal with current big card article
+      function openModal() {
+        if (!currentBigCardArticle) return;
+
+        modalTitle.textContent = currentBigCardArticle.title;
+        modalDate.textContent = currentBigCardArticle.date;
+        modalImage.src = currentBigCardArticle.images[0];
+        modalDescription.textContent = currentBigCardArticle.description;
+
+        newsModal.classList.remove("hidden");
+        newsModal.classList.add("flex");
+      }
+
+      // Close modal
+      function closeModal() {
+        newsModal.classList.add("hidden");
+        newsModal.classList.remove("flex");
+      }
+
+      // Open modal on Read More click
+      readMoreBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        openModal();
+      });
+
+      // Close modal on button click
+      closeModalBtn.addEventListener("click", closeModal);
+
+      // Close modal on outside click
+      newsModal.addEventListener("click", (e) => {
+        if (e.target === newsModal) {
+          closeModal();
+        }
+      });
+
+      // --------------------------------------------------------------
       // DOM elements
       const filterBtn = document.getElementById("filter-btn");
       const filterDropdown = document.getElementById("filter-dropdown");
@@ -1003,6 +1355,27 @@
         filterDropdown.classList.remove("hidden");
       }
 
+      // ------------------ ARTICLE LIST + BIG CARD ------------------
+
+      // Add click handlers to article items
+      function attachArticleClickHandlers() {
+        const articleItems = document.querySelectorAll(".article-item");
+
+        articleItems.forEach((item) => {
+          item.addEventListener("click", () => {
+            const id = parseInt(item.dataset.id, 10);
+            const filter = item.dataset.filter;
+
+            // Find the article data
+            const article = articlesData[filter].find((a) => a.id === id);
+
+            if (article) {
+              updateBigCard(article);
+            }
+          });
+        });
+      }
+
       // Render articles based on filter
       function renderArticles(filter) {
         const articles = articlesData[filter] || [];
@@ -1010,102 +1383,70 @@
         articlesContainer.innerHTML = articles
           .map(
             (article) => `
-                <div class="flex gap-4 p-4  hover:bg-gray-50 rounded-lg transition-colors duration-200">
-                    <!-- Article Image -->
-                    <div class="flex-shrink-0">
-                        <img 
-                            src="${article.image}" 
-                            alt="${article.title}"
-                            class="w-40 h-20 object-cover rounded-sm"
-                            onerror="this.style.backgroundColor='#f3f4f6'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='<span class=\\'text-gray-400 text-xs\\'>Image</span>'"
-                        >
-                    </div>
-                    
-                    <!-- Article Content -->
-                    <div class="flex-1 min-w-0">
-                        <h3 class="font-medium text-gray-900 mb-1 leading-tight">
-                            ${article.title}
-                        </h3>
-                        <p class="text-sm text-gray-500">
-                            ${article.date}
-                        </p>
-                    </div>
-                </div>
-            `
+        <div
+          class="article-item flex gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+          data-id="${article.id}"
+          data-filter="${filter}">
+            <!-- Article Image -->
+            <div class="flex-shrink-0">
+                <img
+                    src="${article.images[0]}"
+                    alt="${article.title}"
+                    class="w-40 h-20 object-cover rounded-sm"
+                >
+            </div>
+
+            <!-- Article Content -->
+            <div class="flex-1 min-w-0">
+                <h3 class="font-medium cursor-pointer text-gray-900 mb-1 leading-tight">
+                    ${article.title}
+                </h3>
+                <p class="text-sm text-gray-500">
+                    ${article.date}
+                </p>
+            </div>
+        </div>`
           )
           .join("");
-      }
 
-      // Update section title based on filter
-      function updateSectionTitle(filter) {
-        const titles = {
-          featured: "Featured",
-          mostliked: "Most Liked",
-          trending: "Top Trending",
-        };
-        sectionTitle.textContent = titles[filter] || "Articles";
-      }
+        //After rendering, attach click listeners
+        attachArticleClickHandlers();
 
-      // Handle filter selection
-      function handleFilterSelect(filter) {
-        currentFilter = filter;
-        renderArticles(filter);
-        updateSectionTitle(filter);
-        hideDropdown();
-      }
-
-      // Event listeners
-      filterBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        toggleDropdown();
-      });
-
-      // Handle filter option clicks
-      filterOptions.forEach((option) => {
-        option.addEventListener("click", (e) => {
-          e.stopPropagation();
-          const filter = option.getAttribute("data-filter");
-          handleFilterSelect(filter);
-        });
-      });
-
-      // Close dropdown when clicking outside
-      document.addEventListener("click", (e) => {
-        if (
-          !filterDropdown.contains(e.target) &&
-          !filterBtn.contains(e.target)
-        ) {
-          hideDropdown();
+        // 🔹 Auto-load first article if exists
+        if (articles.length > 0) {
+          updateBigCard(articles[0]);
         }
-      });
+      }
 
-      // Close dropdown on escape key
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          hideDropdown();
-        }
-      });
+      // Big card references
+      const bigCardImage1 = document.querySelector(".image-gallery .image1"); // first image in gallery
+      const bigCardImage2 = document.querySelector(".image-gallery .image2"); // 2nd image in gallery
+      const bigCardImage3 = document.querySelector(".image-gallery .image3"); // 3rd image in gallery
+      const bigCardTitle = document.querySelector("#bigCardTitle");
+      const bigCardDesc = document.querySelector("#bigCardDesc");
 
-      // Initialize with featured articles
-      renderArticles(currentFilter);
-      updateSectionTitle(currentFilter);
+      // ------------------ SLIDER LOGIC ------------------
 
-      // Single card image gallery with progress bar
-      const gallery = document.querySelector(".image-gallery");
-      const images = gallery.querySelectorAll(".gallery-image");
-      const progressBar = document.querySelector(".progress-bar");
-      const totalImages = images.length;
+      let gallery = document.querySelector(".image-gallery");
+      let progressBar = document.querySelector(".progress-bar");
       let currentImageIndex = 0;
       let progressInterval;
       let imageInterval;
 
+      function getImages() {
+        return gallery.querySelectorAll(".gallery-image");
+      }
+
       function showImage(index) {
+        const images = getImages();
         images.forEach((img, i) => {
           img.style.opacity = i === index ? "1" : "0";
         });
       }
 
       function updateProgress() {
+        const images = getImages();
+        const totalImages = images.length;
         const baseProgress = (currentImageIndex / totalImages) * 100;
         const incrementPerImage = 100 / totalImages;
         let currentProgress = 0;
@@ -1128,15 +1469,24 @@
       }
 
       function nextImage() {
+        const images = getImages();
         currentImageIndex = (currentImageIndex + 1) % images.length;
         showImage(currentImageIndex);
         updateProgress();
       }
 
-      // Start the gallery
-      updateProgress();
-      clearInterval(imageInterval);
-      imageInterval = setInterval(nextImage, 3000);
+      // Start slider fresh
+      function startSlider() {
+        currentImageIndex = 0;
+
+        // Show first image immediately
+        showImage(currentImageIndex);
+        updateProgress();
+
+        // Restart interval
+        clearInterval(imageInterval);
+        imageInterval = setInterval(nextImage, 3000);
+      }
 
       // Pause on hover
       gallery.addEventListener("mouseenter", () => {
@@ -1145,10 +1495,82 @@
       });
 
       gallery.addEventListener("mouseleave", () => {
-        updateProgress();
-        clearInterval(imageInterval);
-        imageInterval = setInterval(nextImage, 3000);
+        startSlider();
       });
+
+      // ------------------ UPDATE BIG CARD ------------------
+
+      function updateBigCard(article) {
+        // Update images
+        bigCardImage1.src = article.images[0] || "";
+        bigCardImage2.src = article.images[1] || "";
+        bigCardImage3.src = article.images[2] || "";
+
+        // Update text
+        bigCardTitle.textContent = article.title;
+        bigCardDesc.textContent = article.description
+          ? article.description.slice(0, 100) + "..."
+          : "";
+
+        // Wait for at least first image to load before starting slider
+        bigCardImage1.onload = () => {
+          startSlider();
+        };
+        currentBigCardArticle = article; // store current article globally
+      }
+
+      // ------------------ SECTION TITLE & FILTER ------------------
+
+      function updateSectionTitle(filter) {
+        const titles = {
+          featured: "Featured",
+          mostliked: "Most Liked",
+          trending: "Top Trending",
+        };
+        sectionTitle.textContent = titles[filter] || "Articles";
+      }
+
+      function handleFilterSelect(filter) {
+        currentFilter = filter;
+        renderArticles(filter);
+        updateSectionTitle(filter);
+        hideDropdown();
+      }
+
+      // Event listeners for filter dropdown
+      filterBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        toggleDropdown();
+      });
+
+      filterOptions.forEach((option) => {
+        option.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const filter = option.getAttribute("data-filter");
+          handleFilterSelect(filter);
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          !filterDropdown.contains(e.target) &&
+          !filterBtn.contains(e.target)
+        ) {
+          hideDropdown();
+        }
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          hideDropdown();
+        }
+      });
+
+      // ------------------ INIT ------------------
+
+      renderArticles(currentFilter);
+      updateSectionTitle(currentFilter);
+      startSlider(); // Start slider initially
 
       // Video player controls for the main video section
       const video = document.getElementById("mainVideo");
@@ -1210,63 +1632,63 @@
       const videoCardsData = [
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
-          title: "Featured News",
-          text: "Watch the latest updates and stories from the Air Connectivity Program.",
+          titleKey: "media.featuredNews",
+          textKey: "media.featuredNewsDesc",
         },
       ];
 
@@ -1295,15 +1717,15 @@
         return `
                 <div class="bg-white rounded-lg overflow-hidden border border-gray-300">
                     <div class="relative aspect-video overflow-hidden">
-                        <video 
-                            id="videoCardsVideo${index}" 
+                        <video
+                            id="videoCardsVideo${index}"
                             class="w-full h-full object-cover"
                             poster="/placeholder.svg?height=200&width=300"
                         >
                             <source src="${card.video}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        
+
                         <div id="videoCardsOverlay${index}" class="absolute inset-0 bg-black/10 flex items-center justify-center">
                             <button id="videoCardsPlayBtn${index}" class="p-3 cursor-pointer">
                                 <svg class="w-16 h-16 text-[#6C757D]" fill="currentColor" viewBox="0 0 24 24">
@@ -1311,14 +1733,19 @@
                                 </svg>
                             </button>
                         </div>
-                        
+
                         <div id="videoCardsDuration${index}" class="absolute top-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded">
                             18:45
                         </div>
                     </div>
                     <div class="p-4">
-                        <h3 class="font-bold text-lg text-[#495057] mb-2" data-i18n="media.featuredNews">${card.title}</h3>
-                        <p class="text-[#6C757D] text-sm" data-i18n="media.featuredNewsDescription">${card.text}</p>
+                        <!-- Updated to use i18next translation keys -->
+                        <h3 class="font-bold text-lg text-[#495057] mb-2">${i18next.t(
+                          card.titleKey
+                        )}</h3>
+                        <p class="text-[#6C757D] text-sm">${i18next.t(
+                          card.textKey
+                        )}</p>
                     </div>
                 </div>
             `;
@@ -1474,176 +1901,6 @@
 
       renderVideoCardsSlider();
       updateVideoCardsNavigation();
-      
-      // Update translations for video cards after rendering
-      updateContent();
-    </script>
-
-    <script>
-      // Initialize i18next
-      i18next.init({
-        lng: 'en', // default language
-        resources: {
-          en: {
-            translation: {
-              // Navigation
-              "nav.about": "About",
-              "nav.routes": "Routes",
-              "nav.saudiDestinations": "Saudi Destinations",
-              "nav.mediaCenter": "Media Center",
-              "nav.contactUs": "Contact Us",
-              "nav.visitSaudi": "Visit Saudi",
-              "nav.becomePartner": "Become a Partner",
-              
-              // Buttons
-              "buttons.readMore": "Read More",
-              
-              // Media Content
-              "media.news": "News",
-              "media.video": "Video",
-              "media.placeholderText": "Placeholder Text",
-              "media.placeholderTitle": "Placeholder Text",
-              "media.placeholderDescription": "Placeholder Text Used To Fill Space",
-              "media.featured": "Featured",
-              "media.mostLiked": "Most Liked",
-              "media.topTrending": "Top Trending",
-              "media.featuredArticles": "Featured Articles",
-              "media.latestNews": "Latest News",
-              "media.latestNewsDescription": "Stay updated with the most recent announcements, press releases, and updates from the Air Connectivity Program. Watch our featured stories and explore the latest developments shaping Saudi Arabia's aviation and tourism sector.",
-              "media.mediaHighlights": "Media Highlights",
-              "media.featuredNews": "Featured News",
-              "media.featuredNewsDescription": "Watch the latest updates and stories from the Air Connectivity Program.",
-
-              // Footer
-              "footer.overview": "Overview",
-              "footer.brief": "Brief",
-              "footer.ourPartners": "Our Partners",
-              "footer.becomePartner": "Become a Partner",
-              "footer.contactSupport": "Contact and Support",
-              "footer.contactUs": "Contact us",
-              "footer.mediaCenter": "Media Center",
-              "footer.privacyTerms": "Privacy and Terms of Use",
-              "footer.relatedLinks": "Related Links",
-              "footer.vision2030": "Vision 2030",
-              "footer.ministryTourism": "Ministry of Tourism",
-              "footer.gaca": "GACA",
-              "footer.saudiTourismAuthority": "Saudi Tourism Authority",
-              "footer.tdfRedSea": "TDF & Red Sea Authority",
-              "footer.followUs": "Follow us on",
-              "footer.address": "2nd Floor, Building 6 GACA Complex, Riyadh 12512, Saudi",
-              "footer.copyright": "All rights reserved to the Digital Government Authority © 2025"
-            }
-          },
-          ar: {
-            translation: {
-              // Navigation
-              "nav.about": "حول",
-              "nav.routes": "الطرق",
-              "nav.saudiDestinations": "الوجهات السعودية",
-              "nav.mediaCenter": "المركز الإعلامي",
-              "nav.contactUs": "اتصل بنا",
-              "nav.visitSaudi": "زيارة السعودية",
-              "nav.becomePartner": "كن شريكاً",
-              
-              // Buttons
-              "buttons.readMore": "اقرأ المزيد",
-              
-              // Media Content
-              "media.news": "الأخبار",
-              "media.video": "الفيديو",
-              "media.placeholderText": "نص مؤقت",
-              "media.placeholderTitle": "نص مؤقت",
-              "media.placeholderDescription": "نص مؤقت يستخدم لملء المساحة",
-              "media.featured": "مميز",
-              "media.mostLiked": "الأكثر إعجاباً",
-              "media.topTrending": "الأكثر تداولاً",
-              "media.featuredArticles": "المقالات المميزة",
-              "media.latestNews": "أحدث الأخبار",
-              "media.latestNewsDescription": "ابق على اطلاع بأحدث الإعلانات والبيانات الصحفية والتحديثات من برنامج الربط الجوي. شاهد قصصنا المميزة واستكشف أحدث التطورات التي تشكل قطاع الطيران والسياحة في المملكة العربية السعودية.",
-              "media.mediaHighlights": "أبرز الإعلام",
-              "media.featuredNews": "الأخبار المميزة",
-              "media.featuredNewsDescription": "شاهد أحدث التحديثات والقصص من برنامج الربط الجوي.",
-
-              // Footer
-              "footer.overview": "نظرة عامة",
-              "footer.brief": "نبذة",
-              "footer.ourPartners": "شركاؤنا",
-              "footer.becomePartner": "كن شريكاً",
-              "footer.contactSupport": "الاتصال والدعم",
-              "footer.contactUs": "اتصل بنا",
-              "footer.mediaCenter": "المركز الإعلامي",
-              "footer.privacyTerms": "الخصوصية وشروط الاستخدام",
-              "footer.relatedLinks": "الروابط ذات الصلة",
-              "footer.vision2030": "رؤية 2030",
-              "footer.ministryTourism": "وزارة السياحة",
-              "footer.gaca": "الهيئة العامة للطيران المدني",
-              "footer.saudiTourismAuthority": "هيئة السياحة السعودية",
-              "footer.tdfRedSea": "صندوق التنمية السياحية وسلطة البحر الأحمر",
-              "footer.followUs": "تابعنا على",
-              "footer.address": "الطابق الثاني، مبنى 6، مجمع الهيئة العامة للطيران المدني، الرياض 12512، السعودية",
-              "footer.copyright": "جميع الحقوق محفوظة لهيئة الحكومة الرقمية © 2025"
-            }
-          }
-        }
-      }, function(err, t) {
-        // Initialize translation
-        updateContent();
-      });
-
-      // Change language and refresh UI
-      function setLanguage(lang) {
-        document.documentElement.lang = lang;
-        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-        
-        i18next.changeLanguage(lang, function(err, t) {
-          updateContent();
-        });
-      }
-
-      // Auto update all tags with [data-i18n]
-      function updateContent() {
-        document.querySelectorAll("[data-i18n]").forEach((el) => {
-          const key = el.getAttribute("data-i18n");
-          el.innerHTML = i18next.t(key);
-        });
-      }
-
-      // Language dropdown functions
-      function toggleLanguageDropdown() {
-        const dropdown = document.getElementById('language-dropdown');
-        dropdown.classList.toggle('hidden');
-      }
-      
-      function selectLanguage(lang) {
-        const dropdown = document.getElementById('language-dropdown');
-        const currentFlag = document.getElementById('current-flag');
-        const currentLang = document.getElementById('current-lang');
-        
-        if (lang === 'ar') {
-          currentFlag.textContent = '🇸🇦';
-          currentLang.textContent = 'AR';
-        } else {
-          currentFlag.textContent = '🇺🇸';
-          currentLang.textContent = 'EN';
-        }
-        
-        dropdown.classList.add('hidden');
-        
-        // Call existing language change function
-        if (typeof setLanguage === 'function') {
-          setLanguage(lang);
-        }
-      }
-      
-      // Close dropdown when clicking outside
-      document.addEventListener('click', function(event) {
-        const dropdown = document.getElementById('language-dropdown');
-        const button = document.getElementById('language-dropdown-button');
-        
-        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
-          dropdown.classList.add('hidden');
-        }
-      });
     </script>
   </body>
 </html>

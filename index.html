@@ -48,11 +48,11 @@
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 data-i18n="nav.routes">Routes</a
               >
-              <a
+              <!-- <a
                 href="./saudiDestinations.html"
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 data-i18n="nav.saudiDestinations">Saudi Destinations</a
-              >
+              > -->
               <a
                 href="./media.html"
                 class="hover:text-gray-200 transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
@@ -91,11 +91,11 @@
                 
                 <div
                   id="language-dropdown"
-                  class="absolute right-0 mt-2 w-32 bg-gray-700 rounded-md shadow-lg border border-gray-200 hidden z-50"
+                  class="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg border border-gray-200 hidden z-50"
                 >
                   <div class="py-1">
                     <button
-                      class="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
+                      class="text-black w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
                       data-lang="ar"
                       onclick="selectLanguage('ar')"
                     >
@@ -103,7 +103,7 @@
                       <span>العربية</span>
                     </button>
                     <button
-                      class="w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
+                      class="text-black w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
                       data-lang="en"
                       onclick="selectLanguage('en')"
                     >
@@ -114,43 +114,7 @@
                 </div>
               </div>
               
-              <script>
-                function toggleLanguageDropdown() {
-                  const dropdown = document.getElementById('language-dropdown');
-                  dropdown.classList.toggle('hidden');
-                }
-                
-                function selectLanguage(lang) {
-                  const dropdown = document.getElementById('language-dropdown');
-                  const currentFlag = document.getElementById('current-flag');
-                  const currentLang = document.getElementById('current-lang');
-                  
-                  if (lang === 'ar') {
-                    currentFlag.textContent = '🇸🇦';
-                    currentLang.textContent = 'AR';
-                  } else {
-                    currentFlag.textContent = '🇺🇸';
-                    currentLang.textContent = 'EN';
-                  }
-                  
-                  dropdown.classList.add('hidden');
-                  
-                  // Call existing language change function
-                  if (typeof setLanguage === 'function') {
-                    setLanguage(lang);
-                  }
-                }
-                
-                // Close dropdown when clicking outside
-                document.addEventListener('click', function(event) {
-                  const dropdown = document.getElementById('language-dropdown');
-                  const button = document.getElementById('language-dropdown-button');
-                  
-                  if (!button.contains(event.target) && !dropdown.contains(event.target)) {
-                    dropdown.classList.add('hidden');
-                  }
-                });
-              </script>
+              
 
               <!-- Become a Partner Button -->
               <a
@@ -214,13 +178,44 @@
             <div class="pt-4 border-t border-white border-opacity-20 space-y-3">
               <div class="flex items-center space-x-2">
                 <span class="text-sm">العربية</span>
-                <div
-                id="language-selector"
-                  class="flex items-center space-x-1 bg-[#C5BBFF]/20 rounded px-2 py-1"
+                <!-- Language Selector Dropdown -->
+              <div class="hidden md:block relative">
+                <button
+                  id="language-dropdown-button"
+                  class="flex items-center space-x-1 bg-[#C5BBFF]/20 rounded px-2 py-1 hover:bg-[#C5BBFF]/30 transition-colors duration-200"
+                  onclick="toggleLanguageDropdown()"
                 >
-                  <span class="text-xs">🇸🇦</span>
-                  <span class="text-sm">AR</span>
+                  <span class="text-xs" id="current-flag">🇸🇦</span>
+                  <span class="text-sm" id="current-lang">AR</span>
+                  <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                
+                <div
+                  id="language-dropdown"
+                  class="absolute right-0 mt-2 w-32 bg-white rounded-md shadow-lg border border-gray-200 hidden z-50"
+                >
+                  <div class="py-1">
+                    <button
+                      class="text-black w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
+                      data-lang="ar"
+                      onclick="selectLanguage('ar')"
+                    >
+                      <span>🇸🇦</span>
+                      <span>العربية</span>
+                    </button>
+                    <button
+                      class="text-black w-full text-left px-4 py-2 text-sm hover:bg-gray-100 flex items-center space-x-2"
+                      data-lang="en"
+                      onclick="selectLanguage('en')"
+                    >
+                      <span>🇺🇸</span>
+                      <span>English</span>
+                    </button>
+                  </div>
                 </div>
+              </div>
               </div>
               <a href="./contact.html"
                 class="w-full bg-white text-[#1e3a8a] px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors cursor-pointer"
@@ -1218,7 +1213,7 @@
             <ul class="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="https://www.vision2030.gov.sa/ar/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.vision2030"
                   >Vision 2030</a
@@ -1226,7 +1221,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://mt.gov.sa/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.ministryTourism"
                   >Ministry of Tourism</a
@@ -1234,7 +1229,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://gaca.gov.sa/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.gaca"
                   >GACA</a
@@ -1242,7 +1237,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.sta.gov.sa/en/home"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.saudiTourismAuthority"
                   >Saudi Tourism Authority</a
@@ -1250,7 +1245,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="https://www.tdf.gov.sa/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.tdfRedSea"
                   >TDF & Red Sea Authority</a
@@ -1425,49 +1420,48 @@
           ar: {
             translation: {
               // Navigation
-              "nav.about": "حول",
-              "nav.routes": "الطرق",
-              "nav.saudiDestinations": "الوجهات السعودية",
-              "nav.mediaCenter": "المركز الإعلامي",
-              "nav.contactUs": "اتصل بنا",
-              "nav.visitSaudi": "زيارة السعودية",
-              "nav.becomePartner": "كن شريكاً",
+                "nav.about": "حول البرنامج",
+                "nav.routes": "الطرق",
+                "nav.mediaCenter": "المركز الإعلامي",
+                "nav.contactUs": "تواصل معنا",
+                "nav.visitSaudi": "زوروا السعودية",
+                "nav.becomePartner": "كن شريكاً",
               
               // Hero Section
-              "hero.connectingWorld": "ربط العالم",
-              "hero.toSaudiArabia": "بالمملكة العربية السعودية",
+              "hero.connectingWorld": "نربط العالم بالمملكة",
+              "hero.toSaudiArabia": "العربية السعودية",
               
               // Content Section
-              "content.discoverKingdom": "اكتشف فرص الربط الجوي المثيرة للمملكة والنمو السياحي الجديد الرائع.",
+              "content.discoverKingdom": "اكتشف فرص الربط الجوي الواعدة وآفاق النمو السياحي في المملكة‌‌",
               
               // Buttons
               "buttons.becomePartner": "كن شريكاً",
-              "buttons.exploreRoutes": "استكشف الطرق",
+              "buttons.exploreRoutes": "اكتشف المسارات",
               "buttons.readMore": "اقرأ المزيد",
               
               // Sections
               "sections.airConnectivityProgram": "برنامج الربط الجوي",
               "sections.programDescription": "يهدف إلى تعزيز النمو السياحي في المملكة من خلال تعزيز الربط الجوي وتطوير الطرق الجوية الموجودة والمحتملة لربط المملكة العربية السعودية بوجهات عالمية جديدة. يعمل البرنامج كالممكن التنفيذي للاستراتيجية الوطنية للسياحة وبرنامج الطيران، حيث يعزز التعاون ويبني الشراكات بين أصحاب المصلحة الرئيسيين في القطاعين العام والخاص في السياحة والطيران لتعزيز مكانة المملكة كوجهة عالمية رائدة للربط الجوي.",
               "sections.kingdomAirports": "مطارات المملكة",
-              "sections.routes": "الطرق",
-              "sections.routesDescription": "اكتشف الطرق التي تربط المطارات السعودية بالوجهات العالمية.",
+              "sections.routes": "المسارات",
+              "sections.routesDescription": "اكتشف المسارات التي تربط مطارات المملكًة بالوجهات",
               "sections.chooseContinent": "اختر قارة",
-              "sections.news": "الأخبار",
+              "sections.news": "الاخبار",
               "sections.saudiAirConnectivity": "الربط الجوي السعودي",
-              "sections.partnersDescription": "نعمل مع قادة الطيران والسياحة الرئيسيين لتوسيع الربط.",
+              "sections.partnersDescription": "العمل مع قادة قطاعي الطيران والسياحة لتوسيع نطاق الربط الجوي",
               
               // Statistics
-              "stats.drivingGlobalConnections": "قيادة الاتصالات العالمية",
-              "stats.saudiAirConnectivity": "الربط الجوي<br>السعودي",
-              "stats.vision2030Initiative": "مبادرة رؤية 2030 لتوسيع الطرق والربط العالمي.",
-              "stats.routesActivated": "الطرق المفعلة",
-              "stats.routesActivatedDesc": "الطرق المفعلة في 2024 حتى الآن",
-              "stats.carrierCollaboration": "تعاون الناقلين",
-              "stats.carrierCollaborationDesc": "الناقلون في 2024 حتى الآن",
-              "stats.seatsGenerated": "المقاعد المولدة",
-              "stats.seatsGeneratedDesc": "4.5 مليون مقعد مولدة في 2024 حتى الآن.",
-              "stats.airlines": "الخطوط الجوية",
-              "stats.airlinesDesc": "الشراكات الاستراتيجية مع الناقلين المحليين والدوليين",
+              "stats.drivingGlobalConnections": "قيادة المسارات العالمية",
+              "stats.saudiAirConnectivity": "برنامج الربط الجوي السعودي",
+              "stats.vision2030Initiative": "مبادرة ضمن رؤية ٢٠٣٠ لتوسيع مسارات الطيران وتعزيز الربط الجوي",
+              "stats.routesActivated": "المسارات المفعلة",
+              "stats.routesActivatedDesc": "المسارات المفعلة في عام ٢-٢٤ حتى تاريخه",
+              "stats.carrierCollaboration": "التعاون مع الناقلين",
+              "stats.carrierCollaborationDesc": "الناقلون في عام ٢٠٢٤ حتى تاريخه",
+              "stats.seatsGenerated": "المقاعد التي تم توفيرها",
+              "stats.seatsGeneratedDesc": "٤.٥ مليون مقعد تم تقديمه في عام ٢٠٢٤ حتى تاريخه",
+              "stats.airlines": "شركات الطيران",
+              "stats.airlinesDesc": "شراكات استراتيجية مع شركات طيران محلية ودولية",
               
               // Search
               "search.saudiAirportsPlaceholder": "مطارات المملكة العربية السعودية...",
@@ -1478,27 +1472,30 @@
               "search.King Fahd International Airport": "مطار الملك فهد الدولي - الدمام (DMM)",
               
               // Flights
-              "flights.airline": "الخطوط الجوية",
-              "flights.started": "بدأت؟",
-              "flights.yearStarted": "سنة البداية",
+              "flights.airline": " التشغيل؟",
+              "flights.started": "هل بدأ",
+              "flights.yearStarted": "سنة التشغيل",
+              // "flights.airline": "الخطوط الجوية",
+              // "flights.started": "بدأت؟",
+              // "flights.yearStarted": "سنة البداية",
               
               // Footer
-              "footer.overview": "نظرة عامة",
+              "footer.overview": "لمحة عامة",
               "footer.brief": "نبذة",
               "footer.ourPartners": "شركاؤنا",
               "footer.becomePartner": "كن شريكاً",
-              "footer.contactSupport": "الاتصال والدعم",
+              "footer.contactSupport": "لتواصل والدعم",
               "footer.contactUs": "اتصل بنا",
               "footer.mediaCenter": "المركز الإعلامي",
               "footer.privacyTerms": "الخصوصية وشروط الاستخدام",
-              "footer.relatedLinks": "الروابط ذات الصلة",
-              "footer.vision2030": "رؤية 2030",
+              "footer.relatedLinks": "روابط ذات صلة",
+              "footer.vision2030": "رؤية٢٠٣٠",
               "footer.ministryTourism": "وزارة السياحة",
-              "footer.gaca": "الهيئة العامة للطيران المدني",
-              "footer.saudiTourismAuthority": "هيئة السياحة السعودية",
+              "footer.gaca": "هيئة الطيران المدني",
+              "footer.saudiTourismAuthority": "الهيئة السعودية للسياحة",
               "footer.tdfRedSea": "صندوق التنمية السياحية وسلطة البحر الأحمر",
               "footer.followUs": "تابعنا على",
-              "footer.address": "الطابق الثاني، مبنى 6، مجمع الهيئة العامة للطيران المدني، الرياض 12512، السعودية",
+              "footer.address": "الطابق الثاني، المبنى ٦ مجمع هيئة الطيران المدني، الرياض، ١٢٥١٩ السعودية",
               "footer.copyright": "جميع الحقوق محفوظة لهيئة الحكومة الرقمية © 2025"
             }
           }
@@ -1506,6 +1503,43 @@
       }, function(err, t) {
         // Initialize translation
         updateContent();
+      });
+
+      // Language dropdown functions
+      function toggleLanguageDropdown() {
+        const dropdown = document.getElementById('language-dropdown');
+        dropdown.classList.toggle('hidden');
+      }
+      
+      function selectLanguage(lang) {
+        const dropdown = document.getElementById('language-dropdown');
+        const currentFlag = document.getElementById('current-flag');
+        const currentLang = document.getElementById('current-lang');
+        
+        if (lang === 'ar') {
+          currentFlag.textContent = '🇸🇦';
+          currentLang.textContent = 'AR';
+        } else {
+          currentFlag.textContent = '🇺🇸';
+          currentLang.textContent = 'EN';
+        }
+        
+        dropdown.classList.add('hidden');
+        
+        // Call existing language change function
+        if (typeof setLanguage === 'function') {
+          setLanguage(lang);
+        }
+      }
+      
+      // Close dropdown when clicking outside
+      document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('language-dropdown');
+        const button = document.getElementById('language-dropdown-button');
+        
+        if (!button.contains(event.target) && !dropdown.contains(event.target)) {
+          dropdown.classList.add('hidden');
+        }
       });
 
       // Change language and refresh UI
