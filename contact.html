@@ -44,13 +44,13 @@
             <!-- Desktop Navigation -->
             <div class="hidden xl:flex items-center space-x-8 text-black">
               <a
-                href="#"
+                href="./index.html#animated-section"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 data-i18n="nav.about"
                 >About</a
               >
               <a
-                href="#"
+                href="./index.html#routes"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 data-i18n="nav.routes"
                 >Routes</a
@@ -69,7 +69,7 @@
                 >Contact Us</a
               >
               <a
-                href="#"
+                href="https://www.visitsaudi.com/en"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 data-i18n="nav.visitSaudi"
                 >Visit Saudi</a
@@ -79,14 +79,18 @@
             <div class="flex items-center space-x-4 text-black">
               <!-- Arabic Text -->
               <!--<span class="hidden md:block text-sm">العربية</span>-->
-              <!-- Language Selector -->
-              <div
-                id="language-selector"
-                class="hidden md:flex cursor-pointer items-center space-x-1 bg-gray-300 rounded px-2 py-1"
-              >
-                <span class="text-xs">🇸🇦</span>
-                <span class="text-sm">AR</span>
-              </div>
+             <!-- Language Selector -->
+               <div class="hidden md:flex">
+                 <span class="text-lg my-auto" id="language-selector-content-desktop">العربية</span>
+                 <div
+                   id="language-selector"
+                   class="flex justify-center items-center h-10 w-10 cursor-pointer items-center bg-[#C5BBFF] rounded mx-2 py-1"
+                 >
+                    <img src="./assets/language-selector.png" alt="">
+                  </div>
+
+               </div>
+              
               <!-- Become a Partner Button -->
               <a
                 href="./contact.html"
@@ -125,47 +129,49 @@
           <div class="px-4 py-4 space-y-3 text-black">
             <!-- Mobile About Dropdown -->
             <a
-              href="#"
+              href="./index.html#animated-section"
               class="block hover:text-[#32D2A0] transition-colors"
               data-i18n="nav.about"
               >About</a
             >
             <a
-              href="#"
+              href="./index.html#routes"
               class="block hover:text-[#32D2A0] transition-colors"
               data-i18n="nav.routes"
               >Routes</a
             >
             <a
-              href="#"
+              href="./media.html"
               class="block hover:text-[#32D2A0] transition-colors"
               data-i18n="nav.mediaCenter"
               >Media Center</a
             >
             <a
-              href="#"
+              href="./contact.html"
               class="block hover:text-[#32D2A0] transition-colors"
               data-i18n="nav.contactUs"
               >Contact Us</a
             >
             <a
-              href="#"
+              href="https://www.visitsaudi.com/en"
               class="block hover:text-[#32D2A0] transition-colors"
               data-i18n="nav.visitSaudi"
               >Visit Saudi</a
             >
             <!-- Mobile Actions -->
             <div class="pt-4 border-t border-black border-opacity-20 space-y-3">
-              <div class="flex items-center space-x-2 text-black">
-                <span class="text-sm">العربية</span>
-                <div
-                  id="language-selector"
-                  class="flex items-center space-x-1 bg-gray-300 rounded px-2 py-1"
-                >
-                  <span class="text-[10px]">SA</span>
-                  <span class="text-sm">AR</span>
-                </div>
-              </div>
+              <!-- Language Selector -->
+               <div class="flex">
+                 <span class="text-lg my-auto" id="language-selector-content-mobile">العربية</span>
+                 <div
+                   id="language-selector"
+                   class="flex justify-center items-center h-10 w-10 cursor-pointer items-center bg-[#C5BBFF] rounded mx-2 py-1"
+                 >
+                    <img src="./assets/language-selector.png" alt="">
+                  </div>
+
+               </div>
+              
               <a
                 href="./contact.html"
                 class="w-full bg-[#785FDC] hover:text-black text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
@@ -401,7 +407,7 @@
             <ul class="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="./index.html#animated-section"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.brief"
                   >Brief</a
@@ -409,7 +415,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="./index.html#our-partners"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.ourPartners"
                   >Our Partners</a
@@ -417,7 +423,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="./contact.html"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.becomePartner"
                   >Become a Partner</a
@@ -505,8 +511,16 @@
                 <a
                   href="https://www.tdf.gov.sa/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
-                  data-i18n="footer.tdfRedSea"
-                  >TDF & Red Sea Authority</a
+                  data-i18n="footer.tdf"
+                  >TDF</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://redsea.gov.sa/"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.redSea"
+                  >Red Sea Authority</a
                 >
               </li>
             </ul>
@@ -522,7 +536,7 @@
             <!-- Social Media Icons -->
             <div class="flex space-x-4 mb-8">
               <a
-                href="#"
+                href="https://x.com/ACP_Saudi"
                 class="hover:text-white transition-colors duration-200"
               >
                 <svg
@@ -536,7 +550,7 @@
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/saudi-air-connectivity-program/"
                 class="text-gray-300 hover:text-white transition-colors duration-200"
               >
                 <svg
@@ -646,7 +660,8 @@
                 "footer.ministryTourism": "Ministry of Tourism",
                 "footer.gaca": "GACA",
                 "footer.saudiTourismAuthority": "Saudi Tourism Authority",
-                "footer.tdfRedSea": "TDF & Red Sea Authority",
+                "footer.tdf": "TDF",
+                "footer.redSea": "Red Sea Authority",
                 "footer.followUs": "Follow us on",
                 "footer.address":
                   "2nd Floor, Building 6 GACA Complex, Riyadh 12519, Saudi",
@@ -700,7 +715,8 @@
                 "footer.ministryTourism": "وزارة السياحة",
                 "footer.gaca": "هيئة الطيران المدني",
                 "footer.saudiTourismAuthority": "الهيئة السعودية للسياحة",
-                "footer.tdfRedSea": "صندوق التنمية السياحية وسلطة البحر الأحمر",
+                "footer.tdf": "صندوق التنمية السياحية",
+                "footer.redSea": "سلطة البحر الأحمر",
                 "footer.followUs": "تابعنا على",
                 "footer.address":
                   "الطابق الثاني، المبنى ٦ مجمع هيئة الطيران المدني، الرياض، ١٢٥١٩ السعودية",
@@ -760,7 +776,12 @@
         languageSelectors.forEach((selector) => {
           selector.addEventListener("click", function () {
             const currentLang = i18next.language;
+            const languageSelectorContentDesktop = document.getElementById('language-selector-content-desktop');
+            const languageSelectorContentMobile = document.getElementById('language-selector-content-mobile');
+            
             const newLang = currentLang === "en" ? "ar" : "en";
+            newLang === 'ar' ? languageSelectorContentDesktop.innerHTML='English' : languageSelectorContentDesktop.innerHTML='العربية'
+            newLang === 'ar' ? languageSelectorContentMobile.innerHTML='English' : languageSelectorContentMobile.innerHTML='العربية'
             setLanguage(newLang);
           });
         });

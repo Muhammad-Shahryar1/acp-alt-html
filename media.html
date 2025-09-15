@@ -72,7 +72,7 @@
             <!-- Desktop Navigation -->
             <div class="hidden xl:flex items-center space-x-8 text-black">
               <a
-                href="#"
+                href="./index.html#animated-section"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 data-i18n="nav.about"
                 >About</a
@@ -96,7 +96,7 @@
                 >Contact Us</a
               >
               <a
-                href="#"
+                href="https://www.visitsaudi.com/en"
                 class="hover:text-[#32D2A0] transition-colors duration-200 relative pb-1 hover:after:w-full after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-saudi-green after:w-0 after:transition-all after:duration-300"
                 data-i18n="nav.visitSaudi"
                 >Visit Saudi</a
@@ -107,12 +107,18 @@
             <div class="flex items-center space-x-4 text-black">
               <!-- Updated language selector to match contact.html structure -->
               <!-- Language Selector -->
-              <div
-                id="language-selector"
-                class="hidden md:flex cursor-pointer items-center space-x-1 bg-gray-300 rounded px-2 py-1"
-              >
-                <span class="text-xs">🇸🇦</span>
-                <span class="text-sm">AR</span>
+              <div class="hidden md:flex ">
+                <span
+                  class="text-lg my-auto"
+                  id="language-selector-content-desktop"
+                  >العربية</span
+                >
+                <div
+                  id="language-selector"
+                  class="flex justify-center items-center h-10 w-10 cursor-pointer items-center bg-[#C5BBFF] rounded mx-2 py-1"
+                >
+                  <img src="./assets/language-selector.png" alt="" />
+                </div>
               </div>
 
               <!-- Become a Partner Button -->
@@ -155,7 +161,7 @@
           <div class="px-4 py-4 space-y-3 text-black">
             <!-- Mobile About Dropdown -->
             <a
-              href="#"
+              href="./index.html#animated-section"
               class="block hover:text-[#32D2A0] transition-colors"
               data-i18n="nav.about"
               >About</a
@@ -180,7 +186,7 @@
               >Contact</a
             >
             <a
-              href="#"
+              href="https://www.visitsaudi.com/en"
               class="block hover:text-[#32D2A0] transition-colors"
               data-i18n="nav.visitSaudi"
               >Visit Saudi</a
@@ -189,14 +195,18 @@
             <!-- Mobile Actions -->
             <div class="pt-4 border-t border-black border-opacity-20 space-y-3">
               <!-- Updated mobile language selector to match contact.html -->
-              <div class="flex items-center space-x-2 text-black">
-                <span class="text-sm">العربية</span>
+              <!-- Language Selector -->
+              <div class="flex">
+                <span
+                  class="text-lg my-auto"
+                  id="language-selector-content-mobile"
+                  >العربية</span
+                >
                 <div
                   id="language-selector"
-                  class="flex items-center space-x-1 bg-gray-300 rounded px-2 py-1"
+                  class="flex justify-center items-center h-10 w-10 cursor-pointer items-center bg-[#C5BBFF] rounded mx-2 py-1"
                 >
-                  <span class="text-[10px]">SA</span>
-                  <span class="text-sm">AR</span>
+                  <img src="./assets/language-selector.png" alt="" />
                 </div>
               </div>
               <a
@@ -256,7 +266,7 @@
           class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
         >
           <div
-            class="bg-white h-[500px] overflow-y-auto rounded-xl max-w-[95%] sm:max-w-xl w-full p-6 relative"
+            class="bg-white h-[500px] overflow-y-auto rounded-xl max-w-[95%] sm:max-w-xl w-full px-6 py-10 relative"
           >
             <!-- Close button -->
             <button
@@ -717,7 +727,7 @@
             <ul class="space-y-3">
               <li>
                 <a
-                  href="#"
+                  href="./index.html#animated-section"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.brief"
                   >Brief</a
@@ -725,7 +735,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="./index.html#our-partners"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.ourPartners"
                   >Our Partners</a
@@ -733,7 +743,7 @@
               </li>
               <li>
                 <a
-                  href="#"
+                  href="./contact.html"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.becomePartner"
                   >Become a Partner</a
@@ -821,8 +831,16 @@
                 <a
                   href="https://www.tdf.gov.sa/"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
-                  data-i18n="footer.tdfRedSea"
-                  >TDF & Red Sea Authority</a
+                  data-i18n="footer.tdf"
+                  >TDF</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://redsea.gov.sa/"
+                  class="text-gray-300 hover:text-white transition-colors duration-200"
+                  data-i18n="footer.redSea"
+                  >Red Sea Authority</a
                 >
               </li>
             </ul>
@@ -838,7 +856,7 @@
             <!-- Social Media Icons -->
             <div class="flex space-x-4 mb-8">
               <a
-                href="#"
+                href="https://x.com/ACP_Saudi"
                 class="hover:text-white transition-colors duration-200"
               >
                 <svg
@@ -852,7 +870,7 @@
                 </svg>
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/saudi-air-connectivity-program/"
                 class="text-gray-300 hover:text-white transition-colors duration-200"
               >
                 <svg
@@ -912,117 +930,226 @@
     </footer>
 
     <script>
-      // Initialize i18next
-      i18next.init(
-        {
-          lng: "en", // default language
-          resources: {
-            en: {
-              translation: {
-                // Navigation
-                "nav.about": "About",
-                "nav.routes": "Routes",
-                "nav.mediaCenter": "Media Center",
-                "nav.contactUs": "Contact Us",
-                "nav.visitSaudi": "Visit Saudi",
-                "nav.becomePartner": "Become a Partner",
+      let currentFilter = "featured";
+      let currentBigCardArticle = null;
 
-                // Media content
-                "media.news": "News",
-                "media.video": "Video",
-                "media.newsTitle": "News",
-                "media.readMore": "Read More",
-                "media.featured": "Featured",
-                "media.mostLiked": "Most Liked",
-                "media.topTrending": "Top Trending",
-                "media.featuredArticles": "Featured Articles",
-                "media.newsUpdates": "News & Updates",
-                "media.featuredNews": "Featured News",
-                "media.featuredNewsDesc":
-                  "Watch the latest updates and stories from the Air Connectivity Program.",
-                "media.latestNews": "Latest News",
-                "media.latestNewsDesc":
-                  "Stay updated with the most recent announcements, press releases, and updates from the Air Connectivity Program. Watch our featured stories and explore the latest developments shaping Saudi Arabia's aviation and tourism sector.",
-                "media.mediaHighlights": "Media Highlights",
+      document.addEventListener("DOMContentLoaded", function () {
+        i18next.init(
+          {
+            lng: "en", // default language
+            resources: {
+              en: {
+                translation: {
+                  // ─────────────────────────────
+                  // NAVIGATION
+                  "nav.about": "About",
+                  "nav.routes": "Routes",
+                  "nav.mediaCenter": "Media Center",
+                  "nav.contactUs": "Contact Us",
+                  "nav.visitSaudi": "Visit Saudi",
+                  "nav.becomePartner": "Become a Partner",
 
-                // Footer
-                "footer.overview": "Overview",
-                "footer.brief": "Brief",
-                "footer.ourPartners": "Our Partners",
-                "footer.becomePartner": "Become a Partner",
-                "footer.contactSupport": "Contact and Support",
-                "footer.contactUs": "Contact us",
-                "footer.mediaCenter": "Media Center",
-                "footer.privacyTerms": "Privacy and Terms of Use",
-                "footer.relatedLinks": "Related Links",
-                "footer.vision2030": "Vision 2030",
-                "footer.ministryTourism": "Ministry of Tourism",
-                "footer.gaca": "GACA",
-                "footer.saudiTourismAuthority": "Saudi Tourism Authority",
-                "footer.tdfRedSea": "TDF & Red Sea Authority",
-                "footer.followUs": "Follow us on",
-                "footer.address":
-                  "2nd Floor, Building 6 GACA Complex, Riyadh 12519, Saudi",
-                "footer.copyright":
-                  "All rights reserved to the Digital Government Authority © 2025",
+                  // ─────────────────────────────
+                  // MEDIA CONTENT
+                  "media.news": "News",
+                  "media.video": "Video",
+                  "media.newsTitle": "News",
+                  "media.readMore": "Read More",
+                  "media.featured": "Featured",
+                  "media.mostLiked": "Most Liked",
+                  "media.topTrending": "Top Trending",
+                  "media.featuredArticles": "Featured",
+                  "media.newsUpdates": "News & Updates",
+                  "media.featuredNews": "Featured News",
+                  "media.featuredNewsDesc":
+                    "Watch the latest updates and stories from the Air Connectivity Program.",
+                  "media.latestNews": "Latest News",
+                  "media.latestNewsDesc":
+                    "Stay updated with the most recent announcements, press releases, and updates from the Air Connectivity Program. Watch our featured stories and explore the latest developments shaping Saudi Arabia's aviation and tourism sector.",
+                  "media.mediaHighlights": "Media Highlights",
+
+                  // ─────────────────────────────
+                  // FOOTER
+                  "footer.overview": "Overview",
+                  "footer.brief": "Brief",
+                  "footer.ourPartners": "Our Partners",
+                  "footer.becomePartner": "Become a Partner",
+                  "footer.contactSupport": "Contact and Support",
+                  "footer.contactUs": "Contact us",
+                  "footer.mediaCenter": "Media Center",
+                  "footer.privacyTerms": "Privacy and Terms of Use",
+                  "footer.relatedLinks": "Related Links",
+                  "footer.vision2030": "Vision 2030",
+                  "footer.ministryTourism": "Ministry of Tourism",
+                  "footer.gaca": "GACA",
+                  "footer.saudiTourismAuthority": "Saudi Tourism Authority",
+                  "footer.tdf": "TDF",
+                  "footer.redSea": "Red Sea Authority",
+                  "footer.followUs": "Follow us on",
+                  "footer.address":
+                    "2nd Floor, Building 6 GACA Complex, Riyadh 12519, Saudi",
+                  "footer.copyright":
+                    "All rights reserved to the Digital Government Authority © 2025",
+
+                  // ─────────────────────────────
+                  // ARTICLES ENGLISH
+                  "articles.featured.1.title":
+                    "Flights between Abha and Doha Resumed, First Aircraft Landed at Abha International Airport",
+                  "articles.featured.1.description":
+                    "The Air Connectivity Program (ACP) has thanked Qatar Airways for the resumption of direct flights between Doha and Abha in collaboration with Discover Aseer and Abha International Airport. The Air Connectivity Program, in cooperation with its partners Discover Aseer, Abha International Airport, the Saudi Tourism Authority, and Qatar Airways, celebrated the resumption of direct flights",
+
+                  "articles.featured.2.title":
+                    "Air Connectivity Program Welcomes Lufthansa's New Direct Munich to Riyadh Flights",
+                  "articles.featured.2.description":
+                    "The Saudi Air Connectivity Program (ACP) has welcomed Lufthansa’s launch of direct flights from Munich to Riyadh, with three weekly flights set to begin on October 27 of this year. The new route is an important addition to the existing daily flights between Riyadh and Frankfurt, offering travelers more options to fly from Germany to Saudi Arabia. It will contribute to the development of air connectivity and increase seat capacity.",
+
+                  "articles.featured.3.title":
+                    "China Southern Airlines Launches New Route between Guangzhou, Riyadh",
+                  "articles.featured.3.description":
+                    "China Southern Airlines, in cooperation with the Air Connectivity Program, the Saudi Tourism Authority, and Riyadh Airports Company, has announced the launch of a new flight route between Guangzhou in China and Riyadh, starting in September 2025. The route will operate three times per week, adding over 86,000 seats annually to this route.",
+
+                  "articles.featured.4.title":
+                    "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
+                  "articles.featured.4.description":
+                    "King Abdulaziz International Airport in Jeddah today welcomed the inaugural flight of China’s Hainan Airlines, marking the launch of the first direct route between Jeddah and the Chinese city of Haikou. The new service will operate three times per week, positioning the airport as the first in the Kingdom to offer direct connectivity to Haikou.The launch of this route boosts air traffic between Saudi Arabia.",
+
+                  "articles.featured.5.title":
+                    "Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status",
+                  "articles.featured.5.description":
+                    "King Khalid International Airport today welcomed the inaugural flight of British airline Virgin Atlantic, arriving from London Heathrow and carrying the company's founder, Richard Branson.The new daily route supports Saudi Vision 2030's ambitious tourism plans and reflects the growing ties between Saudi Arabia and the UK, expecting a rise in air travel.Minister of Tourism and Saudi Tourism Authority Chairman of the Board of Directors Ahmed Al-Khateeb",
+
+                  "articles.featured.6.title":
+                    "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
+                  "articles.featured.6.description":
+                    "The Air Connectivity Program (ACP), in partnership with the Al Madinah Region Development Authority (MDA), has announced the expansion of Transavia France's travel services to Saudi Arabia. Beginning in October, new routes will be launched from Paris-Orly, Lyon, Marseille, and Toulouse to Madinah.This expansion complements the successful launch last year of routes connecting Paris-Orly and Lyon with Jeddah, enhancing.",
+
+                  "articles.featured.7.title":
+                    "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
+                  "articles.featured.7.description":
+                    "The Saudi Air Connectivity Program (ACP), in collaboration with the Saudi Tourism Authority (STA) and Jeddah Airports Company (JEDCO), announced on Tuesday the launch of direct flights from Stuttgart, Germany, to Jeddah.The flights will commence in the second half of 2025, operating twice a week using an A321neo aircraft with a capacity of 224 seats. This initiative aims to increase capacity for travelers and visitors.",
+
+                  // in en.translation
+                  "articles.featured.1.date": "02 January 2025",
+                  "articles.featured.2.date": "19 August 2025",
+                  "articles.featured.3.date": "17 July 2025",
+                  "articles.featured.4.date": "28 July 2025",
+                  "articles.featured.5.date": "23 April 2025",
+                  "articles.featured.6.date": "17 April 2025",
+                  "articles.featured.7.date": "05 March 2025",
+                },
               },
-            },
-            ar: {
-              translation: {
-                // Navigation
-                "nav.about": "حول البرنامج",
-                "nav.routes": "المسارات",
-                "nav.mediaCenter": "المركز الإعلامي",
-                "nav.contactUs": "تواصل معنا",
-                "nav.visitSaudi": "زوروا السعودية",
-                "nav.becomePartner": "كن شريكاً",
 
-                // Media content
-                "media.news": "الأخبار",
-                "media.video": "فيديو",
-                "media.newsTitle": "الأخبار",
-                "media.readMore": "اقرأ المزيد",
-                "media.featured": "مميز",
-                "media.mostLiked": "الأكثر إعجاباً",
-                "media.topTrending": "الأكثر رواجاً",
-                "media.featuredArticles": "المقالات المميزة",
-                "media.newsUpdates": "الأخبار والتحديثات",
-                "media.featuredNews": "الأخبار المميزة",
-                "media.featuredNewsDesc":
-                  "شاهد أحدث التحديثات والقصص من برنامج الربط الجوي.",
-                "media.latestNews": "آخر الأخبار",
-                "media.latestNewsDesc":
-                  "ابق على اطلاع بأحدث الإعلانات والبيانات الصحفية والتحديثات من برنامج الربط الجوي. شاهد قصصنا المميزة واستكشف أحدث التطورات التي تشكل قطاع الطيران والسياحة في المملكة العربية السعودية.",
-                "media.mediaHighlights": "تغطيات إعلامية",
+              // ─────────────────────────────
+              ar: {
+                translation: {
+                  // NAVIGATION
+                  "nav.about": "حول البرنامج",
+                  "nav.routes": "المسارات",
+                  "nav.mediaCenter": "المركز الإعلامي",
+                  "nav.contactUs": "تواصل معنا",
+                  "nav.visitSaudi": "زوروا السعودية",
+                  "nav.becomePartner": "كن شريكاً",
 
-                //Footer
-                "footer.overview": "لمحة عامة",
-                "footer.brief": "نبذة",
-                "footer.ourPartners": "شركاؤنا",
-                "footer.becomePartner": "كن شريكاً",
-                "footer.contactSupport": "لتواصل والدعم",
-                "footer.contactUs": "اتصل بنا",
-                "footer.mediaCenter": "المركز الإعلامي",
-                "footer.privacyTerms": "الخصوصية وشروط الاستخدام",
-                "footer.relatedLinks": "روابط ذات صلة",
-                "footer.vision2030": "رؤية٢٠٣٠",
-                "footer.ministryTourism": "وزارة السياحة",
-                "footer.gaca": "هيئة الطيران المدني",
-                "footer.saudiTourismAuthority": "الهيئة السعودية للسياحة",
-                "footer.tdfRedSea": "صندوق التنمية السياحية وسلطة البحر الأحمر",
-                "footer.followUs": "تابعنا على",
-                "footer.address":
-                  "الطابق الثاني، المبنى ٦ مجمع هيئة الطيران المدني، الرياض، ١٢٥١٩ السعودية",
-                "footer.copyright":
-                  "جميع الحقوق محفوظة لهيئة الحكومة الرقمية © 2025",
+                  // MEDIA CONTENT
+                  "media.news": "الأخبار",
+                  "media.video": "فيديو",
+                  "media.newsTitle": "الأخبار",
+                  "media.readMore": "اقرأ المزيد",
+                  "media.featured": "مميز",
+                  "media.mostLiked": "الأكثر إعجاباً",
+                  "media.topTrending": "الأكثر رواجاً",
+                  "media.featuredArticles": "مُميَّز",
+                  "media.newsUpdates": "الأخبار والتحديثات",
+                  "media.featuredNews": "الأخبار المميزة",
+                  "media.featuredNewsDesc":
+                    "شاهد أحدث التحديثات والقصص من برنامج الربط الجوي.",
+                  "media.latestNews": "آخر الأخبار",
+                  "media.latestNewsDesc":
+                    "ابق على اطلاع بأحدث الإعلانات والبيانات الصحفية والتحديثات من برنامج الربط الجوي. شاهد قصصنا المميزة واستكشف أحدث التطورات التي تشكل قطاع الطيران والسياحة في المملكة العربية السعودية.",
+                  "media.mediaHighlights": "تغطيات إعلامية",
+
+                  // FOOTER
+                  "footer.overview": "لمحة عامة",
+                  "footer.brief": "نبذة",
+                  "footer.ourPartners": "شركاؤنا",
+                  "footer.becomePartner": "كن شريكاً",
+                  "footer.contactSupport": "لتواصل والدعم",
+                  "footer.contactUs": "اتصل بنا",
+                  "footer.mediaCenter": "المركز الإعلامي",
+                  "footer.privacyTerms": "الخصوصية وشروط الاستخدام",
+                  "footer.relatedLinks": "روابط ذات صلة",
+                  "footer.vision2030": "رؤية٢٠٣٠",
+                  "footer.ministryTourism": "وزارة السياحة",
+                  "footer.gaca": "هيئة الطيران المدني",
+                  "footer.saudiTourismAuthority": "الهيئة السعودية للسياحة",
+                  "footer.tdf":
+                    "صندوق التنمية السياحية",
+                  "footer.redSea":
+                    "سلطة البحر الأحمر",
+                  "footer.followUs": "تابعنا على",
+                  "footer.address":
+                    "الطابق الثاني، المبنى ٦ مجمع هيئة الطيران المدني، الرياض، ١٢٥١٩ السعودية",
+                  "footer.copyright":
+                    "جميع الحقوق محفوظة لهيئة الحكومة الرقمية © 2025",
+
+                  // ARTICLES ARABIC
+                  "articles.featured.1.title":
+                    "استئناف الرحلات بين أبها والدوحة مع هبوط أول طائرة في مطار أبها الدولي",
+                  "articles.featured.1.description":
+                    "رحب برنامج الربط الجوي (ACP) بشركة الخطوط الجوية القطرية لاستئناف الرحلات المباشرة بين الدوحة وأبها، بالتعاون مع اكتشف عسير ومطار أبها الدولي واحتفل برنامج الربط الجوي بالتعاون مع شركائه اكتشف عسير، ومطار أبها الدولي، والهيئة السعودية للسياحة، والخطوط الجوية القطرية، باستئناف الرحلات المباشرة بين الدوحة وأبها ويعد هذا الإنجاز خطوة مهمة ضمن إستراتيجية الطيران الوطنية للمملكة لعام 2024 ربط العالم بالمملكة، التي تهدف إلى زيادة عدد المسافرين إلى 330 مليون",
+
+                  "articles.featured.2.title":
+                    "برنامج الربط الجوي يرحب بخطوط لوفتهانزا لتسيير رحلات مباشرة من ميونخ إلى الرياض.",
+                  "articles.featured.2.description":
+                    "رحب برنامج الربط الجوي بتسيير خطوط لوفتهانزا الألمانية لرحلاتها المباشرة من مدينة ميونخ إلى مدينة الرياض، بمعدل ثلاث رحلات أسبوعيًا اعتبارًا من 27 أكتوبر من العام الجاري، مما يسهم في تطوير المسارات الجوية وزيادة السعة المقعدية، ويعد هذا المسار الجوي الجديد إضافة مهمة إلى الرحلات اليومية الحالية بين الرياض وفرانكفورت، حيث يوفر للسائحين خيارات أوسع للسفر من ألمانيا إلى المملكة، ومن المقرر أن تُشغّل لوفتهانزا هذا الخط المُعاد إطلاقه باستخدام أحدث طائراتها، طراز (إيرباص A350-900) بسعة 293 مقعدًا موزعة على درجة الأع..",
+
+                  "articles.featured.3.title":
+                    "بالتعاون مع برنامج الربط الجوي والهيئة السعودية للسياحة ومطارات ..خطوط جنوب الرياض الصين الجوية تطلق مسارًا جديدًا بين مدينتي الرياض وجوانزو.",
+                  "articles.featured.3.description":
+                    "أعلنت خطوط جنوب الصين الجوية، بالتعاون مع برنامج الربط الجوي والهيئة السعودية للسياحة ومطارات الرياض، عن إطلاق مسار رحلات جديد بين مدينة جوانزو بجمهورية الصين الشعبية ومدينة الرياض، وسيبدأ تشغيل المسار الجديد بداية من شهر سبتمبر 2025 وبمعدل ثلاث رحلات أسبوعيًا؛ مما يضيف أكثر من 86 ألف مقعد سنوي لهذا المسار، ويأتي هذا التوسع في أعقاب الطلب المتزايد على الرحلات بين المملكة العربية السعودية وجمهورية الصين الشعبية، والنجاح اللافت الذي حققته الرحلات المباشرة بين العاصمة الرياض ومدينة شنجن، التي..",
+
+                  "articles.featured.4.title":
+                    "مطار الملك عبدالعزيز الدولي يدشّن أولى رحلات طيران هاينان الصينية.",
+                  "articles.featured.4.description":
+                    "استقبل مطار الملك عبدالعزيز الدولي بجدة اليوم أولى الرحلات الجوية لشركة طيران هاينان الصينية، كأول مطار في المملكة يقوم بتسيير رحلات جوية مباشرة إلى مدينة هايكو الصينية بواقع ثلاث رحلات أسبوعيًا، وتعزز هذه الوجهة الجديدة بين المدينتين الحركة الجوية النامية، مما يرسخ مكانة المطار كمركز لوجستي عالمي، ويضيف ربطًا جويًا مباشرًا بين المملكة والصين، واستقبل الرحلة الرئيس التنفيذي لشركة مطارات جدة المهندس مازن بن محمد جوهر، والقنصل العام لجمهورية الصين الشعبية بجدة وانغ تشي، وعدد من قيادات هيئة السياحة وبرنام.",
+
+                  "articles.featured.5.title":
+                    "الرياض ترسخ مكانتها وجهة سياحية عالمية وتستقبل أولى رحلات فيرجن أتلانتيك من مطار هيثرو الدولي.",
+                  "articles.featured.5.description":
+                    "استقبل مطار الملك خالد الدولي أولى رحلات شركة الطيران البريطانية فيرجن أتلانتيك، القادمة من مطار هيثرو في لندن عبر الرحلة رقم VS242، وكان على متن طائرة الإيرباص A330neo مؤسس الشركة السير ريتشارد برانسون، ويأتي إطلاق هذا المسار اليومي في إطار خطط النمو الطموحة لرؤية المملكة 2030، وتنامي دور المملكة وجهة سياحية عالمية رائدة، كما يعكس قوة العلاقات المتنامية بين البلدين، والنمو المتوقع في حركة السفر الجوي بين السعودية والمملكة المتحدة، وتشهد الرياض تطورات متسارعة تجعلها وجهة جاذبة للاستثمار والسياحة، كما تعد نقطة انطلاق مثالية لاستكشاف الثرا.",
+
+                  "articles.featured.6.title":
+                    "برنامج الربط الجوي وهيئة تطوير منطقة المدينة المنورة يتعاونان مع خطوط ترانسافيا فرنسا لتوسيع شبكة رحلاتها إلى المدينة المنورة.",
+                  "articles.featured.6.description":
+                    "أعلن برنامج الربط الجوي (ACP) بالشراكة مع هيئة تطوير منطقة المدينة المنورة عن توسيع عمليات خطوط ترانسافيا فرنسا في السوق السعودي ابتداءً من أكتوبر 2025، من خلال إطلاق وجهات جديدة من باريس أورلي، ليون، مارسيليا، وتولوز إلى المدينة المنورة، ويأتي هذا التوسع استكمالًا لإطلاق الوجهات الناجحة العام الماضي بين باريس أورلي وليون إلى جدة، مما يعزز الربط الجوي ويعكس النمو المتزايد في الطلب على السفر بين البلدين، ويؤكد مكانة المملكة وجهة رئيسية، ويدعم كذلك الأهداف السياحية لرؤية المملكة 2030، من خلال زيادة أعداد السياح القادمين إلى المملكة وتعزيز مكانتها وجهة سياحي.",
+                  "articles.featured.7.title":
+                    "برنامج الربط الجوي يطلق رحلات مباشرة من مدينة شتوتغارت الألمانية إلى مدينة جدة.",
+                  "articles.featured.7.description":
+                    "أطلق برنامج الربط الجوي اليوم بالتعاون مع الهيئة السعودية للسياحة وشركة مطارات جدة، رحلات مباشرة من مدينة شتوتغارت الألمانية إلى مدينة جدة التاريخية، وستبدأ الرحلات خلال النصف الثاني من العام الجاري 2025م، بواقع رحلتين أسبوعيًا، وذلك بواسطة أسطول من طائرة A321neo بسعة 224 مقعدًا ما يسهم في زيادة السعة المقعدية للقادمين والزوار إلى المملكة من دول أوروبا وأمريكا، وأوضح المدير التنفيذي لبرنامج الربط الجوي ماجد خان بهذه المناسبة أن التعاون مع خطوط يورو وينغز يشهد تقدمًا كبيرًا في الربط الجوي بين المملكة وأوروبا، متطلعًا إلى بناء شراكة طويلة الأجل مع يورو وينغز لتوسيع شب.",
+
+                  // in ar.translation
+                  "articles.featured.1.date": "٠٢ يناير ٢٠٢٥",
+                  "articles.featured.2.date": "١٩ أغسطس ٢٠٢٥",
+                  "articles.featured.3.date": "١٧ يوليو ٢٠٢٥",
+                  "articles.featured.4.date": "٢٨ يوليو ٢٠٢٥",
+                  "articles.featured.5.date": "٢٣ أبريل ٢٠٢٥",
+                  "articles.featured.6.date": "١٧ أبريل ٢٠٢٥",
+                  "articles.featured.7.date": "٠٥ مارس ٢٠٢٥",
+                },
               },
             },
           },
-        },
-        function () {
-          updateContent(); // render initial text
-        }
-      );
+          function () {
+            // Safe initial render
+            updateContent();
+            renderArticles(currentFilter);
+            startSlider();
+            renderVideoCardsSlider();
+            updateSectionTitle(currentFilter);
+          }
+        );
+      });
+      // Initialize i18next
 
       // Change language and refresh UI
       function setLanguage(lang) {
@@ -1035,7 +1162,6 @@
         document
           .querySelector("footer")
           .classList.remove(lang === "ar" ? "!text-left" : "!text-right");
-        
 
         i18next.changeLanguage(lang, () => {
           updateContent();
@@ -1055,6 +1181,9 @@
           const key = el.getAttribute("data-i18n-placeholder");
           el.placeholder = i18next.t(key);
         });
+        renderArticles(currentFilter); // keep track of selected filter
+        updateSectionTitle(currentFilter); // Add this line
+        if (currentBigCardArticle) updateBigCard(currentBigCardArticle);
       }
 
       // Language selector click handler
@@ -1064,13 +1193,25 @@
         languageSelectors.forEach((selector) => {
           selector.addEventListener("click", function () {
             const currentLang = i18next.language;
+            const languageSelectorContentDesktop = document.getElementById(
+              "language-selector-content-desktop"
+            );
+            const languageSelectorContentMobile = document.getElementById(
+              "language-selector-content-mobile"
+            );
             const newLang = currentLang === "en" ? "ar" : "en";
+            newLang === "ar"
+              ? (languageSelectorContentDesktop.innerHTML = "English")
+              : (languageSelectorContentDesktop.innerHTML = "العربية");
+            newLang === "ar"
+              ? (languageSelectorContentMobile.innerHTML = "English")
+              : (languageSelectorContentMobile.innerHTML = "العربية");
             setLanguage(newLang);
           });
         });
       });
 
-      let currentBigCardArticle = null;
+      // let currentBigCardArticle = null;
 
       // Mobile menu toggle
       const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -1098,11 +1239,9 @@
         featured: [
           {
             id: 1,
-            title:
-              "Flights between Abha and Doha Resumed, First Aircraft Landed at Abha International Airport",
-            description:
-              "The Air Connectivity Program (ACP) has thanked Qatar Airways for the resumption of direct flights between Doha and Abha in collaboration with Discover Aseer and Abha International Airport.",
-            date: "02 January 2025",
+            titleKey: "articles.featured.1.title",
+            descKey: "articles.featured.1.description",
+            dateKey: "articles.featured.1.date",
             images: [
               "./assets/news/abha.png",
               "./assets/slide2.jpg",
@@ -1113,11 +1252,9 @@
           },
           {
             id: 2,
-            title:
-              "Air Connectivity Program Welcomes Lufthansa's New Direct Munich to Riyadh Flights",
-            description:
-              "The Saudi Air Connectivity Program (ACP) has welcomed Lufthansa's launch of direct flights from Munich to Riyadh, with three weekly flights set to begin on October 27 of this year.",
-            date: "19 August 2025",
+            titleKey: "articles.featured.2.title",
+            descKey: "articles.featured.2.description",
+            dateKey: "articles.featured.2.date",
             images: [
               "./assets/news/munich.png",
               "./assets/slide2.jpg",
@@ -1128,11 +1265,9 @@
           },
           {
             id: 3,
-            title:
-              "China Southern Airlines Launches New Route between Guangzhou, Riyadh",
-            description:
-              "China Southern Airlines, in cooperation with the Air Connectivity Program, the Saudi Tourism Authority, and Riyadh Airports Company, has announced the launch of a new flight route between Guangzhou in China and Riyadh, starting in September 2025. The route will operate three times per week, adding over 86,000 seats annually to this route.",
-            date: "17 July 2025",
+            titleKey: "articles.featured.3.title",
+            descKey: "articles.featured.3.description",
+            dateKey: "articles.featured.3.date",
             images: [
               "./assets/news/china.jpg",
               "./assets/slide2.jpg",
@@ -1143,26 +1278,9 @@
           },
           {
             id: 4,
-            title:
-              "Direct Flights Between Dammam, London to Launch in November via Saudia",
-            description:
-              "The Saudi Air Connectivity Program, in cooperation with the Saudi Tourism Authority, Dammam Airports Company, and Sharqia Development Authority (SDA), announced the launch of flights connecting King Fahd International Airport in Dammam with Heathrow Airport in London. The flights will be operated by Saudia, with three weekly flights each way starting in November.",
-            date: "09 July 2025",
-            images: [
-              "./assets/news/dammam.jpg",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
-            ],
-            location: "Dammam, KSA",
-            category: "featured",
-          },
-          {
-            id: 5,
-            title:
-              "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
-            description:
-              "King Abdulaziz International Airport in Jeddah today welcomed the inaugural flight of China's Hainan Airlines, marking the launch of the first direct route between Jeddah and the Chinese city of Haikou.",
-            date: "28 July 2025",
+            titleKey: "articles.featured.4.title",
+            descKey: "articles.featured.4.description",
+            dateKey: "articles.featured.4.date",
             images: [
               "./assets/news/haikou.jpg",
               "./assets/slide2.jpg",
@@ -1172,12 +1290,10 @@
             category: "featured",
           },
           {
-            id: 6,
-            title:
-              "Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status",
-            description:
-              "King Khalid International Airport today welcomed the inaugural flight of British airline Virgin Atlantic, arriving from London Heathrow and carrying the company's founder, Richard Branson.",
-            date: "23 April 2025",
+            id: 5,
+            titleKey: "articles.featured.5.title",
+            descKey: "articles.featured.5.description",
+            dateKey: "articles.featured.5.date",
             images: [
               "./assets/news/virgin.png",
               "./assets/slide2.jpg",
@@ -1187,12 +1303,10 @@
             category: "featured",
           },
           {
-            id: 7,
-            title:
-              "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
-            description:
-              "The Air Connectivity Program (ACP), in partnership with the Al Madinah Region Development Authority (MDA), has announced the expansion of Transavia France's travel services to Saudi Arabia. Beginning in October, new routes will be launched from Paris-Orly, Lyon, Marseille, and Toulouse to Madinah.",
-            date: "17 April 2025",
+            id: 6,
+            titleKey: "articles.featured.6.title",
+            descKey: "articles.featured.6.description",
+            dateKey: "articles.featured.6.date",
             images: [
               "./assets/news/madina.jpg",
               "./assets/slide2.jpg",
@@ -1202,12 +1316,10 @@
             category: "featured",
           },
           {
-            id: 8,
-            title:
-              "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
-            description:
-              "The Saudi Air Connectivity Program (ACP), in collaboration with the Saudi Tourism Authority (STA) and Jeddah Airports Company (JEDCO), announced on Tuesday the launch of direct flights from Stuttgart, Germany, to Jeddah.",
-            date: "05 March 2025",
+            id: 7,
+            titleKey: "articles.featured.7.title",
+            descKey: "articles.featured.7.description",
+            dateKey: "articles.featured.7.date",
             images: [
               "./assets/news/stuttgart.jpg",
               "./assets/slide2.jpg",
@@ -1217,14 +1329,13 @@
             category: "featured",
           },
         ],
+
         mostliked: [
           {
             id: 7,
-            title:
-              "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
-            description:
-              "The Air Connectivity Program (ACP), in partnership with the Al Madinah Region Development Authority (MDA), has announced the expansion of Transavia France's travel services to Saudi Arabia. Beginning in October, new routes will be launched from Paris-Orly, Lyon, Marseille, and Toulouse to Madinah.",
-            date: "17 April 2025",
+            titleKey: "articles.featured.7.title",
+            descKey: "articles.featured.7.description",
+            dateKey: "articles.featured.7.date",
             images: [
               "./assets/news/madina.jpg",
               "./assets/slide2.jpg",
@@ -1234,12 +1345,10 @@
             category: "featured",
           },
           {
-            id: 8,
-            title:
-              "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
-            description:
-              "The Saudi Air Connectivity Program (ACP), in collaboration with the Saudi Tourism Authority (STA) and Jeddah Airports Company (JEDCO), announced on Tuesday the launch of direct flights from Stuttgart, Germany, to Jeddah.",
-            date: "05 March 2025",
+            id: 2,
+            titleKey: "articles.featured.2.title",
+            descKey: "articles.featured.2.description",
+            dateKey: "articles.featured.2.date",
             images: [
               "./assets/news/stuttgart.jpg",
               "./assets/slide2.jpg",
@@ -1249,14 +1358,13 @@
             category: "featured",
           },
         ],
+
         trending: [
           {
             id: 5,
-            title:
-              "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
-            description:
-              "King Abdulaziz International Airport in Jeddah today welcomed the inaugural flight of China's Hainan Airlines, marking the launch of the first direct route between Jeddah and the Chinese city of Haikou.",
-            date: "28 July 2025",
+            titleKey: "articles.featured.5.title",
+            descKey: "articles.featured.5.description",
+            dateKey: "articles.featured.5.date",
             images: [
               "./assets/news/haikou.jpg",
               "./assets/slide2.jpg",
@@ -1267,11 +1375,9 @@
           },
           {
             id: 6,
-            title:
-              "Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status",
-            description:
-              "King Khalid International Airport today welcomed the inaugural flight of British airline Virgin Atlantic, arriving from London Heathrow and carrying the company's founder, Richard Branson.",
-            date: "23 April 2025",
+            titleKey: "articles.featured.6.title",
+            descKey: "articles.featured.6.description",
+            dateKey: "articles.featured.6.date",
             images: [
               "./assets/news/virgin.png",
               "./assets/slide2.jpg",
@@ -1282,7 +1388,10 @@
           },
         ],
       };
+
+      // ======================
       // Modal Functionality
+      // ======================
 
       // Modal references
       const newsModal = document.getElementById("newsModal");
@@ -1292,17 +1401,21 @@
       const modalImage = document.getElementById("modalImage");
       const modalDescription = document.getElementById("modalDescription");
 
-      // Read More button
-      const readMoreBtn = document.querySelector("#readMoreBtn"); // your Read More link
+      // Read More button (the button on your BigCard)
+      const readMoreBtn = document.querySelector("#readMoreBtn");
+
       // Show modal with current big card article
       function openModal() {
         if (!currentBigCardArticle) return;
 
-        modalTitle.textContent = currentBigCardArticle.title;
-        modalDate.textContent = currentBigCardArticle.date;
-        modalImage.src = currentBigCardArticle.images[0];
-        modalDescription.textContent = currentBigCardArticle.description;
+        // Use i18next to translate all keys
+        modalTitle.textContent = i18next.t(currentBigCardArticle.titleKey);
+        modalDate.textContent = i18next.t(currentBigCardArticle.dateKey); // <- you added this in i18n
+        modalImage.src = currentBigCardArticle.images[0] || "/placeholder.svg";
+        modalImage.alt = i18next.t(currentBigCardArticle.titleKey);
+        modalDescription.textContent = i18next.t(currentBigCardArticle.descKey);
 
+        // Show modal
         newsModal.classList.remove("hidden");
         newsModal.classList.add("flex");
       }
@@ -1314,19 +1427,35 @@
       }
 
       // Open modal on Read More click
-      readMoreBtn.addEventListener("click", (e) => {
-        e.preventDefault();
-        openModal();
-      });
+      if (readMoreBtn) {
+        readMoreBtn.addEventListener("click", (e) => {
+          e.preventDefault();
+          openModal();
+        });
+      }
 
       // Close modal on button click
-      closeModalBtn.addEventListener("click", closeModal);
+      if (closeModalBtn) {
+        closeModalBtn.addEventListener("click", closeModal);
+      }
 
-      // Close modal on outside click
+      // Close modal on clicking the backdrop
       newsModal.addEventListener("click", (e) => {
         if (e.target === newsModal) {
           closeModal();
         }
+      });
+
+      // OPTIONAL: If language changes, also update modal if it's open
+      i18next.on("languageChanged", () => {
+        if (!newsModal.classList.contains("hidden") && currentBigCardArticle) {
+          modalTitle.textContent = i18next.t(currentBigCardArticle.titleKey);
+          modalDate.textContent = i18next.t(currentBigCardArticle.dateKey);
+          modalDescription.textContent = i18next.t(
+            currentBigCardArticle.descKey
+          );
+        }
+        updateSectionTitle(currentFilter); // Add this line
       });
 
       // --------------------------------------------------------------
@@ -1338,7 +1467,7 @@
       const filterOptions = document.querySelectorAll(".filter-option");
 
       // Current filter state
-      let currentFilter = "featured";
+      // let currentFilter = "featured";
 
       // Toggle dropdown visibility
       function toggleDropdown() {
@@ -1383,36 +1512,33 @@
         articlesContainer.innerHTML = articles
           .map(
             (article) => `
-        <div
-          class="article-item flex gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-          data-id="${article.id}"
-          data-filter="${filter}">
-            <!-- Article Image -->
-            <div class="flex-shrink-0">
-                <img
-                    src="${article.images[0]}"
-                    alt="${article.title}"
-                    class="w-40 h-20 object-cover rounded-sm"
-                >
-            </div>
+      <div
+        class="article-item flex gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+        data-id="${article.id}"
+        data-filter="${filter}">
+          <div class="flex-shrink-0">
+              <img
+                  src="${article.images[0]}"
+                  alt="${i18next.t(article.titleKey)}"
+                  class="w-40 h-20 object-cover rounded-sm"
+              >
+          </div>
 
-            <!-- Article Content -->
-            <div class="flex-1 min-w-0">
-                <h3 class="font-medium cursor-pointer text-gray-900 mb-1 leading-tight">
-                    ${article.title}
-                </h3>
-                <p class="text-sm text-gray-500">
-                    ${article.date}
-                </p>
-            </div>
-        </div>`
+          <div class="flex-1 min-w-0">
+              <h3 class="font-medium cursor-pointer text-gray-900 mb-1 leading-tight">
+                  ${i18next.t(article.titleKey)}
+              </h3>
+              <p class="text-sm text-gray-500">
+                ${i18next.t(article.dateKey)}
+            </p>
+
+          </div>
+      </div>`
           )
           .join("");
 
-        //After rendering, attach click listeners
         attachArticleClickHandlers();
 
-        // 🔹 Auto-load first article if exists
         if (articles.length > 0) {
           updateBigCard(articles[0]);
         }
@@ -1501,33 +1627,48 @@
       // ------------------ UPDATE BIG CARD ------------------
 
       function updateBigCard(article) {
-        // Update images
         bigCardImage1.src = article.images[0] || "";
         bigCardImage2.src = article.images[1] || "";
         bigCardImage3.src = article.images[2] || "";
 
-        // Update text
-        bigCardTitle.textContent = article.title;
-        bigCardDesc.textContent = article.description
-          ? article.description.slice(0, 100) + "..."
-          : "";
+        // Title safe
+        bigCardTitle.textContent = article.titleKey
+          ? i18next.t(article.titleKey)
+          : article.title || "";
 
-        // Wait for at least first image to load before starting slider
-        bigCardImage1.onload = () => {
-          startSlider();
-        };
-        currentBigCardArticle = article; // store current article globally
+        // Description safe
+        if (article.descKey) {
+          const desc = i18next.t(article.descKey);
+          bigCardDesc.textContent =
+            typeof desc === "string" && desc.length > 0
+              ? desc.slice(0, 100) + "..."
+              : "";
+        } else {
+          bigCardDesc.textContent =
+            article.description && article.description.length > 0
+              ? article.description.slice(0, 100) + "..."
+              : "";
+        }
+
+        bigCardImage1.onload = () => startSlider();
+        currentBigCardArticle = article;
       }
 
       // ------------------ SECTION TITLE & FILTER ------------------
 
       function updateSectionTitle(filter) {
-        const titles = {
-          featured: "Featured",
-          mostliked: "Most Liked",
-          trending: "Top Trending",
+        const titleKeys = {
+          featured: "media.featured",
+          mostliked: "media.mostLiked",
+          trending: "media.topTrending",
         };
-        sectionTitle.textContent = titles[filter] || "Articles";
+
+        const titleKey = titleKeys[filter];
+        if (titleKey) {
+          sectionTitle.textContent = i18next.t(titleKey);
+        } else {
+          sectionTitle.textContent = "Articles"; // fallback
+        }
       }
 
       function handleFilterSelect(filter) {
@@ -1628,6 +1769,9 @@
           video.controls = false;
         }
       });
+
+      // -------------------------------------------------------------------------
+      // Video Cards Data
 
       const videoCardsData = [
         {
