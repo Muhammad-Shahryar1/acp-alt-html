@@ -175,36 +175,39 @@
         ></div>
       </nav>
     </header>
-    <!-- Hero Section -->
-    <section class="relative h-[90vh] md:h-[90vh] w-full overflow-hidden">
-      <!-- Background Video -->
-      <video
-        class="absolute inset-0 w-full h-full"
-        style="object-fit: none"
-        autoplay
-        loop
-        muted
-        playsinline
+    <!-- Cover Overlay -->
+<!-- Cover Overlay -->
+<div id="page-cover" class="fixed inset-0 bg-[#00FF40] z-50"></div>
+
+<!-- Hero Section -->
+<section class="relative h-[90vh] w-full overflow-hidden">
+  <!-- Background Video -->
+  <video
+    class="absolute inset-0 w-full h-full object-cover"
+    autoplay
+    loop
+    muted
+    playsinline
+  >
+    <source src="./assets/hero-video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="absolute inset-0 bg-black/40"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 h-full flex items-center px-8">
+    <div class="max-w-4xl">
+      <h1
+        id="hero-title"
+        class="opacity-0 translate-y-8 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white"
       >
-        <source src="./assets/hero-video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-      <div class="absolute inset-0 bg-black/40"></div>
-      <!-- Hero Content -->
-      <div class="relative z-10 h-full">
-        <div class="absolute top-[25%] left-[5%] mx-auto">
-          <div class="max-w-4xl">
-            <!-- Main Heading -->
-            <h1
-              class="text-4xl font-normal sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
-            >
-              <span class="block" data-i18n="hero.connectingWorld">Connecting the World</span>
-              <span class="mt-3 block" data-i18n="hero.toSaudiArabia">to Saudi Arabia</span>
-            </h1>
-          </div>
-        </div>
-      </div>
-    </section>
+        <span class="block" data-i18n="hero.connectingWorld">Connecting the World</span>
+        <span class="block mt-3" data-i18n="hero.toSaudiArabia">to Saudi Arabia</span>
+      </h1>
+    </div>
+  </div>
+</section>
 
     <!-- Added Air Connectivity Program content section -->
     <!-- Content Section -->
@@ -328,7 +331,7 @@
                 <!-- Airplane Icon -->
                 <img src="./assets/icons/acp.svg" class="w-8 h-8" alt="ACP icon">
 
-                <span class="text-5xl text-[#44505E] font-semibold">67</span>
+                <span class="text-5xl text-[#44505E] font-semibold" data-i18n="stats.routesActivatedDigit">67</span>
               </div>
               <div>
                 <p class="font-semibold text-md" data-i18n="stats.routesActivated">Routes Activated</p>
@@ -343,7 +346,7 @@
                 <!-- Building Icon -->
                 <img src="./assets/icons/acp_1.svg" class="w-8 h-8" alt="ACP icon">
 
-                <span class="text-5xl text-[#44505E] font-semibold">15</span>
+                <span class="text-5xl text-[#44505E] font-semibold" data-i18n="stats.carrierCollaborationDigit">15</span>
               </div>
               <div>
                 <p class="font-semibold text-md" data-i18n="stats.carrierCollaboration">Carrier Collaboration</p>
@@ -357,7 +360,7 @@
                 <!-- Chart Icon -->
                 <img src="./assets/icons/acp_3.svg" class="w-8 h-8" alt="ACP icon">
 
-                <span class="text-5xl text-[#44505E] font-semibold">4.5</span>
+                <span class="text-5xl text-[#44505E] font-semibold" data-i18n="stats.seatsGeneratedDigit">4.5</span>
               </div>
               <div>
                 <p class="font-semibold text-md" data-i18n="stats.seatsGenerated">Seats Generated</p>
@@ -373,7 +376,7 @@
                 <!-- Building Icon -->
                 <img src="./assets/icons/acp_2.svg" class="w-8 h-8" alt="ACP icon">
 
-                <span class="text-5xl text-[#44505E] font-semibold">5</span>
+                <span class="text-5xl text-[#44505E] font-semibold" data-i18n="stats.airlinesDigit">5</span>
               </div>
               <div>
                 <p class="font-semibold text-md" data-i18n="stats.airlines">Airlines</p>
@@ -983,11 +986,11 @@
               class="text-3xl sm:text-4xl lg:text-6xl font-bold text-[#44505E] mb-2"
               data-i18n="sections.saudiAirConnectivity"
             >
-              The Saudi Air Connectivity
+              The Saudi Air Connectivity Partners
             </h2>
             <!--<p class="text-lg text-gray-500">Placeholder Text</p>-->
           </div>
-          <div class="lg:max-w-md lg:self-end">
+          <div class="">
             <p class="text-gray-600 leading-relaxed" data-i18n="sections.partnersDescription">
               Working with key aviation and tourism leaders to expand connectivity.
             </p>
@@ -1066,7 +1069,7 @@
       </div>
     </section>
 
-    <footer class="bg-slate-700 text-white py-16">
+    <footer class="bg-slate-700 text-white pt-16 pb-8">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Footer Content Grid -->
         <div
@@ -1270,9 +1273,9 @@
           </div>
         </div>
         <!-- Copyright Section -->
-        <div class="border-t border-gray-600 mt-12 pt-8">
+        <div class="border-t border-gray-600 mt-12 pt-4">
           <p class="text-gray-400 text-sm text-center lg:text-left" data-i18n="footer.copyright">
-            All rights reserved to the Digital Government Authority © 2025
+            Copyright © 2025 Air Connectivity Program. All rights reserved.
           </p>
         </div>
       </div>
@@ -1319,7 +1322,7 @@
               "sections.routesDescription": "Discover routes linking Saudi airports to global destinations.",
               "sections.chooseContinent": "Choose A Continent",
               "sections.news": "News",
-              "sections.saudiAirConnectivity": "The Saudi Air Connectivity",
+              "sections.saudiAirConnectivity": "The Saudi Air Connectivity Partners",
               "sections.partnersDescription": "Working with key aviation and tourism leaders to expand connectivity.",
               
               // Statistics
@@ -1327,12 +1330,16 @@
               "stats.saudiAirConnectivity": "The Saudi Air Connectivity",
               "stats.vision2030Initiative": "A Vision 2030 initiative expanding routes and global connectivity.",
               "stats.routesActivated": "Routes Activated",
+              "stats.routesActivatedDigit": "67",
               "stats.routesActivatedDesc": "Activated Routes in 2024 YTD",
               "stats.carrierCollaboration": "Carrier Collaboration",
+              "stats.carrierCollaborationDigit": "15",
               "stats.carrierCollaborationDesc": "Carriers in 2024 YTD",
               "stats.seatsGenerated": "Seats Generated",
+              "stats.seatsGeneratedDigit": "4.5",
               "stats.seatsGeneratedDesc": "4,5 million generated seats in 2024 YTD.",
               "stats.airlines": "Airlines",
+              "stats.airlinesDigit": "5",
               "stats.airlinesDesc": "Strategic Partnerships With Local and International Carriers",
               
               // Search
@@ -1346,6 +1353,8 @@
               // Flights
               "flights.airline": "Airline",
               "flights.started": "Started?",
+              "flights.startedYes": "Yes",
+              "flights.startedNo": "No",
               "flights.yearStarted": "Year Started",
 
               // Continents
@@ -1412,7 +1421,7 @@
               "footer.redSea": "Red Sea Authority",
               "footer.followUs": "Follow us on",
               "footer.address": "2nd Floor, Building 6 GACA Complex, Riyadh 12512, Saudi",
-              "footer.copyright": "All rights reserved to the Digital Government Authority © 2025"
+              "footer.copyright": "Copyright © 2025 Air Connectivity Program. All rights reserved."
             }
           },
           ar: {
@@ -1445,7 +1454,7 @@
               "sections.routesDescription": "اكتشف المسارات التي تربط مطارات المملكًة بالوجهات",
               "sections.chooseContinent": "اختر قارة",
               "sections.news": "الاخبار",
-              "sections.saudiAirConnectivity": "الربط الجوي السعودي",
+              "sections.saudiAirConnectivity": " الربط الجوي السعودي الشركاء",
               "sections.partnersDescription": "العمل مع قادة قطاعي الطيران والسياحة لتوسيع نطاق الربط الجوي",
               
               // Statistics
@@ -1453,12 +1462,16 @@
               "stats.saudiAirConnectivity": "برنامج الربط الجوي السعودي",
               "stats.vision2030Initiative": "مبادرة ضمن رؤية ٢٠٣٠ لتوسيع مسارات الطيران وتعزيز الربط الجوي",
               "stats.routesActivated": "المسارات المفعلة",
-              "stats.routesActivatedDesc": "المسارات المفعلة في عام ٢-٢٤ حتى تاريخه",
+              "stats.routesActivatedDigit": "٦٧",
+              "stats.routesActivatedDesc": "المسارات المفعلة في عام ٢٠٢٤ حتى تاريخه",
               "stats.carrierCollaboration": "التعاون مع الناقلين",
+              "stats.carrierCollaborationDigit": "١٥",
               "stats.carrierCollaborationDesc": "الناقلون في عام ٢٠٢٤ حتى تاريخه",
               "stats.seatsGenerated": "المقاعد التي تم توفيرها",
+              "stats.seatsGeneratedDigit": "٤.٥",
               "stats.seatsGeneratedDesc": "٤.٥ مليون مقعد تم تقديمه في عام ٢٠٢٤ حتى تاريخه",
               "stats.airlines": "شركات الطيران",
+              "stats.airlinesDigit": "٥",
               "stats.airlinesDesc": "شراكات استراتيجية مع شركات طيران محلية ودولية",
               
               // Search
@@ -1472,6 +1485,8 @@
               // Flights
               "flights.airline": " التشغيل؟",
               "flights.started": "هل بدأ",
+              "flights.startedYes": "نعم",
+              "flights.startedNo": "لا",
               "flights.yearStarted": "سنة التشغيل",
               // "flights.airline": "الخطوط الجوية",
               // "flights.started": "بدأت؟",
@@ -1540,7 +1555,7 @@
               "footer.redSea": "الهيئة السعودية للبحر الأحمر",
               "footer.followUs": "تابعنا على",
               "footer.address": "الطابق الثاني، المبنى ٦ مجمع هيئة الطيران المدني، الرياض، ١٢٥١٩ السعودية",
-              "footer.copyright": "جميع الحقوق محفوظة لهيئة الحكومة الرقمية © 2025"
+              "footer.copyright": "جميع الحقوق محفوظة برنامج الربط الجوي 2025"
             }
           }
         }
@@ -2444,7 +2459,7 @@
                             <div class="flex items-center justify-center mb-2">
                                 <span class="text-xs text-gray-500" data-i18n="flights.started">Started?</span>
                             </div>
-                            <div class="text-xl font-bold text-gray-800">${flight.started.toLocaleString()}</div>
+                            <div class="text-xl font-bold text-gray-800" data-i18n="${flight.started==='Yes' ? "flights.startedYes" : "flights.startedNo"}">${flight.started.toLocaleString()}</div>
                         </div>
                         
                         <div class="text-center">
@@ -3313,6 +3328,20 @@
     attachTranslationListener();
   }
 })();
+
+ window.addEventListener("load", () => {
+    const cover = document.getElementById("page-cover");
+    const heroTitle = document.getElementById("hero-title");
+
+    // Flip away the cover after small delay
+    setTimeout(() => {
+      cover.classList.add("hide");
+      // Reveal hero text slightly later for staggered effect
+      setTimeout(() => {
+        heroTitle.classList.add("show");
+      }, 400);
+    }, 500);
+  });
     </script>
 
     <style>
@@ -3338,6 +3367,26 @@
 
       .infinite-scroll:hover .animate-scroll {
         animation-play-state: paused;
+      }
+
+       /* Flip animation for the cover */
+      #page-cover {
+        transform: scaleY(1);
+        transform-origin: top;
+        transition: transform 0.5s;
+      }
+      #page-cover.hide {
+        transform: scaleY(0);
+      }
+
+      /* Smooth hero text reveal */
+      #hero-title {
+        transition: opacity 1s ease, transform 1s ease;
+      }
+
+      #hero-title.show {
+        opacity: 1;
+        transform: translateY(-2rem);
       }
     </style>
 

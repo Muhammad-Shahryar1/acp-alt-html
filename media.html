@@ -107,7 +107,7 @@
             <div class="flex items-center space-x-4 text-black">
               <!-- Updated language selector to match contact.html structure -->
               <!-- Language Selector -->
-              <div class="hidden md:flex ">
+              <div class="hidden md:flex">
                 <span
                   class="text-lg my-auto"
                   id="language-selector-content-desktop"
@@ -223,8 +223,29 @@
     </header>
 
     <section
-      class="max-w-7xl mx-auto py-12 sm:pb-20 sm:pt-10 px-4 sm:px-6 lg:px-8"
+      class="max-w-7xl mx-auto py-12 sm:pb-20 sm:pt-10  px-4 sm:px-6 lg:px-8"
     >
+      <div id="pageNavigation" class="flex gap-1 my-4 items-center container  mx-auto " >
+        <a data-i18n="page.homeNav"  href="./index.html" class="text-gray-500 hover:text-gray-600">Home</a>
+
+        <!-- Separator -->
+        <svg
+          class="w-4 h-4 text-[#00C951]"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M9 5l7 7-7 7"
+          />
+        </svg>
+
+        <!-- About ACP -->
+        <a href="./media.html" data-i18n="page.currentNav" class="text-[#00C951] hover:text-green-500">Media Center</a>
+      </div>
       <div
         class="container bg-[#b8dadc] py-10 px-5 sm:px-10 xl:px-20 rounded-2xl mx-auto"
       >
@@ -694,7 +715,7 @@
     </section>
 
     <!-- Footer Section -->
-    <footer class="bg-slate-700 text-white py-16">
+    <footer class="bg-slate-700 text-white pt-16 pb-8">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Footer Content Grid -->
         <div
@@ -918,12 +939,12 @@
           </div>
         </div>
         <!-- Copyright Section -->
-        <div class="border-t border-gray-600 mt-12 pt-8">
+        <div class="border-t border-gray-600 mt-12 pt-4">
           <p
             class="text-gray-400 text-sm text-center lg:text-left"
             data-i18n="footer.copyright"
           >
-            All rights reserved to the Digital Government Authority © 2025
+            Copyright © 2025 Air Connectivity Program. All rights reserved.
           </p>
         </div>
       </div>
@@ -948,6 +969,10 @@
                   "nav.contactUs": "Contact Us",
                   "nav.visitSaudi": "Visit Saudi",
                   "nav.becomePartner": "Become a Partner",
+
+                  //
+                  "page.homeNav": "Home",
+                  "page.currentNav": "Media Center",
 
                   // ─────────────────────────────
                   // MEDIA CONTENT
@@ -989,7 +1014,7 @@
                   "footer.address":
                     "2nd Floor, Building 6 GACA Complex, Riyadh 12519, Saudi",
                   "footer.copyright":
-                    "All rights reserved to the Digital Government Authority © 2025",
+                    "Copyright © 2025 Air Connectivity Program. All rights reserved.",
 
                   // ─────────────────────────────
                   // ARTICLES ENGLISH
@@ -1050,6 +1075,10 @@
                   "nav.visitSaudi": "زوروا السعودية",
                   "nav.becomePartner": "كن شريكاً",
 
+                  //
+                  "page.homeNav": "الرئيسية ",
+                  "page.currentNav": "المركز الإعلامي",
+
                   // MEDIA CONTENT
                   "media.news": "الأخبار",
                   "media.video": "فيديو",
@@ -1082,15 +1111,13 @@
                   "footer.ministryTourism": "وزارة السياحة",
                   "footer.gaca": "هيئة الطيران المدني",
                   "footer.saudiTourismAuthority": "الهيئة السعودية للسياحة",
-                  "footer.tdf":
-                    "صندوق التنمية السياحية",
-                  "footer.redSea":
-                    "الهيئة السعودية للبحر الأحمر",
+                  "footer.tdf": "صندوق التنمية السياحية",
+                  "footer.redSea": "الهيئة السعودية للبحر الأحمر",
                   "footer.followUs": "تابعنا على",
                   "footer.address":
                     "الطابق الثاني، المبنى ٦ مجمع هيئة الطيران المدني، الرياض، ١٢٥١٩ السعودية",
                   "footer.copyright":
-                    "جميع الحقوق محفوظة لهيئة الحكومة الرقمية © 2025",
+                    "جميع الحقوق محفوظة برنامج الربط الجوي 2025",
 
                   // ARTICLES ARABIC
                   "articles.featured.1.title":
@@ -1155,7 +1182,10 @@
       function setLanguage(lang) {
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
-
+        document.getElementById("pageNavigation").dir = lang === "ar" ? "rtl" : "ltr";
+        document.getElementById("pageNavigation").getElementsByTagName('svg')[0].classList.add(lang === "ar" ? "rotate-180" : "rotate-0")
+        document.getElementById("pageNavigation").getElementsByTagName('svg')[0].classList.remove(lang === "ar" ? "rotate-0" : "rotate-180")
+        
         document
           .querySelector("footer")
           .classList.add(lang === "ar" ? "!text-right" : "!text-left");
