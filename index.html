@@ -374,10 +374,10 @@
 
           <!-- Right Column - Statistics Cards -->
           <div
-            class="grid grid-cols-1 lg:grid-cols-2  border-black  gap-4 sm:gap-6 px-8 sm:px-12 lg:px-16 lg:!pl-0"
+            class="grid grid-cols-1 lg:grid-cols-2 border-black gap-4 sm:gap-6 px-8 sm:px-12 lg:px-16 lg:!pl-0"
           >
             <!-- Carousel Cards -->
-            <div class="carousel-container block pb-10 sm:hidden ">
+            <div class="carousel-container block pb-10 sm:hidden">
               <div class="carousel-track" id="carouselTrack">
                 <!-- Card 1 -->
                 <div class="carousel-card active">
@@ -1948,8 +1948,14 @@
 
       // Change language and refresh UI
       function setLanguage(lang) {
+        // Save language to localStorage
+        // localStorage.setItem("appLanguage", lang);
+
+        // Apply lang & direction
         document.documentElement.lang = lang;
-        document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
+        // document.documentElement.dir = lang === "ar" ? "ltr" : "ltr"; // fixed: Arabic should be RTL
+
+        // Toggle text alignment classes
         document.body.classList.add(
           lang === "ar" ? "!text-right" : "!text-left"
         );
@@ -1957,10 +1963,16 @@
           lang === "ar" ? "!text-left" : "!text-right"
         );
 
+        // Change i18next language
         i18next.changeLanguage(lang, function (err, t) {
           updateContent();
         });
       }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
+        setLanguage(savedLang);
+      });
 
       // Auto update all tags with [data-i18n]
       function updateContent() {
@@ -2052,6 +2064,9 @@
             newLang === "ar"
               ? (languageSelectorContentMobile.innerHTML = "English")
               : (languageSelectorContentMobile.innerHTML = "العربية");
+
+            // Save language to localStorage
+            localStorage.setItem("appLanguage", newLang);
             setLanguage(newLang);
           });
         });
@@ -3805,6 +3820,17 @@
 
         sliderTrack.innerHTML = slidesHTML;
 
+        // Update news cards if they exist
+        if (sliderTrack) {
+          const newsCard = sliderTrack.querySelectorAll("[data-i18n]");
+          newsCard.forEach((card) => {
+            const key = card.getAttribute("data-i18n");
+            if (key) {
+              card.textContent = i18next.t(key);
+            }
+          });
+        }
+
         // Update progress segments
         updateNewsProgress();
 
@@ -4575,7 +4601,7 @@
       }
 
       /* Visual active state (applies to the inner card box) */
-      
+
       .orbit-card.active > div {
         background: #10b981 !important;
         color: #fff !important;

@@ -724,6 +724,7 @@
 
       // Change language and refresh UI
       function setLanguage(lang) {
+          localStorage.setItem("appLanguage", lang);
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
 
@@ -750,6 +751,11 @@
           updateContent();
         });
       }
+      document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
+  setLanguage(savedLang);
+});
+
 
       // Auto update all tags with [data-i18n]
       function updateContent() {
