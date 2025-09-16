@@ -175,9 +175,7 @@
         ></div>
       </nav>
     </header>
-    <!-- Cover Overlay -->
-<!-- Cover Overlay -->
-<div id="page-cover" class="fixed inset-0 bg-[#00FF40] z-50"></div>
+ 
 
 <!-- Hero Section -->
 <section class="relative h-[90vh] w-full overflow-hidden">
@@ -3336,17 +3334,13 @@
 })();
 
  window.addEventListener("load", () => {
-    const cover = document.getElementById("page-cover");
     const heroTitle = document.getElementById("hero-title");
 
-    // Flip away the cover after small delay
+    // Reveal hero text slightly later for staggered effect
     setTimeout(() => {
-      cover.classList.add("hide");
-      // Reveal hero text slightly later for staggered effect
-      setTimeout(() => {
-        heroTitle.classList.add("show");
-      }, 400);
-    }, 500);
+      heroTitle.classList.add("show");
+    }, 300);
+
   });
     </script>
 
@@ -3375,16 +3369,7 @@
         animation-play-state: paused;
       }
 
-       /* Flip animation for the cover */
-      #page-cover {
-        transform: scaleY(1);
-        transform-origin: top;
-        transition: transform 0.5s;
-      }
-      #page-cover.hide {
-        transform: scaleY(0);
-      }
-
+    
       /* Smooth hero text reveal */
       #hero-title {
         transition: opacity 1s ease, transform 1s ease;
