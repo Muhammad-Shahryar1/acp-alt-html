@@ -223,10 +223,18 @@
     </header>
 
     <section
-      class="max-w-7xl mx-auto py-12 sm:pb-20 sm:pt-10  px-4 sm:px-6 lg:px-8"
+      class="max-w-7xl mx-auto py-12 sm:pb-20 sm:pt-10 px-4 sm:px-6 lg:px-8"
     >
-      <div id="pageNavigation" class="flex gap-1 my-4 items-center container  mx-auto " >
-        <a data-i18n="page.homeNav"  href="./index.html" class="text-gray-500 hover:text-gray-600">Home</a>
+      <div
+        id="pageNavigation"
+        class="flex gap-1 my-4 items-center container mx-auto"
+      >
+        <a
+          data-i18n="page.homeNav"
+          href="./index.html"
+          class="text-gray-500 hover:text-gray-600"
+          >Home</a
+        >
 
         <!-- Separator -->
         <svg
@@ -244,7 +252,12 @@
         </svg>
 
         <!-- About ACP -->
-        <a href="./media.html" data-i18n="page.currentNav" class="text-[#00C951] hover:text-green-500">Media Center</a>
+        <a
+          href="./media.html"
+          data-i18n="page.currentNav"
+          class="text-[#00C951] hover:text-green-500"
+          >Media Center</a
+        >
       </div>
       <div
         class="container bg-[#b8dadc] py-10 px-5 sm:px-10 xl:px-20 rounded-2xl mx-auto"
@@ -1182,10 +1195,17 @@
       function setLanguage(lang) {
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
-        document.getElementById("pageNavigation").dir = lang === "ar" ? "rtl" : "ltr";
-        document.getElementById("pageNavigation").getElementsByTagName('svg')[0].classList.add(lang === "ar" ? "rotate-180" : "rotate-0")
-        document.getElementById("pageNavigation").getElementsByTagName('svg')[0].classList.remove(lang === "ar" ? "rotate-0" : "rotate-180")
-        
+        document.getElementById("pageNavigation").dir =
+          lang === "ar" ? "rtl" : "ltr";
+        document
+          .getElementById("pageNavigation")
+          .getElementsByTagName("svg")[0]
+          .classList.add(lang === "ar" ? "rotate-180" : "rotate-0");
+        document
+          .getElementById("pageNavigation")
+          .getElementsByTagName("svg")[0]
+          .classList.remove(lang === "ar" ? "rotate-0" : "rotate-180");
+
         document
           .querySelector("footer")
           .classList.add(lang === "ar" ? "!text-right" : "!text-left");
@@ -1240,8 +1260,6 @@
           });
         });
       });
-
-      // let currentBigCardArticle = null;
 
       // Mobile menu toggle
       const mobileMenuButton = document.getElementById("mobile-menu-button");
@@ -1656,7 +1674,7 @@
 
       // ------------------ UPDATE BIG CARD ------------------
 
-      function updateBigCard(article) {
+      function updateBigCard(article, flag) {
         bigCardImage1.src = article.images[0] || "";
         bigCardImage2.src = article.images[1] || "";
         bigCardImage3.src = article.images[2] || "";
@@ -1682,7 +1700,22 @@
 
         bigCardImage1.onload = () => startSlider();
         currentBigCardArticle = article;
+        if (flag) {
+          openModal();
+        }
       }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const newsId = params.get("news"); // string
+
+        // Convert newsId to number if your data uses numbers
+        const article = articlesData.featured.find(
+          (a) => a.id === Number(newsId)
+        );
+
+        updateBigCard(article, true);
+      });
 
       // ------------------ SECTION TITLE & FILTER ------------------
 

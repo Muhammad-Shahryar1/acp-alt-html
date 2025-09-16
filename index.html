@@ -196,7 +196,7 @@
   <div class="absolute inset-0 bg-black/40"></div>
 
   <!-- Hero Content -->
-  <div class="relative z-10 h-full flex items-center px-8">
+  <div class="container relative mx-auto z-10 h-full flex items-center px-8">
     <div class="max-w-4xl">
       <h1
         id="hero-title"
@@ -2744,6 +2744,7 @@
       let currentNewsSlide = 0;
       const newsData = [
         {
+          id:1,
           image: "./assets/news/abha.png",
           headline: "Flights between Abha and Doha Resumed, First Aircraft Landed at Abha International Airport",
           description:
@@ -2752,6 +2753,7 @@
           date: "02 January 2025",
         },
         {
+          id:2,
           image: "./assets/news/munich.png",
           headline: "Air Connectivity Program Welcomes Lufthansa’s New Direct Munich to Riyadh Flights",
           description:
@@ -2760,6 +2762,7 @@
           date: "19 August 2025",
         },
         {
+          id:3,
           image: "./assets/news/china.jpg",
           headline: "China Southern Airlines Launches New Route between Guangzhou, Riyadh",
           description:
@@ -2768,6 +2771,7 @@
           date: "17 July 2025",
         },
         {
+          id:4,
           image: "./assets/news/haikou.jpg",
           headline: "King Abdulaziz International Airport Launches First Hainan Airlines Flights",
           description:
@@ -2776,6 +2780,7 @@
           date: "28 July 2025",
         },
         {
+          id:5,
           image: "./assets/news/virgin.png",
           headline: "Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status",
           description:
@@ -2784,6 +2789,7 @@
           date: "23 April 2025",
         },
         {
+          id:6,
           image: "./assets/news/madina.jpg",
           headline: "Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.",
           description:
@@ -2792,6 +2798,7 @@
           date: "17 April 2025",
         },
         {
+          id: 7,
           image: "./assets/news/stuttgart.jpg",
           headline: "Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah",
           description:
@@ -2810,12 +2817,12 @@
                         <div class="flex justify-between">
                             <!-- Headline -->
                             <div class="w-2/5">
-                                <h4 class="text-xl font-bold text-gray-800 mb-4 line-clamp-2" data-i18n="articles.featured.${index+1}.title">
+                                <h4 class="text-xl font-bold text-gray-800 mb-4 line-clamp-2" data-i18n="articles.featured.${news.id}.title">
                                     ${news.headline}
                                 </h4>
                                 
                                 <!-- Description -->
-                                <p class="text-gray-600 mb-6 line-clamp-3 flex-grow" data-i18n="articles.featured.${index+1}.description">
+                                <p class="text-gray-600 mb-6 line-clamp-3 flex-grow" data-i18n="articles.featured.${news.id}.description">
                                     ${news.description}
                                 </p>
                             </div>
@@ -2835,7 +2842,7 @@
                                 <span class="border border-gray-300 p-2 rounded-sm" data-i18n="articles.featured.${index+1}.date">${news.date}</span>
                             </div>
                             <!-- Read More Button -->
-                            <a href="./media.html" class="hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2">
+                            <a href="./media.html?news=${news.id}" class="hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2">
                                 <span class="text-sm text-gray-600" data-i18n="buttons.readMore">Read More</span>
                                 <span class="w-8 h-8 rounded-full bg-gray-600 text-white flex items-center justify-center" aria-hidden="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -2857,7 +2864,6 @@
 
         let slidesHTML = "";
 
-        newsCount=0;
         // Create slides with 2 cards each
         for (let i = 0; i < totalSlides; i++) {
           const startIndex = i * 2;
@@ -2867,7 +2873,7 @@
           slidesHTML += `
                     <div class="w-full flex-shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-8 py-6">
                         ${slideNews
-                          .map((news) => createNewsCard(news,newsCount++))
+                          .map((news) => createNewsCard(news))
                           .join("")}
                         ${slideNews.length === 1 ? "<div></div>" : ""}
                     </div>
