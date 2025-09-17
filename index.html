@@ -90,8 +90,8 @@
               <!-- Language Selector -->
               <div class="hidden md:flex">
                 <div
-                id="language-selector"
-                class="flex justify-center items-center cursor-pointer items-center bg-white rounded mx-2 py-2 space-x-3 px-4 text-emerald-500 hover:text-white hover:bg-emerald-500"
+                  id="language-selector"
+                  class="flex justify-center items-center cursor-pointer items-center bg-white rounded mx-2 py-2 space-x-3 px-4 text-emerald-500 hover:text-white hover:bg-emerald-500"
                 >
                   <span
                     class="text-sm font-semibold my-auto"
@@ -339,10 +339,12 @@
           <!-- Left Column - Content -->
           <div
             class="bg-[#F6F6F6] py-16 sm:py-20 lg:py-32 px-8 sm:px-12 lg:px-16"
-            style="background-image: url(./assets/sectionBg.png);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;"
+            style="
+              background-image: url(./assets/sectionBg.png);
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+            "
           >
             <div
               id="statistics-content"
@@ -512,131 +514,136 @@
             </div>
 
             <!-- Rotating Boxes -->
-            <div class="orbitBox hidden pb-20 sm:block">
-              <div class="orbit" id="orbit">
-                <!-- Card 1 -->
-                <div class="orbit-card active">
-                  <div
-                    class="border border-gray-300 text-gray-800 p-6 rounded-md w-52 sm:w-64 !h-[166px]"
-                  >
-                    <div class="flex items-center justify-between mb-3">
-                      <img
-                        src="./assets/icons/acp.svg"
-                        class="w-8 h-8"
-                        alt="ACP icon"
-                      />
-                      <span
-                        class="text-5xl text-[#44505E] font-semibold"
-                        data-i18n="stats.routesActivatedDigit"
-                        >67</span
+            <div class="relative">
+              <div class="orbitBox hidden pb-20 sm:block">
+                <div class="orbit" id="orbit">
+                  <!-- Card 1 -->
+                  <div class="orbit-card active" data-index="0">
+                    <div
+                      class="border border-gray-300 bg-gray-100 text-gray-800 p-6 rounded-md w-52 sm:w-64 !h-[166px]"
+                    >
+                      <div class="flex items-center justify-between mb-3">
+                        <img
+                          src="./assets/icons/acp.svg"
+                          class="w-8 h-8"
+                          alt="ACP icon"
+                        />
+                        <span
+                          class="text-5xl text-[#44505E] font-semibold"
+                          data-i18n="stats.routesActivatedDigit"
+                          >67</span
+                        >
+                      </div>
+                      <p
+                        class="font-semibold text-md"
+                        data-i18n="stats.routesActivated"
                       >
+                        Routes Activated
+                      </p>
+                      <p
+                        class="text-xs text-[#9D9D9C]"
+                        data-i18n="stats.routesActivatedDesc"
+                      >
+                        Activated Routes in 2024 YTD
+                      </p>
                     </div>
-                    <p
-                      class="font-semibold text-md"
-                      data-i18n="stats.routesActivated"
-                    >
-                      Routes Activated
-                    </p>
-                    <p
-                      class="text-xs text-[#9D9D9C]"
-                      data-i18n="stats.routesActivatedDesc"
-                    >
-                      Activated Routes in 2024 YTD
-                    </p>
                   </div>
-                </div>
 
-                <!-- Card 2 -->
-                <div class="orbit-card">
-                  <div
-                    class="border border-gray-300 text-gray-800 p-6 rounded-md w-52 sm:w-64 !h-[166px]"
-                  >
-                    <div class="flex items-center justify-between mb-3">
-                      <img
-                        src="./assets/icons/acp_1.svg"
-                        class="w-8 h-8"
-                        alt="ACP icon"
-                      />
-                      <span
-                        class="text-5xl text-[#44505E] font-semibold"
-                        data-i18n="stats.carrierCollaborationDigit"
-                        >15</span
+                  <!-- Card 2 -->
+                  <div class="orbit-card" data-index="1">
+                    <div
+                      class="border border-gray-300 bg-gray-100 text-gray-800 p-6 rounded-md w-52 sm:w-64 !h-[166px]"
+                    >
+                      <div class="flex items-center justify-between mb-3">
+                        <img
+                          src="./assets/icons/acp_1.svg"
+                          class="w-8 h-8"
+                          alt="ACP icon"
+                        />
+                        <span
+                          class="text-5xl text-[#44505E] font-semibold"
+                          data-i18n="stats.carrierCollaborationDigit"
+                          >15</span
+                        >
+                      </div>
+                      <p
+                        class="font-semibold text-md"
+                        data-i18n="stats.carrierCollaboration"
                       >
+                        Carrier Collaboration
+                      </p>
+                      <p
+                        class="text-xs text-[#9D9D9C]"
+                        data-i18n="stats.carrierCollaborationDesc"
+                      >
+                        Carriers in 2024 YTD
+                      </p>
                     </div>
-                    <p
-                      class="font-semibold text-md"
-                      data-i18n="stats.carrierCollaboration"
-                    >
-                      Carrier Collaboration
-                    </p>
-                    <p
-                      class="text-xs text-[#9D9D9C]"
-                      data-i18n="stats.carrierCollaborationDesc"
-                    >
-                      Carriers in 2024 YTD
-                    </p>
                   </div>
-                </div>
 
-                <!-- Card 3 -->
-                <div class="orbit-card">
-                  <div
-                    class="border border-gray-300 text-gray-800 p-6 rounded-md w-52 sm:w-64 !h-[166px]"
-                  >
-                    <div class="flex items-center justify-between mb-3">
-                      <img
-                        src="./assets/icons/acp_3.svg"
-                        class="w-8 h-8"
-                        alt="ACP icon"
-                      />
-                      <span
-                        class="text-5xl text-[#44505E] font-semibold"
-                        data-i18n="stats.seatsGeneratedDigit"
-                        >4.5</span
+                  <!-- Card 3 -->
+                  <div class="orbit-card" data-index="2">
+                    <div
+                      class="border bg-gray-100 border-gray-300 text-gray-800 p-6 rounded-md w-52 sm:w-64 !h-[166px]"
+                    >
+                      <div class="flex items-center justify-between mb-3">
+                        <img
+                          src="./assets/icons/acp_3.svg"
+                          class="w-8 h-8"
+                          alt="ACP icon"
+                        />
+                        <span
+                          class="text-5xl text-[#44505E] font-semibold"
+                          data-i18n="stats.seatsGeneratedDigit"
+                          >4.5</span
+                        >
+                      </div>
+                      <p
+                        class="font-semibold text-md"
+                        data-i18n="stats.seatsGenerated"
                       >
+                        Seats Generated
+                      </p>
+                      <p
+                        class="text-xs text-[#9D9D9C]"
+                        data-i18n="stats.seatsGeneratedDesc"
+                      >
+                        4.5 million generated seats in 2024 YTD
+                      </p>
                     </div>
-                    <p
-                      class="font-semibold text-md"
-                      data-i18n="stats.seatsGenerated"
-                    >
-                      Seats Generated
-                    </p>
-                    <p
-                      class="text-xs text-[#9D9D9C]"
-                      data-i18n="stats.seatsGeneratedDesc"
-                    >
-                      4.5 million generated seats in 2024 YTD
-                    </p>
                   </div>
-                </div>
 
-                <!-- Card 4 -->
-                <div class="orbit-card">
-                  <div
-                    class="border border-gray-300 text-gray-800 p-6 rounded-md w-52 sm:w-64 !h-[166px]"
-                  >
-                    <div class="flex items-center justify-between mb-3">
-                      <img
-                        src="./assets/icons/acp_2.svg"
-                        class="w-8 h-8"
-                        alt="ACP icon"
-                      />
-                      <span
-                        class="text-5xl text-[#44505E] font-semibold"
-                        data-i18n="stats.airlinesDigit"
-                        >5</span
-                      >
-                    </div>
-                    <p class="font-semibold text-md" data-i18n="stats.airlines">
-                      Airlines
-                    </p>
-                    <p
-                      class="text-xs text-[#9D9D9C]"
-                      data-i18n="stats.airlinesDesc"
+                  <!-- Card 4 -->
+                  <div class="orbit-card" data-index="3">
+                    <div
+                      class="border bg-gray-100 border-gray-300 text-gray-800 p-6 rounded-md w-52 sm:w-64 !h-[166px]"
                     >
-                      Strategic Partnerships With Local and International
-                      Carriers
-                    </p>
+                      <div class="flex items-center justify-between mb-3">
+                        <img
+                          src="./assets/icons/acp_2.svg"
+                          class="w-8 h-8"
+                          alt="ACP icon"
+                        />
+                        <span
+                          class="text-5xl text-[#44505E] font-semibold"
+                          data-i18n="stats.airlinesDigit"
+                          >5</span
+                        >
+                      </div>
+                      <p
+                        class="font-semibold text-md"
+                        data-i18n="stats.airlines"
+                      >
+                        Airlines
+                      </p>
+                      <p
+                        class="text-xs text-[#9D9D9C]"
+                        data-i18n="stats.airlinesDesc"
+                      >
+                        Strategic Partnerships With Local and International
+                        Carriers
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -956,7 +963,10 @@
             id="activeFilterSection"
             class="hidden flex items-center justify-between bg-white border border-white rounded-xl px-4 py-3 shadow-sm"
           >
-            <p id="activeFilter" class="text-sm font-medium text-gray-900 flex gap-1 items-center"></p>
+            <p
+              id="activeFilter"
+              class="text-sm font-medium text-gray-900 flex gap-1 items-center"
+            ></p>
             <!-- <button
               onclick="initializeFlightSearch()"
               class="ml-3 inline-flex items-center px-3 py-1.5 text-sm font-medium text-black bg-gray-300 rounded-lg hover:bg-gray-100 transition cursor-pointer"
@@ -1838,7 +1848,8 @@
                 // Search
                 "search.saudiAirportsPlaceholder":
                   "مطارات المملكة العربية السعودية...",
-                "search.searchAirports": "ابحث عن مطارات المملكة العربية السعودية ...",
+                "search.searchAirports":
+                  "ابحث عن مطارات المملكة العربية السعودية ...",
                 "search.noAirportsFound": "لم يتم العثور على مطارات",
                 "search.King Khalid International Airport":
                   "مطار الملك خالد الدولي - الرياض (RUH)",
@@ -1988,6 +1999,7 @@
           const key = el.getAttribute("data-i18n");
           el.innerHTML = i18next.t(key);
         });
+        //
 
         // Update placeholders
         document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
@@ -3590,9 +3602,7 @@
         );
         activeFilterSection.classList.remove("hidden");
         activeFilterSection.classList.add("flex");
-        document.getElementById(
-          "activeFilter"
-        ).innerHTML = `Airport 
+        document.getElementById("activeFilter").innerHTML = `Airport 
         <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
@@ -4040,9 +4050,7 @@
         );
         activeFilterSection.classList.remove("hidden");
         activeFilterSection.classList.add("flex");
-        document.getElementById(
-          "activeFilter"
-        ).innerHTML = `Continent 
+        document.getElementById("activeFilter").innerHTML = `Continent 
         <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                             </svg>
@@ -4398,87 +4406,89 @@
         });
       });
 
-       // Variables to track scroll and footer state
-        let lastScrollTop = 0;
-        let footerShown = false;
-        const footer = document.getElementById('animatedFooter');
-        const pageOverlay = document.getElementById('pageOverlay');
-        let scrollTimer = null;
-        
-        // Function to check if user has scrolled to bottom
-        function isAtBottom() {
-            const scrollHeight = document.documentElement.scrollHeight;
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            const clientHeight = window.innerHeight;
-            
-            // Check if we're within 50px of the bottom
-            return scrollTop + clientHeight >= scrollHeight - 50;
+      // Variables to track scroll and footer state
+      let lastScrollTop = 0;
+      let footerShown = false;
+      const footer = document.getElementById("animatedFooter");
+      const pageOverlay = document.getElementById("pageOverlay");
+      let scrollTimer = null;
+
+      // Function to check if user has scrolled to bottom
+      function isAtBottom() {
+        const scrollHeight = document.documentElement.scrollHeight;
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        const clientHeight = window.innerHeight;
+
+        // Check if we're within 50px of the bottom
+        return scrollTop + clientHeight >= scrollHeight - 50;
+      }
+
+      // Function to show footer
+      function showFooter() {
+        if (!footerShown) {
+          footer.classList.add("active");
+          // pageOverlay.classList.add('active');
+          footerShown = true;
         }
-        
-        // Function to show footer
-        function showFooter() {
-            if (!footerShown) {
-                footer.classList.add('active');
-                // pageOverlay.classList.add('active');
-                footerShown = true;
-            }
+      }
+
+      // Function to hide footer
+      function hideFooter() {
+        if (footerShown) {
+          footer.classList.remove("active");
+          // pageOverlay.classList.remove('active');
+          footerShown = false;
         }
-        
-        // Function to hide footer
-        function hideFooter() {
-            if (footerShown) {
-                footer.classList.remove('active');
-                // pageOverlay.classList.remove('active');
-                footerShown = false;
-            }
-        }
-        
-        // Scroll event handler
-        window.addEventListener('scroll', function() {
-            const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Clear previous timer
-            clearTimeout(scrollTimer);
-            
-            // Set a new timer to detect when scrolling stops
-            scrollTimer = setTimeout(function() {
-                // Check if at bottom of page
-                if (isAtBottom()) {
-                    showFooter();
-                } else if (currentScrollTop < lastScrollTop) {
-                    // Scrolling up - hide footer
-                    hideFooter();
-                }
-                
-                lastScrollTop = currentScrollTop;
-            }, 100); // Delay to ensure smooth detection
-            
-            // Immediate hide on significant upward scroll
-            if (currentScrollTop < lastScrollTop - 5 && footerShown) {
-                hideFooter();
-            }
-            
-            lastScrollTop = currentScrollTop;
-        });
-        
-        // Click overlay to hide footer
-        pageOverlay.addEventListener('click', function() {
+      }
+
+      // Scroll event handler
+      window.addEventListener("scroll", function () {
+        const currentScrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+
+        // Clear previous timer
+        clearTimeout(scrollTimer);
+
+        // Set a new timer to detect when scrolling stops
+        scrollTimer = setTimeout(function () {
+          // Check if at bottom of page
+          if (isAtBottom()) {
+            showFooter();
+          } else if (currentScrollTop < lastScrollTop) {
+            // Scrolling up - hide footer
             hideFooter();
-            // Scroll up slightly to prevent immediate re-trigger
-            window.scrollBy(0, -100);
-        });
-        
-        // Prevent footer from blocking interactions when hidden
-        footer.addEventListener('transitionend', function() {
-            if (!footerShown) {
-                footer.style.pointerEvents = 'none';
-            } else {
-                footer.style.pointerEvents = 'auto';
-            }
-        });
-        
-        // Initial state
-        footer.style.pointerEvents = 'none';
+          }
+
+          lastScrollTop = currentScrollTop;
+        }, 100); // Delay to ensure smooth detection
+
+        // Immediate hide on significant upward scroll
+        if (currentScrollTop < lastScrollTop - 5 && footerShown) {
+          hideFooter();
+        }
+
+        lastScrollTop = currentScrollTop;
+      });
+
+      // Click overlay to hide footer
+      pageOverlay.addEventListener("click", function () {
+        hideFooter();
+        // Scroll up slightly to prevent immediate re-trigger
+        window.scrollBy(0, -100);
+      });
+
+      // Prevent footer from blocking interactions when hidden
+      footer.addEventListener("transitionend", function () {
+        if (!footerShown) {
+          footer.style.pointerEvents = "none";
+        } else {
+          footer.style.pointerEvents = "auto";
+        }
+      });
+
+      // Initial state
+      footer.style.pointerEvents = "none";
     </script>
     <script>
       /*
@@ -4657,10 +4667,11 @@
       .slide-transition {
         transition: transform 0.5s ease;
       }
+
+      /* Start Revolving Cards */
       :root {
-        --radius: 150px;
-        --stepDuration: 6000ms;
-      } /* step = fullDuration/4 */
+        --radius: 130px;
+      }
 
       .orbitBox {
         position: relative;
@@ -4680,79 +4691,62 @@
         position: absolute;
         left: 50%;
         top: 50%;
-        /* The CSS animation that visually moves cards around the circle */
-        animation: orbitStep 24s linear infinite;
-        will-change: transform;
         transform-origin: center calc(var(--radius) * -1);
-        /* keep it upright by counter-rotating inside (we use rotation in keyframes) */
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        will-change: transform;
       }
 
-      /* Visual active state (applies to the inner card box) */
-
+      /* Visual active state */
       .orbit-card.active > div {
         background: #10b981 !important;
         color: #fff !important;
         border-color: #059669 !important;
         z-index: 100 !important;
         box-shadow: 0 12px 30px rgba(16, 185, 129, 0.2);
+        transform: scale(1.15);
+        transition: all 0.3s ease;
+      }
+
+      .orbit-card.active {
+        z-index: 100;
       }
 
       .orbit-card.active > div > p {
         color: #fff !important;
       }
 
-      /* Keyframes: step + 3s pause (24s full cycle => 6s per step: ~3s rotate + 3s hold) */
-      @keyframes orbitStep {
-        0% {
-          transform: rotate(0deg) translateY(calc(var(--radius) * -1))
-            rotate(0deg);
-        }
-        12.5% {
-          transform: rotate(90deg) translateY(calc(var(--radius) * -1))
-            rotate(-90deg);
-        }
-        25% {
-          transform: rotate(90deg) translateY(calc(var(--radius) * -1))
-            rotate(-90deg);
-        } /* hold */
-        37.5% {
-          transform: rotate(180deg) translateY(calc(var(--radius) * -1))
-            rotate(-180deg);
-        }
-        50% {
-          transform: rotate(180deg) translateY(calc(var(--radius) * -1))
-            rotate(-180deg);
-        } /* hold */
-        62.5% {
-          transform: rotate(270deg) translateY(calc(var(--radius) * -1))
-            rotate(-270deg);
-        }
-        75% {
-          transform: rotate(270deg) translateY(calc(var(--radius) * -1))
-            rotate(-270deg);
-        } /* hold */
-        87.5% {
-          transform: rotate(360deg) translateY(calc(var(--radius) * -1))
-            rotate(-360deg);
-        }
-        100% {
-          transform: rotate(360deg) translateY(calc(var(--radius) * -1))
-            rotate(-360deg);
-        } /* hold */
+      /* Inactive cards styling */
+      .orbit-card:not(.active) {
+        opacity: 0.6;
+        z-index: 10;
       }
 
-      /* initial animation offsets so cards are spread around the circle */
-      .orbit-card:nth-child(1) {
-        animation-delay: 0s;
+      .orbit-card:not(.active) > div {
+        transform: scale(0.85);
+        transition: all 0.3s ease;
       }
-      .orbit-card:nth-child(2) {
-        animation-delay: -6s;
+
+      .orbit-card > div {
+        transition: all 0.3s ease;
       }
-      .orbit-card:nth-child(3) {
-        animation-delay: -12s;
+
+      /* Clickable cards */
+      .orbit-card {
+        cursor: pointer;
       }
-      .orbit-card:nth-child(4) {
-        animation-delay: -18s;
+
+      .orbit-card:not(.active):hover > div {
+        transform: scale(0.9);
+        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+        opacity: 1;
+      }
+
+      .orbit-card:not(.active):hover {
+        opacity: 0.95;
+      }
+
+      .orbit-card:not(.active):active > div {
+        transform: scale(0.8);
       }
 
       /* responsive radius adjustments */
@@ -4761,6 +4755,7 @@
           --radius: 90px;
         }
       }
+      /* End Revolving Cards */
     </style>
 
     <style>
@@ -4797,485 +4792,100 @@
       }
 
       /* Custom styles for smooth animations */
-        .footer-overlay {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            transform: translateY(100%);
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: 50;
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .footer-overlay.active {
-            transform: translateY(0);
-        }
+      .footer-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+      }
 
-        /* Background overlay when footer is active */
-        .page-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0);
-            pointer-events: none;
-            transition: background 0.6s ease;
-            z-index: 40;
-        }
-        
-        .page-overlay.active {
-            background: rgba(0, 0, 0, 0.3);
-            pointer-events: auto;
-        }
+      .footer-overlay.active {
+        transform: translateY(0);
+      }
+
+      /* Background overlay when footer is active */
+      .page-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0);
+        pointer-events: none;
+        transition: background 0.6s ease;
+        z-index: 40;
+      }
+
+      .page-overlay.active {
+        background: rgba(0, 0, 0, 0.3);
+        pointer-events: auto;
+      }
     </style>
 
     <!-- assets/js/airports-map.js: Map SVG inline loader and arrow highlighting (only map-related functionality) -->
+    <!--Start Revolving Cards JS -->
     <script>
-      // assets/js/airports-map.js
-      // Map SVG inline loader and arrow highlighting (only map-related functionality)
-
       (function () {
-        // Inputs / UI elements
-        const searchInput = document.getElementById("airport-search");
-        const searchResults = document.getElementById("search-results");
+        const orbit = document.getElementById("orbit");
+        const cards = Array.from(document.querySelectorAll(".orbit-card"));
 
-        // Airports data exposed from index.html
-        const airports =
-          typeof window !== "undefined" && window.saudiAirports
-            ? window.saudiAirports
-            : [];
+        if (!orbit || cards.length === 0) return;
 
-        // Only these three airports should be functional on the map/search for now
-        const ACTIVE_CODES = ["RUH", "JED", "DMM"];
+        let currentActiveIndex = 0;
+        let isAnimating = false;
 
-        // Approximate coordinates on the map (percentage positions)
-        const mapAirportCoords = {
-          RUH: { x: 56, y: 48 },
-          JED: { x: 30, y: 62 },
-          DMM: { x: 64, y: 42 },
-        };
+        // Position cards in orbit
+        function positionCards() {
+          const totalCards = cards.length;
+          const angleStep = 360 / totalCards;
 
-        // State for map/arrow mapping
-        let airportArrowMap = {}; // code -> SVGPolygonElement
-        let allArrowPolygons = [];
-        let pulseStyleInjected = false;
-        let mapReady = false;
-        let pendingHighlightCode = null;
-        let mappingDistances = {}; // code -> best squared distance in %
-        let tempArrowOverlay = null; // for fallback overlay
+          cards.forEach((card, index) => {
+            // Calculate the offset from the current active card
+            const offset = index - currentActiveIndex;
+            const angle = offset * angleStep;
 
-        function normalize(s) {
-          return (s || "").toString().trim().toLowerCase();
-        }
+            // Position the card
+            card.style.transform = `rotate(${angle}deg) translateY(calc(var(--radius) * -1)) rotate(${-angle}deg)`;
 
-        function findAirportByCode(code) {
-          return airports.find((a) => a.code === code);
-        }
-
-        function debounce(fn, wait) {
-          let t;
-          return function (...args) {
-            clearTimeout(t);
-            t = setTimeout(() => fn.apply(this, args), wait);
-          };
-        }
-
-        function ensurePulseStyle() {
-          if (pulseStyleInjected) return;
-          const css = `@keyframes pulseGreen { 0% { transform: scale(1.0); filter: drop-shadow(0 0 6px rgba(34,197,94,0.45)); } 50% { transform: scale(1.15); filter: drop-shadow(0 0 10px rgba(34,197,94,0.75)); } 100% { transform: scale(1.0); filter: drop-shadow(0 0 6px rgba(34,197,94,0.45)); } }`;
-          const style = document.createElement("style");
-          style.setAttribute("data-map-pulse", "");
-          style.textContent = css;
-          document.head.appendChild(style);
-          pulseStyleInjected = true;
-        }
-
-        // Load the SVG inline (replaces fallback <img>)
-        function loadInlineMapSVG() {
-          const fallback = document.getElementById("saudi-map-fallback");
-          const mount = document.getElementById("saudi-map-inline");
-          if (!fallback || !mount) return Promise.resolve();
-          const url = fallback.getAttribute("src");
-          return fetch(url)
-            .then((r) => r.text())
-            .then((svgText) => {
-              mount.innerHTML = svgText;
-              const svg = mount.querySelector("svg");
-              if (svg) {
-                svg.style.width = "100%";
-                svg.style.height = "auto";
-              }
-              fallback.style.visibility = "hidden";
-            })
-            .then(() => mapPolygonsToAirports())
-            .catch((err) => {
-              // If inline SVG fails to load (e.g., file:// CORS), fall back to overlay mode
-              console.warn(
-                "Inline SVG load failed, using overlay fallback:",
-                err
-              );
-              mapReady = true; // allow overlay highlighting
-              if (pendingHighlightCode) {
-                const code = pendingHighlightCode;
-                pendingHighlightCode = null;
-                drawTempArrowAt(code);
-              }
-            });
-        }
-
-        function mapPolygonsToAirports() {
-          const mount = document.getElementById("saudi-map-inline");
-          const container = document.getElementById("saudi-map");
-          if (!mount || !container) return;
-          // Primary: arrow polygons with class 'cls-1'
-          allArrowPolygons = Array.from(
-            mount.querySelectorAll("polygon.cls-1")
-          );
-          // Secondary: any polygons if primary not found
-          if (allArrowPolygons.length === 0) {
-            allArrowPolygons = Array.from(mount.querySelectorAll("polygon"));
-          }
-          // Tertiary: paths with class 'cls-1' (some SVGs draw arrows as paths)
-          if (allArrowPolygons.length === 0) {
-            allArrowPolygons = Array.from(mount.querySelectorAll("path.cls-1"));
-          }
-          if (allArrowPolygons.length === 0) {
-            // Even if we can't find polygons, mark ready so fallback overlay can work
-            mapReady = true;
-            if (pendingHighlightCode) {
-              const code = pendingHighlightCode;
-              pendingHighlightCode = null;
-              setActiveAirportArrow(code);
-            }
-            return;
-          }
-
-          // Make polygons animatable
-          allArrowPolygons.forEach((el) => {
-            el.style.transformBox = "fill-box";
-            el.style.transformOrigin = "50% 50%";
-            el.style.transition =
-              "transform 160ms ease, fill 160ms ease, filter 160ms ease, stroke 160ms ease, stroke-width 160ms ease";
-          });
-
-          const containerRect = container.getBoundingClientRect;
-
-          function centerPercent(el) {
-            const r = el.getBoundingClientRect();
-            const cx =
-              ((r.left + r.width / 2 - containerRect.left) /
-                containerRect.width) *
-              100;
-            const cy =
-              ((r.top + r.height / 2 - containerRect.top) /
-                containerRect.height) *
-              100;
-            return { x: cx, y: cy };
-          }
-
-          const centers = allArrowPolygons.map((el) => centerPercent(el));
-
-          airportArrowMap = {};
-          mappingDistances = {};
-          Object.keys(mapAirportCoords).forEach((code) => {
-            if (!ACTIVE_CODES.includes(code)) return; // map only active airports
-            const target = mapAirportCoords[code];
-            let bestIndex = 0;
-            let bestDist = Infinity;
-            centers.forEach((c, idx) => {
-              const dx = c.x - target.x;
-              const dy = c.y - target.y;
-              const d = dx * dx + dy * dy;
-              if (d < bestDist) {
-                bestDist = d;
-                bestIndex = idx;
-              }
-            });
-            airportArrowMap[code] = allArrowPolygons[bestIndex];
-            mappingDistances[code] = bestDist;
-          });
-
-          // Click support on mapped arrows
-          Object.keys(airportArrowMap).forEach((code) => {
-            const el = airportArrowMap[code];
-            if (!el) return;
-            el.style.cursor = "pointer";
-            el.addEventListener("click", () => {
-              const a = findAirportByCode(code);
-              setActiveAirportArrow(code);
-              if (searchInput && a)
-                searchInput.value = `${a.name} - ${a.city} (${a.code})`;
-              if (typeof window.setAirportByCode === "function") {
-                window.setAirportByCode(code);
-              }
-            });
-          });
-
-          mapReady = true;
-          if (pendingHighlightCode) {
-            const code = pendingHighlightCode;
-            pendingHighlightCode = null;
-            setActiveAirportArrow(code);
-          }
-        }
-
-        function resetAllArrows() {
-          allArrowPolygons.forEach((el) => {
-            el.style.fill = "";
-            el.style.filter = "";
-            el.style.transform = "scale(1)";
-            el.style.stroke = "";
-            el.style.strokeWidth = "";
-            el.style.strokeLinejoin = "";
-            el.style.animation = "";
-          });
-          if (tempArrowOverlay && tempArrowOverlay.parentNode) {
-            tempArrowOverlay.parentNode.removeChild(tempArrowOverlay);
-          }
-          tempArrowOverlay = null;
-        }
-
-        function setActiveAirportArrow(code) {
-          if (!ACTIVE_CODES.includes(code)) return; // ignore non-active codes
-          if (!mapReady) {
-            pendingHighlightCode = code;
-            return;
-          }
-          if (!airportArrowMap[code]) {
-            // No mapped SVG arrow found -> use fallback overlay at coordinate
-            resetAllArrows();
-            drawTempArrowAt(code);
-            try {
-              console.debug("Highlight via overlay for", code);
-            } catch (_) {}
-            scrollMapIntoView();
-            return;
-          }
-          resetAllArrows();
-          const el = airportArrowMap[code];
-          const bestDist = mappingDistances[code] ?? Infinity;
-          let useFallback = !el || bestDist > 80; // threshold for mismatch
-          if (code === "DMM") {
-            useFallback = true; // ensure visibility for DMM if mapping off
-          }
-          if (!useFallback && el) {
-            ensurePulseStyle();
-            el.style.fill = "#22c55e";
-            el.style.filter = "drop-shadow(0 0 10px rgba(34,197,94,0.6))";
-            el.style.stroke = "#16a34a";
-            el.style.strokeWidth = "3";
-            el.style.strokeLinejoin = "round";
-            el.style.animation = "pulseGreen 1200ms ease-in-out infinite";
-            try {
-              console.debug(
-                "Highlight via SVG polygon for",
-                code,
-                "dist",
-                bestDist
-              );
-            } catch (_) {}
-            scrollMapIntoView();
-          } else {
-            drawTempArrowAt(code);
-            try {
-              console.debug(
-                "Highlight via overlay (threshold) for",
-                code,
-                "dist",
-                bestDist
-              );
-            } catch (_) {}
-            scrollMapIntoView();
-          }
-        }
-
-        // Expose highlighter globally so other scripts can invoke it
-        if (typeof window !== "undefined") {
-          window.setActiveAirportArrow = setActiveAirportArrow;
-        }
-
-        function drawTempArrowAt(code) {
-          const wrapper = document.getElementById("saudi-map");
-          if (!wrapper) return;
-          const pos = mapAirportCoords[code];
-          if (!pos) return;
-          ensurePulseStyle();
-          if (tempArrowOverlay && tempArrowOverlay.parentNode) {
-            tempArrowOverlay.parentNode.removeChild(tempArrowOverlay);
-            tempArrowOverlay = null;
-          }
-          const el = document.createElement("div");
-          el.style.position = "absolute";
-          el.style.left = pos.x + "%";
-          el.style.top = pos.y + "%";
-          el.style.transform = "translate(-50%, -50%)";
-          el.style.pointerEvents = "none";
-          el.style.width = "28px";
-          el.style.height = "28px";
-          el.style.filter = "drop-shadow(0 0 10px rgba(34,197,94,0.6))";
-          el.style.animation = "pulseGreen 1200ms ease-in-out infinite";
-          el.style.zIndex = "100";
-          el.innerHTML = `
-            <svg width="28" height="28" viewBox="0 0 141 253" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
-              <polygon points="0 0 0 52.41 82.48 126.61 0 200.81 0 253.21 140.81 126.61 0 0" fill="#22c55e" stroke="#0f9f4a" stroke-width="10" stroke-linejoin="round"></polygon>
-            </svg>
-          `;
-          wrapper.appendChild(el);
-          tempArrowOverlay = el;
-        }
-
-        function scrollMapIntoView() {
-          try {
-            const wrapper = document.getElementById("saudi-map");
-            if (!wrapper) return;
-            const rect = wrapper.getBoundingClientRect();
-            const y = rect.top + window.scrollY - 100;
-            window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
-          } catch (_) {}
-        }
-
-        // Search integration (dropdown + highlight)
-        function filterAirports(query) {
-          const q = normalize(query);
-          if (!q) return [];
-          return airports
-            .filter((ap) => ACTIVE_CODES.includes(ap.code))
-            .filter(
-              (ap) =>
-                normalize(ap.name).includes(q) ||
-                normalize(ap.city).includes(q) ||
-                normalize(ap.code).includes(q)
-            );
-        }
-
-        function populateDropdown(matches) {
-          if (!searchResults) return;
-          if (!matches.length) {
-            searchResults.classList.add("hidden");
-            searchResults.innerHTML = "";
-            return;
-          }
-          searchResults.innerHTML = matches
-            .map(
-              (ap) => `
-            <button data-code="${ap.code}" class="w-full text-left px-3 py-2 hover:bg-emerald-50">
-              <span class="font-medium text-slate-800">${ap.name} - ${ap.city} (${ap.code})</span>
-            </button>
-          `
-            )
-            .join("");
-          searchResults.classList.remove("hidden");
-
-          Array.from(searchResults.querySelectorAll("button")).forEach(
-            (btn) => {
-              btn.addEventListener("click", () => {
-                const code = btn.getAttribute("data-code");
-                const ap = airports.find((a) => a.code === code);
-                if (!ap) return;
-                if (searchInput)
-                  searchInput.value = `${ap.name} - ${ap.city} (${ap.code})`;
-                setActiveAirportArrow(ap.code);
-                searchResults.classList.add("hidden");
-                if (typeof window.setAirportByCode === "function") {
-                  window.setAirportByCode(ap.code);
-                }
-              });
-            }
-          );
-        }
-
-        function setupSearch() {
-          if (!searchInput) return;
-          searchInput.addEventListener("input", (e) => {
-            const raw = (e.target.value || "").trim();
-            // If cleared, remove any highlights and hide dropdown
-            if (raw.length === 0) {
-              if (searchResults) searchResults.classList.add("hidden");
-              resetAllArrows();
-              return;
-            }
-            const matches = filterAirports(raw);
-            populateDropdown(matches);
-            if (matches[0]) {
-              setActiveAirportArrow(matches[0].code);
-              if (typeof window.setAirportByCode === "function") {
-                window.setAirportByCode(matches[0].code);
-              }
-            }
-          });
-
-          document.addEventListener("click", (evt) => {
-            if (!searchResults) return;
-            const inside =
-              searchResults.contains(evt.target) ||
-              (searchInput && searchInput.contains(evt.target));
-            if (!inside) searchResults.classList.add("hidden");
-          });
-
-          // On Enter key, highlight best match and sync slider
-          searchInput.addEventListener("keydown", (e) => {
-            if (e.key === "Enter") {
-              const q = (searchInput.value || "").trim();
-              const matches = filterAirports(q);
-              if (matches[0]) {
-                setActiveAirportArrow(matches[0].code);
-                if (typeof window.setAirportByCode === "function") {
-                  window.setAirportByCode(matches[0].code);
-                }
-                searchResults && searchResults.classList.add("hidden");
-              }
-              e.preventDefault();
-            }
-          });
-
-          // On blur, try highlight based on current value
-          searchInput.addEventListener("blur", () => {
-            const q = (searchInput.value || "").trim();
-            if (q.length === 0) {
-              resetAllArrows();
-              return;
-            }
-            const matches = filterAirports(q);
-            if (matches[0]) {
-              setActiveAirportArrow(matches[0].code);
-              if (typeof window.setAirportByCode === "function") {
-                window.setAirportByCode(matches[0].code);
-              }
-            }
+            // Set active class
+            card.classList.toggle("active", index === currentActiveIndex);
           });
         }
 
-        // Initialize on DOM ready
-        document.addEventListener("DOMContentLoaded", function () {
-          loadInlineMapSVG().then(() => {
-            // After map is ready, wire search
-            setupSearch();
-            // If a highlight was requested before map ready, apply it now
-            if (typeof window !== "undefined" && window.pendingMapHighlight) {
-              try {
-                setActiveAirportArrow(window.pendingMapHighlight);
-              } catch (_) {}
-              window.pendingMapHighlight = null;
-            }
-          });
+        // Navigate to specific card
+        function navigateToCard(targetIndex) {
+          if (isAnimating || targetIndex === currentActiveIndex) return;
 
-          // Re-map on resize to keep mapping accurate
-          const remap = debounce(() => {
-            mapReady = false;
-            airportArrowMap = {};
-            mapPolygonsToAirports();
-            if (pendingHighlightCode) {
-              const code = pendingHighlightCode;
-              pendingHighlightCode = null;
-              setActiveAirportArrow(code);
-            }
-          }, 200);
-          window.addEventListener("resize", remap);
+          isAnimating = true;
+          currentActiveIndex = targetIndex;
+          positionCards();
+
+          setTimeout(() => {
+            isAnimating = false;
+          }, 800);
+        }
+
+        // Add click listeners to cards
+        cards.forEach((card, index) => {
+          card.addEventListener("click", (e) => {
+            e.preventDefault();
+            navigateToCard(index);
+          });
         });
+
+        // Initialize positions
+        positionCards();
+
+        // Handle resize
+        window.addEventListener("resize", positionCards);
       })();
     </script>
+    <!--End Revolving Cards JS -->
+
     <script>
       /*
   Basic Infinite Carousel:
