@@ -22,7 +22,8 @@
   </head>
   <body class="bg-white overflow-x-hidden font-avenir">
     <header
-      class="absolute top-0 left-0 right-0 z-50 bg-transparent text-white shadow-lg py-6"
+      id="main-header"
+      class="fixed top-0 left-0 right-0 z-[101] bg-transparent text-white shadow-lg py-6 transition-colors duration-300"
     >
       <nav class="xl:container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-8xl">
@@ -203,7 +204,7 @@
         </div>
         <div
           id="nav-overlay"
-          class="absolute inset-0 bg-black/50 z-[-10]"
+          class="absolute inset-0 bg-black/20 z-[-10]"
         ></div>
       </nav>
     </header>
@@ -738,7 +739,7 @@
 
     <!-- Added new airport slider section with complex functionality -->
     <!-- Airport Slider Section -->
-    <section class="py-16 sm:py-20 lg:py-24 bg-white">
+    <section class="hidden py-16 sm:py-20 lg:py-24 bg-white">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-12 gap-8 lg:gap-12">
           <!-- Left Column - Narrower (4 columns) -->
@@ -1627,6 +1628,18 @@
     </footer>
 
     <script>
+      // navbar animation
+       window.addEventListener("scroll", function () {
+    const header = document.getElementById("main-header");
+    if (window.scrollY > 250) {
+      header.classList.add("bg-white", "shadow-md", "text-gray-900");
+      header.classList.remove("bg-transparent", "text-white");
+    } else {
+      header.classList.add("bg-transparent", "text-white");
+      header.classList.remove("bg-white", "shadow-md", "text-gray-900");
+    }
+  });
+
       // Initialize i18next
       i18next.init(
         {
