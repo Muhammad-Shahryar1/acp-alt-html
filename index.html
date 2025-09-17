@@ -397,7 +397,7 @@
                         alt="ACP icon"
                       />
                       <span
-                        class="text-5xl text-[#44505E] font-semibold"
+                        class="text-5xl  font-semibold"
                         data-i18n="stats.routesActivatedDigit"
                         >67</span
                       >
@@ -429,7 +429,7 @@
                         alt="ACP icon"
                       />
                       <span
-                        class="text-5xl text-[#44505E] font-semibold"
+                        class="text-5xl  font-semibold"
                         data-i18n="stats.carrierCollaborationDigit"
                         >15</span
                       >
@@ -461,7 +461,7 @@
                         alt="ACP icon"
                       />
                       <span
-                        class="text-5xl text-[#44505E] font-semibold"
+                        class="text-5xl  font-semibold"
                         data-i18n="stats.seatsGeneratedDigit"
                         >4.5</span
                       >
@@ -493,7 +493,7 @@
                         alt="ACP icon"
                       />
                       <span
-                        class="text-5xl text-[#44505E] font-semibold"
+                        class="text-5xl  font-semibold"
                         data-i18n="stats.airlinesDigit"
                         >5</span
                       >
@@ -529,7 +529,7 @@
                           alt="ACP icon"
                         />
                         <span
-                          class="text-5xl text-[#44505E] font-semibold"
+                          class="text-5xl  font-semibold"
                           data-i18n="stats.routesActivatedDigit"
                           >67</span
                         >
@@ -561,7 +561,7 @@
                           alt="ACP icon"
                         />
                         <span
-                          class="text-5xl text-[#44505E] font-semibold"
+                          class="text-5xl  font-semibold"
                           data-i18n="stats.carrierCollaborationDigit"
                           >15</span
                         >
@@ -593,7 +593,7 @@
                           alt="ACP icon"
                         />
                         <span
-                          class="text-5xl text-[#44505E] font-semibold"
+                          class="text-5xl  font-semibold"
                           data-i18n="stats.seatsGeneratedDigit"
                           >4.5</span
                         >
@@ -625,7 +625,7 @@
                           alt="ACP icon"
                         />
                         <span
-                          class="text-5xl text-[#44505E] font-semibold"
+                          class="text-5xl  font-semibold"
                           data-i18n="stats.airlinesDigit"
                           >5</span
                         >
@@ -959,21 +959,21 @@
           </div>
 
           <!-- Active Filters -->
-          <div
+          <!-- <div
             id="activeFilterSection"
             class="hidden flex items-center justify-between bg-white border border-white rounded-xl px-4 py-3 shadow-sm"
           >
             <p
               id="activeFilter"
               class="text-sm font-medium text-gray-900 flex gap-1 items-center"
-            ></p>
-            <!-- <button
+            ></p> -->
+          <!-- <button
               onclick="initializeFlightSearch()"
               class="ml-3 inline-flex items-center px-3 py-1.5 text-sm font-medium text-black bg-gray-300 rounded-lg hover:bg-gray-100 transition cursor-pointer"
             >
               Clear Filter
             </button> -->
-          </div>
+          <!-- </div> -->
         </div>
 
         <!-- Row 3: Flight Cards and Continent Sidebar -->
@@ -3411,11 +3411,11 @@
         filteredFlights = [...flightData];
         currentContinentPage = 0;
         activeFilters = [];
-        const activeFilterSection = document.getElementById(
-          "activeFilterSection"
-        );
-        activeFilterSection.classList.remove("flex");
-        activeFilterSection.classList.add("hidden");
+        // const activeFilterSection = document.getElementById(
+        //   "activeFilterSection"
+        // );
+        // activeFilterSection.classList.remove("flex");
+        // activeFilterSection.classList.add("hidden");
         renderFlightCards();
         setupFlightSearchListeners();
         updateContinentProgress();
@@ -3597,16 +3597,16 @@
         activeFilters["airport"] =
           saudiAirports[currentFlightAirportIndex].name;
         console.log(activeFilters);
-        const activeFilterSection = document.getElementById(
-          "activeFilterSection"
-        );
-        activeFilterSection.classList.remove("hidden");
-        activeFilterSection.classList.add("flex");
-        document.getElementById("activeFilter").innerHTML = `Airport 
-        <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-        <span class="text-emerald-500">${saudiAirports[currentFlightAirportIndex].name}</span>`;
+        // const activeFilterSection = document.getElementById(
+        //   "activeFilterSection"
+        // );
+        // activeFilterSection.classList.remove("hidden");
+        // activeFilterSection.classList.add("flex");
+        // document.getElementById("activeFilter").innerHTML = `Airport
+        // <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        //                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+        //                     </svg>
+        // <span class="text-emerald-500">${saudiAirports[currentFlightAirportIndex].name}</span>`;
         filterFlightsByAirport();
       }
 
@@ -3950,12 +3950,12 @@
 
       // continents to show in sidebar
       const continents = [
-        { name: "Asia", image: "./assets/svg/Asia.png" },
+        { name: "Asia", image: "./assets/svg/Asia.svg" },
         { name: "Europe", image: "./assets/svg/Europe.svg" },
-        { name: "Africa", image: "./assets/svg/Africa.png" },
-        { name: "North America", image: "./assets/svg/North-America.png" },
-        { name: "South America", image: "./assets/svg/South-America.png" },
-        { name: "Australia", image: "./assets/svg/Australia.png" },
+        { name: "Africa", image: "./assets/svg/Africa.svg" },
+        { name: "North America", image: "./assets/svg/North-America.svg" },
+        { name: "South America", image: "./assets/svg/South-America.svg" },
+        { name: "Australia", image: "./assets/svg/Australia.svg" },
       ];
 
       const CONTINENTS_PER_PAGE = 3;
@@ -3976,7 +3976,7 @@
             return `
             <div id="continent-card-${globalIndex}" data-index="${globalIndex}" onclick="selectFlightContinent('${
               c.name
-            }')" class="flex flex-col items-center mt-2 mb-6 cursor-pointer">
+            }', 'continent-card-${globalIndex}')" class="flex flex-col items-center mt-2 mb-6 cursor-pointer">
                 <div class='w-24 h-24 border border-gray-200 rounded'>
                     <img src="${c.image}" alt="${
               c.name
@@ -4026,8 +4026,8 @@
         renderContinents();
       }
 
-      function selectFlightContinent(name) {
-        console.log("Selected Continent:", name);
+      function selectFlightContinent(name, continentCard) {
+        console.log("Selected Continent:", name, continentCard);
 
         // const searchInput = document.getElementById("flight-search");
         // const searchResults = document.getElementById("flight-search-results");
@@ -4037,27 +4037,58 @@
 
         // Update current airport index and sync everything
         // currentFlightAirportIndex = index;
-        selectedContinent = name; // toggle selection
+        // selectedContinent =
+        //   selectedContinent === name ? initializeFlightSearch() : name; // toggle selection
 
-        // activeFilters['continent']=saudiAirports[currentFlightAirportIndex];
+        if (selectedContinent === name) {
+          selectedContinent = null;
+          initializeFlightSearch();
+        } else {
+          console.log(activeFilters);
+          selectedContinent = name;
+          // activeFilters['continent']=saudiAirports[currentFlightAirportIndex];
 
-        // clear other filters
-        activeFilters = [];
-        // add airport filter
-        activeFilters["continent"] = selectedContinent;
-        const activeFilterSection = document.getElementById(
-          "activeFilterSection"
-        );
-        activeFilterSection.classList.remove("hidden");
-        activeFilterSection.classList.add("flex");
-        document.getElementById("activeFilter").innerHTML = `Continent 
-        <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-        <span class="text-emerald-500">${selectedContinent}</span>`;
-        console.log(activeFilters);
+          // clear other filters
+          activeFilters = [];
+          // add airport filter
+          // activeFilters["continent"] = selectedContinent;
+          // const activeFilterSection = document.getElementById(
+          //   "activeFilterSection"
+          // );
+          // activeFilterSection.classList.remove("hidden");
+          // activeFilterSection.classList.add("flex");
+          // document.getElementById("activeFilter").innerHTML = `Continent
+          // <svg class="w-4 h-4 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          //                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          //                     </svg>
+          // <span class="text-emerald-500">${selectedContinent}</span>`;
+          console.log(activeFilters);
 
-        filterFlightsByContinent();
+          // continents.forEach((continent,i)=>{
+          //   const continentEl=document.getElementById(`continent-card-${i}`);
+          //   console.log(continentEl);
+
+          //   const continentSvg=continentEl.getElementsByTagName('img')[0];
+          //   continentSvg.classList.remove('bg-emerald-50');
+          // })
+
+          const container = document.getElementById("continent-cards");
+
+          // Select only direct child divs
+          const childDivs = container.querySelectorAll(":scope > div");
+
+          childDivs.forEach((div, index) => {
+            // console.log("Div #" + index, div);
+            const continentSvg = div.getElementsByTagName("img")[0];
+            continentSvg.classList.remove("bg-emerald-100");
+          });
+
+          const continent = document.getElementById(continentCard);
+          const continentSvg = continent.getElementsByTagName("img")[0];
+          continentSvg.classList.add("bg-emerald-100");
+
+          filterFlightsByContinent();
+        }
       }
 
       function filterFlightsByContinent() {
@@ -4105,23 +4136,19 @@
       (function () {
         const section = document.getElementById("animated-section");
         const getTextEl = () => document.getElementById("gsap-text");
-
         let letters = [];
         let currentIndex = 0;
         let animationFinished = false;
         const charsPerScroll = 5;
-        const visibilityRatio = 0.8; // require 60% of letter to be visible
-
-        let wheelAttached = false;
-        let waitingForVisibility = false;
-        let letterObserver = null;
-
+        const visibilityRatio = 0.8;
+        // --- NEW: auto-reveal state ---
+        let autoRevealStarted = false;
+        let autoRevealInterval = null;
         // --- Utilities ----------------------------------------------------------
         function splitIntoLetters(node) {
           const el = node;
           const text = el.textContent || "";
           el.innerHTML = "";
-
           let segments;
           try {
             if (typeof Intl !== "undefined" && Intl.Segmenter) {
@@ -4136,7 +4163,6 @@
           } catch {
             segments = Array.from(text);
           }
-
           const frag = document.createDocumentFragment();
           segments.forEach((ch) => {
             const span = document.createElement("span");
@@ -4145,30 +4171,20 @@
             frag.appendChild(span);
           });
           el.appendChild(frag);
-
           return Array.from(el.querySelectorAll(".letter"));
         }
-
         function resetLettersState() {
           currentIndex = 0;
           animationFinished = false;
-          waitingForVisibility = false;
-          if (letterObserver) {
-            letterObserver.disconnect();
-            letterObserver = null;
-          }
           letters.forEach((l) => {
             l.classList.remove("text-black");
             l.classList.add("text-gray-400");
           });
         }
-
         function init() {
           const el = getTextEl();
           if (!el) return;
-
           letters = splitIntoLetters(el);
-
           const computedDir =
             getComputedStyle(el).direction ||
             el.dir ||
@@ -4177,11 +4193,8 @@
           if (computedDir === "rtl") {
             letters.reverse();
           }
-
           resetLettersState();
-          attachControlsOnce();
         }
-
         // Check if enough of the element is inside the viewport
         function isElementMostlyVisible(el) {
           if (!el) return false;
@@ -4192,7 +4205,6 @@
           const ratio = visibleHeight / rect.height;
           return ratio >= visibilityRatio;
         }
-
         function revealStep(maxChars) {
           let revealed = 0;
           while (revealed < maxChars && currentIndex < letters.length) {
@@ -4205,149 +4217,47 @@
           if (currentIndex >= letters.length) animationFinished = true;
           return revealed;
         }
-
-        function observeCurrentLetterForResume() {
-          if (letterObserver) {
-            letterObserver.disconnect();
-            letterObserver = null;
-          }
-          if (currentIndex >= letters.length) {
-            waitingForVisibility = false;
-            return;
-          }
-          const target = letters[currentIndex];
-          if (!target) return;
-
-          waitingForVisibility = true;
-          letterObserver = new IntersectionObserver(
-            (entries) => {
-              for (const entry of entries) {
-                if (entry.isIntersecting) {
-                  waitingForVisibility = false;
-                  const r = revealStep(charsPerScroll);
-                  if (
-                    !animationFinished &&
-                    currentIndex < letters.length &&
-                    !isElementMostlyVisible(letters[currentIndex])
-                  ) {
-                    setTimeout(observeCurrentLetterForResume, 0);
-                  } else {
-                    if (letterObserver) {
-                      letterObserver.disconnect();
-                      letterObserver = null;
-                    }
-                  }
-                }
-              }
-            },
-            {
-              threshold: visibilityRatio,
+        // --- NEW: auto reveal ---
+        function startAutoReveal() {
+          if (autoRevealStarted) return;
+          autoRevealStarted = true;
+          autoRevealInterval = setInterval(() => {
+            if (animationFinished) {
+              clearInterval(autoRevealInterval);
+              return;
             }
-          );
-
-          letterObserver.observe(target);
-        }
-
-        // --- Input handlers -----------------------------------------------------
-        function onWheel(e) {
-          if (animationFinished) return;
-
-          const secRect = section.getBoundingClientRect();
-          const sectionVisible =
-            secRect.bottom > 0 && secRect.top < window.innerHeight;
-          if (!sectionVisible) return;
-
-          if (e.deltaY > 0) {
+            // reveal letters regardless of scroll
+            // but only if at least one visible
             if (
-              currentIndex < letters.length &&
+              letters[currentIndex] &&
               isElementMostlyVisible(letters[currentIndex])
             ) {
-              const revealed = revealStep(charsPerScroll);
-              if (revealed > 0) {
-                e.preventDefault();
-                if (
-                  !animationFinished &&
-                  currentIndex < letters.length &&
-                  !isElementMostlyVisible(letters[currentIndex])
-                ) {
-                  observeCurrentLetterForResume();
-                }
-              }
-            } else {
-              if (!waitingForVisibility && currentIndex < letters.length) {
-                observeCurrentLetterForResume();
-              }
+              revealStep(charsPerScroll);
             }
-          }
+          }, 50); // adjust ms for speed
         }
-
-        function attachTouchHandlers() {
-          let touchStartY = null;
-          window.addEventListener(
-            "touchstart",
-            (ev) => {
-              touchStartY =
-                ev.touches && ev.touches[0] ? ev.touches[0].clientY : null;
-            },
-            { passive: true }
-          );
-
-          window.addEventListener(
-            "touchmove",
-            (ev) => {
-              if (animationFinished) return;
-              const secRect = section.getBoundingClientRect();
-              const sectionVisible =
-                secRect.bottom > 0 && secRect.top < window.innerHeight;
-              if (!sectionVisible) return;
-
-              const y =
-                ev.touches && ev.touches[0] ? ev.touches[0].clientY : null;
-              if (y === null || touchStartY === null) return;
-              const delta = touchStartY - y;
-
-              if (delta > 10) {
-                if (
-                  currentIndex < letters.length &&
-                  isElementMostlyVisible(letters[currentIndex])
-                ) {
-                  const revealed = revealStep(charsPerScroll);
-                  if (revealed > 0) {
-                    ev.preventDefault();
-                    if (
-                      !animationFinished &&
-                      currentIndex < letters.length &&
-                      !isElementMostlyVisible(letters[currentIndex])
-                    ) {
-                      observeCurrentLetterForResume();
-                    }
-                  }
+        function observeSectionCenter() {
+          const section = document.getElementById("animated-section");
+          if (!section) return;
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+                  startAutoReveal();
+                  observer.disconnect();
                 }
-                touchStartY = y;
-              } else if (delta < -10) {
-                touchStartY = y;
-              }
+              });
             },
-            { passive: false }
+            {
+              threshold: [0.5], // triggers at 50% visibility
+            }
           );
+          observer.observe(section);
         }
-
-        function attachControlsOnce() {
-          if (wheelAttached) return;
-          window.addEventListener("wheel", onWheel, { passive: false });
-          attachTouchHandlers();
-          wheelAttached = true;
-        }
-
         function attachTranslationListener() {
           if (window.i18next && typeof window.i18next.on === "function") {
             window.i18next.on("languageChanged", () => {
               setTimeout(() => {
-                if (letterObserver) {
-                  letterObserver.disconnect();
-                  letterObserver = null;
-                  waitingForVisibility = false;
-                }
                 init();
               }, 0);
             });
@@ -4355,11 +4265,6 @@
             const el = getTextEl();
             if (!el) return;
             const mo = new MutationObserver(() => {
-              if (letterObserver) {
-                letterObserver.disconnect();
-                letterObserver = null;
-                waitingForVisibility = false;
-              }
               init();
             });
             mo.observe(el, {
@@ -4369,15 +4274,16 @@
             });
           }
         }
-
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", () => {
             init();
             attachTranslationListener();
+            observeSectionCenter(); // :point_left: added
           });
         } else {
           init();
           attachTranslationListener();
+          observeSectionCenter(); // :point_left: added
         }
       })();
 
@@ -4490,149 +4396,7 @@
       // Initial state
       footer.style.pointerEvents = "none";
     </script>
-    <script>
-      /*
-  Robust updater:
-  - Computes each card's on-screen angle around the orbit center.
-  - Finds the card at/near the top.
-  - Sets the active class to the card *behind* the top card (the one that just passed top).
-  - Uses requestAnimationFrame (no setInterval) so there's no long-term drift.
-*/
 
-      (function () {
-        const orbit = document.getElementById("orbit");
-        const cards = Array.from(document.querySelectorAll(".orbit-card"));
-        if (!orbit || cards.length === 0) return;
-
-        let rafId = null;
-        let lastActiveIndex = -1;
-
-        // Helper: center of rect
-        const centerOf = (r) => ({
-          x: r.left + r.width / 2,
-          y: r.top + r.height / 2,
-        });
-
-        function computeAndSetActive() {
-          const orbitRect = orbit.getBoundingClientRect();
-          const center = {
-            x: orbitRect.left + orbitRect.width / 2,
-            y: orbitRect.top + orbitRect.height / 2,
-          };
-
-          // compute card centers and distances from center
-          const cardData = cards.map((c, i) => {
-            const r = c.getBoundingClientRect();
-            const pos = centerOf(r);
-            const dx = pos.x - center.x;
-            const dy = pos.y - center.y;
-            const dist = Math.hypot(dx, dy);
-            // angle in degrees (atan2 returns -180..180, we normalize to 0..360)
-            let angle = (Math.atan2(dy, dx) * 180) / Math.PI; // -180..180
-            angle = (angle + 360) % 360; // 0..360
-            return { el: c, i, pos, dist, angle };
-          });
-
-          // use the max radial distance to determine "top point"
-          const maxRadius = Math.max(...cardData.map((d) => d.dist));
-          const topPoint = { x: center.x, y: center.y - maxRadius };
-
-          // find card nearest to topPoint (not strictly necessary but stable)
-          let nearestToTopIdx = 0;
-          let nearestDist = Infinity;
-          cardData.forEach((d, idx) => {
-            const dd = Math.hypot(d.pos.x - topPoint.x, d.pos.y - topPoint.y);
-            if (dd < nearestDist) {
-              nearestDist = dd;
-              nearestToTopIdx = idx;
-            }
-          });
-
-          // Calculate diffs relative to top angle (270 deg == straight-up from atan2 convention)
-          const TOP_ANGLE = 270;
-
-          // For "behind" we pick the card whose angle is just greater than TOP_ANGLE (smallest positive diff).
-          // diff = (angle - TOP_ANGLE + 360) % 360  => in [0,360)
-          // prefer smallest diff > eps
-          const epsilon = 0.0001;
-          let bestIdx = -1;
-          let bestDiff = Infinity;
-          cardData.forEach((d, idx) => {
-            const diff = (d.angle - TOP_ANGLE + 360) % 360;
-            // ignore exactly 0 (a card exactly at top) and prefer smallest positive diff (just passed top)
-            if (diff > epsilon && diff < bestDiff) {
-              bestDiff = diff;
-              bestIdx = idx;
-            }
-          });
-
-          // If we didn't find any positive diff (rare if one is exactly 0), fallback:
-          if (bestIdx === -1) {
-            // If a card is exactly at top (diff === 0), then choose the nearest after top by using nearestToTopIdx + 1 (clockwise neighbor)
-            // Determine clockwise neighbor: find index whose angle is slightly greater than top (or wrap)
-            // We'll choose the card with the minimal diff (including 0) then pick the one with next-smallest diff (>0).
-            const diffs = cardData.map((d) => ({
-              idx: d.i,
-              diff: (d.angle - TOP_ANGLE + 360) % 360,
-            }));
-            diffs.sort((a, b) => a.diff - b.diff);
-            // pick the second entry if available, otherwise the first
-            bestIdx =
-              diffs.length > 1
-                ? cards.findIndex((c) => c === cards[diffs[1].idx])
-                : cards.findIndex((c) => c === cards[diffs[0].idx]);
-          }
-
-          // bestIdx is the index in cardData of the card just behind the top; convert to DOM index
-          // note: cardData's order matches cards array order so bestIdx is the DOM index
-          const behindIndex = bestIdx;
-
-          // If behindIndex changed, update DOM classes
-          if (behindIndex !== lastActiveIndex) {
-            cards.forEach((c, i) =>
-              c.classList.toggle("active", i === behindIndex)
-            );
-            lastActiveIndex = behindIndex;
-          }
-        }
-
-        // RAF loop
-        function loop() {
-          computeAndSetActive();
-          rafId = requestAnimationFrame(loop);
-        }
-
-        // Start loop when visible and resume on visibility change
-        function startLoop() {
-          if (rafId == null) rafId = requestAnimationFrame(loop);
-        }
-        function stopLoop() {
-          if (rafId != null) {
-            cancelAnimationFrame(rafId);
-            rafId = null;
-          }
-        }
-
-        // start immediately
-        startLoop();
-
-        // Stop when page hidden (prevents needless CPU and handles throttling)
-        document.addEventListener("visibilitychange", () => {
-          if (document.hidden) stopLoop();
-          else startLoop();
-        });
-
-        // On resize recompute immediately
-        window.addEventListener("resize", () => {
-          computeAndSetActive();
-        });
-
-        // also run once after fonts/images load (ensures layout stable)
-        window.addEventListener("load", () => {
-          computeAndSetActive();
-        });
-      })();
-    </script>
     <style>
       .carousel-container {
         width: 100%;
@@ -4670,7 +4434,7 @@
 
       /* Start Revolving Cards */
       :root {
-        --radius: 130px;
+        --radius: 150px;
       }
 
       .orbitBox {
@@ -4938,5 +4702,452 @@
         track.style.transform = `translateX(-${index * w}px)`;
       });
     </script>
+
+    <!--Start Airports Map Script -->
+    <script>
+      // assets/js/airports-map.js
+      // Map SVG inline loader and arrow highlighting (only map-related functionality)
+
+      (function () {
+        // Inputs / UI elements
+        const searchInput = document.getElementById("airport-search");
+        const searchResults = document.getElementById("search-results");
+
+        // Airports data exposed from index.html
+        const airports =
+          typeof window !== "undefined" && window.saudiAirports
+            ? window.saudiAirports
+            : [];
+
+        // Only these three airports should be functional on the map/search for now
+        const ACTIVE_CODES = ["RUH", "JED", "DMM"];
+
+        // Approximate coordinates on the map (percentage positions)
+        const mapAirportCoords = {
+          RUH: { x: 56, y: 48 },
+          JED: { x: 30, y: 62 },
+          DMM: { x: 64, y: 42 },
+        };
+
+        // State for map/arrow mapping
+        let airportArrowMap = {}; // code -> SVGPolygonElement
+        let allArrowPolygons = [];
+        let pulseStyleInjected = false;
+        let mapReady = false;
+        let pendingHighlightCode = null;
+        let mappingDistances = {}; // code -> best squared distance in %
+        let tempArrowOverlay = null; // for fallback overlay
+
+        function normalize(s) {
+          return (s || "").toString().trim().toLowerCase();
+        }
+
+        function findAirportByCode(code) {
+          return airports.find((a) => a.code === code);
+        }
+
+        function debounce(fn, wait) {
+          let t;
+          return function (...args) {
+            clearTimeout(t);
+            t = setTimeout(() => fn.apply(this, args), wait);
+          };
+        }
+
+        function ensurePulseStyle() {
+          if (pulseStyleInjected) return;
+          const css = `@keyframes pulseGreen { 0% { transform: scale(1.0); filter: drop-shadow(0 0 6px rgba(34,197,94,0.45)); } 50% { transform: scale(1.15); filter: drop-shadow(0 0 10px rgba(34,197,94,0.75)); } 100% { transform: scale(1.0); filter: drop-shadow(0 0 6px rgba(34,197,94,0.45)); } }`;
+          const style = document.createElement("style");
+          style.setAttribute("data-map-pulse", "");
+          style.textContent = css;
+          document.head.appendChild(style);
+          pulseStyleInjected = true;
+        }
+
+        // Load the SVG inline (replaces fallback <img>)
+        function loadInlineMapSVG() {
+          const fallback = document.getElementById("saudi-map-fallback");
+          const mount = document.getElementById("saudi-map-inline");
+          if (!fallback || !mount) return Promise.resolve();
+          const url = fallback.getAttribute("src");
+          return fetch(url)
+            .then((r) => r.text())
+            .then((svgText) => {
+              mount.innerHTML = svgText;
+              const svg = mount.querySelector("svg");
+              if (svg) {
+                svg.style.width = "100%";
+                svg.style.height = "auto";
+              }
+              fallback.style.visibility = "hidden";
+            })
+            .then(() => mapPolygonsToAirports())
+            .catch((err) => {
+              // If inline SVG fails to load (e.g., file:// CORS), fall back to overlay mode
+              console.warn(
+                "Inline SVG load failed, using overlay fallback:",
+                err
+              );
+              mapReady = true; // allow overlay highlighting
+              if (pendingHighlightCode) {
+                const code = pendingHighlightCode;
+                pendingHighlightCode = null;
+                drawTempArrowAt(code);
+              }
+            });
+        }
+
+        function mapPolygonsToAirports() {
+          const mount = document.getElementById("saudi-map-inline");
+          const container = document.getElementById("saudi-map");
+          if (!mount || !container) return;
+          // Primary: arrow polygons with class 'cls-1'
+          allArrowPolygons = Array.from(
+            mount.querySelectorAll("polygon.cls-1")
+          );
+          // Secondary: any polygons if primary not found
+          if (allArrowPolygons.length === 0) {
+            allArrowPolygons = Array.from(mount.querySelectorAll("polygon"));
+          }
+          // Tertiary: paths with class 'cls-1' (some SVGs draw arrows as paths)
+          if (allArrowPolygons.length === 0) {
+            allArrowPolygons = Array.from(mount.querySelectorAll("path.cls-1"));
+          }
+          if (allArrowPolygons.length === 0) {
+            // Even if we can't find polygons, mark ready so fallback overlay can work
+            mapReady = true;
+            if (pendingHighlightCode) {
+              const code = pendingHighlightCode;
+              pendingHighlightCode = null;
+              setActiveAirportArrow(code);
+            }
+            return;
+          }
+
+          // Make polygons animatable
+          allArrowPolygons.forEach((el) => {
+            el.style.transformBox = "fill-box";
+            el.style.transformOrigin = "50% 50%";
+            el.style.transition =
+              "transform 160ms ease, fill 160ms ease, filter 160ms ease, stroke 160ms ease, stroke-width 160ms ease";
+          });
+
+          const containerRect = container.getBoundingClientRect;
+
+          function centerPercent(el) {
+            const r = el.getBoundingClientRect();
+            const cx =
+              ((r.left + r.width / 2 - containerRect.left) /
+                containerRect.width) *
+              100;
+            const cy =
+              ((r.top + r.height / 2 - containerRect.top) /
+                containerRect.height) *
+              100;
+            return { x: cx, y: cy };
+          }
+
+          const centers = allArrowPolygons.map((el) => centerPercent(el));
+
+          airportArrowMap = {};
+          mappingDistances = {};
+          Object.keys(mapAirportCoords).forEach((code) => {
+            if (!ACTIVE_CODES.includes(code)) return; // map only active airports
+            const target = mapAirportCoords[code];
+            let bestIndex = 0;
+            let bestDist = Infinity;
+            centers.forEach((c, idx) => {
+              const dx = c.x - target.x;
+              const dy = c.y - target.y;
+              const d = dx * dx + dy * dy;
+              if (d < bestDist) {
+                bestDist = d;
+                bestIndex = idx;
+              }
+            });
+            airportArrowMap[code] = allArrowPolygons[bestIndex];
+            mappingDistances[code] = bestDist;
+          });
+
+          // Click support on mapped arrows
+          Object.keys(airportArrowMap).forEach((code) => {
+            const el = airportArrowMap[code];
+            if (!el) return;
+            el.style.cursor = "pointer";
+            el.addEventListener("click", () => {
+              const a = findAirportByCode(code);
+              setActiveAirportArrow(code);
+              if (searchInput && a)
+                searchInput.value = `${a.name} - ${a.city} (${a.code})`;
+              if (typeof window.setAirportByCode === "function") {
+                window.setAirportByCode(code);
+              }
+            });
+          });
+
+          mapReady = true;
+          if (pendingHighlightCode) {
+            const code = pendingHighlightCode;
+            pendingHighlightCode = null;
+            setActiveAirportArrow(code);
+          }
+        }
+
+        function resetAllArrows() {
+          allArrowPolygons.forEach((el) => {
+            el.style.fill = "";
+            el.style.filter = "";
+            el.style.transform = "scale(1)";
+            el.style.stroke = "";
+            el.style.strokeWidth = "";
+            el.style.strokeLinejoin = "";
+            el.style.animation = "";
+          });
+          if (tempArrowOverlay && tempArrowOverlay.parentNode) {
+            tempArrowOverlay.parentNode.removeChild(tempArrowOverlay);
+          }
+          tempArrowOverlay = null;
+        }
+
+        function setActiveAirportArrow(code) {
+          if (!ACTIVE_CODES.includes(code)) return; // ignore non-active codes
+          if (!mapReady) {
+            pendingHighlightCode = code;
+            return;
+          }
+          if (!airportArrowMap[code]) {
+            // No mapped SVG arrow found -> use fallback overlay at coordinate
+            resetAllArrows();
+            drawTempArrowAt(code);
+            try {
+              console.debug("Highlight via overlay for", code);
+            } catch (_) {}
+            scrollMapIntoView();
+            return;
+          }
+          resetAllArrows();
+          const el = airportArrowMap[code];
+          const bestDist = mappingDistances[code] ?? Infinity;
+          let useFallback = !el || bestDist > 80; // threshold for mismatch
+          if (code === "DMM") {
+            useFallback = true; // ensure visibility for DMM if mapping off
+          }
+          if (!useFallback && el) {
+            ensurePulseStyle();
+            el.style.fill = "#22c55e";
+            el.style.filter = "drop-shadow(0 0 10px rgba(34,197,94,0.6))";
+            el.style.stroke = "#16a34a";
+            el.style.strokeWidth = "3";
+            el.style.strokeLinejoin = "round";
+            el.style.animation = "pulseGreen 1200ms ease-in-out infinite";
+            try {
+              console.debug(
+                "Highlight via SVG polygon for",
+                code,
+                "dist",
+                bestDist
+              );
+            } catch (_) {}
+            scrollMapIntoView();
+          } else {
+            drawTempArrowAt(code);
+            try {
+              console.debug(
+                "Highlight via overlay (threshold) for",
+                code,
+                "dist",
+                bestDist
+              );
+            } catch (_) {}
+            scrollMapIntoView();
+          }
+        }
+
+        // Expose highlighter globally so other scripts can invoke it
+        if (typeof window !== "undefined") {
+          window.setActiveAirportArrow = setActiveAirportArrow;
+        }
+
+        function drawTempArrowAt(code) {
+          const wrapper = document.getElementById("saudi-map");
+          if (!wrapper) return;
+          const pos = mapAirportCoords[code];
+          if (!pos) return;
+          ensurePulseStyle();
+          if (tempArrowOverlay && tempArrowOverlay.parentNode) {
+            tempArrowOverlay.parentNode.removeChild(tempArrowOverlay);
+            tempArrowOverlay = null;
+          }
+          const el = document.createElement("div");
+          el.style.position = "absolute";
+          el.style.left = pos.x + "%";
+          el.style.top = pos.y + "%";
+          el.style.transform = "translate(-50%, -50%)";
+          el.style.pointerEvents = "none";
+          el.style.width = "28px";
+          el.style.height = "28px";
+          el.style.filter = "drop-shadow(0 0 10px rgba(34,197,94,0.6))";
+          el.style.animation = "pulseGreen 1200ms ease-in-out infinite";
+          el.style.zIndex = "100";
+          el.innerHTML = `
+            <svg width="28" height="28" viewBox="0 0 141 253" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="0 0 0 52.41 82.48 126.61 0 200.81 0 253.21 140.81 126.61 0 0" fill="#22c55e" stroke="#0f9f4a" stroke-width="10" stroke-linejoin="round"></polygon>
+            </svg>
+          `;
+          wrapper.appendChild(el);
+          tempArrowOverlay = el;
+        }
+
+        function scrollMapIntoView() {
+          try {
+            const wrapper = document.getElementById("saudi-map");
+            if (!wrapper) return;
+            const rect = wrapper.getBoundingClientRect();
+            const y = rect.top + window.scrollY - 100;
+            window.scrollTo({ top: Math.max(0, y), behavior: "smooth" });
+          } catch (_) {}
+        }
+
+        // Search integration (dropdown + highlight)
+        function filterAirports(query) {
+          const q = normalize(query);
+          if (!q) return [];
+          return airports
+            .filter((ap) => ACTIVE_CODES.includes(ap.code))
+            .filter(
+              (ap) =>
+                normalize(ap.name).includes(q) ||
+                normalize(ap.city).includes(q) ||
+                normalize(ap.code).includes(q)
+            );
+        }
+
+        function populateDropdown(matches) {
+          if (!searchResults) return;
+          if (!matches.length) {
+            searchResults.classList.add("hidden");
+            searchResults.innerHTML = "";
+            return;
+          }
+          searchResults.innerHTML = matches
+            .map(
+              (ap) => `
+            <button data-code="${ap.code}" class="w-full text-left px-3 py-2 hover:bg-emerald-50">
+              <span class="font-medium text-slate-800">${ap.name} - ${ap.city} (${ap.code})</span>
+            </button>
+          `
+            )
+            .join("");
+          searchResults.classList.remove("hidden");
+
+          Array.from(searchResults.querySelectorAll("button")).forEach(
+            (btn) => {
+              btn.addEventListener("click", () => {
+                const code = btn.getAttribute("data-code");
+                const ap = airports.find((a) => a.code === code);
+                if (!ap) return;
+                if (searchInput)
+                  searchInput.value = `${ap.name} - ${ap.city} (${ap.code})`;
+                setActiveAirportArrow(ap.code);
+                searchResults.classList.add("hidden");
+                if (typeof window.setAirportByCode === "function") {
+                  window.setAirportByCode(ap.code);
+                }
+              });
+            }
+          );
+        }
+
+        function setupSearch() {
+          if (!searchInput) return;
+          searchInput.addEventListener("input", (e) => {
+            const raw = (e.target.value || "").trim();
+            // If cleared, remove any highlights and hide dropdown
+            if (raw.length === 0) {
+              if (searchResults) searchResults.classList.add("hidden");
+              resetAllArrows();
+              return;
+            }
+            const matches = filterAirports(raw);
+            populateDropdown(matches);
+            if (matches[0]) {
+              setActiveAirportArrow(matches[0].code);
+              if (typeof window.setAirportByCode === "function") {
+                window.setAirportByCode(matches[0].code);
+              }
+            }
+          });
+
+          document.addEventListener("click", (evt) => {
+            if (!searchResults) return;
+            const inside =
+              searchResults.contains(evt.target) ||
+              (searchInput && searchInput.contains(evt.target));
+            if (!inside) searchResults.classList.add("hidden");
+          });
+
+          // On Enter key, highlight best match and sync slider
+          searchInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+              const q = (searchInput.value || "").trim();
+              const matches = filterAirports(q);
+              if (matches[0]) {
+                setActiveAirportArrow(matches[0].code);
+                if (typeof window.setAirportByCode === "function") {
+                  window.setAirportByCode(matches[0].code);
+                }
+                searchResults && searchResults.classList.add("hidden");
+              }
+              e.preventDefault();
+            }
+          });
+
+          // On blur, try highlight based on current value
+          searchInput.addEventListener("blur", () => {
+            const q = (searchInput.value || "").trim();
+            if (q.length === 0) {
+              resetAllArrows();
+              return;
+            }
+            const matches = filterAirports(q);
+            if (matches[0]) {
+              setActiveAirportArrow(matches[0].code);
+              if (typeof window.setAirportByCode === "function") {
+                window.setAirportByCode(matches[0].code);
+              }
+            }
+          });
+        }
+
+        // Initialize on DOM ready
+        document.addEventListener("DOMContentLoaded", function () {
+          loadInlineMapSVG().then(() => {
+            // After map is ready, wire search
+            setupSearch();
+            // If a highlight was requested before map ready, apply it now
+            if (typeof window !== "undefined" && window.pendingMapHighlight) {
+              try {
+                setActiveAirportArrow(window.pendingMapHighlight);
+              } catch (_) {}
+              window.pendingMapHighlight = null;
+            }
+          });
+
+          // Re-map on resize to keep mapping accurate
+          const remap = debounce(() => {
+            mapReady = false;
+            airportArrowMap = {};
+            mapPolygonsToAirports();
+            if (pendingHighlightCode) {
+              const code = pendingHighlightCode;
+              pendingHighlightCode = null;
+              setActiveAirportArrow(code);
+            }
+          }, 200);
+          window.addEventListener("resize", remap);
+        });
+      })();
+    </script>
+    <!--End Airports Map Script -->
   </body>
 </html>
