@@ -1289,7 +1289,7 @@
 
     <!-- Added partners section with infinite scrolling logo carousel -->
     <!-- Partners Section -->
-    <section class="py-16 sm:py-20 lg:pt-24 lg:pb-8" id="our-partners">
+    <section class="mb-96 py-16 sm:py-20 lg:pt-24 lg:pb-8" id="our-partners">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Row 1: Header Text -->
         <div
@@ -1391,7 +1391,7 @@
     <div class="page-overlay" id="pageOverlay"></div>
 
     <!-- Footer Section -->
-    <footer class="bg-slate-700 text-white pt-16 pb-8">
+    <footer class=" footer-overlay bg-slate-700 text-white pt-16 pb-8" id="animatedFooter">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Footer Content Grid -->
         <div
@@ -4436,33 +4436,30 @@
       :root {
         --radius: 150px;
       }
-
       .orbitBox {
         position: relative;
         width: 100%;
         max-width: 550px;
         aspect-ratio: 1/1;
       }
-
       .orbit {
         position: relative;
         width: 100%;
         height: 100%;
         border-radius: 50%;
+        transform-origin: center center;
       }
-
       .orbit-card {
         position: absolute;
         left: 50%;
         top: 50%;
         transform-origin: center calc(var(--radius) * -1);
-        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         will-change: transform;
+        cursor: pointer;
       }
-
       /* Visual active state */
       .orbit-card.active > div {
-        background: #10b981 !important;
+        background: #10B981 !important;
         color: #fff !important;
         border-color: #059669 !important;
         z-index: 100 !important;
@@ -4470,50 +4467,35 @@
         transform: scale(1.15);
         transition: all 0.3s ease;
       }
-
       .orbit-card.active {
         z-index: 100;
       }
-
       .orbit-card.active > div > p {
         color: #fff !important;
       }
-
       /* Inactive cards styling */
       .orbit-card:not(.active) {
         opacity: 0.6;
         z-index: 10;
       }
-
       .orbit-card:not(.active) > div {
         transform: scale(0.85);
         transition: all 0.3s ease;
       }
-
       .orbit-card > div {
         transition: all 0.3s ease;
       }
-
-      /* Clickable cards */
-      .orbit-card {
-        cursor: pointer;
-      }
-
       .orbit-card:not(.active):hover > div {
         transform: scale(0.9);
         box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
         opacity: 1;
       }
-
       .orbit-card:not(.active):hover {
         opacity: 0.95;
       }
-
       .orbit-card:not(.active):active > div {
         transform: scale(0.8);
       }
-
-      /* responsive radius adjustments */
       @media (max-width: 640px) {
         :root {
           --radius: 90px;
@@ -4594,58 +4576,66 @@
     <!--Start Revolving Cards JS -->
     <script>
       (function () {
-        const orbit = document.getElementById("orbit");
         const cards = Array.from(document.querySelectorAll(".orbit-card"));
-
-        if (!orbit || cards.length === 0) return;
-
+        if (cards.length === 0) return;
+        const totalCards = cards.length;
+        const angleStep = 360 / totalCards;
         let currentActiveIndex = 0;
-        let isAnimating = false;
-
-        // Position cards in orbit
-        function positionCards() {
-          const totalCards = cards.length;
-          const angleStep = 360 / totalCards;
-
+        let rotationOffset = 0; // cumulative offset
+        const rotObj = { val: 0 }; // gsap animates this
+        // --- helper: set each card transform based on current offset ---
+        function setTransforms(offset) {
           cards.forEach((card, index) => {
-            // Calculate the offset from the current active card
-            const offset = index - currentActiveIndex;
-            const angle = offset * angleStep;
-
-            // Position the card
+            const angle = angleStep * index - offset;
             card.style.transform = `rotate(${angle}deg) translateY(calc(var(--radius) * -1)) rotate(${-angle}deg)`;
-
-            // Set active class
-            card.classList.toggle("active", index === currentActiveIndex);
           });
         }
-
-        // Navigate to specific card
+        // initial
+        setTransforms(0);
+        cards.forEach((c, i) =>
+          c.classList.toggle("active", i === currentActiveIndex)
+        );
+        // --- navigate shortest direction ---
         function navigateToCard(targetIndex) {
-          if (isAnimating || targetIndex === currentActiveIndex) return;
-
-          isAnimating = true;
-          currentActiveIndex = targetIndex;
-          positionCards();
-
-          setTimeout(() => {
-            isAnimating = false;
-          }, 800);
+          if (targetIndex === currentActiveIndex) return;
+          // forward (clockwise) steps
+          const forwardSteps =
+            (targetIndex - currentActiveIndex + totalCards) % totalCards;
+          // backward (counterclockwise) steps (negative)
+          const backwardSteps = forwardSteps - totalCards; // negative value
+          // pick whichever absolute is smaller
+          let steps;
+          if (Math.abs(backwardSteps) < Math.abs(forwardSteps)) {
+            steps = backwardSteps; // counterclockwise
+          } else {
+            steps = forwardSteps; // clockwise
+          }
+          const newOffset = rotationOffset + steps * angleStep;
+          // animate rotObj and update transforms
+          gsap.killTweensOf(rotObj);
+          gsap.to(rotObj, {
+            val: newOffset,
+            duration: 0.5,
+            ease: "power3.inOut",
+            onUpdate: () => {
+              setTransforms(rotObj.val);
+            },
+            onComplete: () => {
+              rotationOffset = rotObj.val;
+              currentActiveIndex = targetIndex;
+              cards.forEach((card, idx) =>
+                card.classList.toggle("active", idx === currentActiveIndex)
+              );
+            },
+          });
         }
-
-        // Add click listeners to cards
+        // click handlers
         cards.forEach((card, index) => {
           card.addEventListener("click", (e) => {
             e.preventDefault();
             navigateToCard(index);
           });
         });
-
-        // Initialize positions
-        positionCards();
-
-        // Handle resize
-        window.addEventListener("resize", positionCards);
       })();
     </script>
     <!--End Revolving Cards JS -->
