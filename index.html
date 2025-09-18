@@ -1149,7 +1149,7 @@
 
     <!-- Added partners section with infinite scrolling logo carousel -->
     <!-- Partners Section -->
-    <section class="mb-96 py-16 sm:py-20 lg:pt-24 lg:pb-8" id="our-partners">
+    <section class="mb-[600px] md:mb-96 py-16 sm:py-20 lg:pt-24 lg:pb-8" id="our-partners">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Row 1: Header Text -->
         <div
@@ -1252,7 +1252,7 @@
 
     <!-- Footer Section -->
     <footer
-      class="footer-overlay bg-slate-700 text-white pt-16 pb-8"
+      class="footer-overlay hidden-init bg-slate-700 text-white pt-16 pb-8"
       id="animatedFooter"
     >
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -1844,7 +1844,6 @@
       function setLanguage(lang) {
         // Save language to localStorage
         // localStorage.setItem("appLanguage", lang);
-        
 
         // Apply lang & direction
         document.documentElement.lang = lang;
@@ -1875,7 +1874,7 @@
           const key = el.getAttribute("data-i18n");
           el.innerHTML = i18next.t(key);
         });
-        // 
+        //
 
         // Update placeholders
         document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
@@ -4188,89 +4187,92 @@
         });
       });
 
-      // Variables to track scroll and footer state
-      let lastScrollTop = 0;
-      let footerShown = false;
-      const footer = document.getElementById("animatedFooter");
-      const pageOverlay = document.getElementById("pageOverlay");
-      let scrollTimer = null;
+      // Footer Animation
 
-      // Function to check if user has scrolled to bottom
-      function isAtBottom() {
-        const scrollHeight = document.documentElement.scrollHeight;
-        const scrollTop =
+      document.addEventListener("DOMContentLoaded", function () {
+        let lastScrollTop =
           window.pageYOffset || document.documentElement.scrollTop;
-        const clientHeight = window.innerHeight;
+        let footerShown = false;
+        const footer = document.getElementById("animatedFooter");
+        const pageOverlay = document.getElementById("pageOverlay");
+        let scrollTimer = null;
+        const threshold =400; // px to consider "at bottom"
 
-        // Check if we're within 50px of the bottom
-        return scrollTop + clientHeight >= scrollHeight - 50;
-      }
+        // Force hidden state & opacity at load
+        footer.classList.remove("active");
+        pageOverlay.classList.remove("active");
+        footerShown = false;
 
-      // Function to show footer
-      function showFooter() {
-        if (!footerShown) {
+        // After a tiny delay remove hidden-init to allow CSS transitions
+        setTimeout(() => {
+          footer.classList.remove("hidden-init");
+        }, 200);
+
+        function isAtBottom() {
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          const clientHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+          const scrollHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+          );
+          return scrollTop + clientHeight >= scrollHeight - threshold;
+        }
+
+        function showFooter() {
+          if (footerShown) return;
           footer.classList.add("active");
-          // pageOverlay.classList.add('active');
+          pageOverlay.classList.add("active");
           footerShown = true;
         }
-      }
 
-      // Function to hide footer
-      function hideFooter() {
-        if (footerShown) {
+        function hideFooter() {
+          if (!footerShown) return;
           footer.classList.remove("active");
-          // pageOverlay.classList.remove('active');
+          pageOverlay.classList.remove("active");
           footerShown = false;
         }
-      }
 
-      // Scroll event handler
-      window.addEventListener("scroll", function () {
-        const currentScrollTop =
-          window.pageYOffset || document.documentElement.scrollTop;
+        window.addEventListener("scroll", function () {
+  const currentScrollTop =
+    window.pageYOffset || document.documentElement.scrollTop;
 
-        // Clear previous timer
-        clearTimeout(scrollTimer);
+  // Instant hide when scrolling up
+  if (currentScrollTop < lastScrollTop - 5 && footerShown) {
+    hideFooter();
+  }
 
-        // Set a new timer to detect when scrolling stops
-        scrollTimer = setTimeout(function () {
-          // Check if at bottom of page
-          if (isAtBottom()) {
-            showFooter();
-          } else if (currentScrollTop < lastScrollTop) {
-            // Scrolling up - hide footer
-            hideFooter();
-          }
+  // Debounced show at bottom
+  clearTimeout(scrollTimer);
+  scrollTimer = setTimeout(function () {
+    if (isAtBottom()) {
+      showFooter();
+    }
+    lastScrollTop = currentScrollTop;
+  }, 80);
 
-          lastScrollTop = currentScrollTop;
-        }, 100); // Delay to ensure smooth detection
+  lastScrollTop = currentScrollTop;
+}, { passive: true });
 
-        // Immediate hide on significant upward scroll
-        if (currentScrollTop < lastScrollTop - 5 && footerShown) {
+
+        // Click overlay to hide footer
+        pageOverlay.addEventListener("click", function () {
           hideFooter();
-        }
+          window.scrollBy({ top: -120, left: 0, behavior: "smooth" });
+        });
 
-        lastScrollTop = currentScrollTop;
+        // Ensure footer shows/hides on resize/orientation change if needed
+        window.addEventListener("resize", () => {
+          if (isAtBottom()) showFooter();
+          else hideFooter();
+        });
+
+        // keyboard escape closes footer
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") hideFooter();
+        });
       });
-
-      // Click overlay to hide footer
-      pageOverlay.addEventListener("click", function () {
-        hideFooter();
-        // Scroll up slightly to prevent immediate re-trigger
-        window.scrollBy(0, -100);
-      });
-
-      // Prevent footer from blocking interactions when hidden
-      footer.addEventListener("transitionend", function () {
-        if (!footerShown) {
-          footer.style.pointerEvents = "none";
-        } else {
-          footer.style.pointerEvents = "auto";
-        }
-      });
-
-      // Initial state
-      footer.style.pointerEvents = "none";
     </script>
 
     <style>
@@ -4351,11 +4353,69 @@
         transform: translateY(100%);
         transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 50;
-        box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2);
+        /* box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2); */
+        /* Responsive height constraints */
+        max-height: 85vh;
+        overflow-y: auto;
+        /* Prevent interactions while hidden */
+        pointer-events: none;
+        /* Add safe-area padding on modern phones */
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+        background-clip: padding-box;
+        opacity: 1;
+      }
+
+      /* start fully invisible */
+      .footer-overlay.hidden-init {
+        opacity: 0;
+        transform: translateY(1000%);
+      }
+      .footer-overlay.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .footer-overlay.no-transition {
+        transition: none !important;
       }
 
       .footer-overlay.active {
         transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      /* Mobile specific adjustments */
+      @media (max-width: 768px) {
+        .footer-overlay {
+          max-height: 80vh;
+          padding-top: 2rem !important;
+          padding-bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
+        }
+
+        .footer-overlay .grid {
+          gap: 1.5rem !important;
+        }
+
+        .footer-overlay h3 {
+          font-size: 1rem !important;
+          margin-bottom: 1rem !important;
+        }
+
+        .footer-overlay ul {
+          gap: 0.5rem !important;
+        }
+
+        .footer-overlay .text-sm {
+          font-size: 0.75rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-overlay {
+          max-height: 75vh;
+          padding-top: 1.5rem !important;
+          padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+        }
       }
 
       /* Background overlay when footer is active */
@@ -4372,7 +4432,7 @@
       }
 
       .page-overlay.active {
-        background: rgba(0, 0, 0, 0.3);
+        /* background: rgba(0, 0, 0, 0.3); */
         pointer-events: auto;
       }
     </style>
@@ -4818,7 +4878,7 @@
               const code = pendingHighlightCode;
               pendingHighlightCode = null;
               setActiveAirportArrow(code);
-            } 
+            }
           }, 200);
           window.addEventListener("resize", remap);
         });
