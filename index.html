@@ -329,7 +329,7 @@
         </div>
       </div>
     </section>
-     <!-- style="
+    <!-- style="
               background-image: url(./assets/sectionBg.png);
               background-position: center;
               background-repeat: no-repeat;
@@ -338,18 +338,14 @@
 
     <!-- Added new two-column statistics section -->
     <!-- Statistics Section -->
-    <section class="py-16 sm:py-20 lg:py-32 bg-[#F6F6F6]"
-     
-            >
+    <section class="py-16 sm:py-20 lg:py-32 bg-[#F6F6F6]">
       <!-- <div class="mx-auto px-4 lg:px-0 mt-[3rem] lg:!ml-0 lg:mt-0"> -->
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
           class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
         >
           <!-- Left Column - Content -->
-          <div
-            class=""
-          >
+          <div class="">
             <div
               id="statistics-content"
               class="space-y-6 text-center lg:text-left"
@@ -383,11 +379,11 @@
           </div>
 
           <!-- Right Column - Statistics Cards -->
-          <div
-            class="grid grid-cols-2 gap-2"
-          >
+          <div class="grid grid-cols-2 gap-2">
             <!-- Routes Activated Card -->
-            <div class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group">
+            <div
+              class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group"
+            >
               <div class="flex items-center justify-between mb-3">
                 <!-- Airplane Icon -->
                 <img
@@ -395,17 +391,31 @@
                   class="w-8 h-8"
                   alt="ACP icon"
                 />
-                <span class="text-5xl text-[#44505E] font-semibold group-hover:text-white">67</span>
+                <span
+                  class="text-5xl text-[#44505E] font-semibold group-hover:text-white"
+                  data-i18n="stats.routesActivatedDigit"
+                  >67</span
+                >
               </div>
               <div>
-                <p class="font-semibold text-md group-hover:text-white">Routes Activated</p>
-                <p class="text-xs text-[#9D9D9C] group-hover:text-white">
+                <p
+                  class="font-semibold text-md group-hover:text-white"
+                  data-i18n="stats.routesActivated"
+                >
+                  Routes Activated
+                </p>
+                <p
+                  class="text-xs text-[#9D9D9C] group-hover:text-white"
+                  data-i18n="stats.routesActivatedDesc"
+                >
                   Activated Routes in 2024 YTD
                 </p>
               </div>
             </div>
             <!-- Carrier Collaboration Card -->
-            <div class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group">
+            <div
+              class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group"
+            >
               <div class="flex items-center justify-between mb-3">
                 <!-- Building Icon -->
                 <img
@@ -413,15 +423,31 @@
                   class="w-8 h-8"
                   alt="ACP icon"
                 />
-                <span class="text-5xl text-[#44505E] font-semibold group-hover:text-white">15</span>
+                <span
+                  class="text-5xl text-[#44505E] font-semibold group-hover:text-white"
+                  data-i18n="stats.carrierCollaborationDigit"
+                  >15</span
+                >
               </div>
               <div>
-                <p class="font-semibold text-md group-hover:text-white">Carrier Collaboration</p>
-                <p class="text-xs text-[#9D9D9C] group-hover:text-white">Carriers in 2024 YTD</p>
+                <p
+                  class="font-semibold text-md group-hover:text-white"
+                  data-i18n="stats.carrierCollaboration"
+                >
+                  Carrier Collaboration
+                </p>
+                <p
+                  class="text-xs text-[#9D9D9C] group-hover:text-white"
+                  data-i18n="stats.carrierCollaborationDesc"
+                >
+                  Carriers in 2024 YTD
+                </p>
               </div>
             </div>
             <!-- Seats Generated Card -->
-            <div class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group">
+            <div
+              class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group"
+            >
               <div class="flex items-center justify-between mb-3">
                 <!-- Chart Icon -->
                 <img
@@ -429,17 +455,31 @@
                   class="w-8 h-8"
                   alt="ACP icon"
                 />
-                <span class="text-5xl text-[#44505E] font-semibold group-hover:text-white">4.5</span>
+                <span
+                  class="text-5xl text-[#44505E] font-semibold group-hover:text-white"
+                  data-i18n="stats.seatsGeneratedDigit"
+                  >4.5</span
+                >
               </div>
               <div>
-                <p class="font-semibold text-md group-hover:text-white">Seats Generated</p>
-                <p class="text-xs text-[#9D9D9C] group-hover:text-white">
+                <p
+                  class="font-semibold text-md group-hover:text-white"
+                  data-i18n="stats.seatsGenerated"
+                >
+                  Seats Generated
+                </p>
+                <p
+                  class="text-xs text-[#9D9D9C] group-hover:text-white"
+                  data-i18n="stats.seatsGeneratedDesc"
+                >
                   4,5 million generated seats in 2024 YTD.
                 </p>
               </div>
             </div>
             <!-- Placeholder Card -->
-            <div class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group">
+            <div
+              class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group"
+            >
               <div class="flex items-center justify-between mb-3">
                 <!-- Building Icon -->
                 <img
@@ -447,11 +487,23 @@
                   class="w-8 h-8"
                   alt="ACP icon"
                 />
-                <span class="text-5xl text-[#44505E] font-semibold group-hover:text-white">5</span>
+                <span
+                  class="text-5xl text-[#44505E] font-semibold group-hover:text-white"
+                  data-i18n="stats.airlinesDigit"
+                  >5</span
+                >
               </div>
               <div>
-                <p class="font-semibold text-md group-hover:text-white">Airlines</p>
-                <p class="text-xs text-[#9D9D9C] group-hover:text-white">
+                <p
+                  class="font-semibold text-md group-hover:text-white"
+                  data-i18n="stats.airlines"
+                >
+                  Airlines
+                </p>
+                <p
+                  class="text-xs text-[#9D9D9C] group-hover:text-white"
+                  data-i18n="stats.airlinesDesc"
+                >
                   Strategic Partnerships With Local and International Carriers
                 </p>
               </div>
@@ -785,9 +837,9 @@
         </div>
 
         <!-- Row 3: Flight Cards and Continent Sidebar -->
-        <div class="grid grid-cols-6 md:grid-row-2  gap-6">
+        <div class="grid grid-cols-6 md:grid-row-2 gap-6">
           <!-- Flight Cards Grid (9 columns) -->
-          <div class=" col-span-6  lg:col-span-5">
+          <div class="col-span-6 lg:col-span-5">
             <div
               id="flight-cards-grid"
               class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -1199,7 +1251,10 @@
     <div class="page-overlay" id="pageOverlay"></div>
 
     <!-- Footer Section -->
-    <footer class=" footer-overlay bg-slate-700 text-white pt-16 pb-8" id="animatedFooter">
+    <footer
+      class="footer-overlay bg-slate-700 text-white pt-16 pb-8"
+      id="animatedFooter"
+    >
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Footer Content Grid -->
         <div
@@ -1436,16 +1491,16 @@
 
     <script>
       // navbar animation
-       window.addEventListener("scroll", function () {
-    const header = document.getElementById("main-header");
-    if (window.scrollY > 250) {
-      header.classList.add("bg-white", "shadow-md", "text-gray-900");
-      header.classList.remove("bg-transparent", "text-white");
-    } else {
-      header.classList.add("bg-transparent", "text-white");
-      header.classList.remove("bg-white", "shadow-md", "text-gray-900");
-    }
-  });
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("main-header");
+        if (window.scrollY > 250) {
+          header.classList.add("bg-white", "shadow-md", "text-gray-900");
+          header.classList.remove("bg-transparent", "text-white");
+        } else {
+          header.classList.add("bg-transparent", "text-white");
+          header.classList.remove("bg-white", "shadow-md", "text-gray-900");
+        }
+      });
 
       // Initialize i18next
       i18next.init(
@@ -4251,8 +4306,6 @@
       .slide-transition {
         transition: transform 0.5s ease;
       }
-
-      
     </style>
 
     <style>
