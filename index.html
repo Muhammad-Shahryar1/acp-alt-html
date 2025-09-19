@@ -606,7 +606,7 @@
     <!-- Airport Slider Section -->
     <section class="py-16 sm:py-20 lg:py-24 bg-white">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 grid-rows-2 lg:grid-rows-1 gap-2  lg:gap-12">
+        <div class="grid lg:grid-cols-12 grid-rows-2 lg:p-10 lg:grid-rows-1 gap-2  lg:gap-12">
           <!-- Left Column - Narrower (4 columns) -->
           <div class="col-span-12 lg:col-span-5 space-y-6">
             <!-- Top Row - International Airport Data Card -->
@@ -4834,30 +4834,6 @@
         startAirportImageRotation();
         initializeProgressSlider();
 
-        // Navigation event listeners
-        // Airport slider navigation
-        document
-          .getElementById("prev-airport")
-          .addEventListener("click", () => {
-            currentAirportIndex = Math.max(0, currentAirportIndex - 1);
-            currentImageIndex = 0;
-            updateFirstAirportSliderProgress();
-            updateAirportDisplay();
-            restartImageRotation();
-          });
-
-        document
-          .getElementById("next-airport")
-          .addEventListener("click", () => {
-            currentAirportIndex = Math.min(
-              saudiAirports.length - 1,
-              currentAirportIndex + 1
-            );
-            currentImageIndex = 0;
-            updateFirstAirportSliderProgress();
-            updateAirportDisplay();
-            restartImageRotation();
-          });
       }
 
       // run when airport is selected from map, this will set airport slider
@@ -4873,35 +4849,10 @@
       }
 
       function initializeProgressSlider() {
-        createProgressSegments();
+        // createProgressSegments();
         startProgressAnimation();
       }
 
-      function createProgressSegments() {
-        const airport = saudiAirports[currentAirportIndex];
-        const progressContainer = document.getElementById(
-          "main-progress-container"
-        );
-
-        progressContainer.innerHTML = "";
-
-        airport.images.forEach((_, index) => {
-          const segment = document.createElement("div");
-          segment.className =
-            "flex-1 h-1 bg-white/30 rounded-full overflow-hidden";
-          segment.innerHTML = `
-                    <div class="main-progress-fill h-full bg-white rounded-full transition-all duration-100 ease-linear" 
-                         style="width: ${
-                           index < currentImageIndex
-                             ? "100%"
-                             : index === currentImageIndex
-                             ? "0%"
-                             : "0%"
-                         }"></div>
-                `;
-          progressContainer.appendChild(segment);
-        });
-      }
 
       function startProgressAnimation() {
         const progressFills = document.querySelectorAll(".main-progress-fill");
@@ -5159,62 +5110,7 @@
       const flightsPerPage = 12;
       let activeFilters = [];
 
-      function initializeFlightSearch() {
-        renderFlightCards();
-        // renderContinents();
-        setupFlightSearchListeners();
-        updateContinentProgress();
-      }
-
-      function setupFlightSearchListeners() {
-        // Search functionality
-        const searchInput = document.getElementById("flight-search");
-        searchInput.addEventListener("input", function () {
-          const query = this.value.toLowerCase().trim();
-          filterFlights(query);
-        });
-
-        // Airport slider navigation
-        document
-          .getElementById("flight-prev-airport")
-          .addEventListener("click", () => {
-            currentFlightAirportIndex = Math.max(
-              0,
-              currentFlightAirportIndex - 1
-            );
-            filterFlightsByAirport();
-          });
-
-        document
-          .getElementById("flight-next-airport")
-          .addEventListener("click", () => {
-            console.log("1st flight button");
-            currentFlightAirportIndex = Math.min(
-              saudiAirports.length - 1,
-              currentFlightAirportIndex + 1
-            );
-            filterFlightsByAirport();
-          });
-
-        // Continent pagination
-        document
-          .getElementById("continent-prev")
-          .addEventListener("click", () => {
-            currentContinentPage = Math.max(0, currentContinentPage - 1);
-            updateContinentProgress();
-          });
-
-        document
-          .getElementById("continent-next")
-          .addEventListener("click", () => {
-            console.log("hello");
-
-            if (currentContinentPage < 2) {
-              currentContinentPage = Math.min(2, currentContinentPage + 1);
-              updateContinentProgress();
-            }
-          });
-      }
+      
 
       function filterFlights(query) {
         console.log("Filtering flights with query:", query);
@@ -5336,6 +5232,7 @@
         currentFlightAirportIndex = 0;
         filteredFlights = [...flightData];
         currentContinentPage = 0;
+        currentFlightPage=0;
         activeFilters = [];
         // const activeFilterSection = document.getElementById(
         //   "activeFilterSection"
@@ -5344,6 +5241,17 @@
         // activeFilterSection.classList.add("hidden");
         renderFlightCards();
         setupFlightSearchListeners();
+        updateContinentProgress();
+      }
+
+      function againInitializeFlightSearch() {
+        console.log("Hello");
+        currentFlightAirportIndex = 0;
+        filteredFlights = [...flightData];
+        currentContinentPage = 0;
+        currentFlightPage=0;
+        activeFilters = [];
+        renderFlightCards();
         updateContinentProgress();
       }
 
@@ -5387,32 +5295,7 @@
           }
         });
 
-        // Airport slider navigation (Removed)
-        // document
-        //   .getElementById("flight-prev-airport")
-        //   .addEventListener("click", () => {
-        //     currentFlightAirportIndex = Math.max(
-        //       0,
-        //       currentFlightAirportIndex - 1
-        //     );
-        //     updateAirportSliderProgress();
-        //     // updateActiveAirportName();
-        //     filterFlightsByAirport();
-        //   });
-
-        // document
-        //   .getElementById("flight-next-airport")
-        //   .addEventListener("click", () => {
-        //    console.log("2nd flight button");
-
-        //     currentFlightAirportIndex = Math.min(
-        //       saudiAirports.length - 1,
-        //       currentFlightAirportIndex + 1
-        //     );
-        //     updateAirportSliderProgress();
-        //     // updateActiveAirportName();
-        //     filterFlightsByAirport();
-        //   });
+        
 
         // Flight pagination
         document
@@ -6032,7 +5915,7 @@
 
         if (selectedContinent === name) {
           selectedContinent = null;
-          initializeFlightSearch();
+          againInitializeFlightSearch();
         } else {
           console.log(activeFilters);
           selectedContinent = name;
