@@ -109,8 +109,8 @@
               <!-- Language Selector -->
               <div class="hidden md:flex">
                 <div
-                id="language-selector"
-                class="flex justify-center items-center h-10 cursor-pointer items-center bg-white rounded mx-2 py-1 space-x-3 px-3 text-emerald-500 hover:text-white hover:bg-emerald-500"
+                  id="language-selector"
+                  class="flex justify-center items-center h-10 cursor-pointer items-center bg-white rounded mx-2 py-1 space-x-3 px-3 text-emerald-500 hover:text-white hover:bg-emerald-500"
                 >
                   <span
                     class="text-md font-semibold my-auto"
@@ -122,7 +122,7 @@
               </div>
 
               <!-- Become a Partner Button -->
-             <a
+              <a
                 href="./contact.html"
                 class="hidden md:block bg-[#785FDC] hover:text-black text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors duration-200"
                 data-i18n="nav.becomePartner"
@@ -300,7 +300,7 @@
           class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"
         >
           <div
-            class="bg-white h-[500px] overflow-y-auto rounded-xl max-w-[95%] sm:max-w-4xl w-full px-6 py-10 relative"
+            class="bg-white max-h-[90vh] overflow-y-auto rounded-xl max-w-[95%] lg:max-w-4xl w-full px-6 py-10 relative"
           >
             <!-- Close button -->
             <button
@@ -334,7 +334,7 @@
           <div class="col-span-1">
             <!-- Single Card with Progress Bar and Auto Image Slider -->
             <div
-              class="max-w-full mx-auto bg-[#009595] rounded-2xl overflow-hidden shadow-lg"
+              class="max-w-full mx-auto bg-[#009595] rounded-2xl pb-6 overflow-hidden shadow-lg"
             >
               <!-- Image Gallery with Progress Bar -->
               <div class="relative h-72 overflow-hidden">
@@ -371,7 +371,7 @@
               </div>
 
               <!-- Text Content -->
-              <div class="text-white pt-5 px-8 md:px-12 mb-8">
+              <div class="text-white pt-5 px-8 md:px-12 mb-4">
                 <h3
                   id="bigCardTitle"
                   class="text-xl leading-7 md:text-2xl font-semibold mb-2"
@@ -384,7 +384,7 @@
               </div>
 
               <!-- Button -->
-              <div class="md:px-12 flex flex-col items-start px-8 pb-16">
+              <div class="md:px-12 flex flex-col items-start px-8">
                 <a
                   id="readMoreBtn"
                   href="#"
@@ -478,7 +478,7 @@
                 <!-- Articles List -->
                 <div
                   id="articles-container"
-                  class="space-y-2 h-80 overflow-y-auto pr-2"
+                  class="space-y-2 h-96 overflow-y-auto pr-2"
                 >
                   <!-- Articles will be populated by JavaScript -->
                 </div>
@@ -490,7 +490,7 @@
     </section>
 
     <!-- Added new video section with two-column layout -->
-    <section class="max-w-7xl mx-auto mt-16 px-4 sm:px-6 lg:px-8">
+    <section class="max-w-7xl hidden mx-auto mt-16 px-4 sm:px-6 lg:px-8">
       <div class="bg-white py-12 sm:py-24 rounded-lg">
         <!-- First Row: Title and Horizontal Line -->
         <div class="mb-16 px-16 flex items-center space-x-3">
@@ -621,8 +621,9 @@
 
     <!-- Adding new video cards slider section as separate section -->
     <section
+      dir="ltr"
       id="videoSection"
-      class="max-w-7xl mx-auto my-32 px-4 sm:px-6 lg:px-8"
+      class="max-w-7xl mx-auto my-20 px-4 sm:px-6 lg:px-8"
     >
       <!-- First Row: Title and Navigation -->
       <div
@@ -1195,9 +1196,11 @@
       function setLanguage(lang) {
         localStorage.setItem("appLanguage", lang);
         document.documentElement.lang = lang;
-        document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
         document.getElementById("pageNavigation").dir =
           lang === "ar" ? "rtl" : "ltr";
+
+        // Page Navigation
         document
           .getElementById("pageNavigation")
           .getElementsByTagName("svg")[0]
@@ -1207,6 +1210,17 @@
           .getElementsByTagName("svg")[0]
           .classList.remove(lang === "ar" ? "rotate-0" : "rotate-180");
 
+        // Video Slider Section
+        document.querySelector("#videoSection").dir =
+          lang === "ar" ? "ltr" : "ltr";
+        // Single Video Card Text Section
+        const singlevideoCards = document.querySelectorAll(".singleVideoCard");
+
+       singlevideoCards.forEach((card) => {
+  card.classList.add(lang === "ar" ? "!text-right" : "!text-left");
+  card.classList.remove(lang === "ar" ? "!text-left" : "!text-right");
+});
+        // Setting Footer
         document
           .querySelector("footer")
           .classList.add(lang === "ar" ? "!text-right" : "!text-left");
@@ -1219,10 +1233,10 @@
           renderVideoCardsSlider();
         });
       }
-document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
-  setLanguage(savedLang);
-});
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
+        setLanguage(savedLang);
+      });
 
       // Auto update all tags with [data-i18n]
       function updateContent() {
@@ -1566,14 +1580,14 @@ document.addEventListener("DOMContentLoaded", () => {
           .map(
             (article) => `
       <div
-        class="article-item flex gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+        class="article-item flex flex-col md:flex-row gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200"
         data-id="${article.id}"
         data-filter="${filter}">
           <div class="flex-shrink-0">
               <img
                   src="${article.images[0]}"
                   alt="${i18next.t(article.titleKey)}"
-                  class="w-40 h-20 object-cover rounded-sm"
+                  class=" w-full md:w-40 h-32 md:h-20 object-cover rounded-sm"
               >
           </div>
 
@@ -1926,8 +1940,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       function createVideoCardsHTML(card, index) {
+        const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
+         const textAlignmentClass = savedLang === "ar" ? "text-right" : "text-left";
         return `
-                <div class="bg-white rounded-lg overflow-hidden border border-gray-300">
+                <div  class="bg-white rounded-lg overflow-hidden border border-gray-300">
                     <div class="relative aspect-video overflow-hidden">
                         <video
                             id="videoCardsVideo${index}"
@@ -1950,7 +1966,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             18:45
                         </div>
                     </div>
-                    <div class="p-4">
+                    <div  class="singleVideoCard ${textAlignmentClass} text-left p-4">
                         <!-- Updated to use i18next translation keys -->
                         <h3 class="font-bold text-lg text-[#495057] mb-2">${i18next.t(
                           card.titleKey

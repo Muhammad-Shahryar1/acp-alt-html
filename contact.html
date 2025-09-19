@@ -688,7 +688,7 @@
       function setLanguage(lang) {
           localStorage.setItem("appLanguage", lang);
         document.documentElement.lang = lang;
-        document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
         document.getElementById("pageNavigation").dir = lang === "ar" ? "rtl" : "ltr";
         document.getElementById("pageNavigation").getElementsByTagName('svg')[0].classList.add(lang === "ar" ? "rotate-180" : "rotate-0")
