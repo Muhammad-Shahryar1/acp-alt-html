@@ -315,6 +315,7 @@
           <!-- Section Description -->
           <p
             id="gsap-text"
+            dir="ltr"
             class="text-3xl text-gray-600 leading-tight text-pretty"
             data-i18n="sections.programDescription"
           >
@@ -380,9 +381,10 @@
           </div>
 
           <!-- Right Column - Statistics Cards -->
-          <div class="grid grid-cols-2 gap-2">
-            <!-- Routes Activated Card -->
+          <div class="grid stats-card grid-cols-2 gap-3">
+            <!--Card 1 -  Routes Activated Card -->
             <div
+              id="card1"
               class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-3">
@@ -413,8 +415,9 @@
                 </p>
               </div>
             </div>
-            <!-- Carrier Collaboration Card -->
+            <!--Card-2  Carrier Collaboration Card -->
             <div
+              id="card2"
               class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-3">
@@ -445,8 +448,9 @@
                 </p>
               </div>
             </div>
-            <!-- Seats Generated Card -->
+            <!--Card-3 Seats Generated Card -->
             <div
+              id="card3"
               class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-3">
@@ -477,8 +481,9 @@
                 </p>
               </div>
             </div>
-            <!-- Placeholder Card -->
+            <!--Card-4 Airlines -->
             <div
+              id="card4"
               class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group"
             >
               <div class="flex items-center justify-between mb-3">
@@ -2115,7 +2120,11 @@
             </div>
 
             <!-- Added flight pagination controls -->
-            <div class="flex items-center justify-center space-x-4 pt-8">
+            <div
+              dir="ltr"
+              id="flightsPaginationSlider"
+              class="flex items-center justify-center space-x-4 pt-8"
+            >
               <span id="current-flight-page" class="text-sm text-gray-600"
                 >01</span
               >
@@ -2223,7 +2232,10 @@
             </div>
 
             <!-- Pagination Controls -->
-            <div class="flex items-center justify-center space-x-2 pt-4">
+            <div
+              id="continentPaginationSlider"
+              class="flex items-center justify-center space-x-2 pt-4"
+            >
               <!-- Made continent pagination dynamic -->
               <span id="current-continent-page" class="text-sm text-gray-600"
                 >01</span
@@ -2285,6 +2297,40 @@
 
     <!-- Added comprehensive news section with 3-row layout, slider functionality, and dynamic navigation -->
     <!-- News Section -->
+
+    <!-- News Modal -->
+    <div id="newsModal" class="fixed inset-0 bg-black/50 hidden z-103">
+      <!-- Flex to center the modal -->
+      <div class="flex items-center justify-center  w-full h-full">
+        <div
+          class="bg-white max-h-[90vh] overflow-y-auto rounded-xl max-w-[95%] lg:max-w-4xl w-full px-6 py-10 relative"
+        >
+          <!-- Close button -->
+          <button
+            id="closeModal"
+            class="absolute cursor-pointer top-3 right-3 text-gray-600 hover:text-black text-3xl"
+          >
+            &times;
+          </button>
+
+          <!-- Modal Content -->
+          <h2 id="modalTitle" class="text-xl font-bold mb-2 text-gray-900"></h2>
+          <p id="modalDate" class="text-sm text-gray-500 mb-4"></p>
+
+          <div class="relative w-full h-56 mb-4">
+            <img
+              id="modalImage"
+              src="/placeholder.svg"
+              alt=""
+              class="w-full h-full object-cover rounded-md"
+            />
+          </div>
+
+          <p id="modalDescription" class="text-gray-700 leading-relaxed"></p>
+        </div>
+      </div>
+    </div>
+
     <section class="py-16 sm:py-20 lg:py-24 bg-white">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Row 1: Header with Read More Button -->
@@ -2336,7 +2382,7 @@
         </div>
 
         <!-- Row 2: News Cards Slider -->
-        <div class="mb-8">
+        <div class="mb-8" id="sliderNewsSection" dir="ltr">
           <div id="news-slider" class="overflow-hidden">
             <div
               id="news-slider-track"
@@ -2349,6 +2395,8 @@
 
         <!-- Row 3: Progress Slider and Navigation -->
         <div
+          id="newspaginationslider"
+          dir="ltr"
           class="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between items-center"
         >
           <!-- Left: Progress Slider -->
@@ -2448,7 +2496,7 @@
 
       <!-- Moved carousel outside container to remove padding/margins and extend to full viewport width -->
       <!-- Row 2: Infinite Logo Carousel -->
-      <div class="overflow-hidden w-full">
+      <div dir="ltr" id="infiniteImagesSlider"  class="overflow-hidden w-full">
         <div class="infinite-scroll flex items-center space-x-16">
           <!-- First set of logos -->
           <div class="flex items-center space-x-16 animate-scroll">
@@ -2758,6 +2806,22 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      // Selectable Cards Logic
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".stats-card > div"); // all 4 cards
+
+        cards.forEach((card) => {
+          card.addEventListener("click", () => {
+            // Remove selected from all
+            cards.forEach((c) => c.classList.remove("card-selected"));
+            // Add to clicked one
+            card.classList.add("card-selected");
+          });
+        });
+      });
+    </script>
 
     <script>
       // navbar animation
@@ -3117,7 +3181,34 @@
 
         // Apply lang & direction
         document.documentElement.lang = lang;
-        // document.documentElement.dir = lang === "ar" ? "ltr" : "ltr"; // fixed: Arabic should be RTL
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+        // Hero Panel Container
+        document
+          .querySelector("#panel-container")
+          .classList.add(lang === "ar" ? "right-[1%]" : "left-[5%]");
+        document
+          .querySelector("#panel-container")
+          .classList.remove(lang === "ar" ? "left-[5%]" : "right-[1%]");
+
+        // Animated GSAP Text
+        document.querySelector("#gsap-text").dir =
+          lang === "ar" ? "ltr" : "ltr";
+
+        // General Pagination
+        document.querySelector("#flightsPaginationSlider").dir =
+          lang === "ar" ? "ltr" : "ltr";
+        document.querySelector("#continentPaginationSlider").dir =
+          lang === "ar" ? "ltr" : "ltr";
+        document.querySelector("#newspaginationslider").dir =
+          lang === "ar" ? "ltr" : "ltr";
+
+        // News Slider
+        document.querySelector("#sliderNewsSection").dir =
+          lang === "ar" ? "ltr" : "ltr";
+        // Infinite Slider
+        document.querySelector("#infiniteImagesSlider").dir =
+          lang === "ar" ? "ltr" : "ltr";
 
         // Toggle text alignment classes
         document.body.classList.add(
@@ -5593,65 +5684,129 @@
 
       function createNewsCard(news, index) {
         return `
-                <div class="border border-gray-300 bg-white rounded-md shadow-sm overflow-hidden hover:shadow-sm transition-shadow duration-300 p-6">
-                    <!-- Fixed column proportions: left column narrower, right column wider -->
-                    <div class="flex flex-col gap-6 h-full">
-                        <!-- Left Column: Text Content (narrower) -->
-                        <div class="flex justify-between">
-                            <!-- Headline -->
-                            <div class="w-2/5">
-                                <h4 class="text-xl font-bold text-gray-800 mb-4 line-clamp-2" data-i18n="articles.featured.${
-                                  news.id
-                                }.title">
-                                    ${news.headline}
-                                </h4>
-                                
-                                <!-- Description -->
-                                <p class="text-gray-600 mb-6 line-clamp-3 flex-grow" data-i18n="articles.featured.${
-                                  news.id
-                                }.description">
-                                    ${news.description}
-                                </p>
-                            </div>
-                            <!-- News Image -->
-                            <div class="w-3/5 ml-3 h-48 overflow-hidden">
-                                <img src="${
-                                  news.image
-                                }" alt="News Image" class="w-full h-full object-cover">
-                            </div>
-                            
-                        </div>
-                        
-                        <!-- Right Column: Image and Read More Button (wider) -->
-                        <div class="flex items-center justify-between">
-                            
-                            <!-- Location and Date - Inline -->
-                            <div class="text-[12px] text-gray-400">
-                                <span class="border border-gray-300 p-2 rounded-sm">${
-                                  news.location
-                                }</span>
-                                <span class="border border-gray-300 p-2 rounded-sm" data-i18n="articles.featured.${
-                                  index + 1
-                                }.date">${news.date}</span>
-                            </div>
-                            <!-- Read More Button -->
-                            <a href="./media.html?news=${
-                              news.id
-                            }" class="hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2">
-                                <span class="text-sm text-gray-600" data-i18n="buttons.readMore">Read More</span>
-                                <span class="w-8 h-8 rounded-full bg-gray-600 text-white flex items-center justify-center" aria-hidden="true">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                                    </svg>
-                                </span>
-                            </a>
-                        </div>
-                    </div>
+    <div 
+      class="news-card border border-gray-300 bg-white rounded-md shadow-sm overflow-hidden hover:shadow-sm transition-shadow duration-300 p-6 cursor-pointer" 
+      data-id="${news.id}">
+        <!-- your existing card content unchanged -->
+        <div class="flex flex-col gap-6 h-full">
+            <div class="flex justify-between">
+                <div class="w-2/5">
+                    <h4 class="text-xl font-bold text-gray-800 mb-4 line-clamp-2" data-i18n="articles.featured.${
+                      news.id
+                    }.title">
+                        ${news.headline}
+                    </h4>
+                    <p class="text-gray-600 mb-6 line-clamp-3 flex-grow" data-i18n="articles.featured.${
+                      news.id
+                    }.description">
+                        ${news.description}
+                    </p>
                 </div>
+                <div class="w-3/5 ml-3 h-48 overflow-hidden">
+                    <img src="${
+                      news.image
+                    }" alt="News Image" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="flex items-center justify-between">
+                <div class="text-[12px] text-gray-400">
+                    <span class="border border-gray-300 p-2 rounded-sm">${
+                      news.location
+                    }</span>
+                    <span class="border border-gray-300 p-2 rounded-sm" data-i18n="articles.featured.${
+                      index + 1
+                    }.date">${news.date}</span>
+                </div>
+                <button 
+                  class="read-more-btn hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2"
+                  data-id="${news.id}">
+                  <span class="text-sm text-gray-600" data-i18n="buttons.readMore">Read More</span>
+                  <span class="w-8 h-8 rounded-full bg-gray-600 text-white flex items-center justify-center" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                </button>
 
-                
-            `;
+            </div>
+        </div>
+    </div>
+  `;
       }
+
+      // Modal Functionality Start
+      // 📰 Modal Elements
+      const modal = document.getElementById("newsModal");
+      const closeModalBtn = document.getElementById("closeModal");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDate = document.getElementById("modalDate");
+      const modalImage = document.getElementById("modalImage");
+      const modalDescription = document.getElementById("modalDescription");
+
+      /**
+       * Attach read-more functionality to your slider container.
+       * Replace "#news-slider-track" with the actual container element of your slider.
+       */
+      const sliderTrack = document.getElementById("news-slider-track");
+
+      // use event delegation so buttons added later also work
+      sliderTrack.addEventListener("click", (e) => {
+        const button = e.target.closest(".read-more-btn");
+        if (!button) return;
+
+        e.stopPropagation();
+
+        // find the card id
+        const id = parseInt(button.dataset.id, 10);
+
+        // ✅ Use i18next to fetch the translated content
+        const titleKey = `articles.featured.${id}.title`;
+        const descKey = `articles.featured.${id}.description`;
+        const dateKey = `articles.featured.${id}.date`;
+
+        const news = newsData.find((item) => item.id === id);
+
+        // Populate modal with translated content
+        modalTitle.textContent = i18next.t(titleKey);
+        modalDescription.textContent = i18next.t(descKey);
+
+        // You can still pull location from newsData (if you don’t have translations for it)
+        const translatedDate = i18next.t(dateKey);
+        modalDate.textContent = `${translatedDate} • ${news.location}`;
+
+        modalImage.src = news.image;
+
+        modal.classList.remove("hidden");
+      });
+      i18next.on("languageChanged", () => {
+        // if modal open, retranslate content
+        if (!modal.classList.contains("hidden")) {
+          const id = modal.dataset.currentId; // store current ID somewhere when opening
+          if (id) {
+            modalTitle.textContent = i18next.t(`articles.featured.${id}.title`);
+            modalDescription.textContent = i18next.t(
+              `articles.featured.${id}.description`
+            );
+            modalDate.textContent = `${i18next.t(
+              `articles.featured.${id}.date`
+            )} • ${newsData.find((n) => n.id == id).location}`;
+          }
+        }
+      });
+
+      // close modal
+      closeModalBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+      });
+
+      // close modal when clicking outside
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.classList.add("hidden");
+        }
+      });
+
+      // Modal Functionality End
 
       function renderNewsSlider() {
         const sliderTrack = document.getElementById("news-slider-track");
@@ -5668,7 +5823,7 @@
           slidesHTML += `
                     <div class="w-full flex-shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-8 py-6">
                         ${slideNews
-                          .map((news) => createNewsCard(news))
+                          .map((news, index) => createNewsCard(news, index))
                           .join("")}
                         ${slideNews.length === 1 ? "<div></div>" : ""}
                     </div>
@@ -6128,7 +6283,7 @@
         // Reveal hero text slightly later for staggered effect
         setTimeout(() => {
           heroTitle.classList.add("show");
-        }, 300);
+        }, 100);
       });
 
       gsap.registerPlugin(ScrollTrigger);
@@ -6137,7 +6292,7 @@
         gsap.from(id, {
           scrollTrigger: {
             trigger: id,
-            start: "top center",
+            start: "top bottom",
             toggleActions: "play none none none",
           },
           x: -200,
@@ -6157,6 +6312,10 @@
         const pageOverlay = document.getElementById("pageOverlay");
         let scrollTimer = null;
         const threshold = 400; // px to consider "at bottom"
+
+
+        // safety: ensure elements exist
+        if (!footer || !pageOverlay) return;
 
         // Force hidden state & opacity at load
         footer.classList.remove("active");
@@ -6200,21 +6359,30 @@
             const currentScrollTop =
               window.pageYOffset || document.documentElement.scrollTop;
 
+
+            // capture previous scroll position for the debounced check
+            const prevScrollTop = lastScrollTop;
+
             // Instant hide when scrolling up
-            if (currentScrollTop < lastScrollTop - 5 && footerShown) {
+            if (currentScrollTop < prevScrollTop - 5 && footerShown) {
               hideFooter();
             }
 
-            // Debounced show at bottom
+            // Debounced show at bottom ONLY when scrolling down from the previous position
             clearTimeout(scrollTimer);
             scrollTimer = setTimeout(function () {
-              if (isAtBottom()) {
+              // Show only if user was moving down (current > prev) AND we're at bottom
+              if (currentScrollTop > prevScrollTop && isAtBottom()) {
                 showFooter();
+              } else if (!isAtBottom()) {
+                // If we've left the bottom area, ensure footer is hidden
+                hideFooter();
               }
+              // update lastScrollTop after debounce so prevScrollTop stays meaningful
               lastScrollTop = currentScrollTop;
             }, 80);
 
-            lastScrollTop = currentScrollTop;
+            // do NOT set lastScrollTop here (we update it inside the debounced handler)
           },
           { passive: true }
         );
@@ -6239,43 +6407,24 @@
     </script>
 
     <style>
-      .carousel-container {
-        width: 100%;
-        overflow: hidden;
-        position: relative;
+
+      /* Selected Cards Start */
+      /* Selected state */
+      .card-selected {
+        transform: scale(1.05); /* slightly bigger */
+        background-color: #10b981; /* emerald-500 */
+        border-color: #34d399; /* emerald-400 */
+        color: white;
       }
 
-      .carousel-track {
-        display: flex;
-        will-change: transform;
+      /* Force all hover styles when selected */
+      .card-selected * {
+        color: white !important;
+        fill: white !important;
       }
 
-      .carousel-card {
-        flex: 0 0 100%;
-        /* each card takes full width */
-        padding: 1rem;
-        box-sizing: border-box;
-      }
+      /* Selected Cards End */
 
-      /* Active card styling (optional) */
-      .carousel-card.active > div {
-        background: #10b981 !important;
-        color: #fff !important;
-        border-color: #059669 !important;
-        box-shadow: 0 12px 30px rgba(16, 185, 129, 0.2);
-      }
-
-      .carousel-card.active > div > p {
-        color: #fff !important;
-      }
-
-      /* Slide animation (one step) */
-      .slide-transition {
-        transition: transform 0.5s ease;
-      }
-    </style>
-
-    <style>
       /* Added infinite scroll animation for partner logos */
       .infinite-scroll {
         width: 200%;
