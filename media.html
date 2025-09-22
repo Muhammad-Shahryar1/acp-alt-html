@@ -223,11 +223,11 @@
     </header>
 
     <section
-      class="max-w-7xl mx-auto py-12 sm:pb-20 sm:pt-10 px-4 sm:px-6 lg:px-8"
+      class="max-w-7xl  mx-auto py-12 sm:pb-20 sm:pt-10 px-4 sm:px-6 lg:px-8"
     >
       <div
         id="pageNavigation"
-        class="flex gap-1 my-4 items-center container mx-auto"
+        class="flex gap-1 my-4 items-center container pl-4"
       >
         <a
           data-i18n="page.homeNav"
@@ -260,7 +260,7 @@
         >
       </div>
       <div
-        class="container bg-[#b8dadc] py-10 px-5 sm:px-10 xl:px-20 rounded-2xl mx-auto"
+        class="bg-[#b8dadc] py-10 px-5  sm:px-10 xl:px-20 rounded-2xl w-full "
       >
         <div class="bg-white inline-block rounded-lg px-4 pt-2">
           <nav class="flex flex-wrap space-x-8" id="nav-links">
@@ -1010,13 +1010,13 @@
                   // Media Video Content
                   "video1.featuredNews": "ACP National Day",
                   "video1.featuredNewsDesc":
-                    "Watch the latest updates and stories from the Air Connectivity Program.",
+                    "",
                   "video2.featuredNews": "ACP",
                   "video2.featuredNewsDesc":
-                    "Watch the latest updates and stories from the Air Connectivity Program.",
+                    "",
                   "video3.featuredNews": "ACP 2024",
                   "video3.featuredNewsDesc":
-                    "Watch the latest updates and stories from the Air Connectivity Program.",
+                    "",
 
                   // ─────────────────────────────
                   // FOOTER
@@ -1124,14 +1124,14 @@
 
                   // Video Content
                   "video1.featuredNews": "اليوم الوطني لـ ACP",
-                  "video1.featuredNewsDesc":
-                    "اليوم الوطني لـ ACP في المملكة العربية السعودية",
+                  "video1.featuredNewsDesc":"",
+                   
                   "video2.featuredNews": "برنامج الربط الجوي",
-                  "video2.featuredNewsDesc":
-                    "شاهد أحدث التحديثات والقصص من برنامج الربط الجوي.",
+                  "video2.featuredNewsDesc":"",
+                   
                   "video3.featuredNews": "برنامج الربط الجوي 2024",
-                  "video3.featuredNewsDesc":
-                    "شاهد أحدث التحديثات والقصص من برنامج الربط الجوي.",
+                  "video3.featuredNewsDesc":"",
+                   
 
                   // FOOTER
                   "footer.overview": "لمحة عامة",
@@ -1895,7 +1895,7 @@
 
       const videoCardsData = [
         {
-          video: "./assets/videos/ACP National Day.M4V",
+          video: "./assets/videos/ACP-National-Day.M4V",
           titleKey: "video1.featuredNews",
           textKey: "video1.featuredNewsDesc",
         },
@@ -1905,7 +1905,7 @@
           textKey: "video2.featuredNewsDesc",
         },
         {
-          video: "./assets/videos/ACP 2024.MOV",
+          video: "./assets/videos/ACP-2024.MOV",
           titleKey: "video3.featuredNews",
           textKey: "video3.featuredNewsDesc",
         },
@@ -2010,13 +2010,15 @@
                               <h3 class="font-bold text-lg text-[#495057] mb-2">${i18next.t(
                                 card.titleKey
                               )}</h3>
-                              <p class="text-[#6C757D] text-sm">${i18next.t(
-                                card.textKey
-                              )}</p>
+                              
                           </div>
                       </div>
                   `;
+
       }
+      // <p class="text-[#6C757D] text-sm">${i18next.t(
+      //                           card.textKey
+      //                         )}</p>
 
       function renderVideoCardsSlider() {
         const videoCardsSliderTrack = document.getElementById(
