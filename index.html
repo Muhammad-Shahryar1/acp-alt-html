@@ -220,7 +220,7 @@
         muted
         playsinline
       >
-        <source src="./assets/hero-video.mp4" type="video/mp4" />
+        <source src="./assets/videos/ACP.MP4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -607,7 +607,7 @@
     <section class="py-16 sm:py-20 lg:py-24 bg-white">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          class="grid lg:grid-cols-12 grid-rows-2 lg:p-10 lg:grid-rows-1 gap-2 lg:gap-12"
+          class="grid lg:grid-cols-12 grid-rows-2 lg:py-10 lg:grid-rows-1 gap-2 lg:gap-12"
         >
           <!-- Left Column - Narrower (4 columns) -->
           <div class="col-span-12 lg:col-span-5 space-y-6">
@@ -1996,12 +1996,16 @@
           </div>
           <script>
             // Add click listeners
-            document.querySelectorAll(".airport").forEach((airport) => {
+            const airportPointers=document.querySelectorAll(".airport")
+            airportPointers.forEach((airport) => {
               airport.addEventListener("click", () => {
                 const name = airport.getAttribute("data-name");
                 const code = airport.getAttribute("data-code");
                 console.log(`Clicked: ${name} (${code})`);
                 window.setAirportByCode(code);
+                airportPointers.forEach(pointer=>pointer.classList.remove('enlarged'))
+                airport.classList.add("enlarged")
+                
                 // document.getElementById(
                 //   "output"
                 // ).textContent = `Clicked: ${name} (${code})`;
@@ -2018,9 +2022,16 @@
               stroke: white;
               stroke-width: 2px;
               transition: transform 0.2s, fill 0.2s;
+              transform-box: fill-box;      /* important for SVG */
+              transform-origin: center;     /* scale from center */
             }
 
+            .airport.enlarged {
+              transform: scale(1.5); /* stays centered on x,y */
+            }
+            
             .airport:hover {
+              transform: scale(1.5); /* stays centered on x,y */
               fill: #009f6b;
             }
           </style>
@@ -2030,9 +2041,9 @@
 
     <!-- Added comprehensive flight search section with 3-row layout, functional search, toggles, sliders, and pagination -->
     <!-- Flight Search Section -->
-    <section id="routes">
+    <section class="xl:container px-4 sm:px-6 lg:px-8 mx-auto" id="routes">
       <div
-        class="container mx-auto px-4 sm:px-6 lg:px-8 bg-[#F5F5F5] py-12 sm:py-16 lg:py-20 rounded-md"
+        class="max-w-8xl px-4 sm:px-6 lg:px-8 bg-[#F5F5F5] py-12 sm:py-16 lg:py-20 rounded-md"
       >
         <!-- Row 1: Header -->
         <div class="flex justify-between items-center mb-8">
@@ -2122,9 +2133,10 @@
             </div>
 
             <!-- Added flight pagination controls -->
+             <!-- dir="ltr"
+              id="flightsPaginationSlider" -->
             <div
-              dir="ltr"
-              id="flightsPaginationSlider"
+              
               class="flex items-center justify-center space-x-4 pt-8"
             >
               <span id="current-flight-page" class="text-sm text-gray-600"
@@ -2397,8 +2409,6 @@
 
         <!-- Row 3: Progress Slider and Navigation -->
         <div
-          id="newspaginationslider"
-          dir="ltr"
           class="flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between items-center"
         >
           <!-- Left: Progress Slider -->
@@ -2409,11 +2419,17 @@
           </div>
 
           <!-- Right: Navigation Controls -->
-          <div class="flex items-center space-x-4">
+          <div
+            id="newspaginationslider"
+            dir="rtl"
+            class="flex  items-center space-x-4"
+          >
             <span id="current-news-slide" class="text-sm text-gray-600"
               >01</span
             >
             <div class="flex items-center space-x-2">
+              
+              <!-- For English -->
               <button
                 id="news-prev"
                 class="p-2 rounded-full hover:bg-gray-200 transition-colors"
@@ -2458,7 +2474,7 @@
                 </svg>
               </button>
             </div>
-            <span id="total-news-slides" class="text-sm text-gray-600">25</span>
+            <span id="total-news-slides" class="text-sm text-gray-600"></span>
           </div>
         </div>
       </div>
@@ -2831,7 +2847,8 @@
         const header = document.getElementById("main-header");
         if (window.scrollY > 250) {
           header.classList.add("bg-white", "shadow-md", "text-gray-900");
-          header.classList.remove("bg-transparent");
+          header.classList.remove("bg-transparent","text-white");
+          document.getElementById('mobile-menu').classList.add('!text-white')
         } else {
           header.classList.add("bg-transparent", "text-white");
           header.classList.remove("bg-white", "shadow-md", "text-gray-900");
@@ -3271,16 +3288,36 @@
           lang === "ar" ? "ltr" : "ltr";
 
         // General Pagination
-        document.querySelector("#flightsPaginationSlider").dir =
-          lang === "ar" ? "ltr" : "ltr";
+        // document.querySelector("#flightsPaginationSlider").dir =
+        //   lang === "ar" ? "ltr" : "ltr";
         document.querySelector("#continentPaginationSlider").dir =
           lang === "ar" ? "ltr" : "ltr";
+
         document.querySelector("#newspaginationslider").dir =
-          lang === "ar" ? "ltr" : "ltr";
+          lang === "ar" ? "rtl" : "ltr";
+
+
+          // Routes Navigation
+          const routeNextBtn = document.getElementById("flight-next-page")
+          const routePrevBtn = document.getElementById("flight-prev-page")
+routePrevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
+        routePrevBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180")
+        routeNextBtn.classList.add(lang === "ar" ? "!rotate-180" : "!rotate-0")
+        routeNextBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180")
+
+
 
         // News Slider
         document.querySelector("#sliderNewsSection").dir =
-          lang === "ar" ? "ltr" : "ltr";
+          lang === "ar" ? "RTL" : "ltr";
+          // News Slider Navigation
+          // Update button states
+        const prevBtn = document.getElementById("news-prev");
+        const nextBtn = document.getElementById("news-next");
+        prevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
+        prevBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180")
+        nextBtn.classList.add(lang === "ar" ? "!rotate-180" : "!rotate-0")
+        nextBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180")
         // Infinite Slider
         document.querySelector("#infiniteImagesSlider").dir =
           lang === "ar" ? "ltr" : "ltr";
@@ -3292,6 +3329,8 @@
         document.body.classList.remove(
           lang === "ar" ? "!text-left" : "!text-right"
         );
+        // renderNewsSlider()
+        slideNews()
 
         // Change i18next language
         i18next.changeLanguage(lang, function (err, t) {
@@ -3418,12 +3457,14 @@
       // Hide mobile menu when a link inside is clicked
       if (mobileMenu) {
         const mobileLinks = mobileMenu.querySelectorAll("a");
-        mobileLinks.forEach(link => {
+        mobileLinks.forEach((link) => {
           link.addEventListener("click", () => {
             mobileMenu.classList.add("hidden");
           });
         });
-        document.getElementById('language-selector').addEventListener('click',()=>mobileMenu.classList.add("hidden"));
+        document
+          .getElementById("language-selector")
+          .addEventListener("click", () => mobileMenu.classList.add("hidden"));
       }
 
       //   const saudiAirports = [
@@ -5759,7 +5800,12 @@
         }
 
         // Apply transform
-        const translateX = -currentNewsSlide * 100;
+        const langSelected = document.documentElement.lang;
+        const translateX =
+          langSelected == "ar"
+            ? currentNewsSlide * 100
+            : -currentNewsSlide * 100;
+
         sliderTrack.style.transform = `translateX(${translateX}%)`;
 
         // Update progress and navigation
