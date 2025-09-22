@@ -1234,7 +1234,22 @@
 
         // Video Slider Section
         document.querySelector("#videoSection").dir =
-          lang === "ar" ? "ltr" : "ltr";
+          lang === "ar" ? "rtl" : "ltr";
+        const videoSlidePrevBtn = document.getElementById("videoCardsPrevBtn");
+        const videoSlideNextBtn = document.getElementById("videoCardsNextBtn");
+        videoSlidePrevBtn.classList.add(
+          lang === "ar" ? "!rotate-180" : "rotate-0"
+        );
+        videoSlidePrevBtn.classList.remove(
+          lang === "ar" ? "!rotate-0" : "!rotate-180"
+        );
+        videoSlideNextBtn.classList.add(
+          lang === "ar" ? "!rotate-180" : "!rotate-0"
+        );
+        videoSlideNextBtn.classList.remove(
+          lang === "ar" ? "!rotate-0" : "!rotate-180"
+        );
+
         // Single Video Card Text Section
         const singlevideoCards = document.querySelectorAll(".singleVideoCard");
 
@@ -1249,6 +1264,7 @@
         document
           .querySelector("footer")
           .classList.remove(lang === "ar" ? "!text-left" : "!text-right");
+          updateVideoCardsNavigation()
 
         i18next.changeLanguage(lang, () => {
           updateContent();
@@ -2118,7 +2134,12 @@
         const videoCardsSliderTrack = document.getElementById(
           "videoCardsSliderTrack"
         );
-        const translateX = -videoCardsCurrentSlideIndex * 100;
+
+        const langSelected = document.documentElement.lang;
+        const translateX =
+          langSelected == "ar"
+            ? videoCardsCurrentSlideIndex * 100
+            : -videoCardsCurrentSlideIndex * 100;
         videoCardsSliderTrack.style.transform = `translateX(${translateX}%)`;
       }
 
