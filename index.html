@@ -220,7 +220,7 @@
         muted
         playsinline
       >
-        <source src="./assets/hero-video.mp4" type="video/mp4" />
+        <source src="./assets/videos/ACP.MP4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -1996,12 +1996,16 @@
           </div>
           <script>
             // Add click listeners
-            document.querySelectorAll(".airport").forEach((airport) => {
+            const airportPointers=document.querySelectorAll(".airport")
+            airportPointers.forEach((airport) => {
               airport.addEventListener("click", () => {
                 const name = airport.getAttribute("data-name");
                 const code = airport.getAttribute("data-code");
                 console.log(`Clicked: ${name} (${code})`);
                 window.setAirportByCode(code);
+                airportPointers.forEach(pointer=>pointer.classList.remove('enlarged'))
+                airport.classList.add("enlarged")
+                
                 // document.getElementById(
                 //   "output"
                 // ).textContent = `Clicked: ${name} (${code})`;
@@ -2018,9 +2022,16 @@
               stroke: white;
               stroke-width: 2px;
               transition: transform 0.2s, fill 0.2s;
+              transform-box: fill-box;      /* important for SVG */
+              transform-origin: center;     /* scale from center */
             }
 
+            .airport.enlarged {
+              transform: scale(1.5); /* stays centered on x,y */
+            }
+            
             .airport:hover {
+              transform: scale(1.5); /* stays centered on x,y */
               fill: #009f6b;
             }
           </style>
@@ -2836,7 +2847,8 @@
         const header = document.getElementById("main-header");
         if (window.scrollY > 250) {
           header.classList.add("bg-white", "shadow-md", "text-gray-900");
-          header.classList.remove("bg-transparent");
+          header.classList.remove("bg-transparent","text-white");
+          document.getElementById('mobile-menu').classList.add('!text-white')
         } else {
           header.classList.add("bg-transparent", "text-white");
           header.classList.remove("bg-white", "shadow-md", "text-gray-900");
@@ -3451,8 +3463,11 @@ routePrevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
           });
         });
         document
-          .getElementById("language-selector")
-          .addEventListener("click", () => mobileMenu.classList.add("hidden"));
+          .querySelectorAll("#language-selector")[1]
+          .addEventListener("click", (e) => {
+            console.log('clicked lanf');   
+            mobileMenu.classList.add("hidden")
+          });
       }
 
       //   const saudiAirports = [
