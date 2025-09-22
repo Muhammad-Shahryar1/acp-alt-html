@@ -220,7 +220,7 @@
         muted
         playsinline
       >
-        <source src="./assets/videos/ACP.MP4" type="video/mp4" />
+        <source src="./assets/hero-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
@@ -340,7 +340,7 @@
 
     <!-- Added new two-column statistics section -->
     <!-- Statistics Section -->
-    <section class="py-16 sm:py-20 lg:py-32 bg-[#F6F6F6]">
+    <section class="py-16 sm:py-20 lg:py-32 bg-[#F6F6F6] overflow-hidden">
       <!-- <div class="mx-auto px-4 lg:px-0 mt-[3rem] lg:!ml-0 lg:mt-0"> -->
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -705,7 +705,9 @@
           </div>
 
           <!-- Right Column - Wider (8 columns) -->
-          <div class=" h-[500px]  sm:h-[900px] lg:h-auto lg:max-h-none col-span-12 lg:col-span-7">
+          <div
+            class="h-[500px] sm:h-[900px] lg:h-auto lg:max-h-none col-span-12 lg:col-span-7"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="full"
@@ -1732,6 +1734,7 @@
                 y="345"
                 data-name="King Abdulaziz International Airport"
                 data-code="JED"
+                title="King Abdulaziz International Airport"
               />
 
               <image
@@ -1996,16 +1999,18 @@
           </div>
           <script>
             // Add click listeners
-            const airportPointers=document.querySelectorAll(".airport")
+            const airportPointers = document.querySelectorAll(".airport");
             airportPointers.forEach((airport) => {
               airport.addEventListener("click", () => {
                 const name = airport.getAttribute("data-name");
                 const code = airport.getAttribute("data-code");
                 console.log(`Clicked: ${name} (${code})`);
                 window.setAirportByCode(code);
-                airportPointers.forEach(pointer=>pointer.classList.remove('enlarged'))
-                airport.classList.add("enlarged")
-                
+                airportPointers.forEach((pointer) =>
+                  pointer.classList.remove("enlarged")
+                );
+                airport.classList.add("enlarged");
+
                 // document.getElementById(
                 //   "output"
                 // ).textContent = `Clicked: ${name} (${code})`;
@@ -2022,14 +2027,14 @@
               stroke: white;
               stroke-width: 2px;
               transition: transform 0.2s, fill 0.2s;
-              transform-box: fill-box;      /* important for SVG */
-              transform-origin: center;     /* scale from center */
+              transform-box: fill-box; /* important for SVG */
+              transform-origin: center; /* scale from center */
             }
 
             .airport.enlarged {
               transform: scale(1.5); /* stays centered on x,y */
             }
-            
+
             .airport:hover {
               transform: scale(1.5); /* stays centered on x,y */
               fill: #009f6b;
@@ -2133,12 +2138,9 @@
             </div>
 
             <!-- Added flight pagination controls -->
-             <!-- dir="ltr"
+            <!-- dir="ltr"
               id="flightsPaginationSlider" -->
-            <div
-              
-              class="flex items-center justify-center space-x-4 pt-8"
-            >
+            <div class="flex items-center justify-center space-x-4 pt-8">
               <span id="current-flight-page" class="text-sm text-gray-600"
                 >01</span
               >
@@ -2345,8 +2347,10 @@
       </div>
     </div>
 
-    <section class="xl:container mx-auto   max-w-7xl py-16 sm:py-20 lg:py-24 bg-white">
-      <div class=" px-4 sm:px-6 lg:px-8">
+    <section
+      class="xl:container mx-auto max-w-7xl py-16 sm:py-20 lg:py-24 bg-white"
+    >
+      <div class="px-4 sm:px-6 lg:px-8">
         <!-- Row 1: Header with Read More Button -->
         <div
           class="flex flex-col lg:px-10 space-y-4 md:space-y-0 md:flex-row justify-between items-center mb-12"
@@ -2422,13 +2426,12 @@
           <div
             id="newspaginationslider"
             dir="rtl"
-            class="flex  items-center space-x-4"
+            class="flex items-center space-x-4"
           >
             <span id="current-news-slide" class="text-sm text-gray-600"
               >01</span
             >
             <div class="flex items-center space-x-2">
-              
               <!-- For English -->
               <button
                 id="news-prev"
@@ -2847,8 +2850,8 @@
         const header = document.getElementById("main-header");
         if (window.scrollY > 250) {
           header.classList.add("bg-white", "shadow-md", "text-gray-900");
-          header.classList.remove("bg-transparent","text-white");
-          document.getElementById('mobile-menu').classList.add('!text-white')
+          header.classList.remove("bg-transparent", "text-white");
+          document.getElementById("mobile-menu").classList.add("!text-white");
         } else {
           header.classList.add("bg-transparent", "text-white");
           header.classList.remove("bg-white", "shadow-md", "text-gray-900");
@@ -3296,28 +3299,29 @@
         document.querySelector("#newspaginationslider").dir =
           lang === "ar" ? "rtl" : "ltr";
 
-
-          // Routes Navigation
-          const routeNextBtn = document.getElementById("flight-next-page")
-          const routePrevBtn = document.getElementById("flight-prev-page")
-routePrevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
-        routePrevBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180")
-        routeNextBtn.classList.add(lang === "ar" ? "!rotate-180" : "!rotate-0")
-        routeNextBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180")
-
-
+        // Routes Navigation
+        const routeNextBtn = document.getElementById("flight-next-page");
+        const routePrevBtn = document.getElementById("flight-prev-page");
+        routePrevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0");
+        routePrevBtn.classList.remove(
+          lang === "ar" ? "!rotate-0" : "!rotate-180"
+        );
+        routeNextBtn.classList.add(lang === "ar" ? "!rotate-180" : "!rotate-0");
+        routeNextBtn.classList.remove(
+          lang === "ar" ? "!rotate-0" : "!rotate-180"
+        );
 
         // News Slider
         document.querySelector("#sliderNewsSection").dir =
           lang === "ar" ? "RTL" : "ltr";
-          // News Slider Navigation
-          // Update button states
+        // News Slider Navigation
+        // Update button states
         const prevBtn = document.getElementById("news-prev");
         const nextBtn = document.getElementById("news-next");
-        prevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
-        prevBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180")
-        nextBtn.classList.add(lang === "ar" ? "!rotate-180" : "!rotate-0")
-        nextBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180")
+        prevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0");
+        prevBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180");
+        nextBtn.classList.add(lang === "ar" ? "!rotate-180" : "!rotate-0");
+        nextBtn.classList.remove(lang === "ar" ? "!rotate-0" : "!rotate-180");
         // Infinite Slider
         document.querySelector("#infiniteImagesSlider").dir =
           lang === "ar" ? "ltr" : "ltr";
@@ -3330,7 +3334,7 @@ routePrevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
           lang === "ar" ? "!text-left" : "!text-right"
         );
         // renderNewsSlider()
-        slideNews()
+        slideNews();
 
         // Change i18next language
         i18next.changeLanguage(lang, function (err, t) {
@@ -3465,8 +3469,8 @@ routePrevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
         document
           .querySelectorAll("#language-selector")[1]
           .addEventListener("click", (e) => {
-            console.log('clicked lanf');   
-            mobileMenu.classList.add("hidden")
+            console.log("clicked lanf");
+            mobileMenu.classList.add("hidden");
           });
       }
 
@@ -6183,19 +6187,44 @@ routePrevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
       });
 
       gsap.registerPlugin(ScrollTrigger);
+      function initAnimations() {
+        // Kill all old ScrollTriggers
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
-      ["#panel-container", "#statistics-content  "].forEach((id) => {
-        gsap.from(id, {
-          scrollTrigger: {
-            trigger: id,
-            start: "top bottom",
-            toggleActions: "play none none none",
-          },
-          x: -200,
-          opacity: 0,
-          duration: 1.2,
-          ease: "power3.out",
+        // Clear inline gsap styles (opacity, transform, etc.)
+        gsap.set(["#panel-container", "#statistics-content"], {
+          clearProps: "all",
         });
+
+        const langSelected = document.documentElement.lang;
+        const xCordinate = langSelected === "ar" ? 1800 : -200; // reduced from 12000 so it doesn't fly off screen
+
+        ["#panel-container", "#statistics-content"].forEach((selector) => {
+          gsap.from(selector, {
+            scrollTrigger: {
+              trigger: selector,
+              start: "top bottom",
+              toggleActions: "play none none none",
+            },
+            x: xCordinate,
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out",
+          });
+        });
+      }
+
+      // Run initially
+      document.addEventListener("DOMContentLoaded", initAnimations);
+
+      // Re-run after i18next changes language
+      i18next.on("languageChanged", function (lng) {
+        document.documentElement.lang = lng; // update <html lang="...">
+
+        // Wait a tiny bit to let i18next update the text before re-init animations
+        setTimeout(() => {
+          initAnimations();
+        }, 50);
       });
 
       // Footer Animation
