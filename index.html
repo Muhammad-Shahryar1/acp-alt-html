@@ -3288,7 +3288,7 @@
 
         // Animated GSAP Text
         document.querySelector("#gsap-text").dir =
-          lang === "ar" ? "ltr" : "ltr";
+          lang === "ar" ? "rtl" : "ltr";
 
         // General Pagination
         // document.querySelector("#flightsPaginationSlider").dir =
@@ -6023,69 +6023,242 @@
       //   { passive: false }
       // );
 
+      // (function () {
+      //   const section = document.getElementById("animated-section");
+      //   const getTextEl = () => document.getElementById("gsap-text");
+      //   let letters = [];
+      //   let currentIndex = 0;
+      //   let animationFinished = false;
+      //   const charsPerScroll = 5;
+      //   const visibilityRatio = 0.8;
+      //   // --- NEW: auto-reveal state ---
+      //   let autoRevealStarted = false;
+      //   let autoRevealInterval = null;
+      //   // --- Utilities ----------------------------------------------------------
+      //   function splitIntoLetters(node) {
+      //     const el = node;
+      //     const text = el.textContent || "";
+      //     el.innerHTML = "";
+      //     let segments;
+      //     try {
+      //       if (typeof Intl !== "undefined" && Intl.Segmenter) {
+      //         segments = [
+      //           ...new Intl.Segmenter(undefined, {
+      //             granularity: "grapheme",
+      //           }).segment(text),
+      //         ].map((s) => s.segment);
+      //       } else {
+      //         segments = Array.from(text);
+      //       }
+      //     } catch {
+      //       segments = Array.from(text);
+      //     }
+      //     const frag = document.createDocumentFragment();
+      //     segments.forEach((ch) => {
+      //       const span = document.createElement("span");
+      //       span.className = "letter text-gray-400";
+      //       span.textContent = ch;
+      //       frag.appendChild(span);
+      //     });
+      //     el.appendChild(frag);
+      //     return Array.from(el.querySelectorAll(".letter"));
+      //   }
+      //   function resetLettersState() {
+      //     currentIndex = 0;
+      //     animationFinished = false;
+      //     letters.forEach((l) => {
+      //       l.classList.remove("text-black");
+      //       l.classList.add("text-gray-400");
+      //     });
+      //   }
+      //   function init() {
+      //     const el = getTextEl();
+      //     if (!el) return;
+      //     letters = splitIntoLetters(el);
+      //     const computedDir =
+      //       getComputedStyle(el).direction ||
+      //       el.dir ||
+      //       document.documentElement.dir ||
+      //       "ltr";
+      //     if (computedDir === "rtl") {
+      //       letters.reverse();
+      //     }
+      //     resetLettersState();
+      //   }
+      //   // Check if enough of the element is inside the viewport
+      //   function isElementMostlyVisible(el) {
+      //     if (!el) return false;
+      //     const rect = el.getBoundingClientRect();
+      //     if (rect.bottom <= 0 || rect.top >= window.innerHeight) return false;
+      //     const visibleHeight =
+      //       Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
+      //     const ratio = visibleHeight / rect.height;
+      //     return ratio >= visibilityRatio;
+      //   }
+      //   function revealStep(maxChars) {
+      //     let revealed = 0;
+      //     while (revealed < maxChars && currentIndex < letters.length) {
+      //       if (!isElementMostlyVisible(letters[currentIndex])) break;
+      //       letters[currentIndex].classList.remove("text-gray-400");
+      //       letters[currentIndex].classList.add("text-black");
+      //       currentIndex++;
+      //       revealed++;
+      //     }
+      //     if (currentIndex >= letters.length) animationFinished = true;
+      //     return revealed;
+      //   }
+      //   // --- NEW: auto reveal ---
+      //   function startAutoReveal() {
+      //     if (autoRevealStarted) return;
+      //     autoRevealStarted = true;
+      //     autoRevealInterval = setInterval(() => {
+      //       if (animationFinished) {
+      //         clearInterval(autoRevealInterval);
+      //         return;
+      //       }
+      //       // reveal letters regardless of scroll
+      //       // but only if at least one visible
+      //       if (
+      //         letters[currentIndex] &&
+      //         isElementMostlyVisible(letters[currentIndex])
+      //       ) {
+      //         revealStep(charsPerScroll);
+      //       }
+      //     }, 50); // adjust ms for speed
+      //   }
+      //   function observeSectionCenter() {
+      //     const section = document.getElementById("animated-section");
+      //     if (!section) return;
+      //     const observer = new IntersectionObserver(
+      //       (entries) => {
+      //         entries.forEach((entry) => {
+      //           if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+      //             startAutoReveal();
+      //             observer.disconnect();
+      //           }
+      //         });
+      //       },
+      //       {
+      //         threshold: [0.5], // triggers at 50% visibility
+      //       }
+      //     );
+      //     observer.observe(section);
+      //   }
+      //   function attachTranslationListener() {
+      //     if (window.i18next && typeof window.i18next.on === "function") {
+      //       window.i18next.on("languageChanged", () => {
+      //         setTimeout(() => {
+      //           init();
+      //         }, 0);
+      //       });
+      //     } else {
+      //       const el = getTextEl();
+      //       if (!el) return;
+      //       const mo = new MutationObserver(() => {
+      //         init();
+      //       });
+      //       mo.observe(el, {
+      //         childList: true,
+      //         characterData: true,
+      //         subtree: true,
+      //       });
+      //     }
+      //   }
+      //   if (document.readyState === "loading") {
+      //     document.addEventListener("DOMContentLoaded", () => {
+      //       init();
+      //       attachTranslationListener();
+      //       observeSectionCenter(); // :point_left: added
+      //     });
+      //   } else {
+      //     init();
+      //     attachTranslationListener();
+      //     observeSectionCenter(); // :point_left: added
+      //   }
+      // })();
+
       (function () {
-        const section = document.getElementById("animated-section");
         const getTextEl = () => document.getElementById("gsap-text");
         let letters = [];
         let currentIndex = 0;
         let animationFinished = false;
+        let isRTL = false;
         const charsPerScroll = 5;
         const visibilityRatio = 0.8;
-        // --- NEW: auto-reveal state ---
+
         let autoRevealStarted = false;
         let autoRevealInterval = null;
-        // --- Utilities ----------------------------------------------------------
-        function splitIntoLetters(node) {
+
+        function splitIntoWords(node) {
           const el = node;
           const text = el.textContent || "";
           el.innerHTML = "";
-          let segments;
-          try {
-            if (typeof Intl !== "undefined" && Intl.Segmenter) {
-              segments = [
-                ...new Intl.Segmenter(undefined, {
-                  granularity: "grapheme",
-                }).segment(text),
-              ].map((s) => s.segment);
-            } else {
-              segments = Array.from(text);
-            }
-          } catch {
-            segments = Array.from(text);
-          }
+
+          const segments = text.split(/(\s+)/);
           const frag = document.createDocumentFragment();
-          segments.forEach((ch) => {
-            const span = document.createElement("span");
-            span.className = "letter text-gray-400";
-            span.textContent = ch;
-            frag.appendChild(span);
+
+          segments.forEach((segment) => {
+            if (segment.trim() === "") {
+              frag.appendChild(document.createTextNode(segment));
+            } else {
+              const span = document.createElement("span");
+              span.className = "word text-gray-400 inline-block";
+              span.textContent = segment;
+              frag.appendChild(span);
+            }
           });
+
           el.appendChild(frag);
-          return Array.from(el.querySelectorAll(".letter"));
+          return Array.from(el.querySelectorAll(".word"));
         }
+
+        // NEW: sort spans by their actual position in the viewport
+        function sortByPosition(spans, rtl) {
+          return spans
+            .map((span) => ({
+              el: span,
+              rect: span.getBoundingClientRect(),
+            }))
+            .sort((a, b) => {
+              // sort top first
+              if (a.rect.top !== b.rect.top) {
+                return a.rect.top - b.rect.top;
+              }
+              // then by horizontal position based on direction
+              return rtl
+                ? b.rect.left - a.rect.left
+                : a.rect.left - b.rect.left;
+            })
+            .map((item) => item.el);
+        }
+
         function resetLettersState() {
-          currentIndex = 0;
           animationFinished = false;
           letters.forEach((l) => {
             l.classList.remove("text-black");
             l.classList.add("text-gray-400");
           });
+          currentIndex = 0; // always start at index 0 of sorted list
         }
+
         function init() {
           const el = getTextEl();
           if (!el) return;
-          letters = splitIntoLetters(el);
+          letters = splitIntoWords(el);
+
           const computedDir =
             getComputedStyle(el).direction ||
             el.dir ||
             document.documentElement.dir ||
             "ltr";
-          if (computedDir === "rtl") {
-            letters.reverse();
-          }
+          isRTL = computedDir === "rtl";
+
+          // sort by real visual order
+          letters = sortByPosition(letters, isRTL);
+
           resetLettersState();
         }
-        // Check if enough of the element is inside the viewport
+
         function isElementMostlyVisible(el) {
           if (!el) return false;
           const rect = el.getBoundingClientRect();
@@ -6095,6 +6268,7 @@
           const ratio = visibleHeight / rect.height;
           return ratio >= visibilityRatio;
         }
+
         function revealStep(maxChars) {
           let revealed = 0;
           while (revealed < maxChars && currentIndex < letters.length) {
@@ -6104,10 +6278,12 @@
             currentIndex++;
             revealed++;
           }
-          if (currentIndex >= letters.length) animationFinished = true;
+          if (currentIndex >= letters.length) {
+            animationFinished = true;
+          }
           return revealed;
         }
-        // --- NEW: auto reveal ---
+
         function startAutoReveal() {
           if (autoRevealStarted) return;
           autoRevealStarted = true;
@@ -6116,16 +6292,15 @@
               clearInterval(autoRevealInterval);
               return;
             }
-            // reveal letters regardless of scroll
-            // but only if at least one visible
             if (
               letters[currentIndex] &&
               isElementMostlyVisible(letters[currentIndex])
             ) {
               revealStep(charsPerScroll);
             }
-          }, 50); // adjust ms for speed
+          }, 500);
         }
+
         function observeSectionCenter() {
           const section = document.getElementById("animated-section");
           if (!section) return;
@@ -6139,11 +6314,12 @@
               });
             },
             {
-              threshold: [0.5], // triggers at 50% visibility
+              threshold: [0.5],
             }
           );
           observer.observe(section);
         }
+
         function attachTranslationListener() {
           if (window.i18next && typeof window.i18next.on === "function") {
             window.i18next.on("languageChanged", () => {
@@ -6164,16 +6340,17 @@
             });
           }
         }
+
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", () => {
             init();
             attachTranslationListener();
-            observeSectionCenter(); // :point_left: added
+            observeSectionCenter();
           });
         } else {
           init();
           attachTranslationListener();
-          observeSectionCenter(); // :point_left: added
+          observeSectionCenter();
         }
       })();
 
