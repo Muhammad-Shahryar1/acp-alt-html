@@ -3463,8 +3463,11 @@ routePrevBtn.classList.add(lang === "ar" ? "!rotate-180" : "rotate-0")
           });
         });
         document
-          .getElementById("language-selector")
-          .addEventListener("click", () => mobileMenu.classList.add("hidden"));
+          .querySelectorAll("#language-selector")[1]
+          .addEventListener("click", (e) => {
+            console.log('clicked lanf');   
+            mobileMenu.classList.add("hidden")
+          });
       }
 
       //   const saudiAirports = [
