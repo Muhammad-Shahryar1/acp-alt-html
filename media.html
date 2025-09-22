@@ -1007,6 +1007,17 @@
                     "Stay updated with the most recent announcements, press releases, and updates from the Air Connectivity Program. Watch our featured stories and explore the latest developments shaping Saudi Arabia's aviation and tourism sector.",
                   "media.mediaHighlights": "Media Highlights",
 
+                  // Media Video Content
+                  "video1.featuredNews": "ACP National Day",
+                  "video1.featuredNewsDesc":
+                    "Watch the latest updates and stories from the Air Connectivity Program.",
+                  "video2.featuredNews": "ACP",
+                  "video2.featuredNewsDesc":
+                    "Watch the latest updates and stories from the Air Connectivity Program.",
+                  "video3.featuredNews": "ACP 2024",
+                  "video3.featuredNewsDesc":
+                    "Watch the latest updates and stories from the Air Connectivity Program.",
+
                   // ─────────────────────────────
                   // FOOTER
                   "footer.overview": "Overview",
@@ -1110,6 +1121,17 @@
                   "media.latestNewsDesc":
                     "ابق على اطلاع بأحدث الإعلانات والبيانات الصحفية والتحديثات من برنامج الربط الجوي. شاهد قصصنا المميزة واستكشف أحدث التطورات التي تشكل قطاع الطيران والسياحة في المملكة العربية السعودية.",
                   "media.mediaHighlights": "تغطيات إعلامية",
+
+                  // Video Content
+                  "video1.featuredNews": "اليوم الوطني لـ ACP",
+                  "video1.featuredNewsDesc":
+                    "اليوم الوطني لـ ACP في المملكة العربية السعودية",
+                  "video2.featuredNews": "برنامج الربط الجوي",
+                  "video2.featuredNewsDesc":
+                    "شاهد أحدث التحديثات والقصص من برنامج الربط الجوي.",
+                  "video3.featuredNews": "برنامج الربط الجوي 2024",
+                  "video3.featuredNewsDesc":
+                    "شاهد أحدث التحديثات والقصص من برنامج الربط الجوي.",
 
                   // FOOTER
                   "footer.overview": "لمحة عامة",
@@ -1216,10 +1238,10 @@
         // Single Video Card Text Section
         const singlevideoCards = document.querySelectorAll(".singleVideoCard");
 
-       singlevideoCards.forEach((card) => {
-  card.classList.add(lang === "ar" ? "!text-right" : "!text-left");
-  card.classList.remove(lang === "ar" ? "!text-left" : "!text-right");
-});
+        singlevideoCards.forEach((card) => {
+          card.classList.add(lang === "ar" ? "!text-right" : "!text-left");
+          card.classList.remove(lang === "ar" ? "!text-left" : "!text-right");
+        });
         // Setting Footer
         document
           .querySelector("footer")
@@ -1579,28 +1601,28 @@
         articlesContainer.innerHTML = articles
           .map(
             (article) => `
-      <div
-        class="article-item flex flex-col md:flex-row gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200"
-        data-id="${article.id}"
-        data-filter="${filter}">
-          <div class="flex-shrink-0">
-              <img
-                  src="${article.images[0]}"
-                  alt="${i18next.t(article.titleKey)}"
-                  class=" w-full md:w-40 h-32 md:h-20 object-cover rounded-sm"
-              >
-          </div>
+            <div
+              class="article-item flex flex-col md:flex-row gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+              data-id="${article.id}"
+              data-filter="${filter}">
+                <div class="flex-shrink-0">
+                    <img
+                        src="${article.images[0]}"
+                        alt="${i18next.t(article.titleKey)}"
+                        class=" w-full md:w-40 h-32 md:h-20 object-cover rounded-sm"
+                    >
+                </div>
 
-          <div class="flex-1 min-w-0">
-              <h3 class="font-medium cursor-pointer text-gray-900 mb-1 leading-tight">
-                  ${i18next.t(article.titleKey)}
-              </h3>
-              <p class="text-sm text-gray-500">
-                ${i18next.t(article.dateKey)}
-            </p>
+                <div class="flex-1 min-w-0">
+                    <h3 class="font-medium cursor-pointer text-gray-900 mb-1 leading-tight">
+                        ${i18next.t(article.titleKey)}
+                    </h3>
+                    <p class="text-sm text-gray-500">
+                      ${i18next.t(article.dateKey)}
+                  </p>
 
-          </div>
-      </div>`
+                </div>
+            </div>`
           )
           .join("");
 
@@ -1857,19 +1879,19 @@
 
       const videoCardsData = [
         {
-          video: "./assets/hero-video.mp4",
-          titleKey: "media.featuredNews",
-          textKey: "media.featuredNewsDesc",
+          video: "./assets/videos/ACP National Day.M4V",
+          titleKey: "video1.featuredNews",
+          textKey: "video1.featuredNewsDesc",
         },
         {
-          video: "./assets/hero-video.mp4",
-          titleKey: "media.featuredNews",
-          textKey: "media.featuredNewsDesc",
+          video: "./assets/videos/ACP.mp4",
+          titleKey: "video2.featuredNews",
+          textKey: "video2.featuredNewsDesc",
         },
         {
-          video: "./assets/hero-video.mp4",
-          titleKey: "media.featuredNews",
-          textKey: "media.featuredNewsDesc",
+          video: "./assets/videos/ACP 2024.MOV",
+          titleKey: "video3.featuredNews",
+          textKey: "video3.featuredNewsDesc",
         },
         {
           video: "./assets/hero-video.mp4",
@@ -1941,42 +1963,43 @@
 
       function createVideoCardsHTML(card, index) {
         const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
-         const textAlignmentClass = savedLang === "ar" ? "text-right" : "text-left";
+        const textAlignmentClass =
+          savedLang === "ar" ? "text-right" : "text-left";
         return `
-                <div  class="bg-white rounded-lg overflow-hidden border border-gray-300">
-                    <div class="relative aspect-video overflow-hidden">
-                        <video
-                            id="videoCardsVideo${index}"
-                            class="w-full h-full object-cover"
-                            poster="/placeholder.svg?height=200&width=300"
-                        >
-                            <source src="${card.video}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                      <div  class="bg-white rounded-lg overflow-hidden border border-gray-300">
+                          <div class="relative aspect-video overflow-hidden">
+                              <video
+                                  id="videoCardsVideo${index}"
+                                  class="w-full h-full object-cover"
+                                  poster="/placeholder.svg?height=200&width=300"
+                              >
+                                  <source src="${card.video}" type="video/mp4">
+                                  Your browser does not support the video tag.
+                              </video>
 
-                        <div id="videoCardsOverlay${index}" class="absolute inset-0 bg-black/10 flex items-center justify-center">
-                            <button id="videoCardsPlayBtn${index}" class="p-3 cursor-pointer">
-                                <svg class="w-16 h-16 text-[#6C757D]" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M8 5v14l11-7z"/>
-                                </svg>
-                            </button>
-                        </div>
+                              <div id="videoCardsOverlay${index}" class="absolute inset-0 bg-black/10 flex items-center justify-center">
+                                  <button id="videoCardsPlayBtn${index}" class="p-3 cursor-pointer">
+                                      <svg class="w-16 h-16 text-[#6C757D]" fill="currentColor" viewBox="0 0 24 24">
+                                          <path d="M8 5v14l11-7z"/>
+                                      </svg>
+                                  </button>
+                              </div>
 
-                        <div id="videoCardsDuration${index}" class="absolute top-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded">
-                            18:45
-                        </div>
-                    </div>
-                    <div  class="singleVideoCard ${textAlignmentClass} text-left p-4">
-                        <!-- Updated to use i18next translation keys -->
-                        <h3 class="font-bold text-lg text-[#495057] mb-2">${i18next.t(
-                          card.titleKey
-                        )}</h3>
-                        <p class="text-[#6C757D] text-sm">${i18next.t(
-                          card.textKey
-                        )}</p>
-                    </div>
-                </div>
-            `;
+                              <div id="videoCardsDuration${index}" class="absolute top-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded">
+                                  18:45
+                              </div>
+                          </div>
+                          <div  class="singleVideoCard ${textAlignmentClass} text-left p-4">
+                              <!-- Updated to use i18next translation keys -->
+                              <h3 class="font-bold text-lg text-[#495057] mb-2">${i18next.t(
+                                card.titleKey
+                              )}</h3>
+                              <p class="text-[#6C757D] text-sm">${i18next.t(
+                                card.textKey
+                              )}</p>
+                          </div>
+                      </div>
+                  `;
       }
 
       function renderVideoCardsSlider() {

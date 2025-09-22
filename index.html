@@ -606,7 +606,9 @@
     <!-- Airport Slider Section -->
     <section class="py-16 sm:py-20 lg:py-24 bg-white">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid lg:grid-cols-12 grid-rows-2 lg:p-10 lg:grid-rows-1 gap-2  lg:gap-12">
+        <div
+          class="grid lg:grid-cols-12 grid-rows-2 lg:p-10 lg:grid-rows-1 gap-2 lg:gap-12"
+        >
           <!-- Left Column - Narrower (4 columns) -->
           <div class="col-span-12 lg:col-span-5 space-y-6">
             <!-- Top Row - International Airport Data Card -->
@@ -2301,7 +2303,7 @@
     <!-- News Modal -->
     <div id="newsModal" class="fixed inset-0 bg-black/50 hidden z-103">
       <!-- Flex to center the modal -->
-      <div class="flex items-center justify-center  w-full h-full">
+      <div class="flex items-center justify-center w-full h-full">
         <div
           class="bg-white max-h-[90vh] overflow-y-auto rounded-xl max-w-[95%] lg:max-w-4xl w-full px-6 py-10 relative"
         >
@@ -2496,7 +2498,7 @@
 
       <!-- Moved carousel outside container to remove padding/margins and extend to full viewport width -->
       <!-- Row 2: Infinite Logo Carousel -->
-      <div dir="ltr" id="infiniteImagesSlider"  class="overflow-hidden w-full">
+      <div dir="ltr" id="infiniteImagesSlider" class="overflow-hidden w-full">
         <div class="infinite-scroll flex items-center space-x-16">
           <!-- First set of logos -->
           <div class="flex items-center space-x-16 animate-scroll">
@@ -2829,7 +2831,7 @@
         const header = document.getElementById("main-header");
         if (window.scrollY > 250) {
           header.classList.add("bg-white", "shadow-md", "text-gray-900");
-          header.classList.remove("bg-transparent", "text-white");
+          header.classList.remove("bg-transparent");
         } else {
           header.classList.add("bg-transparent", "text-white");
           header.classList.remove("bg-white", "shadow-md", "text-gray-900");
@@ -2913,11 +2915,52 @@
                 "search.searchAirports": "Search Saudi Arabia Airports ...",
                 "search.noAirportsFound": "No airports found",
                 "search.King Khalid International Airport":
-                  "King Khalid International Airport - Riyadh (RUH)",
+                  "King Khalid International Airport",
                 "search.King Abdulaziz International Airport":
-                  "King Abdulaziz International Airport - Jeddah (JED)",
+                  "King Abdulaziz International Airport",
                 "search.King Fahd International Airport":
-                  "King Fahd International Airport - Dammam (DMM)",
+                  "King Fahd International Airport",
+                "search.Prince Mohammad bin Abdulaziz International Airport":
+                  "Prince Mohammad bin Abdulaziz International Airport",
+                "search.Taif International Airport":
+                  "Taif International Airport",
+                "search.Abha International Airport":
+                  "Abha International Airport",
+                "search.Hail International Airport":
+                  "Hail International Airport",
+                "search.King Abdullah Bin Abdulaziz International Airport":
+                  "King Abdullah Bin Abdulaziz International Airport",
+                "search.Prince Sultan bin Abdulaziz International Airport":
+                  "Prince Sultan bin Abdulaziz International Airport",
+                "search.Prince Naif bin Abdulaziz International Airport":
+                  "Prince Naif bin Abdulaziz International Airport",
+                "search.Prince Abdul Mohsin Bin Abdulaziz International Airport":
+                  "Prince Abdul Mohsin Bin Abdulaziz International Airport",
+                "search.Al-Jouf International Airport":
+                  "Al-Jouf International Airport",
+                "search.Al-Ahsa International Airport":
+                  "Al-Ahsa International Airport",
+                "search.Qaisumah International Airport":
+                  "Qaisumah International Airport",
+                "search.Al-Ula International Airport":
+                  "Al-Ula International Airport",
+                "search.Najran International Airport":
+                  "Najran International Airport",
+                "search.Arar International Airport":
+                  "Arar International Airport",
+                "search.Red Sea Airport": "Red Sea Airport",
+                "search.Neom Bay Airport": "Neom Bay Airport",
+                "search.King Saud Bin Abdulaziz Airport":
+                  "King Saud Bin Abdulaziz Airport",
+                "search.Bisha Airport": "Bisha Airport",
+                "search.Dawadmi Airport": "Dawadmi Airport",
+                "search.Al-Wajh Airport": "Al-Wajh Airport",
+                "search.Qurayyat Airport": "Qurayyat Airport",
+                "search.Rafah Airport": "Rafah Airport",
+                "search.Rabigh Airport": "Rabigh Airport",
+                "search.Sharurah Airport": "Sharurah Airport",
+                "search.Turaif Airport": "Turaif Airport",
+                "search.Wadi Al Dawasir Airport": "Wadi Al Dawasir Airport",
 
                 // Flights
                 "flights.airline": "Airline",
@@ -3028,7 +3071,7 @@
                   "اكتشف المسارات التي تربط مطارات المملكًة بالوجهات",
                 "sections.chooseContinent": "اختر قارة",
                 "sections.news": "الاخبار",
-                "sections.saudiAirConnectivity": " الربط الجوي السعودي الشركاء",
+                "sections.saudiAirConnectivity": " شركاء برنامج الربط الجوي",
                 "sections.partnersDescription":
                   "العمل مع قادة قطاعي الطيران والسياحة لتوسيع نطاق الربط الجوي",
 
@@ -3061,11 +3104,43 @@
                   "ابحث عن مطارات المملكة العربية السعودية ...",
                 "search.noAirportsFound": "لم يتم العثور على مطارات",
                 "search.King Khalid International Airport":
-                  "مطار الملك خالد الدولي - الرياض (RUH)",
+                  "مطار الملك خالد الدولي",
                 "search.King Abdulaziz International Airport":
-                  "مطار الملك عبد العزيز الدولي - جدة (JED)",
+                  "مطار الملك عبد العزيز الدولي",
                 "search.King Fahd International Airport":
-                  "مطار الملك فهد الدولي - الدمام (DMM)",
+                  "مطار الملك فهد الدولي",
+                "search.Prince Mohammad bin Abdulaziz International Airport":
+                  "مطار الأمير محمد بن عبدالعزيز الدولي",
+                "search.Taif International Airport": "مطار الطائف الدولي",
+                "search.Abha International Airport": "مطار أبها الدولي",
+                "search.Hail International Airport": "مطار حائل الدولي",
+                "search.King Abdullah Bin Abdulaziz International Airport":
+                  "مطار الملك عبدالله بن عبدالعزيز الدولي",
+                "search.Prince Sultan bin Abdulaziz International Airport":
+                  "مطار الأمير سلطان بن عبدالعزيز الدولي",
+                "search.Prince Naif bin Abdulaziz International Airport":
+                  "مطار الأمير نايف بن عبدالعزيز الدولي",
+                "search.Prince Abdul Mohsin Bin Abdulaziz International Airport":
+                  "مطار الأمير عبدالمحسن بن عبدالعزيز الدولي",
+                "search.Al-Jouf International Airport": "مطار الجوف الدولي",
+                "search.Al-Ahsa International Airport": "مطار الأحساء الدولي",
+                "search.Qaisumah International Airport": "مطار القيصومة الدولي",
+                "search.Al-Ula International Airport": "مطار العلا الدولي",
+                "search.Najran International Airport": "مطار نجران الدولي",
+                "search.Arar International Airport": "مطار عرعر الدولي",
+                "search.Red Sea Airport": "مطار البحر الأحمر",
+                "search.Neom Bay Airport": "مطار خليج نيوم",
+                "search.King Saud Bin Abdulaziz Airport":
+                  "مطار الملك سعود بن عبدالعزيز",
+                "search.Bisha Airport": "مطار بيشة",
+                "search.Dawadmi Airport": "مطار الدوادمي",
+                "search.Al-Wajh Airport": "مطار الوجه",
+                "search.Qurayyat Airport": "مطار القريات",
+                "search.Rafah Airport": "مطار رفحاء",
+                "search.Rabigh Airport": "مطار رابغ",
+                "search.Sharurah Airport": "مطار شرورة",
+                "search.Turaif Airport": "مطار طريف",
+                "search.Wadi Al Dawasir Airport": "مطار وادي الدواسر",
 
                 // Flights
                 "flights.airline": " التشغيل؟",
@@ -3340,18 +3415,15 @@
         });
       }
 
-      // Mobile about dropdown toggle
-      const mobileAboutButton = document.getElementById("mobile-about-button");
-      const mobileAboutDropdown = document.getElementById(
-        "mobile-about-dropdown"
-      );
-      const mobileAboutArrow = document.getElementById("mobile-about-arrow");
-
-      if (mobileAboutButton && mobileAboutDropdown && mobileAboutArrow) {
-        mobileAboutButton.addEventListener("click", function () {
-          mobileAboutDropdown.classList.toggle("hidden");
-          mobileAboutArrow.classList.toggle("rotate-180");
+      // Hide mobile menu when a link inside is clicked
+      if (mobileMenu) {
+        const mobileLinks = mobileMenu.querySelectorAll("a");
+        mobileLinks.forEach(link => {
+          link.addEventListener("click", () => {
+            mobileMenu.classList.add("hidden");
+          });
         });
+        document.getElementById('language-selector').addEventListener('click',()=>mobileMenu.classList.add("hidden"));
       }
 
       //   const saudiAirports = [
@@ -3504,9 +3576,7 @@
             name: "Prince Mohammad bin Abdulaziz International Airport",
             city: "Madinah",
             code: "MED",
-            images: [
-              "./assets/Mataratpictures/Medina.png",
-            ],
+            images: ["./assets/Mataratpictures/Medina.png"],
             temp: "36°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3526,9 +3596,7 @@
             name: "Taif International Airport",
             city: "Taif",
             code: "TIF",
-            images: [
-              "./assets/Mataratpictures/Altaif.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Altaif.jpg"],
             temp: "36°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3548,9 +3616,7 @@
             name: "Abha International Airport",
             city: "Abha",
             code: "AHB",
-            images: [
-              "./assets/Mataratpictures/Abha.jpeg",
-            ],
+            images: ["./assets/Mataratpictures/Abha.jpeg"],
             temp: "24°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3570,9 +3636,7 @@
             name: "Hail International Airport",
             city: "Hail",
             code: "HAS",
-            images: [
-              "./assets/Mataratpictures/Hail.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Hail.jpg"],
             temp: "29°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3592,9 +3656,7 @@
             name: "King Abdullah Bin Abdulaziz International Airport",
             city: "Jazan",
             code: "GIZ",
-            images: [
-              "./assets/Mataratpictures/Jazan.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Jazan.jpg"],
             temp: "27°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3614,9 +3676,7 @@
             name: "Prince Sultan bin Abdulaziz International Airport",
             city: "Tabuk",
             code: "TUU",
-            images: [
-              "./assets/Mataratpictures/Tabuk.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Tabuk.jpg"],
             temp: "27°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3636,9 +3696,7 @@
             name: "Prince Naif bin Abdulaziz International Airport",
             city: "Qassim",
             code: "ELQ",
-            images: [
-             "./assets/Mataratpictures/Alqassim.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Alqassim.jpg"],
             temp: "33°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3658,9 +3716,7 @@
             name: "Prince Abdul Mohsin Bin Abdulaziz International Airport",
             city: "Yanbu",
             code: "YNB",
-            images: [
-             "./assets/Mataratpictures/Yanbu.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Yanbu.jpg"],
             temp: "33°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3680,9 +3736,7 @@
             name: "Al-Jouf International Airport",
             city: "Al-Jouf",
             code: "AJF",
-            images: [
-              "./assets/Mataratpictures/AlJouf.jpg",
-            ],
+            images: ["./assets/Mataratpictures/AlJouf.jpg"],
             temp: "31°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3702,9 +3756,7 @@
             name: "Al-Ahsa International Airport",
             city: "Al-Ahsa",
             code: "HOF",
-            images: [
-              "./assets/Mataratpictures/AlAhsa.jpg",
-            ],
+            images: ["./assets/Mataratpictures/AlAhsa.jpg"],
             temp: "35°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3724,21 +3776,19 @@
             name: "Qaisumah International Airport",
             city: "Qaisumah",
             code: "AQI",
-            images: [
-              "./assets/Mataratpictures/AlQaisumah.jpg",
-            ],
+            images: ["./assets/Mataratpictures/AlQaisumah.jpg"],
             temp: "34°",
             time: "",
             timezone: "Asia/Riyadh",
             airportType: "International",
             yearsData: {
               2023: {
-                Flights: 3_500,
-                Passengers: 37,
+                "Domestic Passengers": 252.3,
+                "International Passengers": 37,
               },
               2024: {
-                Flights: 258.7,
-                Passengers: 35.2,
+                "Domestic Passengers": 258.7,
+                "International Passengers": 35.2,
               },
             },
           },
@@ -3746,9 +3796,7 @@
             name: "Al-Ula International Airport",
             city: "Ula",
             code: "ULH",
-            images: [
-              "./assets/Mataratpictures/AlUla.jpg",
-            ],
+            images: ["./assets/Mataratpictures/AlUla.jpg"],
             temp: "22°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3768,9 +3816,7 @@
             name: "Najran International Airport",
             city: "Najran",
             code: "EAM",
-            images: [
-              "./assets/Mataratpictures/Najran.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Najran.jpg"],
             temp: "36°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3790,9 +3836,7 @@
             name: "Arar International Airport",
             city: "Rae",
             code: "RAE",
-            images: [
-              "./assets/Mataratpictures/Arar.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Arar.jpg"],
             temp: "36°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3812,9 +3856,7 @@
             name: "Red Sea Airport",
             city: "Rsi",
             code: "RSI",
-            images: [
-              "./assets/Mataratpictures/RedSea.jpg",
-            ],
+            images: ["./assets/Mataratpictures/RedSea.jpg"],
             temp: "36°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3834,9 +3876,7 @@
             name: "Neom Bay Airport",
             city: "Neom",
             code: "NUM",
-            images: [
-             "./assets/Mataratpictures/Neom.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Neom.jpg"],
             temp: "36°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3856,9 +3896,7 @@
             name: "King Saud Bin Abdulaziz Airport",
             city: "Al-Aqiq",
             code: "ABT",
-            images: [
-             "./assets/Mataratpictures/AlAqiq.jpg",
-            ],
+            images: ["./assets/Mataratpictures/AlAqiq.jpg"],
             temp: "22°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3879,9 +3917,7 @@
             name: "Bisha Airport",
             city: "Bisha",
             code: "BHH",
-            images: [
-              "./assets/Mataratpictures/Bisha.webp",
-            ],
+            images: ["./assets/Mataratpictures/Bisha.webp"],
             temp: "32°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3901,9 +3937,7 @@
             name: "Dawadmi Airport",
             city: "Dawadmi",
             code: "DWD",
-            images: [
-              "./assets/Mataratpictures/Dawadmi.jpeg",
-            ],
+            images: ["./assets/Mataratpictures/Dawadmi.jpeg"],
             temp: "31°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3923,9 +3957,7 @@
             name: "Al-Wajh Airport",
             city: "Al-Wajh",
             code: "EJH",
-            images: [
-              "./assets/Mataratpictures/AlWajh.jpeg",
-            ],
+            images: ["./assets/Mataratpictures/AlWajh.jpeg"],
             temp: "31°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3945,9 +3977,7 @@
             name: "Qurayyat Airport",
             city: "Qurayyat",
             code: "URY",
-            images: [
-              "./assets/Mataratpictures/Gurayat.jpeg",
-            ],
+            images: ["./assets/Mataratpictures/Gurayat.jpeg"],
             temp: "28°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3968,9 +3998,7 @@
             name: "Rafha Airport",
             city: "Rafha",
             code: "RAH",
-            images: [
-              "./assets/Mataratpictures/Rafha.jpeg",
-            ],
+            images: ["./assets/Mataratpictures/Rafha.jpeg"],
             temp: "32°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -3990,9 +4018,7 @@
             name: "Rabigh Airport",
             city: "Rabigh",
             code: "RGB",
-            images: [
-              "./assets/Mataratpictures/Rabigh.jpg",
-            ],
+            images: ["./assets/Mataratpictures/Rabigh.jpg"],
             temp: "32°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -4012,9 +4038,7 @@
             name: "Sharurah Airport",
             city: "Sharurah",
             code: "SHW",
-            images: [
-              "./assets/Mataratpictures/Sharurah.webp",
-            ],
+            images: ["./assets/Mataratpictures/Sharurah.webp"],
             temp: "37°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -4034,9 +4058,7 @@
             name: "Turaif Airport",
             city: "Turaif",
             code: "TUI",
-            images: [
-              "./assets/Mataratpictures/Turaif.jpeg",
-            ],
+            images: ["./assets/Mataratpictures/Turaif.jpeg"],
             temp: "26°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -4056,9 +4078,7 @@
             name: "Wadi Al Dawasir Airport",
             city: "Wadi Al Dawasir",
             code: "WAE",
-            images: [
-             "./assets/Mataratpictures/WadiAlDawasir.jpeg",
-            ],
+            images: ["./assets/Mataratpictures/WadiAlDawasir.jpeg"],
             temp: "35°",
             time: "",
             timezone: "Asia/Riyadh",
@@ -4100,7 +4120,7 @@
           // Update progress indicators and flights list
 
           if (typeof filterFlightsByAirport === "function") {
-            filterFlightsByAirport();
+            // filterFlightsByAirport();
           }
 
           // Highlight on map; if not ready yet, store pending code
@@ -4783,7 +4803,6 @@
         startImageRotation();
         startAirportImageRotation();
         initializeProgressSlider();
-
       }
 
       // run when airport is selected from map, this will set airport slider
@@ -4802,7 +4821,6 @@
         // createProgressSegments();
         startProgressAnimation();
       }
-
 
       function startProgressAnimation() {
         const progressFills = document.querySelectorAll(".main-progress-fill");
@@ -5060,8 +5078,6 @@
       const flightsPerPage = 12;
       let activeFilters = [];
 
-      
-
       function filterFlights(query) {
         console.log("Filtering flights with query:", query);
         if (query.length === 0) {
@@ -5182,7 +5198,7 @@
         currentFlightAirportIndex = 0;
         filteredFlights = [...flightData];
         currentContinentPage = 0;
-        currentFlightPage=0;
+        currentFlightPage = 0;
         activeFilters = [];
         // const activeFilterSection = document.getElementById(
         //   "activeFilterSection"
@@ -5199,7 +5215,7 @@
         currentFlightAirportIndex = 0;
         filteredFlights = [...flightData];
         currentContinentPage = 0;
-        currentFlightPage=0;
+        currentFlightPage = 0;
         activeFilters = [];
         renderFlightCards();
         updateContinentProgress();
@@ -5244,8 +5260,6 @@
             searchResults.classList.add("hidden");
           }
         });
-
-        
 
         // Flight pagination
         document
@@ -6146,7 +6160,6 @@
         let scrollTimer = null;
         const threshold = 400; // px to consider "at bottom"
 
-
         // safety: ensure elements exist
         if (!footer || !pageOverlay) return;
 
@@ -6191,7 +6204,6 @@
           function () {
             const currentScrollTop =
               window.pageYOffset || document.documentElement.scrollTop;
-
 
             // capture previous scroll position for the debounced check
             const prevScrollTop = lastScrollTop;
@@ -6240,7 +6252,6 @@
     </script>
 
     <style>
-
       /* Selected Cards Start */
       /* Selected state */
       .card-selected {
