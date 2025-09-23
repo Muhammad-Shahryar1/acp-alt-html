@@ -14,11 +14,27 @@
   </head>
 
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-    body {
-      font-family: "Inter", sans-serif;
-    }
-  </style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      p {
+        font-size: 20px;
+        line-height: 1.5;
+      }
+      /* Responsive Adjustments */
+      @media (max-width: 1200px) {
+        p {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        p {
+          font-size: 16px;
+        }
+      }
+    </style>
   <body>
     <header class="right-0 z-50 bg-[#EDEDED] text-white shadow-lg py-6">
       <nav class="xl:container mx-auto px-4 sm:px-6 lg:px-8">
@@ -195,7 +211,7 @@
       </nav>
     </header>
     <!-- Hero Section -->
-    <div class="bg-[#009595]">
+    <div class="mb-[700px] bg-[#009595]">
       <div
         class="max-h-screen  py-20 container mx-auto px-4 xl:px-16 pb-10 md:pt-28 gap-5 flex flex-col items-center justify-center"
       >
@@ -244,7 +260,7 @@
               <!-- Made main heading responsive with proper line height -->
               <h1
                 id="hero-heading"
-                class="text-2xl md:text-3xl lg:text-4xl xl:text-[56px] mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-[1.1em] text-[#566578] font-bold"
+                class="text-2xl md:text-3xl lg:text-4xl xl:text-[51px] mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-[1.1em] text-[#566578] font-bold"
                 data-i18n="main.heading"
               >
                 Any questions? We are here to answer them!
@@ -312,14 +328,16 @@
       </div>
     </div>
 
-    <!-- News Letter Section -->
-    <!-- Made newsletter section responsive with better mobile padding -->
-    <div class="bg-[#E9ECEF] px-4 xl:px-16 gap-5 pt-32 sm:pt-40 lg:pt-60">
-      
-    </div>
+   
+
+     <!-- Page Overlay -->
+    <div class="page-overlay" id="pageOverlay"></div>
 
     <!-- Footer Section -->
-    <footer class="bg-slate-700 text-white pt-16 pb-8">
+    <footer
+      class="footer-overlay hidden-init bg-slate-700 text-white pt-16 pb-8"
+      id="animatedFooter"
+    >
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Footer Content Grid -->
         <div
@@ -553,6 +571,208 @@
         </div>
       </div>
     </footer>
+
+
+     <style>
+      /* Footer Styling  */
+      /* Custom styles for smooth animations */
+      .footer-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+        /* box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.2); */
+        /* Responsive height constraints */
+        max-height: 85vh;
+        overflow-y: auto;
+        /* Prevent interactions while hidden */
+        pointer-events: none;
+        /* Add safe-area padding on modern phones */
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+        background-clip: padding-box;
+        opacity: 1;
+      }
+
+      /* start fully invisible */
+      .footer-overlay.hidden-init {
+        opacity: 0;
+        transform: translateY(1000%);
+      }
+
+      .footer-overlay.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .footer-overlay.no-transition {
+        transition: none !important;
+      }
+
+      .footer-overlay.active {
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      /* Mobile specific adjustments */
+      @media (max-width: 768px) {
+        .footer-overlay {
+          max-height: 80vh;
+          padding-top: 2rem !important;
+          padding-bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
+        }
+
+        .footer-overlay .grid {
+          gap: 1.5rem !important;
+        }
+
+        .footer-overlay h3 {
+          font-size: 1rem !important;
+          margin-bottom: 1rem !important;
+        }
+
+        .footer-overlay ul {
+          gap: 0.5rem !important;
+        }
+
+        .footer-overlay .text-sm {
+          font-size: 0.75rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-overlay {
+          max-height: 75vh;
+          padding-top: 1.5rem !important;
+          padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+        }
+      }
+
+      /* Background overlay when footer is active */
+      .page-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0);
+        pointer-events: none;
+        transition: background 0.6s ease;
+        z-index: 40;
+      }
+
+      .page-overlay.active {
+        /* background: rgba(0, 0, 0, 0.3); */
+        pointer-events: auto;
+      }
+    </style>
+
+    <script>
+      // Footer Animation Start
+      document.addEventListener("DOMContentLoaded", function () {
+        let lastScrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
+        let footerShown = false;
+        const footer = document.getElementById("animatedFooter");
+        const pageOverlay = document.getElementById("pageOverlay");
+        let scrollTimer = null;
+        const threshold = 400; // px to consider "at bottom"
+
+        // safety: ensure elements exist
+        if (!footer || !pageOverlay) return;
+
+        // Force hidden state & opacity at load
+        footer.classList.remove("active");
+        pageOverlay.classList.remove("active");
+        footerShown = false;
+
+        // After a tiny delay remove hidden-init to allow CSS transitions
+        setTimeout(() => {
+          footer.classList.remove("hidden-init");
+        }, 200);
+
+        function isAtBottom() {
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+          const clientHeight =
+            window.innerHeight || document.documentElement.clientHeight;
+          const scrollHeight = Math.max(
+            document.body.scrollHeight,
+            document.documentElement.scrollHeight
+          );
+          return scrollTop + clientHeight >= scrollHeight - threshold;
+        }
+
+        function showFooter() {
+          if (footerShown) return;
+          footer.classList.add("active");
+          pageOverlay.classList.add("active");
+          footerShown = true;
+        }
+
+        function hideFooter() {
+          if (!footerShown) return;
+          footer.classList.remove("active");
+          pageOverlay.classList.remove("active");
+          footerShown = false;
+        }
+
+        window.addEventListener(
+          "scroll",
+          function () {
+            const currentScrollTop =
+              window.pageYOffset || document.documentElement.scrollTop;
+
+            // capture previous scroll position for the debounced check
+            const prevScrollTop = lastScrollTop;
+
+            // Instant hide when scrolling up
+            if (currentScrollTop < prevScrollTop - 5 && footerShown) {
+              hideFooter();
+            }
+
+            // Debounced show at bottom ONLY when scrolling down from the previous position
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(function () {
+              // Show only if user was moving down (current > prev) AND we're at bottom
+              if (currentScrollTop > prevScrollTop && isAtBottom()) {
+                showFooter();
+              } else if (!isAtBottom()) {
+                // If we've left the bottom area, ensure footer is hidden
+                hideFooter();
+              }
+              // update lastScrollTop after debounce so prevScrollTop stays meaningful
+              lastScrollTop = currentScrollTop;
+            }, 80);
+
+            // do NOT set lastScrollTop here (we update it inside the debounced handler)
+          },
+          { passive: true }
+        );
+
+        // Click overlay to hide footer
+        pageOverlay.addEventListener("click", function () {
+          hideFooter();
+          window.scrollBy({ top: -120, left: 0, behavior: "smooth" });
+        });
+
+        // Ensure footer shows/hides on resize/orientation change if needed
+        window.addEventListener("resize", () => {
+          if (isAtBottom()) showFooter();
+          else hideFooter();
+        });
+
+        // keyboard escape closes footer
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") hideFooter();
+        });
+      });
+      // Footer Animation End
+    </script>
+
     <script>
       // Initialize i18next
       i18next.init(
