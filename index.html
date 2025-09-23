@@ -2427,7 +2427,7 @@
           <div id="news-slider" class="overflow-hidden">
             <div
               id="news-slider-track"
-              class="flex transition-transform duration-500 ease-in-out"
+              class="flex gap-4 transition-transform duration-500 ease-in-out"
             >
               <!-- News slides will be populated by JavaScript -->
             </div>
@@ -5526,7 +5526,7 @@
       }
 
       // News Slider Functionality
-      let currentNewsSlide = 0;
+      let currentNewsSlide = 1;
       const newsData = [
         {
           id: 1,
@@ -5603,7 +5603,9 @@
       function createNewsCard(news, index) {
         return `
     <div 
-      class="news-card border border-gray-300 bg-white rounded-md shadow-sm overflow-hidden hover:shadow-sm transition-shadow duration-300 p-6 cursor-pointer" 
+      class="news-card w-[100%] sm:w-[100%] md:w-[50%] flex-shrink-0 border border-gray-300 bg-white rounded-md shadow-sm hover:shadow-sm transition-shadow duration-300 p-6 cursor-pointer opacity-[${
+        news.id == 1 ? 1 : 0.5
+      }]" 
       data-id="${news.id}">
         <!-- your existing card content unchanged -->
         <div class="flex flex-col gap-6 h-full">
@@ -5728,25 +5730,32 @@
 
       function renderNewsSlider() {
         const sliderTrack = document.getElementById("news-slider-track");
-        const totalSlides = Math.ceil(newsData.length / 2);
+        const totalSlides = newsData.length;
 
         let slidesHTML = "";
 
         // Create slides with 2 cards each
-        for (let i = 0; i < totalSlides; i++) {
-          const startIndex = i * 2;
-          const endIndex = Math.min(startIndex + 2, newsData.length);
-          const slideNews = newsData.slice(startIndex, endIndex);
+        // for (let i = 0; i < totalSlides; i++) {
+        // const startIndex = i * 2;
+        // const endIndex = Math.min(startIndex + 2, newsData.length);
+        // const slideNews = newsData.slice(startIndex, endIndex);
+        const slideNews = newsData;
 
-          slidesHTML += `
-                    <div class="w-full flex-shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-8 py-6">
+        slidesHTML += `
                         ${slideNews
                           .map((news, index) => createNewsCard(news, index))
                           .join("")}
                         ${slideNews.length === 1 ? "<div></div>" : ""}
-                    </div>
                 `;
-        }
+        // slidesHTML += `
+        //           <div class="w-full flex-shrink-0 grid grid-cols-1 lg:grid-cols-2 gap-8 py-6">
+        //               ${slideNews
+        //                 .map((news, index) => createNewsCard(news, index))
+        //                 .join("")}
+        //               ${slideNews.length === 1 ? "<div></div>" : ""}
+        //           </div>
+        //       `;
+        // }
 
         sliderTrack.innerHTML = slidesHTML;
 
@@ -5772,10 +5781,10 @@
         const progressContainer = document.getElementById(
           "news-progress-container"
         );
-        const totalSlides = Math.ceil(newsData.length / 2);
+        const totalSlides = newsData.length;
 
         let progressHTML = "";
-        for (let i = 0; i < totalSlides; i++) {
+        for (let i = 1; i <= totalSlides; i++) {
           const isActive = i === currentNewsSlide;
           progressHTML += `
                     <div class="flex-1 h-1 rounded-full ${
@@ -5788,11 +5797,11 @@
       }
 
       function updateNewsNavigation() {
-        const totalSlides = Math.ceil(newsData.length / 2);
+        const totalSlides = newsData.length;
 
         // Update current slide number
         document.getElementById("current-news-slide").textContent = String(
-          currentNewsSlide + 1
+          currentNewsSlide
         ).padStart(2, "0");
 
         // Update total slides
@@ -5802,7 +5811,7 @@
 
         // Update progress bar
         const progressPercentage =
-          totalSlides > 1 ? (currentNewsSlide / (totalSlides - 1)) * 100 : 100;
+          totalSlides > 1 ? (currentNewsSlide / totalSlides) * 100 : 100;
         document.getElementById(
           "news-slider-progress"
         ).style.width = `${progressPercentage}%`;
@@ -5811,30 +5820,59 @@
         const prevBtn = document.getElementById("news-prev");
         const nextBtn = document.getElementById("news-next");
 
-        prevBtn.disabled = currentNewsSlide === 0;
-        nextBtn.disabled = currentNewsSlide === totalSlides - 1;
+        prevBtn.disabled = currentNewsSlide === 1;
+        nextBtn.disabled = currentNewsSlide === totalSlides;
 
-        prevBtn.style.opacity = currentNewsSlide === 0 ? "0.5" : "1";
-        nextBtn.style.opacity =
-          currentNewsSlide === totalSlides - 1 ? "0.5" : "1";
+        prevBtn.style.opacity = currentNewsSlide === 1 ? "0.5" : "1";
+        nextBtn.style.opacity = currentNewsSlide === totalSlides ? "0.5" : "1";
       }
 
       function slideNews(direction) {
-        const totalSlides = Math.ceil(newsData.length / 2);
+        const totalSlides = newsData.length;
         const sliderTrack = document.getElementById("news-slider-track");
 
-        if (direction === "next" && currentNewsSlide < totalSlides - 1) {
+        if (direction === "next" && currentNewsSlide < totalSlides) {
+          let activeNewsCard =
+            document.querySelectorAll(".news-card")[currentNewsSlide - 1];
+          activeNewsCard.style.opacity = "0.5";
           currentNewsSlide++;
-        } else if (direction === "prev" && currentNewsSlide > 0) {
+          activeNewsCard =
+            document.querySelectorAll(".news-card")[currentNewsSlide - 1];
+          activeNewsCard.style.opacity = "1";
+          // activeNewsCard.classList.add('activeNewsCard');
+          console.log(activeNewsCard);
+        } else if (direction === "prev" && currentNewsSlide > 1) {
+          let activeNewsCard =
+            document.querySelectorAll(".news-card")[currentNewsSlide - 1];
+          activeNewsCard.style.opacity = "0.5";
           currentNewsSlide--;
+          activeNewsCard =
+            document.querySelectorAll(".news-card")[currentNewsSlide - 1];
+          activeNewsCard.style.opacity = "1";
         }
 
         // Apply transform
         const langSelected = document.documentElement.lang;
-        const translateX =
-          langSelected == "ar"
-            ? currentNewsSlide * 100
-            : -currentNewsSlide * 100;
+        let translateX;
+        // const translateX =
+        //   langSelected == "ar"
+        //     ? -25 + (currentNewsSlide - 1) * 25
+        //     : 25 - (currentNewsSlide - 1) * 50;
+
+        const isMobile = window.innerWidth < 768; // tailwind md breakpoint
+        if (isMobile) {
+          // full width slide
+          translateX =
+            langSelected == "ar"
+              ? (currentNewsSlide - 1) * 104
+              : -(currentNewsSlide - 1) * 104;
+        } else {
+          // peeked cards slide
+          translateX =
+            langSelected == "ar"
+              ? -25 + (currentNewsSlide - 1) * 50
+              : 25 - (currentNewsSlide - 1) * 50;
+        }
 
         sliderTrack.style.transform = `translateX(${translateX}%)`;
 
