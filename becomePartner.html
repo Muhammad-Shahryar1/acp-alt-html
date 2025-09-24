@@ -112,7 +112,7 @@
 
               <!-- Become a Partner Button -->
               <a
-                href="./contact.html"
+                href="./becomePartner.html"
                 class="hidden md:block bg-[#785FDC] hover:text-black text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors duration-200"
                 data-i18n="nav.becomePartner"
               >
@@ -195,7 +195,7 @@
               </div>
 
               <a
-                href="./contact.html"
+                href="./becomePartner.html"
                 class="w-full bg-[#785FDC] hover:text-black text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
                 data-i18n="nav.becomePartner"
               >
@@ -211,13 +211,14 @@
       </nav>
     </header>
     <!-- Hero Section -->
-    <div class="mb-[700px] bg-[#009595]">
+    <div class="md:mb-[1100px] mb-[700px] bg-[#009595]">
       <div
-        class="max-h-screen py-20 container mx-auto px-4 xl:px-16 pb-10 md:pt-28 gap-5 flex flex-col items-center justify-center"
+        class="py-20 container  mx-auto px-4 xl:px-16 pb-10 md:pt-10 gap-5 flex flex-col items-center justify-center"
       >
+        <!-- Page Navigation -->
         <div
           id="pageNavigation"
-          class="flex gap-1 my-6 items-center container mx-auto"
+          class="flex gap-1 pl-5  my-10 items-center container mx-auto"
         >
           <a
             data-i18n="page.homeNav"
@@ -228,7 +229,7 @@
 
           <!-- Separator -->
           <svg
-            class="w-4 h-4 text-green-400"
+            class="w-4 h-4 text-green-200"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -243,100 +244,199 @@
 
           <!-- About ACP -->
           <a
-            href="./contact.html"
+            href="./becomePartner.html"
             data-i18n="page.currentNav"
             class="text-green-400 hover:text-green-400"
-            >Contact Us</a
+            >Become a Partner</a
           >
         </div>
         <div class="relative w-full flex justify-center">
           <!-- Green card -->
           <div
-            class="absolute top-0 right-8 md:right-0 w-[90%] xl:h-[100%] lg:h-[110%] md:h-[400px] sm:h-[350px] h-[400px] bg-[#32D2A0] -rotate-5 z-10"
+            class="absolute top-0 right-8 md:right-4 w-[90%] xl:h-[100%] lg:h-[110%] md:h-[400px] sm:h-[350px] h-[400px] bg-[#32D2A0] -rotate-5 z-10"
           ></div>
           <!-- White card -->
           <div
-            class="relative bg-white rounded-2xl space-y-12 sm:space-y-16 md:space-y-20 -mb-32 md:-mb-40 shadow-md w-full p-6 sm:p-8 md:p-12 xl:pl-40 xl:pr-24 lg:py-40 py-10 z-10"
+            class="relative bg-white rounded-2xl space-y-12 sm:space-y-16 md:space-y-20 -mb-32 md:-mb-[700px] shadow-md w-full p-6 sm:p-8 md:p-20 lg:py-40 py-10 z-10"
           >
             <!-- Header Text -->
             <div class="mb-4 sm:mb-6">
-              <!-- Made main heading responsive with proper line height -->
               <h1
                 id="hero-heading"
-                class="text-2xl md:text-3xl lg:text-4xl xl:text-[51px] mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-[1.1em] text-[#566578] font-bold"
+                class="text-2xl md:text-3xl lg:text-4xl xl:text-[51px] mb-4 leading-[1.1em] text-[#44505E] font-bold"
                 data-i18n="main.heading"
               >
-                Any questions? We are here to answer them!
+                Partner Information
               </h1>
+              <p
+                class="text-gray-600 font-medium text-sm sm:text-base lg:text-lg "
+                data-i18n="main.description"
+              >
+                Register your interest in becoming a valued partner today!
+              </p>
             </div>
 
-            <!-- Form -->
-            <form class="space-y-6">
-              <!-- Made form grid responsive - single column on mobile, 3 columns on larger screens -->
-              <div
-                class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
+            <!-- Organization Information Section -->
+            <div class="space-y-10 mt-10">
+              <h2
+                class="text-xl sm:text-2xl font-bold  text-[#44505E]"
+                data-i18n="form.orgInfo"
               >
-                <input
-                  type="text"
-                  placeholder="Your Name"
-                  class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"
-                  data-i18n-placeholder="form.yourName"
-                />
-                <input
-                  type="email"
-                  placeholder="Email Address"
-                  class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"
-                  data-i18n-placeholder="form.emailAddress"
-                />
-                <input
-                  type="tel"
-                  placeholder="Phone Number (optional)"
-                  class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm sm:col-span-2 lg:col-span-1"
-                  data-i18n-placeholder="form.phoneNumber"
-                />
+                Organization Information
+              </h2>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Org Name -->
+                <div class="flex flex-col space-y-1">
+                  <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.orgName"
+                    >Organization Name</label
+                  >
+                  <input
+                    type="text"
+                    class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                  />
+                </div>
+
+                <!-- Org Website -->
+                <div class="flex flex-col space-y-1">
+                  <label
+                    class="text-sm font-semibold !text-[#44505E]"
+                    data-i18n="form.orgWebsite"
+                    >Organization Website</label
+                  >
+                  <input
+                    type="text"
+                    class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                  />
+                </div>
+
+                <!-- Org Industry -->
+                <div class="flex flex-col space-y-1">
+                  <label
+                    class="text-sm font-semibold !text-[#44505E]"
+                    data-i18n="form.orgIndustry"
+                    >Organization Industry</label
+                  >
+                  <input
+                    type="text"
+                    class="border-b w-full placeholder-gray-400 focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                    placeholder="Education, Training & Academia"
+                  />
+                </div>
+
+                <!-- Country -->
+                <div
+                  class="flex flex-col space-y-1 sm:col-span-2 lg:col-span-1"
+                >
+                  <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.country"
+                    >Country</label
+                  >
+                  <input
+                    type="text"
+                    class="border-b w-full placeholder-gray-400  focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                    placeholder="Saudia Arabia"
+                  />
+                </div>
               </div>
+            </div>
 
+            <!-- Contact Information Section -->
+            <div class="space-y-10 mt-10">
+              <h2
+                class="text-xl sm:text-2xl font-bold  text-[#44505E]"
+                data-i18n="form.contactInfo"
+              >
+                Contact Information
+              </h2>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 max-w-4xl gap-10">
+                <!-- First Name -->
+                <div class="flex flex-col space-y-1">
+                  <label
+                    class="text-sm font-semibold !text-[#44505E]"
+                    data-i18n="form.firstName"
+                    >First Name</label
+                  >
+                  <input
+                    type="text"
+                    class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                  />
+                </div>
+
+                <!-- Last Name -->
+                <div class="flex flex-col space-y-1">
+                  <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.lastName"
+                    >Last Name</label
+                  >
+                  <input
+                    type="text"
+                    class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                  />
+                </div>
+
+                <!-- Phone -->
+                <div class="flex flex-col space-y-1">
+                  <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.phone"
+                    >Phone</label
+                  >
+                  <input
+                    type="text"
+                    class="border-b w-full placeholder-gray-400 focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                    placeholder="Saudia Arabia"
+                  />
+                </div>
+
+                <!-- Email -->
+                <div
+                  class="flex flex-col space-y-1 sm:col-span-2 lg:col-span-1"
+                >
+                  <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.email"
+                    >Email</label
+                  >
+                  <input
+                    type="email"
+                    class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Contribution Textarea -->
+            <div class="flex flex-col mt-10  ">
+              <label
+                for="contribution"
+                class=" font-semibold !text-[#44505E]"
+                data-i18n="form.contributionLabel"
+                >How would you like to contribute to Saudi Air Connectivity
+                Program?</label
+              >
               <textarea
-                placeholder="Message"
-                rows="3"
-                class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"
-                data-i18n-placeholder="form.message"
+                id="contribution"
+                rows="10"
+                class="border p-4 max-w-4xl w-full rounded-xl focus:outline-none mt-5 border-gray-300 focus:border-gray-600  text-sm"
               ></textarea>
+            </div>
 
-              <!-- Made button responsive with better mobile sizing -->
+            <!-- Submit Button -->
+            <div class="mt-4">
               <button
                 type="submit"
-                class="bg-[#32D2A0] text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg shadow text-sm w-full sm:w-auto"
-                data-i18n="form.send"
+                class="bg-[#32D2A0] text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg shadow text-sm w-full sm:w-auto flex items-center justify-center"
+                
               >
-                Send
-                <!-- Put this inside your button after the text -->
-                <svg
-                  class="w-4 h-4 ml-2 inline-block"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden="true"
-                  focusable="false"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <title>Send</title>
-                  <path
-                    d="M13.293 5.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L16.586 12 13.293 8.707a1 1 0 0 1 0-1.414zM3 12a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"
-                  />
-                </svg>
+                <span >Send</span>
               </button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Page Overlay -->
     <div class="page-overlay" id="pageOverlay"></div>
 
     <!-- Footer Section -->
     <footer
-      class="footer-overlay hidden hidden-init bg-slate-700 text-white pt-16 pb-8"
+      class="footer-overlay hidden-init bg-slate-700 text-white pt-16 pb-8"
       id="animatedFooter"
     >
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -387,7 +487,7 @@
               </li>
               <li>
                 <a
-                  href="./contact.html"
+                  href="./becomePartner.html"
                   class="text-gray-300 hover:text-white transition-colors duration-200"
                   data-i18n="footer.becomePartner"
                   >Become a Partner</a
@@ -573,7 +673,8 @@
       </div>
     </footer>
 
-    <style>
+
+     <style>
       /* Footer Styling  */
       /* Custom styles for smooth animations */
       .footer-overlay {
@@ -791,26 +892,28 @@
 
                 //
                 "page.homeNav": "Home",
-                "page.currentNav": "Contact Us",
+                "page.currentNav": "Become a Partner",
 
                 // Main content
                 "main.heading": "Partner Information",
                 "main.description":
                   "Register your interest in becoming a valued partner today! By joining our network, you’ll gain access to exclusive resources and collaborative environment designed to accelerate your success. Fill out the form below to get started, and one of our partnership team will reach out to explore how we can work together to achieve shared goals.",
 
-                // Form
-                "form.yourName": "Your Name",
-                "form.emailAddress": "Email Address",
-                "form.phoneNumber": "Phone Number (optional)",
-                "form.message": "Message",
-                "form.send": "Send",
+                // inside resources.en.translation
+                "form.orgInfo": "Organization Information",
+                "form.orgName": "Organization Name",
+                "form.orgWebsite": "Organization Website",
+                "form.orgIndustry": "Organization Industry",
+                "form.country": "Country",
+                "form.contactInfo": "Contact Information",
+                "form.firstName": "First Name",
+                "form.lastName": "Last Name",
+                "form.phone": "Phone",
+                "form.email": "Email",
+                "form.contributionLabel":
+                  "How would you like to contribute to Saudi Air Connectivity Program?",
 
-                // Contact Info
-                "contactInfo.heading": "Contact Info",
-                "contactInfo.emailAddress": "Email Address",
-                "contactInfo.address": "Address",
-                "contactInfo.addressLoc":
-                  "2nd Floor, Building 6 GACA Complex,Riyadh 12512, Saudi Arabia",
+            
 
                 // Newsletter
                 "newsletter.heading": "Subscribe to our Newsletter",
@@ -859,24 +962,21 @@
                 "main.description":
                   "سجّل اهتمامك في أن تصبح شريكًا قيّمًا اليوم! من خلال انضمامك إلى شبكتنا، ستحصل على إمكانية الوصول إلى موارد حصرية وبيئة تعاونية مصممة لتسريع نجاحك. املأ النموذج أدناه للبدء، وسيتواصل معك أحد أعضاء فريق الشراكات لدينا لاستكشاف كيفية عملنا معًا لتحقيق الأهداف المشتركة.",
 
-                // Form
-                "form.yourName": "اسمك",
-                "form.emailAddress": "عنوان البريد الإلكتروني",
-                "form.phoneNumber": "رقم الهاتف (اختياري)",
-                "form.message": "الرسالة",
-                "form.send": "إرسال",
+                  // inside resources.en.translation
+                "form.orgInfo": "معلومات الجهة",
+                "form.orgName": "اسم الجهة",
+                "form.orgWebsite": "الموقع الالكتروني",
+                "form.orgIndustry": "القطاع",
+                "form.country": "الدولة",
+                "form.contactInfo": "ممثّل الجهة",
+                "form.firstName": "الاسم الاول",
+                "form.lastName": "الاسم الاخير",
+                "form.phone": "زقم الجوال",
+                "form.email": "البزيد الالكتروني",
+                "form.contributionLabel":
+                  "كيف ترغب الجهة بالمساهمة في برنامج  الربط الجوي",
 
-                // Contact Info
-                "contactInfo.heading": "معلومات التوصل",
-                "contactInfo.emailAddress": "البرية الإلكتروني",
-                "contactInfo.address": "العنوان",
-                "contactInfo.addressLoc":
-                  "الطابق الثاني، المبنى 6مجمع هيئة الطيران المدني، الرياض 12519، السعودية",
-
-                // Newsletter
-                "newsletter.heading": "اشترك في نشرتنا البريدية",
-                "newsletter.emailPlaceholder": "أدخل بريدك الإلكتروني",
-                "newsletter.subscribe": "اشتراك",
+                
 
                 //Footer
                 "footer.overview": "لمحة عامة",
