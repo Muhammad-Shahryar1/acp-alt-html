@@ -2131,7 +2131,7 @@
           <div id="news-slider" class="overflow-hidden">
             <div
               id="news-slider-track"
-              class="flex gap-4 transition-transform duration-500 ease-in-out"
+              class="flex gap-0 md:gap-4 transition-transform duration-500 ease-in-out"
             >
               <!-- News slides will be populated by JavaScript -->
             </div>
@@ -5408,14 +5408,14 @@
           // full width slide
           translateX =
             langSelected == "ar"
-              ? (currentNewsSlide - 1) * 104
-              : -(currentNewsSlide - 1) * 104;
+              ? (currentNewsSlide - 1) * 100
+              : -(currentNewsSlide - 1) * 100;
         } else {
           // peeked cards slide
           translateX =
             langSelected == "ar"
-              ? -25 + (currentNewsSlide - 1) * 50
-              : 25 - (currentNewsSlide - 1) * 50;
+              ? -25 + (currentNewsSlide - 1) * 51.32
+              : 25 - (currentNewsSlide - 1) * 51.32;
         }
 
         sliderTrack.style.transform = `translateX(${translateX}%)`;
