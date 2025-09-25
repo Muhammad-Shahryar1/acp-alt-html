@@ -29,19 +29,22 @@
         font-family: "Inter", sans-serif;
         scroll-behavior: smooth;
       }
-      p,li {
+      p,
+      li {
         font-size: 20px;
         line-height: 1.5;
       }
       /* Responsive Adjustments */
       @media (max-width: 1200px) {
-        p,li {
+        p,
+        li {
           font-size: 18px;
         }
       }
 
       @media (max-width: 768px) {
-        p,li {
+        p,
+        li {
           font-size: 16px;
         }
       }
@@ -121,13 +124,11 @@
             </div>
             <!-- Right Side Actions -->
             <div class="flex items-center space-x-4 text-black">
-              <!-- Arabic Text -->
-              <!--<span class="hidden md:block text-sm">العربية</span>-->
               <!-- Language Selector -->
               <div class="hidden md:flex">
                 <div
-                id="language-selector"
-                class="flex justify-center items-center h-10 cursor-pointer items-center bg-white rounded mx-2 py-1 space-x-3 px-3 text-emerald-500 hover:text-white hover:bg-emerald-500"
+                  id="language-selector"
+                  class="flex justify-center items-center h-10 cursor-pointer items-center bg-white rounded mx-2 py-1 space-x-3 px-3 text-emerald-500 hover:text-white hover:bg-emerald-500"
                 >
                   <span
                     class="text-md font-semibold my-auto"
@@ -139,7 +140,7 @@
               </div>
 
               <!-- Become a Partner Button -->
-             <a
+              <a
                 href="./becomePartner.html"
                 class="hidden md:block bg-[#785FDC] hover:text-black text-white px-4 py-2 rounded text-sm font-medium hover:bg-gray-100 transition-colors duration-200"
                 data-i18n="nav.becomePartner"
@@ -236,7 +237,9 @@
     </header>
 
     <!-- Main Content -->
-    <main class="container mb-[450px] md:mb-[400px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <main
+      class="container mb-[450px] md:mb-[400px] mx-auto px-4 sm:px-6 lg:px-8 py-12"
+    >
       <div class="max-w-7xl mx-auto">
         <!-- Page Title -->
         <h1
@@ -335,7 +338,7 @@
           </p>
           <ul
             id="listContent"
-            class="text-gray-700 leading-relaxed space-y-2 ml-6 "
+            class="text-gray-700 leading-relaxed space-y-2 ml-6"
           >
             <li data-i18n="privacy.section4Item1">
               Obtaining your feedback on our services
@@ -450,7 +453,7 @@
           </p>
           <ul
             id="listContent"
-            class="text-gray-700 leading-relaxed  space-y-3 ml-6"
+            class="text-gray-700 leading-relaxed space-y-3 ml-6"
           >
             <li>
               <strong data-i18n="privacy.rightAwareness"
@@ -693,7 +696,7 @@
           </p>
           <ul
             id="listContent"
-            class="text-gray-700 leading-relaxed space-y-2 ml-6  mb-4"
+            class="text-gray-700 leading-relaxed space-y-2 ml-6 mb-4"
           >
             <li>
               <strong data-i18n="privacy.performanceCookies"
@@ -765,7 +768,7 @@
           </p>
           <ul
             id="listContent"
-            class="text-gray-700 leading-relaxed space-y-2 ml-6  mb-6"
+            class="text-gray-700 leading-relaxed space-y-2 ml-6 mb-6"
           >
             <li data-i18n="privacy.useEnhancing">
               Enabling the Program to manage and enhance the website and improve
@@ -826,7 +829,7 @@
           </p>
           <ul
             id="listContent"
-            class="text-gray-700 leading-relaxed space-y-2 ml-6  mb-6"
+            class="text-gray-700 leading-relaxed space-y-2 ml-6 mb-6"
           >
             <li data-i18n="privacy.disclosureLegal">
               If we are legally obligated to disclose or share your personal
@@ -889,14 +892,13 @@
             arising or resulting from that disruption.
           </p>
         </div>
-
       </div>
     </main>
 
-     <!-- Page Overlay -->
+    <!-- Page Overlay -->
     <div class="page-overlay" id="pageOverlay"></div>
 
-     <footer
+    <footer
       class="footer-overlay hidden-init bg-slate-700 text-white pt-16 pb-8"
       id="animatedFooter"
     >
@@ -1134,7 +1136,7 @@
       </div>
     </footer>
 
-     <style>
+    <style>
       /* Footer Styling  */
       /* Custom styles for smooth animations */
       .footer-overlay {
@@ -1784,10 +1786,9 @@
         });
       }
       document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
-  setLanguage(savedLang);
-});
-
+        const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
+        setLanguage(savedLang);
+      });
 
       // Auto update all tags with [data-i18n]
       function updateContent() {

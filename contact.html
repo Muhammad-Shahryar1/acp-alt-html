@@ -14,27 +14,27 @@
   </head>
 
   <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-      body {
-        font-family: "Inter", sans-serif;
-      }
+    @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+    body {
+      font-family: "Inter", sans-serif;
+    }
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+    /* Responsive Adjustments */
+    @media (max-width: 1200px) {
       p {
-        font-size: 20px;
-        line-height: 1.5;
+        font-size: 18px;
       }
-      /* Responsive Adjustments */
-      @media (max-width: 1200px) {
-        p {
-          font-size: 18px;
-        }
-      }
+    }
 
-      @media (max-width: 768px) {
-        p {
-          font-size: 16px;
-        }
+    @media (max-width: 768px) {
+      p {
+        font-size: 16px;
       }
-    </style>
+    }
+  </style>
   <body>
     <header class="right-0 z-50 bg-[#EDEDED] text-white shadow-lg py-6">
       <nav class="xl:container mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,12 +94,11 @@
             <!-- Right Side Actions -->
             <div class="flex items-center space-x-4 text-black">
               <!-- Arabic Text -->
-              <!--<span class="hidden md:block text-sm">العربية</span>-->
               <!-- Language Selector -->
               <div class="hidden md:flex">
                 <div
-                id="language-selector"
-                class="flex justify-center items-center h-10 cursor-pointer items-center bg-white rounded mx-2 py-1 space-x-3 px-3 text-emerald-500 hover:text-white hover:bg-emerald-500 transition-colors duration-200"
+                  id="language-selector"
+                  class="flex justify-center items-center h-10 cursor-pointer items-center bg-white rounded mx-2 py-1 space-x-3 px-3 text-emerald-500 hover:text-white hover:bg-emerald-500 transition-colors duration-200"
                 >
                   <span
                     class="text-text-md font-semibold my-auto"
@@ -204,18 +203,17 @@
             </div>
           </div>
         </div>
-        <!-- <div
-          id="nav-overlay"
-          class="absolute inset-0 bg-black/50 z-[-10]"
-        ></div> -->
       </nav>
     </header>
     <!-- Hero Section -->
     <div class="mb-[700px] bg-[#009595]">
       <div
-        class="max-h-screen  py-20 container mx-auto px-4 xl:px-16 pb-10 md:pt-28 gap-5 flex flex-col items-center justify-center"
+        class="max-h-screen py-20 container mx-auto px-4 xl:px-16 pb-10 md:pt-28 gap-5 flex flex-col items-center justify-center"
       >
-        <div id="pageNavigation" class="flex gap-1 my-6 items-center container mx-auto">
+        <div
+          id="pageNavigation"
+          class="flex gap-1 my-6 items-center container mx-auto"
+        >
           <a
             data-i18n="page.homeNav"
             href="./index.html"
@@ -328,9 +326,7 @@
       </div>
     </div>
 
-   
-
-     <!-- Page Overlay -->
+    <!-- Page Overlay -->
     <div class="page-overlay" id="pageOverlay"></div>
 
     <!-- Footer Section -->
@@ -572,8 +568,7 @@
       </div>
     </footer>
 
-
-     <style>
+    <style>
       /* Footer Styling  */
       /* Custom styles for smooth animations */
       .footer-overlay {
@@ -906,13 +901,20 @@
 
       // Change language and refresh UI
       function setLanguage(lang) {
-          localStorage.setItem("appLanguage", lang);
+        localStorage.setItem("appLanguage", lang);
         document.documentElement.lang = lang;
         document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 
-        document.getElementById("pageNavigation").dir = lang === "ar" ? "rtl" : "ltr";
-        document.getElementById("pageNavigation").getElementsByTagName('svg')[0].classList.add(lang === "ar" ? "rotate-180" : "rotate-0")
-        document.getElementById("pageNavigation").getElementsByTagName('svg')[0].classList.remove(lang === "ar" ? "rotate-0" : "rotate-180")
+        document.getElementById("pageNavigation").dir =
+          lang === "ar" ? "rtl" : "ltr";
+        document
+          .getElementById("pageNavigation")
+          .getElementsByTagName("svg")[0]
+          .classList.add(lang === "ar" ? "rotate-180" : "rotate-0");
+        document
+          .getElementById("pageNavigation")
+          .getElementsByTagName("svg")[0]
+          .classList.remove(lang === "ar" ? "rotate-0" : "rotate-180");
 
         const heroHeading = document.querySelector("#hero-heading");
         document
@@ -934,10 +936,9 @@
         });
       }
       document.addEventListener("DOMContentLoaded", () => {
-  const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
-  setLanguage(savedLang);
-});
-
+        const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
+        setLanguage(savedLang);
+      });
 
       // Auto update all tags with [data-i18n]
       function updateContent() {

@@ -14,13 +14,6 @@
       referrerpolicy="no-referrer"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <style type="text/tailwindcss">
-      @theme {
-        --font-avenir: "Inter", sans-serif;
-        --font-albert: "FS Albert Arabic", sans-serif;
-      }
-    </style>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
@@ -32,7 +25,6 @@
         font-family: "Inter", sans-serif;
         scroll-behavior: smooth;
       }
-
 
       p {
         font-size: 20px;
@@ -50,7 +42,6 @@
           font-size: 16px;
         }
       }
-
 
       /* Underline indicator style */
       .nav-item::after {
@@ -282,22 +273,6 @@
         >
       </div>
       <div class="bg-[#b8dadc] py-10 px-5 sm:px-10 xl:px-20 rounded-2xl w-full">
-        <!-- <div class="bg-white inline-block rounded-lg px-4 pt-2">
-          <nav class="flex flex-wrap space-x-8" id="nav-links">
-            <a
-              href="#"
-              class="relative text-gray-800 pb-2 mb-4 md:mb-0 font-medium text-sm nav-item active"
-              data-i18n="media.news"
-              >News</a
-            >
-            <a
-              href="#videoSection"
-              class="relative text-gray-800 pb-2 mb-4 md:mb-0 font-medium text-sm nav-item"
-              data-i18n="media.video"
-              >Video</a
-            >
-          </nav>
-        </div> -->
         <div class="flex gap-4 items-center mt-5">
           <img
             src="./assets/pen.png"
@@ -2121,62 +2096,74 @@
 
       const videoCardsData = [
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP-National-Day.M4V",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP-National-Day.M4V",
           titleKey: "video1.featuredNews",
           textKey: "video1.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "video2.featuredNews",
           textKey: "video2.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP-2024.mov",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP-2024.mov",
           titleKey: "video3.featuredNews",
           textKey: "video3.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
         {
-          video: "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
+          video:
+            "https://rosybrown-emu-693088.hostingersite.com/assets/videos/ACP.MP4",
           titleKey: "media.featuredNews",
           textKey: "media.featuredNewsDesc",
         },
@@ -2241,9 +2228,6 @@
                       </div>
                   `;
       }
-      // <p class="text-[#6C757D] text-sm">${i18next.t(
-      //                           card.textKey
-      //                         )}</p>
 
       function renderVideoCardsSlider() {
         const videoCardsSliderTrack = document.getElementById(
