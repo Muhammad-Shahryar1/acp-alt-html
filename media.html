@@ -1474,6 +1474,18 @@
       }
       document.addEventListener("DOMContentLoaded", () => {
         const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
+        const languageSelectorContentDesktop = document.getElementById(
+          "language-selector-content-desktop"
+        );
+        const languageSelectorContentMobile = document.getElementById(
+          "language-selector-content-mobile"
+        );
+        savedLang === "ar"
+          ? (languageSelectorContentDesktop.innerHTML = "English")
+          : (languageSelectorContentDesktop.innerHTML = "العربية");
+        savedLang === "ar"
+          ? (languageSelectorContentMobile.innerHTML = "English")
+          : (languageSelectorContentMobile.innerHTML = "العربية");
         setLanguage(savedLang);
       });
 
@@ -1548,9 +1560,7 @@
             titleKey: "articles.featured.1.title",
             descKey: "articles.featured.1.description",
             dateKey: "articles.featured.1.date",
-            images: [
-              "./assets/news/abha.png",
-            ],
+            images: ["./assets/news/abha.png"],
             location: "Abha, KSA",
             category: "featured",
           },
@@ -1559,9 +1569,7 @@
             titleKey: "articles.featured.2.title",
             descKey: "articles.featured.2.description",
             dateKey: "articles.featured.2.date",
-            images: [
-              "./assets/news/munich.png",
-            ],
+            images: ["./assets/news/munich.png"],
             location: "Riyadh, KSA",
             category: "featured",
           },
@@ -1570,9 +1578,7 @@
             titleKey: "articles.featured.3.title",
             descKey: "articles.featured.3.description",
             dateKey: "articles.featured.3.date",
-            images: [
-              "./assets/news/china.jpg",
-            ],
+            images: ["./assets/news/china.jpg"],
             location: "Riyadh, KSA",
             category: "featured",
           },
@@ -1581,9 +1587,7 @@
             titleKey: "articles.featured.4.title",
             descKey: "articles.featured.4.description",
             dateKey: "articles.featured.4.date",
-            images: [
-              "./assets/news/haikou.jpg",
-            ],
+            images: ["./assets/news/haikou.jpg"],
             location: "Jeddah, KSA",
             category: "featured",
           },
@@ -1592,9 +1596,7 @@
             titleKey: "articles.featured.5.title",
             descKey: "articles.featured.5.description",
             dateKey: "articles.featured.5.date",
-            images: [
-              "./assets/news/virgin.png",
-            ],
+            images: ["./assets/news/virgin.png"],
             location: "Riyadh, KSA",
             category: "featured",
           },
@@ -1603,9 +1605,7 @@
             titleKey: "articles.featured.6.title",
             descKey: "articles.featured.6.description",
             dateKey: "articles.featured.6.date",
-            images: [
-              "./assets/news/madina.jpg",
-            ],
+            images: ["./assets/news/madina.jpg"],
             location: "Madinah, KSA",
             category: "featured",
           },
@@ -1614,9 +1614,7 @@
             titleKey: "articles.featured.7.title",
             descKey: "articles.featured.7.description",
             dateKey: "articles.featured.7.date",
-            images: [
-              "./assets/news/stuttgart.jpg",
-            ],
+            images: ["./assets/news/stuttgart.jpg"],
             location: "Jeddah, KSA",
             category: "featured",
           },
@@ -1628,9 +1626,7 @@
             titleKey: "articles.featured.7.title",
             descKey: "articles.featured.7.description",
             dateKey: "articles.featured.7.date",
-            images: [
-              "./assets/news/madina.jpg",
-            ],
+            images: ["./assets/news/madina.jpg"],
             location: "Madinah, KSA",
             category: "featured",
           },
@@ -1639,9 +1635,7 @@
             titleKey: "articles.featured.2.title",
             descKey: "articles.featured.2.description",
             dateKey: "articles.featured.2.date",
-            images: [
-              "./assets/news/stuttgart.jpg",
-            ],
+            images: ["./assets/news/stuttgart.jpg"],
             location: "Jeddah, KSA",
             category: "featured",
           },
@@ -1653,9 +1647,7 @@
             titleKey: "articles.featured.5.title",
             descKey: "articles.featured.5.description",
             dateKey: "articles.featured.5.date",
-            images: [
-              "./assets/news/haikou.jpg",
-            ],
+            images: ["./assets/news/haikou.jpg"],
             location: "Jeddah, KSA",
             category: "featured",
           },
@@ -1664,9 +1656,7 @@
             titleKey: "articles.featured.6.title",
             descKey: "articles.featured.6.description",
             dateKey: "articles.featured.6.date",
-            images: [
-              "./assets/news/virgin.png",
-            ],
+            images: ["./assets/news/virgin.png"],
             location: "Riyadh, KSA",
             category: "featured",
           },
