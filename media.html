@@ -336,7 +336,7 @@
               <div class="relative h-72 overflow-hidden">
                 <!-- Progress bar at top of image -->
                 <div
-                  class="absolute top-6 left-1/2 -translate-x-1/2 w-[90%] h-[3px] bg-white/80 bg-opacity-20 z-10"
+                  class="hidden absolute top-6 left-1/2 -translate-x-1/2 w-[90%] h-[3px] bg-white/80 bg-opacity-20 z-10"
                 >
                   <div
                     class="progress-bar h-full bg-green-500 transition-all duration-100 ease-linear"
@@ -351,7 +351,7 @@
                     class="gallery-image image1 absolute rounded-2xl inset-0 w-full h-full object-cover transition-opacity duration-500"
                     style="opacity: 1"
                   />
-                  <img
+                  <!-- <img
                     src="./assets/slide2.jpg"
                     alt="Gallery Image 2"
                     class="gallery-image image2 absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
@@ -362,7 +362,7 @@
                     alt="Gallery Image 3"
                     class="gallery-image absolute image3 inset-0 w-full h-full object-cover transition-opacity duration-500"
                     style="opacity: 0"
-                  />
+                  /> -->
                 </div>
               </div>
 
@@ -1550,8 +1550,6 @@
             dateKey: "articles.featured.1.date",
             images: [
               "./assets/news/abha.png",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Abha, KSA",
             category: "featured",
@@ -1563,8 +1561,6 @@
             dateKey: "articles.featured.2.date",
             images: [
               "./assets/news/munich.png",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Riyadh, KSA",
             category: "featured",
@@ -1576,8 +1572,6 @@
             dateKey: "articles.featured.3.date",
             images: [
               "./assets/news/china.jpg",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Riyadh, KSA",
             category: "featured",
@@ -1589,8 +1583,6 @@
             dateKey: "articles.featured.4.date",
             images: [
               "./assets/news/haikou.jpg",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Jeddah, KSA",
             category: "featured",
@@ -1602,8 +1594,6 @@
             dateKey: "articles.featured.5.date",
             images: [
               "./assets/news/virgin.png",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Riyadh, KSA",
             category: "featured",
@@ -1615,8 +1605,6 @@
             dateKey: "articles.featured.6.date",
             images: [
               "./assets/news/madina.jpg",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Madinah, KSA",
             category: "featured",
@@ -1628,8 +1616,6 @@
             dateKey: "articles.featured.7.date",
             images: [
               "./assets/news/stuttgart.jpg",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Jeddah, KSA",
             category: "featured",
@@ -1644,8 +1630,6 @@
             dateKey: "articles.featured.7.date",
             images: [
               "./assets/news/madina.jpg",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Madinah, KSA",
             category: "featured",
@@ -1657,8 +1641,6 @@
             dateKey: "articles.featured.2.date",
             images: [
               "./assets/news/stuttgart.jpg",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Jeddah, KSA",
             category: "featured",
@@ -1673,8 +1655,6 @@
             dateKey: "articles.featured.5.date",
             images: [
               "./assets/news/haikou.jpg",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Jeddah, KSA",
             category: "featured",
@@ -1686,8 +1666,6 @@
             dateKey: "articles.featured.6.date",
             images: [
               "./assets/news/virgin.png",
-              "./assets/slide2.jpg",
-              "./assets/slide3.jpg",
             ],
             location: "Riyadh, KSA",
             category: "featured",
@@ -1826,7 +1804,7 @@
                     <img
                         src="${article.images[0]}"
                         alt="${i18next.t(article.titleKey)}"
-                        class=" w-full md:w-40 h-32 md:h-20 object-cover rounded-sm"
+                        class=" w-full md:w-40 h-32 md:h-full object-cover rounded-sm"
                     >
                 </div>
 
@@ -1904,7 +1882,7 @@
         const images = getImages();
         currentImageIndex = (currentImageIndex + 1) % images.length;
         showImage(currentImageIndex);
-        updateProgress();
+        // updateProgress();
       }
 
       // Start slider fresh
@@ -1913,7 +1891,7 @@
 
         // Show first image immediately
         showImage(currentImageIndex);
-        updateProgress();
+        // updateProgress();
 
         // Restart interval
         clearInterval(imageInterval);
@@ -1934,8 +1912,8 @@
 
       function updateBigCard(article, flag) {
         bigCardImage1.src = article.images[0] || "";
-        bigCardImage2.src = article.images[1] || "";
-        bigCardImage3.src = article.images[2] || "";
+        // bigCardImage2.src = article.images[1] || "";
+        // bigCardImage3.src = article.images[2] || "";
 
         // Title safe
         bigCardTitle.textContent = article.titleKey

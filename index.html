@@ -3041,6 +3041,18 @@
 
       document.addEventListener("DOMContentLoaded", () => {
         const savedLang = localStorage.getItem("appLanguage") || "en"; // fallback to English
+        const languageSelectorContentDesktop = document.getElementById(
+              "language-selector-content-desktop"
+            );
+            const languageSelectorContentMobile = document.getElementById(
+              "language-selector-content-mobile"
+            );
+            savedLang === "ar"
+              ? (languageSelectorContentDesktop.innerHTML = "English")
+              : (languageSelectorContentDesktop.innerHTML = "العربية");
+            savedLang === "ar"
+              ? (languageSelectorContentMobile.innerHTML = "English")
+              : (languageSelectorContentMobile.innerHTML = "العربية");
         setLanguage(savedLang);
       });
 
