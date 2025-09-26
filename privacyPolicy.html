@@ -232,7 +232,7 @@
 
     <!-- Main Content -->
     <main
-      class="container mb-[450px] md:mb-[400px] mx-auto px-4 sm:px-6 lg:px-8 py-12"
+      class="container mb-[450px]  mx-auto px-4 sm:px-6 lg:px-8 py-12"
     >
       <div class="max-w-7xl mx-auto">
         <!-- Page Title -->
@@ -1754,7 +1754,7 @@
       function setLanguage(lang) {
         localStorage.setItem("appLanguage", lang);
         document.documentElement.lang = lang;
-        document.documentElement.dir = lang === "ar" ? "ltr" : "ltr";
+        document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
         const heroHeading = document.querySelector("#hero-heading");
 
         // Move Footer to Left on Arabic
