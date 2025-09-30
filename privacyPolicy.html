@@ -24,21 +24,21 @@
         scroll-behavior: smooth;
       }
       p,
-      li {
+      main li {
         font-size: 20px;
         line-height: 1.5;
       }
       /* Responsive Adjustments */
       @media (max-width: 1200px) {
         p,
-        li {
+        main li {
           font-size: 18px;
         }
       }
 
       @media (max-width: 768px) {
         p,
-        li {
+        main li {
           font-size: 16px;
         }
       }
@@ -893,7 +893,7 @@
     <div class="page-overlay" id="pageOverlay"></div>
 
     <footer
-      class="footer-overlay hidden-init bg-slate-700 text-white pt-16 pb-8"
+      class="footer-overlay hidden-init bg-slate-700 text-white pt-10 pb-8"
       id="animatedFooter"
     >
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -925,7 +925,7 @@
             >
               Overview
             </h3>
-            <ul class="space-y-3">
+            <ul class="space-y-3 !text-[16px]">
               <li>
                 <a
                   href="./index.html#animated-section"
@@ -1119,7 +1119,7 @@
           </div>
         </div>
         <!-- Copyright Section -->
-        <div class="border-t border-gray-600 mt-12 pt-4">
+        <div class="border-t border-gray-600 mt-4 pt-4">
           <p
             class="text-gray-400 !text-xs text-center lg:text-left"
             data-i18n="footer.copyright"
