@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  p {
+    font-size: 16px;
+  }
+}
+/* Privacy Policy Content */
+.privacy-policy-content #block-privacypolicycontent p span,
+.privacy-policy-content #block-privacypolicycontent ul li span{
+  font-size: 20px !important;
+}
+
+.privacy-policy-content #block-privacypolicycontent h1 span,
+.privacy-policy-content #block-privacypolicycontent  h2 span,
+.privacy-policy-content #block-privacypolicycontent h3 span,
+.privacy-policy-content #block-privacypolicycontent h4 span,
+.privacy-policy-content #block-privacypolicycontent h5 span,
+.privacy-policy-content #block-privacypolicycontent h6 span  {
+  font-weight: 600 !important ;
+  font-size: 22px !important ;
+}
+
+.privacy-policy-arabiccontent{
+    text-align: right !important;
+}
+.privacy-policy-arabiccontent p ,
+.privacy-policy-arabiccontent ul li  {
+  font-size: 20px !important;
+}
+
+.privacy-policy-arabiccontent h1 ,
+.privacy-policy-arabiccontent h2 ,
+.privacy-policy-arabiccontent h3 ,
+.privacy-policy-arabiccontent h4 ,
+.privacy-policy-arabiccontent h5 ,
+.privacy-policy-arabiccontent h6  {
+  font-weight: 600 !important;
+  font-size: 24px !important;
+}
+/* Partner Page */
+.partner-page-section {
+  margin-bottom: 700px;
+}
+
+/* Mobile styles (for screens up to 768px wide) */
+@media (max-width: 768px) {
+  .partner-page-section {
+    margin-bottom: 200px;
+  }
+}
+.hero-text {
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero-text {
+    max-width: 42rem; /* equivalent to Tailwind's max-w-2xl */
+  }
+}
+
+
+/* ========== 404 Page Styling ========== */
+
+.custom-404-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: #f9fafb;
+  color: #333;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.error-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: 800;
+  color: #9acc2e; /* lime accent */
+  margin-bottom: 0.5rem;
+}
+
+.error-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #222;
+}
+
+.error-message {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.error-button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: #9acc2e;
+  color: #111;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.25s, transform 0.15s;
+}
+
+.error-button:hover {
+  background-color: #86b526;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .error-code {
+    font-size: 4rem;
+  }
+  .error-title {
+    font-size: 1.5rem;
+  }
+  .error-message {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+/* Added infinite scroll animation for partner logos */
+.infinite-scroll {
+  width: 200%;
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.infinite-scroll:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* Hero Title Start */
+#block-herotitle {
+  width: 600px;
+  margin-bottom: 40px;
+}
+#block-herotitle p {
+  transform: translateY(2rem);
+  color: #ffffff;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  #block-herotitle p {
+    font-size: 51px;
+    line-height: 1.2;
+  }
+}
+
+/* Hero Title End */
+/* Hero Box Start */
+/* Base styles for the <p> inside the block */
+#block-heroboxcontent p {
+  color: #ffffff; /* text-white */
+  font-size: 1.125rem; /* text-lg = 18px */
+  line-height: 1.75rem; /* text-lg line-height */
+  font-weight: 600; /* font-semibold */
+}
+
+/* Medium screens (≥768px) */
+@media (min-width: 768px) {
+  #block-heroboxcontent p {
+    font-size: 1.25rem; /* text-xl = 20px */
+    line-height: 1.75rem; /* text-xl line-height */
+  }
+}
+
+/* Large screens (≥1024px) */
+@media (min-width: 1024px) {
+  #block-heroboxcontent p {
+    font-size: 1.5rem; /* text-2xl = 24px */
+    line-height: 2rem; /* text-2xl line-height */
+  }
+}
+
+/* Hero Box End */
+
+/* Selected Cards Start */
+/* Selected state */
+.card-selected {
+  transform: scale(1.05); /* slightly bigger */
+  background-color: #10b981; /* emerald-500 */
+  border-color: #34d399; /* emerald-400 */
+  color: white;
+  border-radius: 4px !important;
+}
+.card-selected > div {
+  background-color: #10b981;
+}
+
+.card-selected .cls-1 {
+  stroke: white !important;
+}
+
+/* Force all hover styles when selected */
+.card-selected * {
+  color: white !important;
+}
+/* Selected Cards End */
+
+/* Smooth hero text reveal */
+#hero-title {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+#hero-title.show {
+  opacity: 1;
+  transform: translateY(-2rem);
+}
+
+.airport {
+  cursor: pointer;
+  fill: #00c896;
+  transition: transform 0.2s, fill 0.2s;
+  transform-box: fill-box; /* important for SVG */
+  transform-origin: center; /* scale from center */
+}
+
+.plane-circle {
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+.plane-circle.active {
+  transform: scale(1.3); /* enlarge on click */
+}
+
+/* .airport:hover {
+        transform: scale(1.5); stays centered on x,y
+        fill: #009f6b;
+      } */
+
+circle.highlight {
+  transition: r 0.4s ease; /* animate radius */
+}
+
+/* Custom styles for smooth animations */
+      .footer-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+        /* Responsive height constraints */
+        max-height: 85vh;
+        overflow-y: auto;
+        /* Prevent interactions while hidden */
+        pointer-events: none;
+        /* Add safe-area padding on modern phones */
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+        background-clip: padding-box;
+        opacity: 1;
+      }
+
+      /* start fully invisible */
+      .footer-overlay.hidden-init {
+        opacity: 0;
+        transform: translateY(1000%);
+      }
+
+      .footer-overlay.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .footer-overlay.no-transition {
+        transition: none !important;
+      }
+
+      .footer-overlay.active {
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      /* Mobile specific adjustments */
+      @media (max-width: 768px) {
+        .footer-overlay {
+          max-height: 80vh;
+          padding-top: 2rem !important;
+          padding-bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
+        }
+
+        .footer-overlay .grid {
+          gap: 1.5rem !important;
+        }
+
+        .footer-overlay h3 {
+          font-size: 1rem !important;
+          margin-bottom: 1rem !important;
+        }
+
+        .footer-overlay ul {
+          gap: 0.5rem !important;
+        }
+
+        .footer-overlay .text-sm {
+          font-size: 0.75rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-overlay {
+          max-height: 75vh;
+          padding-top: 1.5rem !important;
+          padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+        }
+      }
+
+      /* Background overlay when footer is active */
+      .page-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0);
+        pointer-events: none;
+        transition: background 0.6s ease;
+        z-index: 40;
+      }
+
+      .page-overlay.active {
+        /* background: rgba(0, 0, 0, 0.3); */
+        pointer-events: auto;
+      }

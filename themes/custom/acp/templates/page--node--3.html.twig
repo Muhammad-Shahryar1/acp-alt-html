@@ -1,0 +1,184 @@
+{% include '@acp/sec-header.html.twig' %}
+{#Partner Page#}
+<div class=" partner-page-section bg-[#009595]">
+  <div class="py-20 container mx-auto px-4 xl:px-16 pb-10 md:pt-10 gap-5 flex flex-col items-center justify-center">
+
+    <!-- Page Navigation -->
+    <div id="pageNavigation" class="flex gap-1 pl-5 my-10 items-center container mx-auto">
+      {% if language.id == 'ar' %}
+        <a href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">الرئيسية</a>
+        <svg class="w-4 h-4 text-green-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="{{ url('<front>') }}/node/3" class="text-green-400 hover:text-green-400">تواصل معنا</a>
+      {% else %}
+        <a data-i18n="page.homeNav" href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">Home</a>
+        <svg class="w-4 h-4 text-green-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="{{ url('<front>') }}become-partner" data-i18n="page.currentNav" class="text-green-400 hover:text-green-400">Become a Partner</a>
+      {% endif %}
+    </div>
+
+    <div class="relative w-full flex justify-center">
+      <!-- Green card -->
+      <div class="absolute top-0 right-8 md:right-4 w-[90%] xl:h-[100%] lg:h-[110%] md:h-[400px] sm:h-[350px] h-[400px] bg-[#32D2A0] -rotate-5 z-10"></div>
+
+      <!-- White card -->
+      <div class="relative bg-white rounded-2xl space-y-12 sm:space-y-16 md:space-y-20 -mb-32 md:-mb-[700px] shadow-md w-full p-6 sm:p-8 md:p-20 lg:py-40 py-10 z-10">
+
+        <!-- Header Text -->
+        <div class="mb-4 sm:mb-6">
+          <h1 id="hero-heading" class="text-2xl md:text-3xl lg:text-4xl xl:text-[51px] mb-4 leading-[1.1em] text-[#44505E] font-bold" data-i18n="main.heading">
+            {% if language.id == 'ar' %}
+              نموذج الشريك
+            {% else %}
+              Partner Information
+            {% endif %}
+          </h1>
+
+          <p class="text-gray-600 font-medium text-sm sm:text-base lg:text-lg" data-i18n="main.description">
+            {% if language.id == 'ar' %}
+              سجّل اهتمامك في أن تصبح شريكًا قيّمًا اليوم! من خلال انضمامك إلى شبكتنا، ستحصل على إمكانية الوصول إلى موارد حصرية وبيئة تعاونية مصممة لتسريع نجاحك. املأ النموذج أدناه للبدء، وسيتواصل معك أحد أعضاء فريق الشراكات لدينا لاستكشاف كيفية عملنا معًا لتحقيق الأهداف المشتركة.
+            {% else %}
+             Register your interest in becoming a valued partner today! By joining our network, you’ll gain access to exclusive resources and collaborative environment designed to accelerate your success. Fill out the form below to get started, and one of our partnership team will reach out to explore how we can work together to achieve shared goals.
+            {% endif %}
+          </p>
+        </div>
+
+        <!-- Organization Information Section -->
+        <div class="space-y-10 mt-10">
+          <h2 class="text-xl sm:text-2xl font-bold text-[#44505E]" data-i18n="form.orgInfo">
+            {% if language.id == 'ar' %}
+              معلومات الجهة
+            {% else %}
+              Organization Information
+            {% endif %}
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Org Name -->
+            <div class="flex flex-col space-y-1">
+              <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.orgName">
+                {% if language.id == 'ar' %} اسم الجهة {% else %} Organization Name {% endif %}
+              </label>
+              <input type="text" class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm" />
+            </div>
+
+            <!-- Org Website -->
+            <div class="flex flex-col space-y-1">
+              <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.orgWebsite">
+                {% if language.id == 'ar' %} الموقع الالكتروني {% else %} Organization Website {% endif %}
+              </label>
+              <input type="text" class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm" />
+            </div>
+
+            <!-- Org Industry -->
+            <div class="flex flex-col space-y-1">
+              <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.orgIndustry">
+                {% if language.id == 'ar' %} القطاع {% else %} Organization Industry {% endif %}
+              </label>
+              <input type="text" class="border-b w-full placeholder-gray-400 focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                {% if language.id == 'ar' %}
+                  placeholder="مثال على شركات الطيران"
+                {% else %}
+                  placeholder="Education, Training & Academia"
+                {% endif %}
+              />
+            </div>
+
+            <!-- Country -->
+            <div class="flex flex-col space-y-1 sm:col-span-2 lg:col-span-1">
+              <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.country">
+                {% if language.id == 'ar' %} الدولة {% else %} Country {% endif %}
+              </label>
+              <input type="text" class="border-b w-full placeholder-gray-400 focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                {% if language.id == 'ar' %}
+                  placeholder="العربية السعودية"
+                {% else %}
+                  placeholder="Saudi Arabia"
+                {% endif %}
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="space-y-10 mt-10">
+          <h2 class="text-xl sm:text-2xl font-bold text-[#44505E]" data-i18n="form.contactInfo">
+            {% if language.id == 'ar' %}
+              ممثّل الجهة
+            {% else %}
+              Contact Information
+            {% endif %}
+          </h2>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 max-w-4xl gap-10">
+            <!-- First Name -->
+            <div class="flex flex-col space-y-1">
+              <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.firstName">
+                {% if language.id == 'ar' %} الاسم الاول {% else %} First Name {% endif %}
+              </label>
+              <input type="text" class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm" />
+            </div>
+
+            <!-- Last Name -->
+            <div class="flex flex-col space-y-1">
+              <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.lastName">
+                {% if language.id == 'ar' %} الاسم الاخير {% else %} Last Name {% endif %}
+              </label>
+              <input type="text" class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm" />
+            </div>
+
+            <!-- Phone -->
+            <div class="flex flex-col space-y-1">
+              <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.phone">
+                {% if language.id == 'ar' %} رقم الجوال {% else %} Phone {% endif %}
+              </label>
+              <input type="text" class="border-b w-full placeholder-gray-400 focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm"
+                {% if language.id == 'ar' %}
+                  placeholder="العربية السعودية"
+                {% else %}
+                  placeholder="Saudi Arabia"
+                {% endif %}
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="flex flex-col space-y-1 sm:col-span-2 lg:col-span-1">
+              <label class="text-sm font-semibold !text-[#44505E]" data-i18n="form.email">
+                {% if language.id == 'ar' %} البريد الالكتروني {% else %} Email {% endif %}
+              </label>
+              <input type="email" class="border-b w-full focus:outline-none border-gray-300 focus:border-gray-600 pb-2 text-sm" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Contribution Textarea -->
+        <div class="flex flex-col mt-10">
+          <label for="contribution" class="font-semibold !text-[#44505E]" data-i18n="form.contributionLabel">
+            {% if language.id == 'ar' %}
+              كيف ترغب الجهة بالمساهمة في برنامج الربط الجوي
+            {% else %}
+              How would you like to contribute to Saudi Air Connectivity Program?
+            {% endif %}
+          </label>
+          <textarea id="contribution" rows="10" class="border p-4 max-w-4xl w-full rounded-xl focus:outline-none mt-5 border-gray-300 focus:border-gray-600 text-sm"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="mt-4">
+          <button type="submit" class="bg-[#32D2A0] text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg shadow text-sm w-full sm:w-auto flex items-center justify-center">
+            <span>
+              {% if language.id == 'ar' %} إرسال {% else %} Send {% endif %}
+            </span>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div style="padding-bottom:100px;"></div>
+
+{% include '@acp/footer.html.twig' %}

@@ -1,0 +1,115 @@
+<?php
+
+/**
+ * @file
+ * Install file for acp_news.
+ */
+
+use Drupal\Core\Database\Database;
+
+/**
+ * Implements hook_schema().
+ */
+function acp_news_schema() {
+  $schema['acp_news'] = [
+    'description' => 'ACP news items for frontend slider.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'image' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+      'headline' => [
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => FALSE,
+      ],
+      'description' => [
+        'type' => 'text',
+        'size' => 'big',
+        'not null' => FALSE,
+      ],
+      'location' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+      'date' => [
+        'type' => 'varchar',
+        'length' => 100,
+        'not null' => FALSE,
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install().
+ */
+function acp_news_install() {
+  $connection = Database::getConnection();
+
+  $items = [
+    [
+      'image' => 'abha.png',
+      'headline' => 'Flights between Abha and Doha Resumed, First Aircraft Landed at Abha International Airport',
+      'description' => 'The Air Connectivity Program (ACP) has thanked Qatar Airways for the resumption of direct flights between Doha and Abha in collaboration with Discover Aseer and Abha International Airport.',
+      'location' => 'Abha, KSA',
+      'date' => '02 January 2025',
+    ],
+    [
+      'image' => 'munich.png',
+      'headline' => 'Air Connectivity Program Welcomes Lufthansa’s New Direct Munich to Riyadh Flights',
+      'description' => 'The Saudi Air Connectivity Program (ACP) has welcomed Lufthansa’s launch of direct flights from Munich to Riyadh, with three weekly flights set to begin on October 27 of this year.',
+      'location' => 'Riyadh, KSA',
+      'date' => '19 August 2025',
+    ],
+    [
+      'image' => 'china.jpg',
+      'headline' => 'China Southern Airlines Launches New Route between Guangzhou, Riyadh',
+      'description' => 'China Southern Airlines, in cooperation with the Air Connectivity Program, the Saudi Tourism Authority, and Riyadh Airports Company, has announced the launch of a new flight route between Guangzhou in China and Riyadh, starting in September 2025. The route will operate three times per week, adding over 86,000 seats annually to this route.',
+      'location' => 'Riyadh, KSA',
+      'date' => '17 July 2025',
+    ],
+    [
+      'image' => 'haikou.jpg',
+      'headline' => 'King Abdulaziz International Airport Launches First Hainan Airlines Flights',
+      'description' => 'King Abdulaziz International Airport in Jeddah today welcomed the inaugural flight of China’s Hainan Airlines, marking the launch of the first direct route between Jeddah and the Chinese city of Haikou.',
+      'location' => 'Jeddah, KSA',
+      'date' => '28 July 2025',
+    ],
+    [
+      'image' => 'virgin.png',
+      'headline' => 'Riyadh Welcomes First Virgin Atlantic Heathrow Flight, Boosting Global Tourism Status',
+      'description' => "King Khalid International Airport today welcomed the inaugural flight of British airline Virgin Atlantic, arriving from London Heathrow and carrying the company's founder, Richard Branson.",
+      'location' => 'Riyadh, KSA',
+      'date' => '23 April 2025',
+    ],
+    [
+      'image' => 'madina.jpg',
+      'headline' => 'Air Connectivity Program, MDA Partner with Transavia France to Launch New Flight Routes to Madinah.',
+      'description' => "The Air Connectivity Program (ACP), in partnership with the Al Madinah Region Development Authority (MDA), has announced the expansion of Transavia France's travel services to Saudi Arabia. Beginning in October, new routes will be launched from Paris-Orly, Lyon, Marseille, and Toulouse to Madinah.",
+      'location' => 'Madinah, KSA',
+      'date' => '17 April 2025',
+    ],
+    [
+      'image' => 'stuttgart.jpg',
+      'headline' => 'Saudi Air Connectivity Program Launches Direct Flights from Stuttgart to Jeddah',
+      'description' => 'The Saudi Air Connectivity Program (ACP), in collaboration with the Saudi Tourism Authority (STA) and Jeddah Airports Company (JEDCO), announced on Tuesday the launch of direct flights from Stuttgart, Germany, to Jeddah.',
+      'location' => 'Jeddah, KSA',
+      'date' => '05 March 2025',
+    ],
+  ];
+
+  foreach ($items as $item) {
+    $connection->insert('acp_news')->fields($item)->execute();
+  }
+}

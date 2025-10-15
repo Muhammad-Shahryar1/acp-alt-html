@@ -1,0 +1,345 @@
+{{ attach_library('acp/media-scripts') }}
+{% include '@acp/sec-header.html.twig' %}
+{# Media Page #}
+
+<section class="xl:container mx-auto py-12 sm:pb-20 sm:pt-10 px-4 sm:px-6 lg:px-8">
+	<div id="pageNavigation" class="flex gap-1 my-4 items-center text-lg container pl-4">
+		{% if language.id == 'ar' %}
+			<a href="{{ path('<front>') }}" class="text-gray-500 hover:text-gray-600">الرئيسية</a>
+
+			<!-- Separator -->
+			<svg class="w-4 h-4 text-[#00C951] rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+			</svg>
+
+			<!-- Media Center Arabic -->
+			<a href="{{ url('<front>') }}/node/4" class="text-[#00C951] hover:text-green-500">المركز الإعلامي</a>
+
+		{% else %}
+			<a href="{{ path('<front>') }}" class="text-gray-500 hover:text-gray-600">Home</a>
+
+			<!-- Separator -->
+			<svg class="w-4 h-4 text-[#00C951]" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+			</svg>
+
+			<!-- Media Center English -->
+			<a href="{{ url('<front>') }}media" class="text-[#00C951] hover:text-green-500">Media Center</a>
+		{% endif %}
+	</div>
+
+	<div class="bg-[#b8dadc] py-10 px-5 sm:px-10 xl:px-20 rounded-2xl w-full">
+		<div class="flex gap-4 items-center mt-5">
+			<img src="{{ base_path ~ directory }}/assets/pen.png" alt="Pen" class="w-10 h-10 inline-block object-cover"/>
+			<h2 class="font-bold text-[#495057] text-2xl" data-i18n="media.newsTitle">
+				{% if language.id == 'ar' %}
+					الأخبار
+				{% else %}
+					News
+				{% endif %}
+			</h2>
+
+		</div>
+
+		<hr class="border my-5 border-white/70 w-full"/>
+		<!-- News Modal -->
+		<!-- POPUP MODAL -->
+			<div id="newsModal" class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50"> <div
+				class="bg-white max-h-[90vh] overflow-y-auto rounded-xl max-w-[95%] lg:max-w-4xl w-full px-6 py-10 relative">
+				<!-- Close button -->
+				<button id="closeModal" class="absolute cursor-pointer top-3 right-3 text-gray-600 hover:text-black text-3xl">
+					&times;
+				</button>
+
+				<!-- Modal Content -->
+				<h2 id="modalTitle" class="text-xl font-bold mb-2 text-gray-900"></h2>
+				<p id="modalDate" class="text-sm text-gray-500 mb-4"></p>
+
+				<div class="relative w-full h-56 mb-4">
+					<img id="modalImage" src="/placeholder.svg" alt="" class="w-full h-full object-cover rounded-md"/>
+				</div>
+
+				<p id="modalDescription" class="text-gray-700 leading-relaxed"></p>
+			</div>
+		</div>
+		<!-- News Grid Section -->
+		<div
+			class="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10 items-stretch">
+			<!-- LEFT COLUMN -->
+			<div
+				class="col-span-1 lg:h-[32rem] h-auto">
+				<!-- Single Card with Progress Bar and Auto Image Slider -->
+				<div
+					class="max-w-full mx-auto bg-[#009595] rounded-2xl pb-6 overflow-hidden shadow-lg h-full flex flex-col">
+					<!-- Image Gallery with Progress Bar -->
+					<div
+						class="relative h-72 overflow-hidden">
+						<!-- Progress bar at top of image -->
+						<div class="hidden absolute top-6 left-1/2 -translate-x-1/2 w-[90%] h-[3px] bg-white/80 bg-opacity-20 z-10">
+							<div class="progress-bar h-full bg-green-500 transition-all duration-100 ease-linear" style="width: 0%"></div>
+						</div>
+
+						<div class="image-gallery relative w-full h-full">
+							<img
+							src="./assets/slide1.jpg" alt="Gallery Image 1" class="gallery-image image1 absolute rounded-2xl inset-0 w-full h-full object-cover transition-opacity duration-500" style="opacity: 1"/>
+						<!-- <img
+																		                    src="./assets/slide2.jpg"
+																		                    alt="Gallery Image 2"
+																		                    class="gallery-image image2 absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+																		                    style="opacity: 0"
+																		                  />
+																		                  <img
+																		                    src="./assets/slide3.jpg"
+																		                    alt="Gallery Image 3"
+																		                    class="gallery-image absolute image3 inset-0 w-full h-full object-cover transition-opacity duration-500"
+																		                    style="opacity: 0"
+																		                  /> -->
+						</div>
+					</div>
+
+					<!-- Text Content -->
+					<div class="text-white pt-5 px-8 md:px-12 mb-4 flex-1">
+						<h3 id="bigCardTitle" class="text-xl leading-7 md:text-2xl font-semibold mb-2">
+							Placeholder Text
+						</h3>
+						<p id="bigCardDesc" class="text-sm opacity-90">
+							Placeholder Text Used To Fill Space
+						</p>
+					</div>
+
+					<!-- Button -->
+					<div class="md:px-12 flex flex-col items-start px-8">
+						<a id="readMoreBtn" href="#" class="flex items-center gap-2 text-white font-light text-xs hover:underline">
+							<span data-i18n="media.readMore">
+								{% if language.id == 'ar' %}
+									اقرأ المزيد
+								{% else %}
+									Read More
+								{% endif %}
+							</span>
+
+							<div class="bg-white p-[1px] rounded-full">
+								<svg class="w-3 h-3" fill="none" stroke="black" viewbox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+								</svg>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			<!-- RIGHT COLUMN -->
+			<div class="col-span-1 lg:h-[32rem] h-auto">
+				<div
+					class="lg:max-w-2xl mx-auto h-full">
+					<!-- Articles Container -->
+					<div
+						class="bg-white rounded-2xl shadow-lg p-6 h-full flex flex-col">
+						<!-- Header Section -->
+						<div class="flex items-center justify-between mb-6">
+							<div
+								class="flex items-center gap-3">
+								<!-- Filter Dropdown Button -->
+								<div class="relative">
+									<button id="filter-btn" class="p-2 hover:bg-gray-100 rounded-lg transition-colors duration-200" aria-label="Filter articles">
+										<div class="flex gap-1 flex-col">
+											<div class="h-[2px] w-6 bg-black"></div>
+											<div class="h-[2px] w-6 bg-black"></div>
+											<div class="h-[2px] w-6 bg-black"></div>
+										</div>
+									</button>
+
+									<!-- Dropdown Menu -->
+									<div id="filter-dropdown" class="absolute left-0 top-full mt-2 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden">
+										<div
+											class="py-2">
+											<!-- Updated dropdown options to new categories -->
+											<button class="filter-option w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700" data-filter="featured" data-i18n="media.featured">
+												Featured
+											</button>
+											<button class="filter-option w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700" data-filter="mostliked" data-i18n="media.mostLiked">
+												Most Liked
+											</button>
+											<button class="filter-option w-full text-left px-4 py-2 hover:bg-gray-50 text-gray-700" data-filter="trending" data-i18n="media.topTrending">
+												Top Trending
+											</button>
+										</div>
+									</div>
+								</div>
+
+								<!-- Title -->
+								<h2 class="text-lg font-medium text-gray-800" id="section-title" data-i18n="media.featuredArticles">
+									Featured Articles
+								</h2>
+							</div>
+						</div>
+
+						<!-- Articles List -->
+						<div
+							id="articles-container" class="space-y-2 overflow-y-auto pr-2 h-100 lg:h-auto lg:flex-1"><!-- Articles will be populated by JavaScript -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Added new video section with two-column layout -->
+<section class="max-w-7xl hidden mx-auto mt-16 px-4 sm:px-6 lg:px-8">
+	<div
+		class="bg-white py-12 sm:py-24 rounded-lg">
+		<!-- First Row: Title and Horizontal Line -->
+		<div
+			class="mb-16 px-16 flex items-center space-x-3">
+			<!-- Video button -->
+			<button class="flex items-center justify-center w-8 h-8 bg-[#44505E] rounded-lg">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewbox="0 0 24 24" class="w-4 h-4 bg-white text-[#44505E] rounded-full">
+					<path d="M8 5v14l11-7z"/>
+				</svg>
+			</button>
+
+			<!-- Text -->
+			<h2 class="text-2xl font-bold text-[#566578]" data-i18n="media.newsUpdates">
+				News & Updates
+			</h2>
+		</div>
+		<div class="mb-16 px-16">
+			<hr class="border-gray-300"/>
+		</div>
+
+		<!-- Second Row: Two Column Layout -->
+		<div class="grid grid-cols-1 lg:grid-cols-[2.7fr_2.3fr]">
+			<!-- Left Column: Video with dark background container (takes 3/5 of space on desktop) -->
+			<!-- Added dark navy background container with proper proportions -->
+				<div
+				class="bg-slate-700 rounded-lg px-8 py-10 sm:px-24 sm:py-28"> <!-- Video takes most of the container height -->
+				<div
+					class="relative rounded-lg overflow-hidden aspect-video mb-6">
+					<!-- Video Element with world map placeholder -->
+					<video id="mainVideo" class="w-full h-full object-cover" poster="/placeholder.svg?height=400&width=600">
+						<source src="./assets/hero-video.mp4" type="video/mp4"/>
+						Your browser does not support the video tag.
+					</video>
+
+					<!-- Video Overlay with Play/Pause Button -->
+					<div id="videoOverlay" class="absolute inset-0 bg-black/30 flex items-center justify-center" style="background: url(./assets/videoBackground.png)">
+						<button
+							id="playPauseBtn" class="rounded-full p-4 transition-all duration-200 cursor-pointer">
+							<!-- Play Icon (shown by default) -->
+							<svg id="playIcon" class="w-16 h-16 text-[#44505E]" fill="currentColor" viewbox="0 0 24 24">
+								<path d="M8 5v14l11-7z"/>
+							</svg>
+							<!-- Pause Icon (hidden by default) -->
+							<svg id="pauseIcon" class="w-16 h-16 text-[#44505E] hidden" fill="currentColor" viewbox="0 0 24 24">
+								<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+							</svg>
+						</button>
+					</div>
+
+					<!-- Video Duration -->
+					<div id="videoDuration" class="absolute top-4 right-4 bg-black/80 text-white text-sm px-2 py-1 rounded">
+						00:00
+					</div>
+				</div>
+
+				<!-- Video Title and Description at bottom of dark container -->
+				<!-- Updated text colors for dark background and positioned at bottom -->
+				<div>
+					<h3 class="text-2xl font-bold text-white mb-2" data-i18n="media.featuredNews">
+						Featured News
+					</h3>
+					<p class="text-gray-300" data-i18n="media.featuredNewsDesc">
+						Watch the latest updates and stories from the Air Connectivity
+																		                Program.
+					</p>
+				</div>
+			</div>
+
+			<!-- Right Column: Content (takes 2/5 of space on desktop) -->
+			<div class="flex flex-col justify-start items-center bg-gradient-to-r from-[#F8F9FA] to-[#E9ECEF] lg:h-[90%] lg:my-auto px-8 sm:px-0 py-16 mx-8 sm:mx-16 mt-16 lg:pt-20 lg:pb-0 lg:mx-0 ">
+				<div class="w-full sm:w-1/2">
+					<h3 class="text-4xl font-bold text-[#44505E] mb-4" data-i18n="media.latestNews">
+						Latest News
+					</h3>
+					<p class="text-[#A5A5A5] mb-12 text-lg leading-5" data-i18n="media.latestNewsDesc">
+						Stay updated with the most recent announcements, press releases,
+																		                and updates from the Air Connectivity Program. Watch our
+																		                featured stories and explore the latest developments shaping
+																		                Saudi Arabia's aviation and tourism sector.
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Adding new video cards slider section as separate section -->
+<section
+	dir="ltr" id="videoSection"  class="xl:container  mx-auto my-20 px-4 sm:px-6 lg:px-8">
+	<!-- First Row: Title and Navigation -->
+	<div
+		class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
+		<!-- Title -->
+
+		<div
+			class="pl-0 md:pl-16 flex-1 flex items-center space-x-3">
+			<!-- Video button -->
+			<button class="flex items-center justify-center w-8 h-8 bg-[#44505E] rounded-lg">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewbox="0 0 24 24" class="w-4 h-4 bg-white text-[#44505E] rounded-full">
+					<path d="M8 5v14l11-7z"/>
+				</svg>
+			</button>
+
+			<!-- Text -->
+			<h2 class="text-2xl font-bold text-[#566578]" data-i18n="media.mediaHighlights">
+				{% if language.id == 'ar' %}
+					تغطيات إعلامية
+				{% else %}
+					Media Highlights
+				{% endif %}
+			</h2>
+
+		</div>
+
+		<!-- Video Cards Slider Navigation with Progress Bar -->
+		<div
+			class="flex items-center">
+			<!-- Current Slide Number -->
+			<span id="videoCardsCurrentSlide" class="text-normal text-[#AAB1BB] font-medium min-w-[2ch] text-right">01</span>
+
+			<!-- Navigation Controls -->
+			<div class="flex items-center">
+				<button id="videoCardsPrevBtn" class="p-2 rounded-full">
+					<svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+					</svg>
+				</button>
+
+				<!-- Progress Bar -->
+				<div class="w-24 h-1 bg-gray-200 rounded-full overflow-hidden">
+					<div id="videoCardsProgressBar" class="h-full bg-gray-800 rounded-full transition-all duration-300 ease-in-out" style="width: 4%"></div>
+				</div>
+
+				<button id="videoCardsNextBtn" class="p-2 rounded-full">
+					<svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+					</svg>
+				</button>
+			</div>
+
+			<!-- Total Slides -->
+			<span id="videoCardsTotalSlides" class="text-normal text-[#AAB1BB] font-medium min-w-[2ch]">25</span>
+		</div>
+	</div>
+
+	<!-- Second Row: Video Cards Slider -->
+	<div class="overflow-hidden">
+		<div
+			id="videoCardsSliderTrack" class="flex transition-transform duration-300 ease-in-out"><!-- Video card slides will be generated by JavaScript -->
+		</div>
+	</div>
+</section>
+<div style="padding-bottom:20px;"></div>
+
+{% include '@acp/footer.html.twig' %}

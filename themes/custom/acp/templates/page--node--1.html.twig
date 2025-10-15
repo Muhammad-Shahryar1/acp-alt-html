@@ -1,0 +1,22 @@
+{% include '@acp/sec-header.html.twig' %}
+{# Privacy Policy #}
+{# mb-[450px] #}
+<main style="margin-bottom:40px;"
+      class="container   mx-auto px-4 sm:px-6 lg:px-8 py-12"
+    >
+     {% if language.id == 'ar' %}
+     <div class="privacy-policy-arabiccontent" >
+         
+                {{page.privacyPolicyArabic}}
+     </div>
+              {% else %}
+              <div class="privacy-policy-content" >
+               {{page.privacyPolicy}}
+               </div>
+              {% endif %}
+    
+    </main>
+    <div style="padding-bottom:30px;"></div>
+
+
+{% include '@acp/footer.html.twig' %}

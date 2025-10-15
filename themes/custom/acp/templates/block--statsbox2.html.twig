@@ -1,0 +1,45 @@
+<div id="card2" class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 h-full group">
+	<div class="flex items-center justify-between mb-3">
+		<div class="w-8 h-8">
+			<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewbox="0 0 60.12 59.67" class="w-full h-full">
+				<defs>
+					<style>
+						.cls-1 {
+							stroke: #32d2a0;
+						}
+
+						.cls-1,
+						.cls-2 {
+							fill: none;
+							stroke-miterlimit: 10;
+							stroke-width: 3px;
+						}
+
+						.cls-2 {
+							stroke: #009696;
+						}
+					</style>
+				</defs>
+				<g id="Layer_1-2" data-name="Layer 1">
+					<g>
+						<circle class="cls-2" cx="10.12" cy="10.12" r="8.62"/>
+						<circle class="cls-2" cx="51.42" cy="50.98" r="7.2"/>
+						<polyline class="cls-1 group-hover:!stroke-[white]" points="33.67 50.98 10.12 50.98 10.12 27.43"/>
+						<polyline class="cls-1 group-hover:!stroke-[white]" points="27.98 10.12 51.53 10.12 51.53 33.67"/>
+					</g>
+				</g>
+			</svg>
+		</div>
+		<span class="text-5xl text-[#44505E] font-semibold group-hover:text-white" data-i18n="stats.carrierCollaborationDigit">
+			{{ content.field_stats.0['#markup']|number_format(0) }}</span>
+	</div>
+	<div>
+		<p class="font-semibold text-lg group-hover:text-white" data-i18n="stats.carrierCollaboration">
+			{{ content.field_title.0 }}
+		</p>
+		<p class="!text-sm text-[#9D9D9C] group-hover:text-white" data-i18n="stats.carrierCollaborationDesc">
+
+			{{ content.field_subtitle.0 }}
+		</p>
+	</div>
+</div>

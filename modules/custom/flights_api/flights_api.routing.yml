@@ -1,0 +1,9 @@
+flights_api.get_flights:
+  path: "/api/flights"
+  defaults:
+    _controller: '\Drupal\flights_api\Controller\FlightsController::getFlights'
+    _title: "Flights API"
+  requirements:
+    _permission: "access content"
+
+

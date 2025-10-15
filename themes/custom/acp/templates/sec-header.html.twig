@@ -1,0 +1,91 @@
+{{ attach_library('acp/secheader-styling') }}
+
+<header class="secondary-header">
+  <nav>
+    <div class="nav-container">
+      <!-- Logo Section -->
+      <div class="logo-section">
+        <div>
+          <a href="{{ path('<front>') }}">
+            <img src="{{ base_path ~ directory }}/assets/logos/header-logo2.png" alt="{{ 'Logo'|t }}">
+          </a>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <div class="sec-header-menu">
+        {{ page.header }}
+      </div>
+
+      <!-- Right Side Actions -->
+      <div class="right-actions">
+        <!-- Language Selector -->
+        <div class="language-selector-wrapper">
+          <div id="language-selector" data-lang="{{ language.id }}">
+            <span id="language-selector-content-desktop">
+              {% if language.id == 'ar' %}
+                English
+              {% else %}
+                العربية
+              {% endif %}
+            </span>
+            <img src="{{ base_path ~ directory }}/assets/language-selector.png" alt="{{ 'Language'|t }}">
+          </div>
+        </div>
+
+        <!-- Become a Partner Button -->
+        {% if language.id == 'ar' %}
+          <a href="{{ url('<front>') }}/node/3" class="partner-button">
+            كن شريكاً
+          </a>
+        {% else %}
+          <a href="{{ url('<front>') }}become-partner" class="partner-button">
+            Become a Partner
+          </a>
+        {% endif %}
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden">
+      <div class="mobile-menu-content">
+        {{ page.header }}
+
+        <!-- Mobile Actions -->
+        <div class="mobile-actions">
+          <!-- Language Selector -->
+          <div id="mobile-language-selector" data-lang="{{ language.id }}">
+            <span id="language-selector-content-mobile">
+              {% if language.id == 'ar' %}
+                English
+              {% else %}
+                العربية
+              {% endif %}
+            </span>
+            <div id="language-selector">
+              <img src="{{ base_path ~ directory }}/assets/language-selector.png" alt="{{ 'Language'|t }}">
+            </div>
+          </div>
+
+          {% if language.id == 'ar' %}
+            <a href="{{ url('<front>') }}/node/3" class="partner-button">
+              كن شريكاً
+            </a>
+          {% else %}
+            <a href="{{ url('<front>') }}become-partner" class="partner-button">
+              Become a Partner
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

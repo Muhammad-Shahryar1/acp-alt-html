@@ -1,0 +1,95 @@
+{% include '@acp/sec-header.html.twig' %}
+{# Contact Us #}
+
+
+<div class="mb-92 bg-[#009595]" style="margin-bottom:200px;" >
+	<div class="max-h-screen py-20 container mx-auto px-4 xl:px-16 pb-10 md:pt-28 gap-5 flex flex-col items-center justify-center">
+		<div id="pageNavigation" class="flex gap-1 my-6 items-center container mx-auto">
+			{% if language.id == 'ar' %}
+				<a href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">الرئيسية</a>
+
+				<!-- Separator (Arrow pointing left for Arabic) -->
+				<svg class="w-4 h-4 text-green-400 rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+				</svg>
+
+				<!-- Contact Us (Arabic) -->
+				<a href="{{ url('<front>') }}/node/2" class="text-green-400 hover:text-green-400">تواصل معنا</a>
+
+			{% else %}
+				<a href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">Home</a>
+
+				<!-- Separator (Normal direction for English) -->
+				<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+				</svg>
+
+				<!-- Contact Us (English) -->
+				<a href="{{ url('<front>') }}contact-us" class="text-green-400 hover:text-green-400">Contact Us</a>
+			{% endif %}
+		</div>
+
+		<div
+			class="relative w-full flex justify-center">
+			<!-- Green card -->
+			<div class="absolute top-0 right-8 md:right-0 w-[90%] xl:h-[100%] lg:h-[110%] md:h-[400px] sm:h-[350px] h-[400px] bg-[#32D2A0] -rotate-5 z-10"></div>
+
+			<!-- White card -->
+			<div
+				class="relative bg-white rounded-2xl space-y-12 sm:space-y-16 md:space-y-20 -mb-32 md:-mb-40 shadow-md w-full p-6 sm:p-8 md:p-12 xl:pl-40 xl:pr-24 lg:py-40 py-10 z-10">
+
+				<!-- Header Text -->
+				<div class="mb-4 sm:mb-6">
+					<h1 id="hero-heading" class="text-2xl md:text-3xl lg:text-4xl xl:text-[51px] mb-8 sm:mb-12 md:mb-16 lg:mb-20 leading-[1.1em] text-[#566578] font-bold" data-i18n="main.heading">
+						{% if language.id == 'ar' %}
+							هل لديك أي أسئلة؟ نحن هنا للإجابة عليها
+						{% else %}
+							Any questions? We are here to answer them!
+						{% endif %}
+					</h1>
+
+				</div>
+
+				<!-- Form -->
+				<form class="space-y-6">
+					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+						{% if language.id == 'ar' %}
+							<input type="text" placeholder="اسمك" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"/>
+							<input type="email" placeholder="عنوان البريد الإلكتروني" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"/>
+							<input type="tel" placeholder="رقم الهاتف (اختياري)" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm sm:col-span-2 lg:col-span-1"/>
+						{% else %}
+							<input type="text" placeholder="Your Name" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"/>
+							<input type="email" placeholder="Email Address" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"/>
+							<input type="tel" placeholder="Phone Number (optional)" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm sm:col-span-2 lg:col-span-1"/>
+						{% endif %}
+					</div>
+
+					{% if language.id == 'ar' %}
+						<textarea placeholder="الرسالة" rows="3" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"></textarea>
+					{% else %}
+						<textarea placeholder="Message" rows="3" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"></textarea>
+					{% endif %}
+
+					<!-- Submit Button -->
+					<button type="submit" class="bg-[#32D2A0] text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg shadow text-sm w-full sm:w-auto flex items-center justify-center gap-2">
+						{% if language.id == 'ar' %}
+							إرسال
+							<svg class="w-4 h-4 inline-block rotate-180" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true">
+								<path d="M13.293 5.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L16.586 12 13.293 8.707a1 1 0 0 1 0-1.414zM3 12a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/>
+							</svg>
+						{% else %}
+							Send
+							<svg class="w-4 h-4 inline-block" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true">
+								<path d="M13.293 5.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L16.586 12 13.293 8.707a1 1 0 0 1 0-1.414zM3 12a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/>
+							</svg>
+						{% endif %}
+					</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</div>
+<div style="padding-bottom:100px;"></div>
+
+{% include '@acp/footer.html.twig' %}
