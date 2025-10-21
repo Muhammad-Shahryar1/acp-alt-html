@@ -19,7 +19,10 @@
         "drupal/core-composer-scaffold": "^10.0",
         "drupal/core-project-message": "^10.0",
         "drupal/core-recommended": "^10.0",
-        "drupal/core-vendor-hardening": "^10.0"
+        "drupal/core-vendor-hardening": "^10.0",
+        "drupal/libraries": "^4.1",
+        "drush/drush": "^12",
+        "phpmailer/phpmailer": "^7.0"
     },
     "conflict": {
         "drupal/drupal": "*"

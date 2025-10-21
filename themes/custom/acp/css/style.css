@@ -21,11 +21,52 @@ p {
     font-size: 16px;
   }
 }
+
+input:focus{
+    border:none !important;
+    outline:none !important;
+}
+.message-field-container{
+    margin-top: 40px !important;
+    margin-bottom: 20px !important;
+}
+
+.message-field-container .js-form-item{
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.input-fields-container input{
+    display: block !important;
+    width: 100% !important;
+}
+.partner-info-container input{
+    display: block !important;
+    width: 100% !important;
+}
+.partner-contactinfo-container input{
+    display: block !important;
+    width: 100% !important;
+}
+
+.partner-message-container .js-form-item  label{
+    display: none !important;
+}
+
+.partner-message-container textarea{
+    width:100% !important;
+    display: block !important;
+    border: none !important;
+    outline: none !important;
+}
+
 /* Privacy Policy Content */
 .privacy-policy-content #block-privacypolicycontent p span,
 .privacy-policy-content #block-privacypolicycontent ul li span{
   font-size: 20px !important;
 }
+
 
 .privacy-policy-content #block-privacypolicycontent h1 span,
 .privacy-policy-content #block-privacypolicycontent  h2 span,

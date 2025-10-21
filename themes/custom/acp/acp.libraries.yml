@@ -6,15 +6,16 @@ global-styling:
   js:
     https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js: { type: external, minified: true }
     https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js: { type: external, minified: true }
-    dependencies:
-    - core/drupal
-    - core/jquery
-    - core/once
+  dependencies:
+   - core/drupal
+   - core/jquery
+   - core/once
 
 frontpage-scripts:
   js:
     js/main.js: {}
   dependencies:
+    - acp/global-styling
     - core/drupal
     - core/jquery
     - core/once

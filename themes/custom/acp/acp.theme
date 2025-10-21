@@ -1,0 +1,44 @@
+<?php
+
+use Drupal\contact\Entity\ContactForm;
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function acp_preprocess_page(&$variables) {
+  // Contact Us page (node/2)
+  if (!empty($variables['node']) && $variables['node']->id() == 2) {
+    $contact_form = ContactForm::load('contact_us_form');
+
+    if ($contact_form) {
+      $form = \Drupal::entityTypeManager()
+        ->getFormObject('contact_message', 'default')
+        ->setEntity(
+          \Drupal::entityTypeManager()
+            ->getStorage('contact_message')
+            ->create(['contact_form' => $contact_form->id()])
+        );
+
+      $form = \Drupal::formBuilder()->getForm($form);
+      $variables['contact_us_form'] = $form;
+    }
+  }
+
+  // Partner Form page (node/3)
+  if (!empty($variables['node']) && $variables['node']->id() == 3) {
+    $partner_form = ContactForm::load('partner_form');
+
+    if ($partner_form) {
+      $form = \Drupal::entityTypeManager()
+        ->getFormObject('contact_message', 'default')
+        ->setEntity(
+          \Drupal::entityTypeManager()
+            ->getStorage('contact_message')
+            ->create(['contact_form' => $partner_form->id()])
+        );
+
+      $form = \Drupal::formBuilder()->getForm($form);
+      $variables['partner_form'] = $form;
+    }
+  }
+}

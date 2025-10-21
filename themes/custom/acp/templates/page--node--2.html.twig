@@ -51,43 +51,44 @@
 				</div>
 
 				<!-- Form -->
-				<form class="space-y-6">
-					<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-						{% if language.id == 'ar' %}
-							<input type="text" placeholder="اسمك" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"/>
-							<input type="email" placeholder="عنوان البريد الإلكتروني" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"/>
-							<input type="tel" placeholder="رقم الهاتف (اختياري)" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm sm:col-span-2 lg:col-span-1"/>
-						{% else %}
-							<input type="text" placeholder="Your Name" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"/>
-							<input type="email" placeholder="Email Address" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"/>
-							<input type="tel" placeholder="Phone Number (optional)" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm sm:col-span-2 lg:col-span-1"/>
-						{% endif %}
-					</div>
+				<form{{ contact_us_form.attributes.addClass('space-y-6') }} action="/contact/contact_us_form"  method="post" id="contact-message-contact-us-form-form" accept-charset="UTF-8" >
+  {{ contact_us_form.form_build_id }}
+  {{ contact_us_form.form_token }}
+  {{ contact_us_form.form_id }}
 
-					{% if language.id == 'ar' %}
-						<textarea placeholder="الرسالة" rows="3" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"></textarea>
-					{% else %}
-						<textarea placeholder="Message" rows="3" class="border-b w-full focus:outline-none placeholder:text-black border-gray-300 focus:border-gray-600 pb-4 text-sm"></textarea>
-					{% endif %}
+  <div class="grid grid-cols-1 sm:grid-cols-2 input-fields-container lg:grid-cols-3 overflow-hidden gap-4 sm:gap-6">
+    {% if language.id == 'ar' %}
+      {{ contact_us_form.field_name|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'اسمك', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+      {{ contact_us_form.field_email|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'عنوان البريد الإلكتروني', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+      {{ contact_us_form.field_phone_number|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'رقم الهاتف (اختياري)', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm', 'sm:col-span-2', 'lg:col-span-1']}}) }}
+    {% else %}
+      {{ contact_us_form.field_name|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Your Name', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+      {{ contact_us_form.field_email|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Email Address', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+      {{ contact_us_form.field_phone_number|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Phone Number (optional)', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm', 'sm:col-span-2', 'lg:col-span-1']}}) }}
+    {% endif %}
+  </div>
+    
+    <div class="message-field-container" >
+  {% if language.id == 'ar' %}
+    {{ contact_us_form.field_message|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'الرسالة', 'rows': '3', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+  {% else %}
+    {{ contact_us_form.field_message|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Message', 'rows': '3', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+  {% endif %}
+</div>
+  <!-- Submit Button -->
+   <div class="pt-4">
+    {{ contact_us_form.actions.submit|merge({
+      '#attributes': {
+        'class': ['bg-[#32D2A0]', 'text-white', 'px-8', 'sm:px-12', 'py-3', 'sm:py-4', 'rounded-lg', 'shadow', 'text-sm', 'w-full', 'sm:w-auto', 'flex', 'items-center', 'justify-center', 'gap-2']
+      },
+      '#value': (language.id == 'ar') ? 'إرسال' : 'Send'
+    }) }}
+  </div>
+</form>
 
-					<!-- Submit Button -->
-					<button type="submit" class="bg-[#32D2A0] text-white px-8 sm:px-12 py-3 sm:py-4 rounded-lg shadow text-sm w-full sm:w-auto flex items-center justify-center gap-2">
-						{% if language.id == 'ar' %}
-							إرسال
-							<svg class="w-4 h-4 inline-block rotate-180" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true">
-								<path d="M13.293 5.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L16.586 12 13.293 8.707a1 1 0 0 1 0-1.414zM3 12a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/>
-							</svg>
-						{% else %}
-							Send
-							<svg class="w-4 h-4 inline-block" viewbox="0 0 24 24" fill="currentColor" aria-hidden="true">
-								<path d="M13.293 5.293a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 1 1-1.414-1.414L16.586 12 13.293 8.707a1 1 0 0 1 0-1.414zM3 12a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z"/>
-							</svg>
-						{% endif %}
-					</button>
-				</form>
+
 			</div>
 		</div>
-
 	</div>
 </div>
 <div style="padding-bottom:100px;"></div>

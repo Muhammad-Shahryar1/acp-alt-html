@@ -23,7 +23,7 @@ trait TagTrait
     final public function tag(string $name, array $attributes = []): static
     {
         if ('' === $name) {
-            throw new InvalidArgumentException(sprintf('The tag name for service "%s" must be a non-empty string.', $this->id));
+            throw new InvalidArgumentException(\sprintf('The tag name for service "%s" must be a non-empty string.', $this->id));
         }
 
         $this->validateAttributes($name, $attributes);
@@ -33,13 +33,14 @@ trait TagTrait
         return $this;
     }
 
-    private function validateAttributes(string $tagName, array $attributes, string $prefix = ''): void
+    private function validateAttributes(string $tag, array $attributes, array $path = []): void
     {
-        foreach ($attributes as $attribute => $value) {
+        foreach ($attributes as $name => $value) {
             if (\is_array($value)) {
-                $this->validateAttributes($tagName, $value, $attribute.'.');
+                $this->validateAttributes($tag, $value, [...$path, $name]);
             } elseif (!\is_scalar($value ?? '')) {
-                throw new InvalidArgumentException(sprintf('A tag attribute must be of a scalar-type or an array of scalar-types for service "%s", tag "%s", attribute "%s".', $this->id, $tagName, $prefix.$attribute));
+                $name = implode('.', [...$path, $name]);
+                throw new InvalidArgumentException(\sprintf('A tag attribute must be of a scalar-type or an array of scalar-types for service "%s", tag "%s", attribute "%s".', $this->id, $tag, $name));
             }
         }
     }
