@@ -1,6 +1,6 @@
-<div id="card1" class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all duration-300 group">
-	<div class="flex items-center justify-between mb-3">
-		<div class="w-8 h-8">
+<div id="card1" class="bg-white border border-gray-300 text-gray-800 p-6 rounded-md cursor-pointer hover:bg-emerald-500 hover:border-emerald-400 transition-all h-full duration-300 group">
+	<div class="flex items-center justify-between mb-8">
+		<div class="w-10 h-10 ">
 			<svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewbox="0 0 62.09 46.32" class="w-full h-full">
 				<defs>
 					<style>
@@ -30,15 +30,15 @@
 				</g>
 			</svg>
 		</div>
-		<span class="text-5xl text-[#44505E] font-semibold group-hover:text-white" data-i18n="stats.routesActivatedDigit">
+		<span class="text-4xl text-[#44505E] font-semibold group-hover:text-white" data-i18n="stats.routesActivatedDigit">
 			{{ content.field_stats.0['#markup']|number_format(0) }}
 		</span>
 	</div>
 	<div>
-		<p class="font-semibold text-lg group-hover:text-white" data-i18n="stats.routesActivated">
+		<p class="font-semibold mb-6 text-lg group-hover:text-white" data-i18n="stats.routesActivated">
 			{{ content.field_title.0 }}
 		</p>
-		<p class="!text-sm text-[#9D9D9C] group-hover:text-white" data-i18n="stats.routesActivatedDesc">
+		<p class="!text-sm text-[#9D9D9C] mb-6 group-hover:text-white" data-i18n="stats.routesActivatedDesc">
 			{{ content.field_subtitle.0 }}
 		</p>
 	</div>

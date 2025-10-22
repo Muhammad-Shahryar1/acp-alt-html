@@ -861,23 +861,18 @@ airportPointers.forEach((airport) => {
     const code = airport.getAttribute("data-code");
     console.log(`Clicked: ${name} (${code})`);
     window.setAirportByCode(code);
-
     document
       .querySelectorAll(".plane-circle")
       .forEach((c) => c.classList.remove("active"));
-
     let planeCircle = airport.querySelector(".plane-circle");
     if (planeCircle) {
       planeCircle.classList.add("active");
     }
-
     highlightLayer.innerHTML = "";
-
     // Get pin position (x, y are strings → convert to numbers)
     const x = parseFloat(airport.getAttribute("x"));
     const y = parseFloat(airport.getAttribute("y"));
     const targetRadius = 80; // final radius
-
     // Create highlight circle
     const circle = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -889,9 +884,53 @@ airportPointers.forEach((airport) => {
     circle.setAttribute("r", 0);
     circle.setAttribute("fill", "url(#highlight-gradient)");
     circle.setAttribute("pointer-events", "none");
-
     // Append to highlight layer
     highlightLayer.appendChild(circle);
+
+    // Create a group element for the label
+    const labelGroup = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "g"
+    );
+    labelGroup.setAttribute("class", "airport-label-group");
+    labelGroup.style.pointerEvents = "none";
+
+    // Create label background (rounded rectangle) - positioned ABOVE the pin
+    const labelBg = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "rect"
+    );
+    labelBg.setAttribute("class", "airport-label-bg");
+    labelBg.setAttribute("x", x - 10);
+    labelBg.setAttribute("y", y - 40); // Above the circle
+    labelBg.setAttribute("width", 76);
+    labelBg.setAttribute("height", 32);
+    labelBg.setAttribute("rx", 8);
+    labelBg.setAttribute("fill", "white");
+    labelBg.setAttribute("stroke", "#00D9A3");
+    labelBg.setAttribute("stroke-width", "2");
+    labelBg.setAttribute("pointer-events", "none");
+    // Create label text - positioned ABOVE the pin
+    const labelText = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "text"
+    );
+    labelText.setAttribute("class", "airport-label-text");
+    labelText.setAttribute("x", x + 28);
+    labelText.setAttribute("y", y -16); // Centered vertically in the label
+    labelText.setAttribute("text-anchor", "middle");
+    labelText.setAttribute("fill", "#333333");
+    labelText.setAttribute("font-size", "18");
+    labelText.setAttribute("font-weight", "600");
+    labelText.setAttribute("pointer-events", "none");
+    labelText.textContent = code;
+
+    // Append label elements to the group
+    labelGroup.appendChild(labelBg);
+    labelGroup.appendChild(labelText);
+    
+    // Append the group to highlight layer (stays within highlightLayer)
+    highlightLayer.appendChild(labelGroup);
 
     // Trigger the transition a tiny bit later
     requestAnimationFrame(() => {

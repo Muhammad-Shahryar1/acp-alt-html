@@ -96,11 +96,11 @@
 					<div
 						id="statistics-content" class="space-y-6 text-center lg:text-left">
 						<!-- Placeholder text -->
-						<p
-							class="text-2xl text-black uppercase tracking-wide" data-i18n="stats.drivingGlobalConnections">
+						{#<p#}
+						{#	class="text-2xl text-black uppercase tracking-wide" data-i18n="stats.drivingGlobalConnections">#}
 							{# DRIVING GLOBAL CONNECTIONS #}
-							{{ page.statsSubHeading|render|striptags }}
-						</p>
+						{#	{{ page.statsSubHeading|render|striptags }}#}
+						{#</p>#}
 						<!-- Main Heading -->
 						<h2 class="text-3xl sm:text-[51px] font-bold text-black leading-tight" data-i18n="stats.saudiAirConnectivity">
 							{{ page.statsHeading|render|striptags }}
@@ -108,18 +108,18 @@
 						</h2>
 
 						<!-- Subheading -->
-						<h3 class="text-xl sm:text-xl text-black font-medium" data-i18n="stats.vision2030Initiative">
-							{{ page.statsdesc|render|striptags }}
-						</h3>
+						{#<h3 class="text-xl sm:text-xl text-black font-medium" data-i18n="stats.vision2030Initiative">#}
+						{#	{{ page.statsdesc|render|striptags }}#}
+						{#</h3>#}
 					</div>
 				</div>
 
 				<!-- Right Column - Statistics Cards -->
-				<div class="grid stats-card grid-cols-2 gap-3">
+				<div class="grid stats-card grid-cols-3 gap-3">
 					{{ page.statsBox1|raw }}
 					{{ page.statsBox2|raw }}
 					{{ page.statsBox3|raw }}
-					{{ page.statsBox4|raw }}
+					{#{{ page.statsBox4|raw }}#}
 				</div>
 
 			</div>
