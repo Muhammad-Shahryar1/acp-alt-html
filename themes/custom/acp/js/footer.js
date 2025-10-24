@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const footer = document.getElementById("animatedFooter");
         const pageOverlay = document.getElementById("pageOverlay");
         let scrollTimer = null;
-        const threshold = 400; // px to consider "at bottom"
+        const threshold = 200; // px to consider "at bottom"
 
         // safety: ensure elements exist
         if (!footer || !pageOverlay) return;

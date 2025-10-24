@@ -30,6 +30,56 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+(function ($, Drupal) {
+  Drupal.behaviors.logosCarousel = {
+    attach: function (context, settings) {
+
+      // Only run once per page load
+      if (context !== document) return;
+
+      const container = document.getElementById('logosContainer');
+      if (!container) return;
+
+      // API endpoint
+      const apiUrl = '/api/logos';
+
+      fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+          if (!Array.isArray(data) || data.length === 0) return;
+
+          // Clear existing
+          container.innerHTML = '';
+
+          // Build <img> tags
+          data.forEach(item => {
+            if (!item.image_url) return;
+            const img = document.createElement('img');
+            img.src = item.image_url;
+            img.alt = item.title || 'Logo';
+            img.className =
+              'h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity';
+            container.appendChild(img);
+          });
+
+          // Duplicate logos to make infinite scroll look seamless
+          data.forEach(item => {
+            if (!item.image_url) return;
+            const img = document.createElement('img');
+            img.src = item.image_url;
+            img.alt = item.title || 'Logo';
+            img.className =
+              'h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity';
+            container.appendChild(img);
+          });
+        })
+        .catch(err => console.error('Logos API error:', err));
+    },
+  };
+})(jQuery, Drupal);
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
   console.log("Current path:", path);

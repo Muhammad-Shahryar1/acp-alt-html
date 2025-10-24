@@ -21,12 +21,15 @@ p {
     font-size: 16px;
   }
 }
+
 /* Mobile view: 1 column */
 @media (max-width: 640px) {
   .stats-card {
     grid-template-columns: 1fr;
   }
 }
+/*Forms */
+
 input:focus{
     border:none !important;
     outline:none !important;
@@ -208,7 +211,7 @@ input:focus{
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 

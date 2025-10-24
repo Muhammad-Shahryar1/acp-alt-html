@@ -817,13 +817,12 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $databases['default']['default'] = array (
-  'database' => 'acp_uat_latest',
-  'username' => 'drupal',
-  'password' => 'Njd734#nd8mE',
+  'database' => 'u492849996_acp',
+  'username' => 'u492849996_acp',
+  'password' => '>cb2|QV6',
   'prefix' => '',
-  'host' => '10.244.152.10',
+  'host' => 'localhost',
   'port' => '3306',
-  'isolation_level' => 'READ COMMITTED',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
