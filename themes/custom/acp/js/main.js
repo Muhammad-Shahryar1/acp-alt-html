@@ -1169,7 +1169,7 @@ function updateAirportDisplay() {
   document.getElementById("airportName").textContent = `${airport.name}`;
   document.getElementById("labelYears").textContent = t.years;
 
-  document.getElementById("year1").textContent = years[0];
+  // document.getElementById("year1").textContent = years[0];
   document.getElementById("year2").textContent = years[1];
 
   if (airport.airportType === "International") {
@@ -1177,12 +1177,12 @@ function updateAirportDisplay() {
     document.getElementById("domLabel").textContent = t.domesticPassengers;
 
     // Access data using English keys
-    document.getElementById("intl1").textContent =
-      airport.yearsData[years[0]]["International Passengers"];
+    // document.getElementById("intl1").textContent =
+    //   airport.yearsData[years[0]]["International Passengers"];
     document.getElementById("intl2").textContent =
       airport.yearsData[years[1]]["International Passengers"];
-    document.getElementById("dom1").textContent =
-      airport.yearsData[years[0]]["Domestic Passengers"];
+    // document.getElementById("dom1").textContent =
+    //   airport.yearsData[years[0]]["Domestic Passengers"];
     document.getElementById("dom2").textContent =
       airport.yearsData[years[1]]["Domestic Passengers"];
   } else {
@@ -1190,12 +1190,12 @@ function updateAirportDisplay() {
     document.getElementById("domLabel").textContent = t.passengers;
 
     // Access data using English keys
-    document.getElementById("intl1").textContent =
-      airport.yearsData[years[0]]["Flights"];
+    // document.getElementById("intl1").textContent =
+    //   airport.yearsData[years[0]]["Flights"];
     document.getElementById("intl2").textContent =
       airport.yearsData[years[1]]["Flights"];
-    document.getElementById("dom1").textContent =
-      airport.yearsData[years[0]]["Passengers"];
+    // document.getElementById("dom1").textContent =
+    //   airport.yearsData[years[0]]["Passengers"];
     document.getElementById("dom2").textContent =
       airport.yearsData[years[1]]["Passengers"];
   }

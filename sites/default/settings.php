@@ -816,13 +816,27 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 # if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
+// $databases['default']['default'] = array (
+//   'database' => 'u492849996_acp',
+//   'username' => 'u492849996_acp',
+//   'password' => '>cb2|QV6',
+//   'prefix' => '',
+//   'host' => 'localhost',
+//   'port' => '3306',
+//   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+//   'driver' => 'mysql',
+//   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
+// );
+// $settings['config_sync_directory'] = 'sites/default/files/config_YX841Xn2Lv6cdcCaW4u9PfWi_nmXuUv7qPo6WOWHpWnm0kuAmxQCR4-UvSe4uTekR5aR3VsGNA/sync';
+
 $databases['default']['default'] = array (
-  'database' => 'u492849996_acp',
-  'username' => 'u492849996_acp',
-  'password' => '>cb2|QV6',
+  'database' => 'acp_uat_latest',
+  'username' => 'drupal',
+  'password' => 'Njd734#nd8mE',
   'prefix' => '',
-  'host' => 'localhost',
+  'host' => '10.244.152.10',
   'port' => '3306',
+  'isolation_level' => 'READ COMMITTED',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
