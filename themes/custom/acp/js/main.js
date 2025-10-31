@@ -1199,11 +1199,11 @@ function updateAirportDisplay() {
     // document.getElementById("intl1").textContent =
     //   airport.yearsData[years[0]]["International Passengers"];
     document.getElementById("intl2").textContent =
-      airport.yearsData[years[1]]["International Passengers"].toFixed(0);
+      airport.yearsData[years[1]]["International Passengers"];
     // document.getElementById("dom1").textContent =
     //   airport.yearsData[years[0]]["Domestic Passengers"];
     document.getElementById("dom2").textContent =
-      airport.yearsData[years[1]]["Domestic Passengers"].toFixed(0);
+      airport.yearsData[years[1]]["Domestic Passengers"];
   } else {
     document.getElementById("intlLabel").textContent = t.flights;
     document.getElementById("domLabel").textContent = t.passengers;
@@ -1212,11 +1212,11 @@ function updateAirportDisplay() {
     // document.getElementById("intl1").textContent =
     //   airport.yearsData[years[0]]["Flights"];
     document.getElementById("intl2").textContent =
-      airport.yearsData[years[1]]["Flights"].toFixed(0);
+      airport.yearsData[years[1]]["Flights"];
     // document.getElementById("dom1").textContent =
     //   airport.yearsData[years[0]]["Passengers"];
     document.getElementById("dom2").textContent =
-      airport.yearsData[years[1]]["Passengers"].toFixed(0);
+      airport.yearsData[years[1]]["Passengers"];
   }
 
   updateAirportImageSlider();

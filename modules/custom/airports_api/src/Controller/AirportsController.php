@@ -29,7 +29,7 @@ class AirportsController extends ControllerBase {
     $nodes = Node::loadMultiple($nids);
 
     foreach ($nodes as $node) {
-      // ✅ Load node in the current language (if translation exists)
+      // ✅ Load node translation if available
       if ($node->hasTranslation($langcode)) {
         $node = $node->getTranslation($langcode);
       }
@@ -44,18 +44,19 @@ class AirportsController extends ControllerBase {
         'yearsData' => [],
       ];
 
-      // ✅ Handle image
+      // ✅ Handle airport image
       if ($node->hasField('field_airport_image') && !$node->get('field_airport_image')->isEmpty()) {
         $fid = $node->get('field_airport_image')->target_id;
         if ($fid) {
           $file = File::load($fid);
           if ($file) {
-            $item['image'] = \Drupal::service('file_url_generator')->generateAbsoluteString($file->getFileUri());
+            $item['image'] = \Drupal::service('file_url_generator')
+              ->generateAbsoluteString($file->getFileUri());
           }
         }
       }
 
-      // ✅ Handle International Years Data
+      // ✅ Handle International Airports
       if ($item['airportType'] === 'International' && $node->hasField('field_international_years_data')) {
         foreach ($node->get('field_international_years_data')->referencedEntities() as $para) {
           if ($para->hasTranslation($langcode)) {
@@ -65,14 +66,14 @@ class AirportsController extends ControllerBase {
           $year = $para->get('field_year')->value ?? '';
           if ($year) {
             $item['yearsData'][$year] = [
-              'Domestic Passengers' => (float) ($para->get('field_domestic_passengers')->value ?? 0),
-              'International Passengers' => (float) ($para->get('field_international_passengers')->value ?? 0),
+              'Domestic Passengers' => $para->get('field_domestic_passengers')->value ?? '',
+              'International Passengers' => $para->get('field_international_passengers')->value ?? '',
             ];
           }
         }
       }
 
-      // ✅ Handle Domestic Years Data
+      // ✅ Handle Domestic Airports
       if ($item['airportType'] === 'Domestic' && $node->hasField('field_domestic_years_data')) {
         foreach ($node->get('field_domestic_years_data')->referencedEntities() as $para) {
           if ($para->hasTranslation($langcode)) {
@@ -82,8 +83,8 @@ class AirportsController extends ControllerBase {
           $year = $para->get('field_years')->value ?? '';
           if ($year) {
             $item['yearsData'][$year] = [
-              'Flights' => (float) ($para->get('field_flights')->value ?? 0),
-              'Passengers' => (float) ($para->get('field_passengers')->value ?? 0),
+              'Flights' => $para->get('field_flights')->value ?? '',
+              'Passengers' => $para->get('field_passengers')->value ?? '',
             ];
           }
         }
