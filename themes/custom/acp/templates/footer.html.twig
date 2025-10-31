@@ -41,10 +41,92 @@
 
 <div class="lg:col-span-1">
   <h3 class="text-lg font-semibold mb-6 text-white">
-    {% if is_arabic %} روابط ذات صلة {% else %} Related Links {% endif %}
+    {% if is_arabic %}
+      روابط ذات صلة
+    {% else %}
+      Related Links
+    {% endif %}
   </h3>
-  {{ page.footermenu3 }}
+
+  <ul class="space-y-3">
+    {% if is_arabic %}
+      <li>
+        <a href="https://www.vision2030.gov.sa/ar/"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          رؤية٢٠٣٠
+        </a>
+      </li>
+      <li>
+        <a href="https://mt.gov.sa/ar"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          وزارة السياحة
+        </a>
+      </li>
+      <li>
+        <a href="https://gaca.gov.sa/ar"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          هيئة الطيران المدني
+        </a>
+      </li>
+      <li>
+        <a href="https://www.sta.gov.sa/ar/home"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          الهيئة السعودية للسياحة
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tdf.gov.sa/ar"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          صندوق التنمية السياحية
+        </a>
+      </li>
+      <li>
+        <a href="https://redsea.gov.sa/ar"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          الهيئة السعودية للبحر الأحمر
+        </a>
+      </li>
+    {% else %}
+      <li>
+        <a href="https://www.vision2030.gov.sa/en/"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          Vision 2030
+        </a>
+      </li>
+      <li>
+        <a href="https://mt.gov.sa/"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          Ministry of Tourism
+        </a>
+      </li>
+      <li>
+        <a href="https://gaca.gov.sa/"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          GACA
+        </a>
+      </li>
+      <li>
+        <a href="https://www.sta.gov.sa/en/home"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          Saudi Tourism Authority
+        </a>
+      </li>
+      <li>
+        <a href="https://www.tdf.gov.sa/"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          TDF
+        </a>
+      </li>
+      <li>
+        <a href="https://redsea.gov.sa/"
+           class="text-gray-300 hover:text-white transition-colors duration-200">
+          Red Sea Authority
+        </a>
+      </li>
+    {% endif %}
+  </ul>
 </div>
+
 
 <div class="lg:col-span-1">
   <h3 class="text-lg font-semibold mb-6 text-white">

@@ -33,52 +33,61 @@ document.addEventListener("DOMContentLoaded", () => {
 (function ($, Drupal) {
   Drupal.behaviors.logosCarousel = {
     attach: function (context, settings) {
-
       // Only run once per page load
       if (context !== document) return;
 
-      const container = document.getElementById('logosContainer');
+      const container = document.getElementById("logosContainer");
       if (!container) return;
 
       // API endpoint
-      const apiUrl = '/api/logos';
+      const apiUrl = "/api/logos";
 
       fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
+        .then((response) => response.json())
+        .then((data) => {
           if (!Array.isArray(data) || data.length === 0) return;
 
           // Clear existing
-          container.innerHTML = '';
+          container.innerHTML = "";
 
           // Build <img> tags
-          data.forEach(item => {
-            if (!item.image_url) return;
-            const img = document.createElement('img');
+          data.forEach((item) => {
+            // Create wrapper for consistent size and alignment
+            const wrapper = document.createElement("div");
+            wrapper.className =
+              "flex items-center justify-center w-48 h-32 sm:w-64 sm:h-40 bg-transparent flex-shrink-0";
+
+            const img = document.createElement("img");
             img.src = item.image_url;
-            img.alt = item.title || 'Logo';
+            img.alt = item.title || "Logo";
             img.className =
-              'h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity';
-            container.appendChild(img);
+              "max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity";
+
+            wrapper.appendChild(img);
+            container.appendChild(wrapper);
           });
 
           // Duplicate logos to make infinite scroll look seamless
-          data.forEach(item => {
-            if (!item.image_url) return;
-            const img = document.createElement('img');
+          data.forEach((item) => {
+            // Create wrapper for consistent size and alignment
+            const wrapper = document.createElement("div");
+            wrapper.className =
+              "flex items-center justify-center w-48 h-32 sm:w-64 sm:h-40 bg-transparent flex-shrink-0";
+
+            const img = document.createElement("img");
             img.src = item.image_url;
-            img.alt = item.title || 'Logo';
+            img.alt = item.title || "Logo";
             img.className =
-              'h-48 sm:h-64 w-auto opacity-60 hover:opacity-100 transition-opacity';
-            container.appendChild(img);
+              "max-w-full max-h-full object-contain opacity-60 hover:opacity-100 transition-opacity";
+
+            wrapper.appendChild(img);
+            container.appendChild(wrapper);
           });
         })
-        .catch(err => console.error('Logos API error:', err));
+        .catch((err) => console.error("Logos API error:", err));
     },
   };
 })(jQuery, Drupal);
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const path = window.location.pathname;
@@ -139,8 +148,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Infinite Slider
     document.querySelector("#infiniteImagesSlider").dir =
       lang === "ar" ? "ltr" : "ltr";
-  }else{
-      document.querySelector("#airportName").style.textAlign = "left";
+  } else {
+    document.querySelector("#airportName").style.textAlign = "left";
   }
 
   if (panel) {
@@ -463,13 +472,13 @@ let currentNewsSlide = 1;
 
 function createNewsCard(news, index) {
   // Detect current language (based on <html lang="...">)
-  const lang = document.documentElement.lang || 'en';
+  const lang = document.documentElement.lang || "en";
 
   // Handle Read More text
-  const readMoreText = lang === 'ar' ? 'اقرأ المزيد' : 'Read More';
+  const readMoreText = lang === "ar" ? "اقرأ المزيد" : "Read More";
 
   // Handle direction (optional enhancement)
-  const isArabic = lang === 'ar';
+  const isArabic = lang === "ar";
   const arrowIcon = isArabic
     ? `<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
@@ -479,20 +488,26 @@ function createNewsCard(news, index) {
        </svg>`;
 
   // ✅ Fix image path — dynamic theme directory
-  const themePath = drupalSettings?.path?.themeUrl || '/themes/custom/acp';
+  const themePath = drupalSettings?.path?.themeUrl || "/themes/custom/acp";
 
   return `
     <div 
-      class="news-card w-[100%] sm:w-[100%] md:w-[50%] flex-shrink-0 border border-gray-300 bg-white rounded-md shadow-sm hover:shadow-sm transition-shadow duration-300 p-6 cursor-pointer opacity-[${news.id == 1 ? 1 : 0.5}]" 
+      class="news-card w-[100%] sm:w-[100%] md:w-[50%] flex-shrink-0 border border-gray-300 bg-white rounded-md shadow-sm hover:shadow-sm transition-shadow duration-300 p-6 cursor-pointer opacity-[${
+        news.id == 1 ? 1 : 0.5
+      }]" 
       data-id="${news.id}">
       
       <div class="flex flex-col gap-6 h-full">
         <div class="flex justify-between">
           <div class="w-2/5">
-            <h4 class="text-xl font-bold text-gray-800 mb-4 line-clamp-2" data-i18n="articles.featured.${news.id}.title">
+            <h4 class="text-xl font-bold text-gray-800 mb-4 line-clamp-2" data-i18n="articles.featured.${
+              news.id
+            }.title">
               ${news.headline}
             </h4>
-            <p class="text-gray-600 mb-6 line-clamp-3 flex-grow" data-i18n="articles.featured.${news.id}.description">
+            <p class="text-gray-600 mb-6 line-clamp-3 flex-grow" data-i18n="articles.featured.${
+              news.id
+            }.description">
               ${news.description}
             </p>
           </div>
@@ -506,8 +521,12 @@ function createNewsCard(news, index) {
         </div>
         <div class="flex items-center justify-between">
           <div class="text-[12px] text-gray-400">
-            <span class="border border-gray-300 p-2 rounded-sm">${news.location}</span>
-            <span class="border border-gray-300 p-2 rounded-sm" data-i18n="articles.featured.${index + 1}.date">${formatDate(news.date)}</span>
+            <span class="border border-gray-300 p-2 rounded-sm">${
+              news.location
+            }</span>
+            <span class="border border-gray-300 p-2 rounded-sm" data-i18n="articles.featured.${
+              index + 1
+            }.date">${formatDate(news.date)}</span>
           </div>
           <button 
             class="read-more-btn hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2"
@@ -522,7 +541,6 @@ function createNewsCard(news, index) {
     </div>
   `;
 }
-
 
 // Modal Functionality Start
 // 📰 Modal Elements
@@ -800,8 +818,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Detect current language from <html lang="">
     const lang = document.documentElement.lang || "en";
 
-//  se /ar prefix if Arabic
-    const apiUrl = lang === "ar" ? "/ar/acp-news/api/news" : "/acp-news/api/news";
+    //  se /ar prefix if Arabic
+    const apiUrl =
+      lang === "ar" ? "/ar/acp-news/api/news" : "/acp-news/api/news";
 
     // Fetch from Drupal API
     const response = await fetch(apiUrl);
@@ -826,16 +845,15 @@ document.addEventListener("DOMContentLoaded", async function () {
   selectableStatsCards();
 });
 
-
 // News Section End
 document.addEventListener("DOMContentLoaded", async () => {
   window.saudiAirports = [];
 
   // Detect current language
-  const lang = document.documentElement.lang || 'en';
+  const lang = document.documentElement.lang || "en";
 
   // Determine API endpoint based on language
-  const apiEndpoint = lang === 'ar' ? '/ar/api/airports' : '/api/airports';
+  const apiEndpoint = lang === "ar" ? "/ar/api/airports" : "/api/airports";
 
   // ------------------------------
   // Fetch API Data
@@ -920,24 +938,24 @@ airportPointers.forEach((airport) => {
     const code = airport.getAttribute("data-code");
     console.log(`Clicked: ${name} (${code})`);
     window.setAirportByCode(code);
-    
+
     document
       .querySelectorAll(".plane-circle")
       .forEach((c) => c.classList.remove("active"));
-    
+
     let planeCircle = airport.querySelector(".plane-circle");
     if (planeCircle) {
       planeCircle.classList.add("active");
     }
-    
+
     highlightLayer.innerHTML = "";
     labelLayer.innerHTML = ""; // Clear previous labels
-    
+
     // Get pin position (x, y are strings → convert to numbers)
     const x = parseFloat(airport.getAttribute("x"));
     const y = parseFloat(airport.getAttribute("y"));
     const targetRadius = 80; // final radius
-    
+
     // Create highlight circle
     const circle = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -949,10 +967,10 @@ airportPointers.forEach((airport) => {
     circle.setAttribute("r", 0);
     circle.setAttribute("fill", "url(#highlight-gradient)");
     circle.setAttribute("pointer-events", "none");
-    
+
     // Append to highlight layer
     highlightLayer.appendChild(circle);
-    
+
     // Create a group element for the label
     const labelGroup = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -960,7 +978,7 @@ airportPointers.forEach((airport) => {
     );
     labelGroup.setAttribute("class", "airport-label-group");
     labelGroup.style.pointerEvents = "none";
-    
+
     // Create label background (rounded rectangle) - positioned ABOVE the pin
     const labelBg = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -976,7 +994,7 @@ airportPointers.forEach((airport) => {
     labelBg.setAttribute("stroke", "#00D9A3");
     labelBg.setAttribute("stroke-width", "2");
     labelBg.setAttribute("pointer-events", "none");
-    
+
     // Create label text - positioned ABOVE the pin
     const labelText = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -991,17 +1009,17 @@ airportPointers.forEach((airport) => {
     labelText.setAttribute("font-weight", "600");
     labelText.setAttribute("pointer-events", "none");
     labelText.textContent = code;
-    
+
     // Append label elements to the group
     labelGroup.appendChild(labelBg);
     labelGroup.appendChild(labelText);
-    
+
     // Append the group to the label layer
     labelLayer.appendChild(labelGroup);
-    
+
     // CRITICAL: Move label layer to the very end of SVG to ensure it's on top
     svg.appendChild(labelLayer);
-    
+
     // Trigger the transition a tiny bit later
     requestAnimationFrame(() => {
       circle.setAttribute("r", targetRadius);
@@ -1143,48 +1161,49 @@ function updateAirportDisplay() {
   const years = Object.keys(airport.yearsData);
 
   // Detect current language
-  const lang = document.documentElement.lang || 'en';
+  const lang = document.documentElement.lang || "en";
 
   // Define label translations for display only
   const labels = {
     en: {
-      years: 'Years',
-      internationalPassengers: 'International Passengers',
-      domesticPassengers: 'Domestic Passengers',
-      flights: 'Flights',
-      passengers: 'Passengers',
+      years: "Years",
+      internationalPassengers: "International Passengers",
+      domesticPassengers: "Domestic Passengers",
+      flights: "Flights",
+      passengers: "Passengers",
     },
     ar: {
-      years: 'السنوات',
-      internationalPassengers: 'المسافرون الدوليون',
-      domesticPassengers: 'المسافرون المحليون',
-      flights: 'الرحلات',
-      passengers: 'الركاب',
+      years: "السنوات",
+      internationalPassengers: "المسافرون الدوليون",
+      domesticPassengers: "المسافرون المحليون",
+      flights: "الرحلات",
+      passengers: "الركاب",
     },
   };
 
-  const t = labels[lang] || labels['en']; // fallback to English for display
+  const t = labels[lang] || labels["en"]; // fallback to English for display
 
   // Update labels in HTML
   document.getElementById("airportName").textContent = `${airport.name}`;
   document.getElementById("labelYears").textContent = t.years;
 
-  // document.getElementById("year1").textContent = years[0];
+  //   document.getElementById("year1").textContent = years[0];
   document.getElementById("year2").textContent = years[1];
 
   if (airport.airportType === "International") {
-    document.getElementById("intlLabel").textContent = t.internationalPassengers;
+    document.getElementById("intlLabel").textContent =
+      t.internationalPassengers;
     document.getElementById("domLabel").textContent = t.domesticPassengers;
 
     // Access data using English keys
     // document.getElementById("intl1").textContent =
     //   airport.yearsData[years[0]]["International Passengers"];
     document.getElementById("intl2").textContent =
-      airport.yearsData[years[1]]["International Passengers"];
+      airport.yearsData[years[1]]["International Passengers"].toFixed(0);
     // document.getElementById("dom1").textContent =
     //   airport.yearsData[years[0]]["Domestic Passengers"];
     document.getElementById("dom2").textContent =
-      airport.yearsData[years[1]]["Domestic Passengers"];
+      airport.yearsData[years[1]]["Domestic Passengers"].toFixed(0);
   } else {
     document.getElementById("intlLabel").textContent = t.flights;
     document.getElementById("domLabel").textContent = t.passengers;
@@ -1193,17 +1212,15 @@ function updateAirportDisplay() {
     // document.getElementById("intl1").textContent =
     //   airport.yearsData[years[0]]["Flights"];
     document.getElementById("intl2").textContent =
-      airport.yearsData[years[1]]["Flights"];
+      airport.yearsData[years[1]]["Flights"].toFixed(0);
     // document.getElementById("dom1").textContent =
     //   airport.yearsData[years[0]]["Passengers"];
     document.getElementById("dom2").textContent =
-      airport.yearsData[years[1]]["Passengers"];
+      airport.yearsData[years[1]]["Passengers"].toFixed(0);
   }
 
   updateAirportImageSlider();
 }
-
-
 
 function updateAirportImageSlider() {
   const airport = saudiAirports[currentAirportIndex];
@@ -1282,22 +1299,23 @@ function renderFlightCards() {
   const lang = document.documentElement.lang || "en";
 
   // Translations
-  const t = {
-    en: {
-      airline: "Airline",
-      started: "Started?",
-      yearStarted: "Year Started",
-      yes: "Yes",
-      no: "No",
-    },
-    ar: {
-      airline: " التشغيل؟",
-      started: "هل بدأ",
-      yearStarted: "سنة التشغيل",
-      yes: "لا", // Yes → لا
-      no: "نعم", // No → نعم
-    },
-  }[lang] || t.en;
+  const t =
+    {
+      en: {
+        airline: "Airline",
+        started: "Started?",
+        yearStarted: "Year Started",
+        yes: "Yes",
+        no: "No",
+      },
+      ar: {
+        airline: " التشغيل؟",
+        started: "هل بدأ",
+        yearStarted: "سنة التشغيل",
+        yes: "لا", // Yes → لا
+        no: "نعم", // No → نعم
+      },
+    }[lang] || t.en;
 
   grid.innerHTML = currentPageFlights
     .map((flight) => {
@@ -1314,7 +1332,9 @@ function renderFlightCards() {
         <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-200 cursor-pointer">
           <div class="flex items-center justify-center mb-6">
             <div class="flex items-center space-x-4">
-              <span class="text-2xl font-bold text-gray-800">${flight.from}</span>
+              <span class="text-2xl font-bold text-gray-800">${
+                flight.from
+              }</span>
               <svg class="w-6 h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
               </svg>
@@ -1327,7 +1347,9 @@ function renderFlightCards() {
               <div class="flex items-center justify-center mb-2">
                 <span class="text-xs text-gray-500">${t.airline}</span>
               </div>
-              <div class="text-lg font-bold text-gray-800">${flight.airline}</div>
+              <div class="text-lg font-bold text-gray-800">${
+                flight.airline
+              }</div>
             </div>
 
             <div class="text-center flex flex-col justify-between">
@@ -1341,7 +1363,9 @@ function renderFlightCards() {
               <div class="flex items-center justify-center mb-2">
                 <span class="text-xs text-gray-500">${t.yearStarted}</span>
               </div>
-              <div class="text-lg font-bold text-gray-800">${flight.yearStarted || "-"}</div>
+              <div class="text-lg font-bold text-gray-800">${
+                flight.yearStarted || "-"
+              }</div>
             </div>
           </div>
         </div>
@@ -1349,7 +1373,6 @@ function renderFlightCards() {
     })
     .join("");
 }
-
 
 function updateFlightPaginationDisplay() {
   document.getElementById("current-flight-page").textContent = String(
@@ -1548,12 +1571,12 @@ let selectedContinent = null;
 
 // Arabic translations
 const continentTranslations = {
-  "Asia": "آسيا",
-  "Europe": "أوروبا",
-  "Africa": "أفريقيا",
+  Asia: "آسيا",
+  Europe: "أوروبا",
+  Africa: "أفريقيا",
   "North America": "أمريكا الشمالية",
   "South America": "أمريكا الجنوبية",
-  "Australia": "أستراليا",
+  Australia: "أستراليا",
 };
 
 function renderContinents() {
@@ -1571,10 +1594,11 @@ function renderContinents() {
       const isSelected = selectedContinent === c.name;
 
       // Translate name if Arabic
-      const displayName = lang === "ar" ? continentTranslations[c.name] : c.name;
+      const displayName =
+        lang === "ar" ? continentTranslations[c.name] : c.name;
 
       // Use absolute path to avoid /ar/ prefix issue
-      const imagePath = `${window.basePath || '/'}themes/custom/acp/${c.image}`;
+      const imagePath = `${window.basePath || "/"}themes/custom/acp/${c.image}`;
 
       return `
         <div id="continent-card-${globalIndex}" data-index="${globalIndex}" onclick="selectFlightContinent('${c.name}', 'continent-card-${globalIndex}')" class="flex flex-col items-center mt-2 mb-6 cursor-pointer">
@@ -1587,7 +1611,6 @@ function renderContinents() {
     })
     .join("");
 }
-
 
 function updateContinentProgress() {
   const totalContinentPages = Math.max(
@@ -1651,10 +1674,3 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 // ------------------ Map & Routes Section End --------------------
 // Airports Section End
-
-
-
-
-
-
-
