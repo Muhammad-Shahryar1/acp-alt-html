@@ -1183,12 +1183,15 @@ function updateAirportDisplay() {
 
   const t = labels[lang] || labels["en"]; // fallback to English for display
 
+  const onDisplayYear = years.length >= 2 ? years[1] : years[0]
+console.log(onDisplayYear)
+
   // Update labels in HTML
   document.getElementById("airportName").textContent = `${airport.name}`;
   document.getElementById("labelYears").textContent = t.years;
 
   //   document.getElementById("year1").textContent = years[0];
-  document.getElementById("year2").textContent = years[1];
+  document.getElementById("year2").textContent = onDisplayYear;
 
   if (airport.airportType === "International") {
     document.getElementById("intlLabel").textContent =
@@ -1199,11 +1202,11 @@ function updateAirportDisplay() {
     // document.getElementById("intl1").textContent =
     //   airport.yearsData[years[0]]["International Passengers"];
     document.getElementById("intl2").textContent =
-      airport.yearsData[years[1]]["International Passengers"];
+      airport.yearsData[onDisplayYear]["International Passengers"];
     // document.getElementById("dom1").textContent =
     //   airport.yearsData[years[0]]["Domestic Passengers"];
     document.getElementById("dom2").textContent =
-      airport.yearsData[years[1]]["Domestic Passengers"];
+      airport.yearsData[onDisplayYear]["Domestic Passengers"];
   } else {
     document.getElementById("intlLabel").textContent = t.flights;
     document.getElementById("domLabel").textContent = t.passengers;
@@ -1212,11 +1215,11 @@ function updateAirportDisplay() {
     // document.getElementById("intl1").textContent =
     //   airport.yearsData[years[0]]["Flights"];
     document.getElementById("intl2").textContent =
-      airport.yearsData[years[1]]["Flights"];
+      airport.yearsData[onDisplayYear]["Flights"];
     // document.getElementById("dom1").textContent =
     //   airport.yearsData[years[0]]["Passengers"];
     document.getElementById("dom2").textContent =
-      airport.yearsData[years[1]]["Passengers"];
+      airport.yearsData[onDisplayYear]["Passengers"];
   }
 
   updateAirportImageSlider();
@@ -1342,7 +1345,7 @@ function renderFlightCards() {
             </div>
           </div>
 
-          <div class="grid grid-cols-3 gap-4">
+          <div class="grid grid-cols-2 gap-4">
             <div class="text-center flex flex-col justify-between">
               <div class="flex items-center justify-center mb-2">
                 <span class="text-xs text-gray-500">${t.airline}</span>
@@ -1352,12 +1355,7 @@ function renderFlightCards() {
               }</div>
             </div>
 
-            <div class="text-center flex flex-col justify-between">
-              <div class="flex items-center justify-center mb-2">
-                <span class="text-xs text-gray-500">${t.started}</span>
-              </div>
-              <div class="text-lg font-bold text-gray-800">${startedDisplay}</div>
-            </div>
+           
 
             <div class="text-center flex flex-col justify-between">
               <div class="flex items-center justify-center mb-2">
