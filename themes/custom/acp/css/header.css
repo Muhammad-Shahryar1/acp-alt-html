@@ -75,11 +75,14 @@
   text-decoration: none;
   transition: color 0.2s;
   position: relative;
-  /* padding-bottom: 0.25rem; */
+  padding-bottom: 0.25rem;
 }
 .desktop-nav .arabic-vist-nav {
   padding-bottom: 0.35rem;
-}W
+}
+.desktop-nav .english-vist-nav {
+  padding-bottom:0px ;
+}
 .desktop-nav a:hover {
   color: #e5e7eb;
 }
