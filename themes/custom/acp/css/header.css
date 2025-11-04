@@ -76,6 +76,7 @@
   transition: color 0.2s;
   position: relative;
   padding-bottom: 0.25rem;
+  padding-top: 4px;
 }
 
 .desktop-nav a:hover {
@@ -292,7 +293,7 @@
 @media (min-width: 1024px) {
   #main-header nav {
     padding-left: 2rem;
-    padding-right: 2rem;
+    padding-right: 1rem;
   }
 
   .desktop-nav {
