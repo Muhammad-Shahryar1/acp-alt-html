@@ -67,7 +67,7 @@
 /* Desktop Navigation */
 .desktop-nav {
   display: none;
-  align-items: center;
+  /* align-items: center; */
 }
 
 .desktop-nav a {
@@ -75,10 +75,11 @@
   text-decoration: none;
   transition: color 0.2s;
   position: relative;
-  padding-bottom: 0.25rem;
-  padding-top: 4px;
+  /* padding-bottom: 0.25rem; */
 }
-
+.desktop-nav .arabic-vist-nav {
+  padding-bottom: 0.35rem;
+}W
 .desktop-nav a:hover {
   color: #e5e7eb;
 }
@@ -292,12 +293,14 @@
 
 @media (min-width: 1024px) {
   #main-header nav {
-    padding-left: 2rem;
+    padding-left: 1rem;
     padding-right: 1rem;
   }
 
   .desktop-nav {
     display: flex;
+            align-items: center;
+
   }
 
   #mobile-menu-button {
