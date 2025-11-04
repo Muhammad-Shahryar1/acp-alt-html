@@ -78,7 +78,8 @@
   padding-bottom: 0.25rem;
 }
 .desktop-nav .arabic-vist-nav {
-  padding-bottom: 1px;
+  padding-bottom: 2px;
+  padding-top: 2px;
 }
 .desktop-nav .english-vist-nav {
   padding-bottom:0px ;
