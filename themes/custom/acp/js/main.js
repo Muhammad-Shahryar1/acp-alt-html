@@ -513,11 +513,15 @@ function createNewsCard(news, index) {
           </div>
           <div class="w-3/5 ml-3 h-48 overflow-hidden">
             <img 
-              src="${themePath}/assets/news/${news.image}" 
+              src="${news.image}" 
               alt="${news.headline}" 
               class="w-full h-full object-cover"
             />
           </div>
+
+
+
+          
         </div>
         <div class="flex items-center justify-between">
           <div class="text-[12px] text-gray-400">
@@ -576,7 +580,7 @@ sliderTrack.addEventListener("click", (e) => {
   // You can still pull location from newsData (if you don’t have translations for it)
   modalDate.textContent = `${formatDate(news.date)}• ${news.location}`;
 
-  modalImage.src = src = `/themes/custom/acp/assets/news/${news.image}`;
+  modalImage.src = src = `${news.image}`;
 
   modal.classList.remove("hidden");
 });
@@ -833,9 +837,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       description: item.description,
       location: item.location,
       date: item.date,
-      image: item.newsimage,
+      image: item.image_url,
     }));
-
+    console.log(newsData)
     // Start the slider
     initializeNewsSlider();
   } catch (error) {

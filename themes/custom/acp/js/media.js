@@ -271,7 +271,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const response = await fetch(apiUrl);
     articlesData = await response.json();
-
+    console.log(articlesData);
+    
     buildFilterDropdown();
     renderArticles(currentFilter);
     sectionTitle.textContent = currentFilter;
