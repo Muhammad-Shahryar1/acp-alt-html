@@ -417,3 +417,238 @@ circle.highlight {
         /* background: rgba(0, 0, 0, 0.3); */
         pointer-events: auto;
       }
+
+
+      /* about page style */
+
+      
+#main-about {
+  background: #EDEDED;
+  margin: 0px;
+}
+/* --- HERO SECTION --- */
+.hero-section {
+  position: relative;
+  background-image: url('../assets/img/hero-image-about.png'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 7%;
+}
+
+.white-bg-minister {
+  background: #fff;
+    padding: 5%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.hero-overlay h1 {
+  font-size: 3.219rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* --- ABOUT SECTION (Overlapping) --- */
+.about-section {
+  margin-left: 5%;
+  background-image: url("../assets/img/bg\ about.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #009595;
+  color: #fff;
+  position: relative;
+  padding: 80px 20% 80px 5%;
+  margin-top: -80px; /* overlap hero */
+  z-index: 10;
+  border-radius: 12px 0px 0px 12px;
+}
+
+/* .about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -120px;
+  width: 70%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  transform: skewX(-20deg);
+} */
+
+.about-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 200px;
+  align-items: flex-start;
+}
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.about-title h2 {
+  font-size: 3.188rem;
+  font-weight: 700;
+  min-width: 120px;
+}
+
+.about-content h2 {
+  font-size: 3.188rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.highlight-text {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  max-width: 700px;
+  padding-top: 25px;
+}
+
+.about-content p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+.minister-section {
+      padding: 0px 5% 40px 5%;
+  border-radius: 12px;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #32D2A0;
+  position: relative;
+}
+
+.minister-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  align-items: flex-start;
+}
+
+.minister-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+.minister-text {
+  flex: 1;
+  min-width: 280px;
+  margin-top: 21px;
+}
+
+.minister-text h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.381rem;
+  color: #44505E;
+}
+
+.minister-text p {
+  line-height: 1.6;
+  font-size: 1.25rem;
+  margin-top: 20px;
+}
+
+/* --- EXECUTIVE MANAGEMENT --- */
+.management-section {
+  padding: 80px 10%;
+}
+
+.management-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* always 3 columns */
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Prevent content overflow in narrow columns */
+.management-grid > * { min-width: 0; }
+
+.team-card {
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.image-box {
+  position: relative;
+  display: inline-block;
+}
+
+.image-box img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.team-card h4 {
+  margin: 15px 0 5px;
+  font-weight: 600;
+}
+
+.role {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.role span {
+  display: block;
+  color: #22bfa0;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+
+.underline {
+  width: 84px;
+    height: 5px;
+    background-color: #32D2A0;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .minister-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .minister-text {
+    text-align: left;
+  }
+  .management-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+  .about-container {
+    gap: 0px;
+  }
+}

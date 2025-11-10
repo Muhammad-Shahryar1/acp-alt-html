@@ -514,7 +514,7 @@ function createNewsCard(news, index) {
           <div class="w-3/5 ml-3 h-48 overflow-hidden">
             <img 
               src="${news.image}" 
-              alt="${news.headline}" 
+              alt="${news.headline}"
               class="w-full h-full object-cover"
             />
           </div>

@@ -1,0 +1,134 @@
+{#
+  Single-file template for the “Air Connectivity Program” page.
+  - No includes.
+  - Uses theme assets under /themes/custom/acp/assets/img/ by default.
+  - If your preprocess sets `theme_path`, we’ll use that; otherwise we fall back.
+#}
+
+{# Attach your global CSS/JS (update if your library name differs) #}
+{{ attach_library('acp/global-styling') }}
+
+{# Compute theme path and asset URLs (space-safe). Change 'themes/custom/acp' if your theme folder differs. #}
+{% set theme_path = theme_path|default('themes/custom/acp') %}
+{% set polygon_icon = (base_path ~ theme_path ~ '/assets/img/Polygon 1.png')|replace({' ': '%20'}) %}
+{% set ministry_img = (base_path ~ theme_path ~ '/assets/img/ministry image.png')|replace({' ': '%20'}) %}
+{% set team_img     = (base_path ~ theme_path ~ '/assets/img/team image.png')|replace({' ': '%20'}) %}
+{# Optional: if your hero background is controlled by CSS, no need to compute it here. #}
+
+{% include '@acp/sec-header.html.twig' %}
+
+<main id="main-about">
+  {# =========================
+     Hero Section
+     ========================= #}
+  <section class="hero-section">
+    <div class="hero-overlay">
+     <div id="pageNavigation" class="flex gap-1 my-6 items-center container mx-auto">
+			{% if language.id == 'ar' %}
+				<a href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">الرئيسية</a>
+
+				<!-- Separator (Arrow pointing left for Arabic) -->
+				<svg class="w-4 h-4 text-green-400 rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+				</svg>
+
+				<!-- Contact Us (Arabic) -->
+				<a href="{{ url('<front>') }}/node/1" class="text-green-400 hover:text-green-400">سياسة الخصوصية</a>
+
+			{% else %}
+				<a href="{{ path('<front>') }}" class="text-green-400 hover:text-green-400">Home</a>
+
+				<!-- Separator (Normal direction for English) -->
+				<svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+				</svg>
+
+				<!-- Contact Us (English) -->
+				<a href="{{ url('<front>') }}privacy-policy" class="text-green-400 hover:text-green-400">Privacy Policy</a>
+			{% endif %}
+		</div>
+      <h1>Air Connectivity Program</h1>
+    </div>
+  </section>
+
+  {# =========================
+     About Section
+     ========================= #}
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-title">
+        <h2>About</h2>
+      </div>
+      <div class="about-content">
+        <h2>Air Connectivity Program</h2>
+        <p class="highlight-text">
+          Aims to boost tourism growth in the Kingdom by enhancing air connectivity and developing existing and potential air routes to connect Saudi Arabia with new global destinations.
+        </p>
+        <p>
+          Acting as the executive enabler of the National Tourism Strategy and the Aviation Program, the ACP fosters collaboration and builds partnerships between key public and private stakeholders in tourism and aviation to strengthen the Kingdom's position as a leading global destination for air connectivity.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {# =========================
+     Minister’s Message
+     ========================= #}
+  <section class="minister-section">
+    <div class="white-bg-minister">
+      <div class="section-title">
+        <img src="{{ polygon_icon }}" alt="icon" class="title-icon" />
+        <h2 class="section-heading">Minister’s Message</h2>
+      </div>
+
+      <div class="minister-content">
+        <div class="minister-image">
+          <img src="{{ ministry_img }}" alt="Minister Image" />
+        </div>
+        <div class="minister-text">
+          <h3>H.E. Ahmed Al Khateeb<br><br>Ministry of Tourism</h3>
+          <div class="underline"></div>
+          <p>
+            In keeping with the ambitious national vision aiming at boosting the country's tourism and aviation sectors, the Kingdom has been attaching great importance to the Air Connectivity Program (ACP), which develops existing and prospective air routes to connect new international destinations to the Kingdom. ACP comes as part of the Kingdom's tireless efforts to achieve the objectives of the National Tourism Strategy, including to attract 150 million tourists by 2030, create 1.6 million job opportunities driving youth employment and increase tourism contribution to the Kingdom's GDP. In achieving this, ACP contributes to realizing Saudi Vision 2030, which aims at bolstering the Kingdom's position on the global tourism map.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# =========================
+     Executive Management
+     ========================= #}
+  <section class="management-section">
+    <div class="section-title">
+      <img src="{{ polygon_icon }}" alt="icon" class="title-icon" />
+      <h2 class="section-heading">Executive Management</h2>
+    </div>
+
+    {# Inline data (single-file) for the team. You can swap this for fields later. #}
+    {% set team = [
+      {'name': 'Majid Khan',        'role': 'Chief Executive Officer'},
+      {'name': 'Sultan Otaify',     'role': 'Strategy & Communication<br><span>Vice President</span>'},
+      {'name': 'Rashed Alshammari', 'role': 'Commercial<br><span>Vice President</span>'},
+      {'name': 'Mousa Alskeat',     'role': 'Shared Services<br><span>Vice President</span>'},
+      {'name': 'Sultan Otaify',     'role': 'Head of Governance<br><span>Risk and Compliance</span>'}
+    ] %}
+
+    <div class="management-grid">
+      {% for member in team %}
+        <div class="team-card">
+          <div class="image-box">
+            <img src="{{ team_img }}" alt="{{ member.name }}" />
+          </div>
+          <h4>{{ member.name }}</h4>
+          <p class="role">{{ member.role|raw }}</p>
+          <div class="underline"></div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+{% include '@acp/footer.html.twig' %}
+
+
