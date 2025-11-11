@@ -8,7 +8,8 @@ use Drupal\views\Views;
  */
 function acp_preprocess_page(array &$variables) {
   // Add theme path so we can reference images in Twig as {{ base_path ~ theme_path }}.
-  $variables['theme_path'] = drupal_get_path('theme', 'acp');
+  // Replaces deprecated/undefined drupal_get_path().
+  $variables['theme_path'] = \Drupal::service('extension.list.theme')->getPath('acp');
 
   // =========================
   // FRONT PAGE: Logo Carousel
