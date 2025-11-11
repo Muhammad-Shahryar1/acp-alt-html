@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "/become-partner": "/ar/node/3",
     "/contact-us": "/ar/node/2",
     "/privacy-policy": "/ar/node/1",
+    "/about": "/ar/node/183",
   };
 
   langButtons.forEach((langButton) => {

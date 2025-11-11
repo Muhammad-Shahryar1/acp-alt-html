@@ -1,0 +1,182 @@
+{#
+  Single-file template for the “Air Connectivity Program” page.
+  - No includes.
+  - Uses theme assets under /themes/custom/acp/assets/img/ by default.
+  - If your preprocess sets `theme_path`, we’ll use that; otherwise we fall back.
+#}
+
+{{ attach_library('acp/global-styling') }}
+
+{# Helpers #}
+{% set is_ar = (language.id == 'ar') %}
+{% set theme_path = theme_path|default('themes/custom/acp') %}
+{% set polygon_icon = (base_path ~ theme_path ~ '/assets/img/Polygon 1.png')|replace({' ': '%20'}) %}
+{% set ministry_img = (base_path ~ theme_path ~ '/assets/img/ministry image.png')|replace({' ': '%20'}) %}
+{% set team_img     = (base_path ~ theme_path ~ '/assets/img/team image.png')|replace({' ': '%20'}) %}
+
+{% include '@acp/sec-header.html.twig' %}
+
+<main id="main-about" lang="{{ is_ar ? 'ar' : 'en' }}" dir="{{ is_ar ? 'rtl' : 'ltr' }}">
+  {# =========================
+     Hero Section
+     ========================= #}
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <div id="pageNavigation" class="flex gap-1 my-6 items-center container mx-auto">
+        {% if is_ar %}
+          <a href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">الرئيسية</a>
+          <svg class="w-4 h-4 text-green-400 rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+          {# Current page (no link). Adjust slug if you want it linked. #}
+          <span class="text-green-400">برنامج الربط الجوي</span>
+        {% else %}
+          <a href="{{ path('<front>') }}" class="text-green-400 hover:text-green-400">Home</a>
+          <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+          {# Current page (no link). Adjust slug if your URL differs (e.g., ~ 'air-connectivity-program'). #}
+          <span class="text-green-400">Air Connectivity Program</span>
+        {% endif %}
+      </div>
+
+      <h1>{{ is_ar ? 'برنامج الربط الجوي' : 'Air Connectivity Program' }}</h1>
+    </div>
+  </section>
+
+  {# =========================
+     About Section
+     ========================= #}
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-title {{ is_ar ? 'text-right' : '' }}">
+        <h2>{{ is_ar ? 'نبذة' : 'About' }}</h2>
+      </div>
+
+      <div class="about-content {{ is_ar ? 'text-right' : '' }}">
+        <h2>{{ is_ar ? 'برنامج الربط الجوي' : 'Air Connectivity Program' }}</h2>
+
+        <p class="highlight-text">
+          {% if is_ar %}
+            يهدف إلى تعزيز نمو السياحة في المملكة من خلال تحسين الربط الجوي
+            وتطوير المسارات الجوية الحالية والمحتملة لربط المملكة بوجهات عالمية جديدة.
+          {% else %}
+            Aims to boost tourism growth in the Kingdom by enhancing air connectivity
+            and developing existing and potential air routes to connect Saudi Arabia
+            with new global destinations.
+          {% endif %}
+        </p>
+
+        <p>
+          {% if is_ar %}
+            وبصفته المُـمكّن التنفيذي للاستراتيجية الوطنية للسياحة وبرنامج الطيران،
+            يعزّز برنامج الربط الجوي التعاون ويبني الشراكات بين الجهات الرئيسة في القطاعين
+            العام والخاص في مجالي السياحة والطيران، بما يدعم مكانة المملكة كوجهة عالمية
+            رائدة في مجال الربط الجوي.
+          {% else %}
+            Acting as the executive enabler of the National Tourism Strategy and the Aviation Program,
+            the ACP fosters collaboration and builds partnerships between key public and private
+            stakeholders in tourism and aviation to strengthen the Kingdom's position as a leading
+            global destination for air connectivity.
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {# =========================
+     Minister’s Message
+     ========================= #}
+  <section class="minister-section">
+    <div class="white-bg-minister">
+      <div class="section-title {{ is_ar ? 'text-right' : '' }}">
+        <img src="{{ polygon_icon }}" alt="icon" class="title-icon" />
+        <h2 class="section-heading">{{ is_ar ? 'كلمة معالي وزير السياحة' : 'Minister’s Message' }}</h2>
+      </div>
+
+      <div class="minister-content">
+        <div class="minister-image">
+          <img src="{{ ministry_img }}" alt="{{ is_ar ? 'صورة الوزير' : 'Minister Image' }}" />
+        </div>
+
+        <div class="minister-text {{ is_ar ? 'text-right' : '' }}">
+          <h3>
+            {% if is_ar %}
+              معالي أحمد الخطيب<br><br>وزارة السياحة
+            {% else %}
+              H.E. Ahmed Al Khateeb<br><br>Ministry of Tourism
+            {% endif %}
+          </h3>
+          <div class="underline"></div>
+
+          <p>
+            {% if is_ar %}
+              برؤية وطنية طموحة تستهدف تعزيز قطاعي السياحة والطيران، تولي المملكة
+              أهمية كبيرة لبرنامج الربط الجوي، الذي يعمل على تطوير المسارات الجوية
+              القائمة والمحتملة لربط المملكة بوجهات دولية جديدة. ويأتي البرنامج ضمن
+              الجهود الحثيثة لتحقيق مستهدفات الاستراتيجية الوطنية للسياحة، بما في ذلك
+              جذب 150 مليون زيارة بحلول عام 2030، وتوفير 1.6 مليون فرصة عمل تدعم
+              توظيف الشباب، وزيادة مساهمة السياحة في الناتج المحلي الإجمالي. وبذلك
+              يسهم البرنامج في تحقيق مستهدفات رؤية السعودية 2030 الهادفة إلى ترسيخ
+              مكانة المملكة على خريطة السياحة العالمية.
+            {% else %}
+              In keeping with the ambitious national vision aiming at boosting the country's tourism
+              and aviation sectors, the Kingdom has been attaching great importance to the Air
+              Connectivity Program (ACP), which develops existing and prospective air routes to
+              connect new international destinations to the Kingdom. ACP comes as part of the
+              Kingdom's tireless efforts to achieve the objectives of the National Tourism Strategy,
+              including to attract 150 million tourists by 2030, create 1.6 million job opportunities
+              driving youth employment and increase tourism contribution to the Kingdom's GDP. In
+              achieving this, ACP contributes to realizing Saudi Vision 2030, which aims at bolstering
+              the Kingdom's position on the global tourism map.
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# =========================
+     Executive Management
+     ========================= #}
+  <section class="management-section">
+    <div class="section-title {{ is_ar ? 'text-right' : '' }}">
+      <img src="{{ polygon_icon }}" alt="icon" class="title-icon" />
+      <h2 class="section-heading">{{ is_ar ? 'القيادات التنفيذية' : 'Executive Management' }}</h2>
+    </div>
+
+    {# Localized team data #}
+    {% if is_ar %}
+      {% set team = [
+        {'name': 'ماجد خان',        'role': 'المدير التنفيذي'},
+        {'name': 'سلطان عطيفي',     'role': 'نائب الرئيس<br><span>للاستراتيجية والتواصل</span>'},
+        {'name': 'راشد الشمري',     'role': 'نائب الرئيس<br><span>للشؤون التجارية</span>'},
+        {'name': 'موسى السكيت',     'role': 'نائب الرئيس<br><span>للخدمات المشتركة</span>'},
+        {'name': 'عدي الحسن',       'role': 'مدير إدارة<br><span>الحوكمة والمخاطر والالتزام</span>'}
+      ] %}
+    {% else %}
+      {% set team = [
+        {'name': 'Majid Khan',        'role': 'Chief Executive Officer'},
+        {'name': 'Sultan Otaify',     'role': 'Strategy & Communication<br><span>Vice President</span>'},
+        {'name': 'Rashed Alshammari', 'role': 'Commercial<br><span>Vice President</span>'},
+        {'name': 'Mousa Alskeat',     'role': 'Shared Services<br><span>Vice President</span>'},
+        {'name': 'Audi Alhasan',      'role': 'Head of Governance,<br><span>Risk and Compliance</span>'}
+      ] %}
+    {% endif %}
+
+    <div class="management-grid {{ is_ar ? 'text-right' : '' }}">
+      {% for member in team %}
+        <div class="team-card">
+          <div class="image-box">
+            <img src="{{ team_img }}" alt="{{ member.name }}" />
+          </div>
+          <h4>{{ member.name }}</h4>
+          <p class="role">{{ member.role|raw }}</p>
+          <div class="underline"></div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+</main>
+
+{% include '@acp/footer.html.twig' %}
