@@ -448,7 +448,7 @@ background: rgba(0, 0, 0, 0.3);
     flex-direction: column;
     padding-left: 7%;
     justify-content: center;
-    padding: right 7%;
+    padding-right: 7%;
 }
 
 .white-bg-minister {
@@ -516,7 +516,7 @@ background: rgba(0, 0, 0, 0.3);
   margin-bottom: 20px;
 }
 
-.highlight-text {
+#block-acp-highlightedtextabout {
   font-weight: 600;
   font-size: 2rem;
   margin-bottom: 20px;
@@ -524,7 +524,7 @@ background: rgba(0, 0, 0, 0.3);
   padding-top: 25px;
 }
 
-.about-content p {
+#block-acp-aboutdescription {
   font-size: 1.5rem;
   line-height: 1.6;
 }
@@ -566,7 +566,7 @@ background: rgba(0, 0, 0, 0.3);
   color: #44505E;
 }
 
-.minister-text p {
+#block-acp-decsministrymessage {
   line-height: 1.6;
   font-size: 1.25rem;
   margin-top: 20px;

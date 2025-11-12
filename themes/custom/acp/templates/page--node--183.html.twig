@@ -40,7 +40,7 @@
         {% endif %}
       </div>
 
-      <h1>{{ is_ar ? 'برنامج الربط الجوي' : 'Air Connectivity Program' }}</h1>
+      <h1>{{page.aboutPageHeroSection}}</h1>
     </div>
   </section>
 
@@ -54,31 +54,14 @@
       </div>
 
       <div class="about-content {{ is_ar ? 'text-right' : '' }}">
-        <h2>{{ is_ar ? 'برنامج الربط الجوي' : 'Air Connectivity Program' }}</h2>
+        <h2>{{page.aboutPageHeading }}</h2>
 
         <p class="highlight-text">
-          {% if is_ar %}
-            يهدف إلى تعزيز نمو السياحة في المملكة من خلال تحسين الربط الجوي
-            وتطوير المسارات الجوية الحالية والمحتملة لربط المملكة بوجهات عالمية جديدة.
-          {% else %}
-            Aims to boost tourism growth in the Kingdom by enhancing air connectivity
-            and developing existing and potential air routes to connect Saudi Arabia
-            with new global destinations.
-          {% endif %}
+          {{page.aboutPageHighlightedText}}
         </p>
 
         <p>
-          {% if is_ar %}
-            وبصفته المُـمكّن التنفيذي للاستراتيجية الوطنية للسياحة وبرنامج الطيران،
-            يعزّز برنامج الربط الجوي التعاون ويبني الشراكات بين الجهات الرئيسة في القطاعين
-            العام والخاص في مجالي السياحة والطيران، بما يدعم مكانة المملكة كوجهة عالمية
-            رائدة في مجال الربط الجوي.
-          {% else %}
-            Acting as the executive enabler of the National Tourism Strategy and the Aviation Program,
-            the ACP fosters collaboration and builds partnerships between key public and private
-            stakeholders in tourism and aviation to strengthen the Kingdom's position as a leading
-            global destination for air connectivity.
-          {% endif %}
+          {{page.aboutpagedescription2}}
         </p>
       </div>
     </div>
@@ -90,7 +73,12 @@
   <section class="minister-section">
     <div class="white-bg-minister">
       <div class="section-title {{ is_ar ? 'text-right' : '' }}">
-        <img src="{{ polygon_icon }}" alt="icon" class="title-icon" />
+            <img
+  src="{{ polygon_icon }}"
+  alt="icon"
+  class="title-icon"
+  {% if is_ar %}style="transform: scaleX(-1);" {% endif %}
+/>
         <h2 class="section-heading">{{ is_ar ? 'كلمة معالي وزير السياحة' : 'Minister’s Message' }}</h2>
       </div>
 
@@ -101,35 +89,12 @@
 
         <div class="minister-text {{ is_ar ? 'text-right' : '' }}">
           <h3>
-            {% if is_ar %}
-              معالي أحمد الخطيب<br><br>وزارة السياحة
-            {% else %}
-              H.E. Ahmed Al Khateeb<br><br>Ministry of Tourism
-            {% endif %}
+           {{page.MinistryMessageName}}
           </h3>
           <div class="underline"></div>
 
           <p>
-            {% if is_ar %}
-              برؤية وطنية طموحة تستهدف تعزيز قطاعي السياحة والطيران، تولي المملكة
-              أهمية كبيرة لبرنامج الربط الجوي، الذي يعمل على تطوير المسارات الجوية
-              القائمة والمحتملة لربط المملكة بوجهات دولية جديدة. ويأتي البرنامج ضمن
-              الجهود الحثيثة لتحقيق مستهدفات الاستراتيجية الوطنية للسياحة، بما في ذلك
-              جذب 150 مليون زيارة بحلول عام 2030، وتوفير 1.6 مليون فرصة عمل تدعم
-              توظيف الشباب، وزيادة مساهمة السياحة في الناتج المحلي الإجمالي. وبذلك
-              يسهم البرنامج في تحقيق مستهدفات رؤية السعودية 2030 الهادفة إلى ترسيخ
-              مكانة المملكة على خريطة السياحة العالمية.
-            {% else %}
-              In keeping with the ambitious national vision aiming at boosting the country's tourism
-              and aviation sectors, the Kingdom has been attaching great importance to the Air
-              Connectivity Program (ACP), which develops existing and prospective air routes to
-              connect new international destinations to the Kingdom. ACP comes as part of the
-              Kingdom's tireless efforts to achieve the objectives of the National Tourism Strategy,
-              including to attract 150 million tourists by 2030, create 1.6 million job opportunities
-              driving youth employment and increase tourism contribution to the Kingdom's GDP. In
-              achieving this, ACP contributes to realizing Saudi Vision 2030, which aims at bolstering
-              the Kingdom's position on the global tourism map.
-            {% endif %}
+            {{page.MinistryMesssageDesc}}
           </p>
         </div>
       </div>
@@ -140,8 +105,14 @@
      Executive Management
      ========================= #}
   <section class="management-section">
+
     <div class="section-title {{ is_ar ? 'text-right' : '' }}">
-      <img src="{{ polygon_icon }}" alt="icon" class="title-icon" />
+      <img
+  src="{{ polygon_icon }}"
+  alt="icon"
+  class="title-icon"
+  {% if is_ar %}style="transform: scaleX(-1);" {% endif %}
+/>
       <h2 class="section-heading">{{ is_ar ? 'القيادات التنفيذية' : 'Executive Management' }}</h2>
     </div>
 
