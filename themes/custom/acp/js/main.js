@@ -30,6 +30,71 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+//team section about//
+
+document.addEventListener("DOMContentLoaded", async function () {
+  console.log('Called Inside Teams');
+  try {
+    const lang = document.documentElement.lang || "en";
+    const apiUrl = lang === "ar" ? "/ar/acp-team/api/teams" : "/acp-team/api/teams";
+
+    const response = await fetch(apiUrl);
+    if (!response.ok) throw new Error("Network response was not ok");
+
+    const data = await response.json();
+
+    window.teamData = data.map((item) => ({
+      id: parseInt(item.id, 10),
+      name: item.name || "",
+      role: item.role || "",
+      department: item.department || "",
+      image: item.image_url || "",
+    }));
+
+    console.log("teamData", teamData);
+    renderTeamGrid(teamData);
+  } catch (error) {
+    console.error("Failed to load team data:", error);
+  }
+});
+
+function renderTeamGrid(items) {
+  const grid = document.getElementById("exec-grid");
+  if (!grid || !Array.isArray(items)) return;
+
+  const fallbackImg = grid.getAttribute("data-fallback-img") || "";
+  grid.innerHTML = "";
+
+  items.forEach((m) => {
+    const card = document.createElement("div");
+    card.className = "team-card";
+    card.innerHTML = `
+      <div class="image-box">
+        <img src="${(m.image || fallbackImg)}" alt="${escapeHtml(m.name)}" />
+      </div>
+      <h4>${escapeHtml(m.name)}</h4>
+      ${
+        m.department
+          ? `<p class="department">${escapeHtml(m.department)}</p>`
+          : `<p class="department" style="display:none;"></p>`
+      }
+      <p class="role">${escapeHtml(m.role).replace(/\n/g, "<br>")}</p>
+      <div class="underline"></div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function escapeHtml(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+
 (function ($, Drupal) {
   Drupal.behaviors.logosCarousel = {
     attach: function (context, settings) {
@@ -1676,3 +1741,6 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 // ------------------ Map & Routes Section End --------------------
 // Airports Section End
+
+
+// team section //

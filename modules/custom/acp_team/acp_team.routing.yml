@@ -1,0 +1,7 @@
+acp_team.api.teams:
+  path: '/acp-team/api/teams'
+  defaults:
+    _controller: '\Drupal\acp_team\Controller\TeamApiController::listTeams'
+    _title: 'ACP Team API'
+  requirements:
+    _permission: 'access acp team api'

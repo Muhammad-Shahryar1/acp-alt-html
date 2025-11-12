@@ -1,0 +1,3 @@
+access acp team api:
+  title: 'Access ACP Team API'
+  description: 'Allow access to the /acp-team/api/teams JSON endpoint'

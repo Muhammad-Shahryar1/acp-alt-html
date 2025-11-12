@@ -1,3 +1,6 @@
+{{ attach_library('acp/frontpage-scripts') }}
+
+
 {#
   Single-file template for the “Air Connectivity Program” page.
   - No includes.
@@ -84,7 +87,7 @@
 
       <div class="minister-content">
         <div class="minister-image">
-          <img src="{{ ministry_img }}" alt="{{ is_ar ? 'صورة الوزير' : 'Minister Image' }}" />
+          {{page.aboutImage1}}
         </div>
 
         <div class="minister-text {{ is_ar ? 'text-right' : '' }}">
@@ -104,50 +107,30 @@
   {# =========================
      Executive Management
      ========================= #}
-  <section class="management-section">
+  {# keep your section title exactly as you have it #}
+   
+<div class="section-title {{ is_ar ? 'text-right' : '' }}"> <img src="{{ polygon_icon }}" alt="icon" class="title-icon" /> <h2 class="section-heading">{{ is_ar ? 'القيادات التنفيذية' : 'Executive Management' }}</h2> </div>
 
-    <div class="section-title {{ is_ar ? 'text-right' : '' }}">
-      <img
-  src="{{ polygon_icon }}"
-  alt="icon"
-  class="title-icon"
-  {% if is_ar %}style="transform: scaleX(-1);" {% endif %}
-/>
-      <h2 class="section-heading">{{ is_ar ? 'القيادات التنفيذية' : 'Executive Management' }}</h2>
+<div
+  id="exec-grid"
+  class="management-grid {{ is_ar ? 'text-right' : '' }}"
+  data-fallback-img="{{ team_img }}"
+>
+  {% for member in team %}
+    <div class="team-card">
+      <div class="image-box">
+        <img src="{{ team_img }}" alt="{{ member.name }}" />
+      </div>
+      <h4>{{ member.name }}</h4>
+      <p class="department"></p> {# JS will fill when API present #}
+      <p class="role">{{ member.role|raw }}</p>
+      <div class="underline"></div>
     </div>
+  {% endfor %}
+</div>
 
-    {# Localized team data #}
-    {% if is_ar %}
-      {% set team = [
-        {'name': 'ماجد خان',        'role': 'المدير التنفيذي'},
-        {'name': 'سلطان عطيفي',     'role': 'نائب الرئيس<br><span>للاستراتيجية والتواصل</span>'},
-        {'name': 'راشد الشمري',     'role': 'نائب الرئيس<br><span>للشؤون التجارية</span>'},
-        {'name': 'موسى السكيت',     'role': 'نائب الرئيس<br><span>للخدمات المشتركة</span>'},
-        {'name': 'عدي الحسن',       'role': 'مدير إدارة<br><span>الحوكمة والمخاطر والالتزام</span>'}
-      ] %}
-    {% else %}
-      {% set team = [
-        {'name': 'Majid Khan',        'role': 'Chief Executive Officer'},
-        {'name': 'Sultan Otaify',     'role': 'Strategy & Communication<br><span>Vice President</span>'},
-        {'name': 'Rashed Alshammari', 'role': 'Commercial<br><span>Vice President</span>'},
-        {'name': 'Mousa Alskeat',     'role': 'Shared Services<br><span>Vice President</span>'},
-        {'name': 'Audi Alhasan',      'role': 'Head of Governance,<br><span>Risk and Compliance</span>'}
-      ] %}
-    {% endif %}
 
-    <div class="management-grid {{ is_ar ? 'text-right' : '' }}">
-      {% for member in team %}
-        <div class="team-card">
-          <div class="image-box">
-            <img src="{{ team_img }}" alt="{{ member.name }}" />
-          </div>
-          <h4>{{ member.name }}</h4>
-          <p class="role">{{ member.role|raw }}</p>
-          <div class="underline"></div>
-        </div>
-      {% endfor %}
-    </div>
-  </section>
+
 </main>
 
 {% include '@acp/footer.html.twig' %}
