@@ -1,3 +1,4 @@
+{{ attach_library('acp/secheader-styling') }}
 {{ attach_library('acp/frontpage-scripts') }}
 
 
@@ -109,7 +110,12 @@
      ========================= #}
   {# keep your section title exactly as you have it #}
    
-<div class="section-title {{ is_ar ? 'text-right' : '' }}"> <img src="{{ polygon_icon }}" alt="icon" class="title-icon" /> <h2 class="section-heading">{{ is_ar ? 'القيادات التنفيذية' : 'Executive Management' }}</h2> </div>
+<div class="section-title-team {{ is_ar ? 'text-right' : '' }}"> <img
+  src="{{ polygon_icon }}"
+  alt="icon"
+  class="title-icon"
+  {% if is_ar %}style="transform: scaleX(-1);" {% endif %}
+/> <h2 class="section-heading">{{page.TeamManagmentHeading}}</h2> </div>
 
 <div
   id="exec-grid"

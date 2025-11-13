@@ -32,6 +32,7 @@ regions:
   MinistryMessageName: "Ministry Message Name"
   MinistryMesssageSubHeading: "Ministry Messsage SubHeading"
   MinistryMesssageDesc: "Ministry Messsage Desc"
+  TeamManagmentHeading: "Team Managment Heading"
   content: "Content"
   footermenu1: "footer-menu-1"
   footermenu2: "footer-menu-2"

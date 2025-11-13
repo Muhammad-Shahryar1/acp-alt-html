@@ -502,6 +502,12 @@ background: rgba(0, 0, 0, 0.3);
   align-items: center;
   gap: 10px;
   margin-bottom: 40px;
+}
+.section-title-team {
+    display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
   padding: 0px 8% 0px 8%;
 }
 
