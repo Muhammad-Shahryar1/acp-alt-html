@@ -590,15 +590,30 @@ background: rgba(0, 0, 0, 0.3);
   grid-template-columns: repeat(3, minmax(0, 1fr)); /* always 3 columns */
   gap: 40px;
   margin-top: 40px;
+  padding-bottom: 20px;
 }
 
 /* Prevent content overflow in narrow columns */
 .management-grid > * { min-width: 0; }
 
-.team-card {
+/* .team-card {
   padding: 20px;
   border-radius: 12px;
+} */
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* pushes last elements down */
+  height: 100%; /* ensures equal height cards */
+  position: relative;
 }
+
+.team-card .underline {
+  margin-top: 10px;     /* pushes underline to the bottom */
+}
+
+
 .department {
 color: #44505D;
     font-size: 0.95rem;
