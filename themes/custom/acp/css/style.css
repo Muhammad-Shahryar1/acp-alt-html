@@ -555,7 +555,7 @@ background: rgba(0, 0, 0, 0.3);
 }
 
 .minister-image img {
-  width: 100%;
+  width: 480px;
   height: auto;
   border-radius: 12px;
 }
@@ -612,7 +612,8 @@ color: #44505D;
 }
 
 .image-box img {
-  width: 100%;
+  width: 300px;
+  height: auto;
   border-radius: 8px;
 }
 
