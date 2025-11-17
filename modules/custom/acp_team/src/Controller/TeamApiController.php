@@ -29,11 +29,12 @@ final class TeamApiController extends ControllerBase {
 
     // Query the correct bundle.
     $nids = \Drupal::entityQuery('node')
-      ->condition('type', self::BUNDLE)
-      ->condition('status', 1)
-      ->sort('created', 'DESC')
-      ->accessCheck(FALSE)
-      ->execute();
+  ->condition('type', self::BUNDLE)
+  ->condition('status', 1)
+  ->sort('field_order.value', 'DESC') // DESC = higher number on top; use 'ASC' for 1 at top
+  ->sort('created', 'DESC')           // tie-breaker
+  ->accessCheck(FALSE)
+  ->execute();
 
     if (empty($nids)) {
       return new JsonResponse([]);

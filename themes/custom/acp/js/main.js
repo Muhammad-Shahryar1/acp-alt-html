@@ -43,16 +43,19 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     const data = await response.json();
 
-    window.teamData = data.map((item) => ({
-      id: parseInt(item.id, 10),
-      name: item.name || "",
-      role: item.role || "",
-      department: item.department || "",
-      image: item.image_url || "",
-    }));
+ window.teamData = data.map((item) => ({
+  id: parseInt(item.id, 10),
+  name: item.name || "",
+  role: item.role || "",
+  department: item.department || "",
+  image: item.image || item.image_url || "",
+  order: typeof item.order !== "undefined" ? Number(item.order) : 999, // <- NEW
+}));
 
-    console.log("teamData", teamData);
-    renderTeamGrid(teamData);
+// Sort by order BEFORE rendering  ✅
+teamData.sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+
+renderTeamGrid(teamData);
   } catch (error) {
     console.error("Failed to load team data:", error);
   }
@@ -1744,3 +1747,92 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
 // team section //
+
+
+// media poster script //
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Process existing videos with data-generate-poster
+  const seen = new WeakSet();
+
+  function process(v) {
+    if (!v || seen.has(v)) return;
+    seen.add(v);
+    v.crossOrigin = v.crossOrigin || 'anonymous';
+    generatePoster(v).catch(()=>{});
+  }
+
+  // Observe videos added later (e.g., slider items injected by JS)
+  const mo = new MutationObserver((mutations) => {
+    mutations.forEach(m => {
+      m.addedNodes.forEach(node => {
+        if (node.nodeType === 1) {
+          if (node.matches && node.matches('video[data-generate-poster]')) process(node);
+          node.querySelectorAll && node.querySelectorAll('video[data-generate-poster]').forEach(process);
+        }
+      });
+    });
+  });
+  mo.observe(document.documentElement, { childList: true, subtree: true });
+
+  // Lazy-generate when near viewport to save work
+  const io = ('IntersectionObserver' in window)
+    ? new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            process(e.target);
+            io.unobserve(e.target);
+          }
+        });
+      }, { rootMargin: '200px 0px' })
+    : null;
+
+  // seed with any existing videos
+  document.querySelectorAll('video[data-generate-poster]').forEach(v => {
+    if (io) io.observe(v);
+    else process(v);
+  });
+
+  async function generatePoster(videoEl) {
+    const src = getVideoSrc(videoEl);
+    if (!src) return;
+
+    // Wait for metadata (dimension info)
+    await waitFor(videoEl, 'loadedmetadata', () => videoEl.readyState >= 1);
+
+    // Seek a touch into the video (avoid black first frame)
+    const target = Math.min((videoEl.duration || 1) * 0.05, 1);
+    try { videoEl.currentTime = target; } catch(_) {}
+
+    await waitFor(videoEl, 'seeked', () => true);
+
+    const w = videoEl.videoWidth  || 1280;
+    const h = videoEl.videoHeight || 720;
+    const canvas = document.createElement('canvas');
+    canvas.width = w; canvas.height = h;
+
+    const ctx = canvas.getContext('2d', { willReadFrequently: true });
+    ctx.drawImage(videoEl, 0, 0, w, h);
+
+    try {
+      const dataURL = canvas.toDataURL('image/jpeg', 0.82);
+      videoEl.setAttribute('poster', dataURL);
+    } catch (e) {
+      // If CORS blocks drawing, keep the existing poster silently.
+    }
+  }
+
+  function waitFor(el, eventName, readyCheck) {
+    return new Promise(resolve => {
+      if (!readyCheck || readyCheck()) return resolve();
+      const on = () => { el.removeEventListener(eventName, on); resolve(); };
+      el.addEventListener(eventName, on, { once: true });
+    });
+  }
+
+  function getVideoSrc(videoEl) {
+    if (videoEl.currentSrc) return videoEl.currentSrc;
+    const source = videoEl.querySelector('source[type="video/mp4"], source');
+    return source ? source.src : videoEl.src;
+  }
+});

@@ -185,160 +185,151 @@
 	</div>
 </section>
 
-<!-- Added new video section with two-column layout -->
+
+ <!-- video card section -->
+
+
 <section class="max-w-7xl hidden mx-auto mt-16 px-4 sm:px-6 lg:px-8">
-	<div
-		class="bg-white py-12 sm:py-24 rounded-lg">
-		<!-- First Row: Title and Horizontal Line -->
-		<div
-			class="mb-16 px-16 flex items-center space-x-3">
-			<!-- Video button -->
-			<button class="flex items-center justify-center w-8 h-8 bg-[#44505E] rounded-lg">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewbox="0 0 24 24" class="w-4 h-4 bg-white text-[#44505E] rounded-full">
-					<path d="M8 5v14l11-7z"/>
-				</svg>
-			</button>
+  <div class="bg-white py-12 sm:py-24 rounded-lg">
+    <!-- First Row: Title and Horizontal Line -->
+    <div class="mb-16 px-16 flex items-center space-x-3">
+      <!-- Video button -->
+      <button class="flex items-center justify-center w-8 h-8 bg-[#44505E] rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 bg-white text-[#44505E] rounded-full">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
 
-			<!-- Text -->
-			<h2 class="text-2xl font-bold text-[#566578]" data-i18n="media.newsUpdates">
-				News & Updates
-			</h2>
-		</div>
-		<div class="mb-16 px-16">
-			<hr class="border-gray-300"/>
-		</div>
+      <!-- Text -->
+      <h2 class="text-2xl font-bold text-[#566578]" data-i18n="media.newsUpdates">
+        News & Updates
+      </h2>
+    </div>
 
-		<!-- Second Row: Two Column Layout -->
-		<div class="grid grid-cols-1 lg:grid-cols-[2.7fr_2.3fr]">
-			<!-- Left Column: Video with dark background container (takes 3/5 of space on desktop) -->
-			<!-- Added dark navy background container with proper proportions -->
-				<div
-				class="bg-slate-700 rounded-lg px-8 py-10 sm:px-24 sm:py-28"> <!-- Video takes most of the container height -->
-				<div
-					class="relative rounded-lg overflow-hidden aspect-video mb-6">
-					<!-- Video Element with world map placeholder -->
-					<video id="mainVideo" class="w-full h-full object-cover" poster="/placeholder.svg?height=400&width=600">
-						<source src="./assets/hero-video.mp4" type="video/mp4"/>
-						Your browser does not support the video tag.
-					</video>
+    <div class="mb-16 px-16">
+      <hr class="border-gray-300"/>
+    </div>
 
-					<!-- Video Overlay with Play/Pause Button -->
-					<div id="videoOverlay" class="absolute inset-0 bg-black/30 flex items-center justify-center" style="background: url(./assets/videoBackground.png)">
-						<button
-							id="playPauseBtn" class="rounded-full p-4 transition-all duration-200 cursor-pointer">
-							<!-- Play Icon (shown by default) -->
-							<svg id="playIcon" class="w-16 h-16 text-[#44505E]" fill="currentColor" viewbox="0 0 24 24">
-								<path d="M8 5v14l11-7z"/>
-							</svg>
-							<!-- Pause Icon (hidden by default) -->
-							<svg id="pauseIcon" class="w-16 h-16 text-[#44505E] hidden" fill="currentColor" viewbox="0 0 24 24">
-								<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-							</svg>
-						</button>
-					</div>
+    <!-- Second Row: Two Column Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-[2.7fr_2.3fr]">
+      <!-- Left Column: Video with dark background container -->
+      <div class="bg-slate-700 rounded-lg px-8 py-10 sm:px-24 sm:py-28">
+        <div class="relative rounded-lg overflow-hidden aspect-video mb-6">
+          <!-- MAIN VIDEO -->
+          <video
+            id="mainVideo"
+            data-generate-poster
+            class="w-full h-full object-cover"
+            poster="/placeholder.svg?height=400&width=600"
+          >
+            <source src="./assets/hero-video.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+          </video>
 
-					<!-- Video Duration -->
-					<div id="videoDuration" class="absolute top-4 right-4 bg-black/80 text-white text-sm px-2 py-1 rounded">
-						00:00
-					</div>
-				</div>
+          <!-- Video Overlay with Play/Pause Button -->
+          <div id="videoOverlay" class="absolute inset-0 bg-black/30 flex items-center justify-center" style="background: url(./assets/videoBackground.png)">
+            <button id="playPauseBtn" class="rounded-full p-4 transition-all duration-200 cursor-pointer">
+              <!-- Play Icon (shown by default) -->
+              <svg id="playIcon" class="w-16 h-16 text-[#44505E]" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+              <!-- Pause Icon (hidden by default) -->
+              <svg id="pauseIcon" class="w-16 h-16 text-[#44505E] hidden" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+              </svg>
+            </button>
+          </div>
 
-				<!-- Video Title and Description at bottom of dark container -->
-				<!-- Updated text colors for dark background and positioned at bottom -->
-				<div>
-					<h3 class="text-2xl font-bold text-white mb-2" data-i18n="media.featuredNews">
-						Featured News
-					</h3>
-					<p class="text-gray-300" data-i18n="media.featuredNewsDesc">
-						Watch the latest updates and stories from the Air Connectivity
-																		                Program.
-					</p>
-				</div>
-			</div>
+          <!-- Video Duration -->
+          <div id="videoDuration" class="absolute top-4 right-4 bg-black/80 text-white text-sm px-2 py-1 rounded">
+            00:00
+          </div>
+        </div>
 
-			<!-- Right Column: Content (takes 2/5 of space on desktop) -->
-			<div class="flex flex-col justify-start items-center bg-gradient-to-r from-[#F8F9FA] to-[#E9ECEF] lg:h-[90%] lg:my-auto px-8 sm:px-0 py-16 mx-8 sm:mx-16 mt-16 lg:pt-20 lg:pb-0 lg:mx-0 ">
-				<div class="w-full sm:w-1/2">
-					<h3 class="text-4xl font-bold text-[#44505E] mb-4" data-i18n="media.latestNews">
-						Latest News
-					</h3>
-					<p class="text-[#A5A5A5] mb-12 text-lg leading-5" data-i18n="media.latestNewsDesc">
-						Stay updated with the most recent announcements, press releases,
-																		                and updates from the Air Connectivity Program. Watch our
-																		                featured stories and explore the latest developments shaping
-																		                Saudi Arabia's aviation and tourism sector.
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
+        <!-- Title & Description -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-2" data-i18n="media.featuredNews">
+            Featured News
+          </h3>
+          <p class="text-gray-300" data-i18n="media.featuredNewsDesc">
+            Watch the latest updates and stories from the Air Connectivity Program.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Content -->
+      <div class="flex flex-col justify-start items-center bg-gradient-to-r from-[#F8F9FA] to-[#E9ECEF] lg:h-[90%] lg:my-auto px-8 sm:px-0 py-16 mx-8 sm:mx-16 mt-16 lg:pt-20 lg:pb-0 lg:mx-0 ">
+        <div class="w-full sm:w-1/2">
+          <h3 class="text-4xl font-bold text-[#44505E] mb-4" data-i18n="media.latestNews">
+            Latest News
+          </h3>
+          <p class="text-[#A5A5A5] mb-12 text-lg leading-5" data-i18n="media.latestNewsDesc">
+            Stay updated with the most recent announcements, press releases, and updates from the Air Connectivity Program. Watch our featured stories and explore the latest developments shaping Saudi Arabia's aviation and tourism sector.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Adding new video cards slider section as separate section -->
-<section
-	dir="ltr" id="videoSection"  class="xl:container  mx-auto my-20 px-4 sm:px-6 lg:px-8">
-	<!-- First Row: Title and Navigation -->
-	<div
-		class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
-		<!-- Title -->
+<!-- Video cards slider -->
+<section dir="ltr" id="videoSection" class="xl:container mx-auto my-20 px-4 sm:px-6 lg:px-8">
+  <!-- Header row -->
+  <div class="flex flex-col md:flex-row items-center justify-between mb-8 gap-4">
+    <div class="pl-0 md:pl-16 flex-1 flex items-center space-x-3">
+      <button class="flex items-center justify-center w-8 h-8 bg-[#44505E] rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-4 h-4 bg-white text-[#44505E] rounded-full">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
+      </button>
 
-		<div
-			class="pl-0 md:pl-16 flex-1 flex items-center space-x-3">
-			<!-- Video button -->
-			<button class="flex items-center justify-center w-8 h-8 bg-[#44505E] rounded-lg">
-				<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewbox="0 0 24 24" class="w-4 h-4 bg-white text-[#44505E] rounded-full">
-					<path d="M8 5v14l11-7z"/>
-				</svg>
-			</button>
+      <h2 class="text-2xl font-bold text-[#566578]" data-i18n="media.mediaHighlights">
+        {% if language.id == 'ar' %}
+          تغطيات إعلامية
+        {% else %}
+          Media Highlights
+        {% endif %}
+      </h2>
+    </div>
 
-			<!-- Text -->
-			<h2 class="text-2xl font-bold text-[#566578]" data-i18n="media.mediaHighlights">
-				{% if language.id == 'ar' %}
-					تغطيات إعلامية
-				{% else %}
-					Media Highlights
-				{% endif %}
-			</h2>
+    <!-- Navigation -->
+    <div class="flex items-center">
+      <span id="videoCardsCurrentSlide" class="text-normal text-[#AAB1BB] font-medium min-w-[2ch] text-right">01</span>
+      <div class="flex items-center">
+        <button id="videoCardsPrevBtn" class="p-2 rounded-full">
+          <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <div class="w-24 h-1 bg-gray-200 rounded-full overflow-hidden">
+          <div id="videoCardsProgressBar" class="h-full bg-gray-800 rounded-full transition-all duration-300 ease-in-out" style="width: 4%"></div>
+        </div>
+        <button id="videoCardsNextBtn" class="p-2 rounded-full">
+          <svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+      <span id="videoCardsTotalSlides" class="text-normal text-[#AAB1BB] font-medium min-w-[2ch]">25</span>
+    </div>
+  </div>
 
-		</div>
-
-		<!-- Video Cards Slider Navigation with Progress Bar -->
-		<div
-			class="flex items-center">
-			<!-- Current Slide Number -->
-			<span id="videoCardsCurrentSlide" class="text-normal text-[#AAB1BB] font-medium min-w-[2ch] text-right">01</span>
-
-			<!-- Navigation Controls -->
-			<div class="flex items-center">
-				<button id="videoCardsPrevBtn" class="p-2 rounded-full">
-					<svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-					</svg>
-				</button>
-
-				<!-- Progress Bar -->
-				<div class="w-24 h-1 bg-gray-200 rounded-full overflow-hidden">
-					<div id="videoCardsProgressBar" class="h-full bg-gray-800 rounded-full transition-all duration-300 ease-in-out" style="width: 4%"></div>
-				</div>
-
-				<button id="videoCardsNextBtn" class="p-2 rounded-full">
-					<svg class="w-7 h-7 text-gray-600" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-					</svg>
-				</button>
-			</div>
-
-			<!-- Total Slides -->
-			<span id="videoCardsTotalSlides" class="text-normal text-[#AAB1BB] font-medium min-w-[2ch]">25</span>
-		</div>
-	</div>
-
-	<!-- Second Row: Video Cards Slider -->
-	<div class="overflow-hidden">
-		<div
-			id="videoCardsSliderTrack" class="flex transition-transform duration-300 ease-in-out"><!-- Video card slides will be generated by JavaScript -->
-		</div>
-	</div>
+  <!-- Slider track (cards inserted by JS elsewhere) -->
+  <div class="overflow-hidden">
+    <div id="videoCardsSliderTrack" class="flex transition-transform duration-300 ease-in-out">
+      <!-- If you output <video> in each card, add data-generate-poster to them too -->
+      <!-- Example card:
+      <div class="w-80 shrink-0 mr-4">
+        <div class="relative rounded-lg overflow-hidden aspect-video mb-3">
+          <video data-generate-poster class="w-full h-full object-cover" poster="/placeholder.svg?height=200&width=320">
+            <source src="/path/to/video.mp4" type="video/mp4"/>
+          </video>
+        </div>
+        <h4 class="text-[#44505E] font-semibold">Card title</h4>
+      </div>
+      -->
+    </div>
+  </div>
 </section>
 <div style="padding-bottom:20px;"></div>
 
