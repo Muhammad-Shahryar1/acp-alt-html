@@ -61,25 +61,28 @@ final class TeamApiController extends ControllerBase {
    * - field_team_deparment   : Text (plain)  <-- spelling kept as-is
    * - field_team_image       : Image
    */
-  private function nodeToArray(Node $node): array {
-    $item = [
-      'id'         => $node->id(),
-      'name'       => $node->get('field_team_member_name')->value ?? '',
-      'role'       => $node->get('field_team_role')->value ?? '',
-      'department' => $node->get('field_team_deparment')->value ?? '',
-    ];
+private function nodeToArray(Node $node): array {
+  $item = [
+    'id'         => $node->id(),
+    'name'       => $node->get('field_team_member_name')->value ?? '',
+    'role'       => $node->get('field_team_role')->value ?? '',
+    'department' => $node->get('field_team_deparment')->value ?? '',
+    'order'      => $node->hasField('field_order') && $node->get('field_order')->value !== NULL
+                      ? (int) $node->get('field_order')->value
+                      : 999,
+  ];
 
-    if ($node->hasField('field_team_image') && !$node->get('field_team_image')->isEmpty()) {
-      $file = $node->get('field_team_image')->entity;
-      if ($file) {
-        $item['image_url'] = \Drupal::service('file_url_generator')
-          ->generateAbsoluteString($file->getFileUri());
-        $item['image_filename'] = basename($file->getFileUri());
-      }
+  if ($node->hasField('field_team_image') && !$node->get('field_team_image')->isEmpty()) {
+    $file = $node->get('field_team_image')->entity;
+    if ($file) {
+      $item['image_url'] = \Drupal::service('file_url_generator')
+        ->generateAbsoluteString($file->getFileUri());
+      $item['image_filename'] = basename($file->getFileUri());
     }
-
-    return $item;
   }
+
+  return $item;
+}
 
   // Kept for parity with your News controller (optional helper).
   private function importImageFromTheme(string $filename): ?int {
