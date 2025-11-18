@@ -9,7 +9,6 @@
     padding-bottom: 1.5rem;
     position: sticky;   /* or: position: -webkit-sticky; for very old Safari */
     top: 0;
-    z-index: 1000;  
 }
 
 .secondary-header nav {
