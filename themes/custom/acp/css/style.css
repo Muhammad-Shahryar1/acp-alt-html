@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 
-@font-face {
+@font-face{
   font-family: "FSAlbert";
   src: url("/assets/fonts/webFonts/FSAlbertRegular/FSAlbert-Regular.woff2") format("woff2"),
        url("/assets/fonts/webFonts/FSAlbertRegular/FSAlbert-Regular.woff") format("woff");
@@ -9,9 +9,7 @@
   font-style: normal;
   font-display: swap;
 }
-
-/* Bold */
-@font-face {
+@font-face{
   font-family: "FSAlbert";
   src: url("/assets/fonts/webFonts/FSAlbertBold/FSAlbert-Bold.woff2") format("woff2"),
        url("/assets/fonts/webFonts/FSAlbertBold/FSAlbert-Bold.woff") format("woff");
@@ -20,12 +18,34 @@
   font-display: swap;
 }
 
-html {
-  scroll-behavior: smooth;
+/* === ARABIC (separate family) === */
+@font-face{
+  font-family: "FSAlbertArabic";
+  src: url("/assets/fonts/webFonts/FSAlbertArabicRegular/FSAlbertArabic-Regular.woff2") format("woff2"),
+       url("/assets/fonts/webFonts/FSAlbertArabicRegular/FSAlbertArabic-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-body {
-  font-family: "FSAlbert", sans-serif;
+@font-face{
+  font-family: "FSAlbertArabic";
+  src: url("/assets/fonts/webFonts/FSAlbertArabicBold/FSAlbertArabic-Bold.woff2") format("woff2"),
+       url("/assets/fonts/webFonts/FSAlbertArabicBold/FSAlbertArabic-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
+
+/* Defaults */
+html { scroll-behavior: smooth; }
+body { font-family: "FSAlbert", system-ui, -apple-system, Segoe UI, Arial, sans-serif; }
+
+/* When page is Arabic, swap to Arabic family */
+html[lang="ar"] body,
+[dir="rtl"] body {
+  font-family: "FSAlbertArabic", "FSAlbert", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+}
+
 p {
   font-size: 20px;
   line-height: 1.5;
