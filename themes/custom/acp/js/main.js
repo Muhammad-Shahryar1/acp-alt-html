@@ -1404,7 +1404,7 @@ function renderFlightCards() {
       }
 
       return `
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:bg-emerald-50 hover:border-emerald-200 transition-all duration-200 cursor-pointer">
+        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-200 transition-all duration-200 cursor-pointer">
           <div class="flex items-center justify-center mb-6">
             <div class="flex items-center space-x-4">
               <span class="text-2xl font-bold text-gray-800">${
