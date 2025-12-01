@@ -1581,6 +1581,57 @@
             "install-path": "../drupal/core-vendor-hardening"
         },
         {
+            "name": "drupal/darkmode",
+            "version": "1.0.8",
+            "version_normalized": "1.0.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/darkmode.git",
+                "reference": "1.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/darkmode-1.0.8.zip",
+                "reference": "1.0.8",
+                "shasum": "5764515b7bba721baad70fa197c4fb798acf4a18"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.8",
+                    "datestamp": "1747720929",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "installation-source": "source",
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arthur.baghdasar",
+                    "homepage": "https://www.drupal.org/user/3353890"
+                },
+                {
+                    "name": "bobi-mel",
+                    "homepage": "https://www.drupal.org/user/3741631"
+                }
+            ],
+            "description": "Integration of Darkmodejs library.",
+            "homepage": "https://www.drupal.org/project/darkmode",
+            "support": {
+                "source": "https://git.drupalcode.org/project/darkmode"
+            },
+            "install-path": "../../modules/contrib/darkmode"
+        },
+        {
             "name": "drupal/libraries",
             "version": "4.1.1",
             "version_normalized": "4.1.1.0",
@@ -2581,6 +2632,81 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.6.1"
             },
             "install-path": "../nikic/php-parser"
+        },
+        {
+            "name": "npm-asset/darkmode-js",
+            "version": "1.5.7",
+            "version_normalized": "1.5.7.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/darkmode-js/-/darkmode-js-1.5.7.tgz"
+            },
+            "type": "npm-asset",
+            "installation-source": "dist",
+            "license": [
+                "MIT"
+            ],
+            "install-path": "../../web/libraries/darkmode-js"
+        },
+        {
+            "name": "oomphinc/composer-installers-extender",
+            "version": "2.0.1",
+            "version_normalized": "2.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oomphinc/composer-installers-extender.git",
+                "reference": "cbf4b6f9a24153b785d09eee755b995ba87bd5f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oomphinc/composer-installers-extender/zipball/cbf4b6f9a24153b785d09eee755b995ba87bd5f9",
+                "reference": "cbf4b6f9a24153b785d09eee755b995ba87bd5f9",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.1 || ^2.0",
+                "composer/installers": "^1.0 || ^2.0",
+                "php": ">=7.1"
+            },
+            "require-dev": {
+                "composer/composer": "^2.0",
+                "phpunit/phpunit": "^7.2",
+                "squizlabs/php_codesniffer": "^3.3"
+            },
+            "time": "2021-12-15T12:32:42+00:00",
+            "type": "composer-plugin",
+            "extra": {
+                "class": "OomphInc\\ComposerInstallersExtender\\Plugin"
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-4": {
+                    "OomphInc\\ComposerInstallersExtender\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Stephen Beemsterboer",
+                    "email": "stephen@oomphinc.com",
+                    "homepage": "https://github.com/balbuf"
+                },
+                {
+                    "name": "Nathan Dentzau",
+                    "email": "nate@oomphinc.com",
+                    "homepage": "http://oomph.is/ndentzau"
+                }
+            ],
+            "description": "Extend the composer/installers plugin to accept any arbitrary package type.",
+            "homepage": "http://www.oomphinc.com/",
+            "support": {
+                "issues": "https://github.com/oomphinc/composer-installers-extender/issues",
+                "source": "https://github.com/oomphinc/composer-installers-extender/tree/2.0.1"
+            },
+            "install-path": "../oomphinc/composer-installers-extender"
         },
         {
             "name": "pear/archive_tar",
