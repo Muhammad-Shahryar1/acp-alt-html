@@ -60,10 +60,10 @@
             </h2>
 
             <div class="grid grid-cols-1 partner-info-container sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {{ partner_form.field_organization_name|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'اسم الجهة' : 'Organization Name','class':['border-b','w-full','focus:outline-none','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
-              {{ partner_form.field_organization_website|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'الموقع الالكتروني' : 'Organization Website','class':['border-b','w-full','focus:outline-none','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
-              {{ partner_form.field_organization_industry|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'القطاع' : 'Industry','class':['border-b','w-full','focus:outline-none','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
-              {{ partner_form.field_country|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'الدولة' : 'Country','class':['border-b','w-full','focus:outline-none','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_organization_name|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'اسم الجهة' : 'Organization Name', 'aria-label': (language.id == 'ar') ? 'اسم الجهة' : 'Organization Name', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_organization_website|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'الموقع الالكتروني' : 'Organization Website', 'aria-label': (language.id == 'ar') ? 'الموقع الالكتروني' : 'Organization Website', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_organization_industry|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'القطاع' : 'Industry', 'aria-label': (language.id == 'ar') ? 'القطاع' : 'Industry', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_country|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'الدولة' : 'Country', 'aria-label': (language.id == 'ar') ? 'الدولة' : 'Country', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
             </div>
           </div>
 
@@ -74,10 +74,10 @@
             </h2>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 partner-contactinfo-container max-w-4xl gap-10">
-              {{ partner_form.field_first_name|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'الاسم الاول' : 'First Name','class':['border-b','w-full','focus:outline-none','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
-              {{ partner_form.field_last_name|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'الاسم الاخير' : 'Last Name','class':['border-b','w-full','focus:outline-none','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
-              {{ partner_form.field_phone|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'رقم الجوال' : 'Phone Number','class':['border-b','w-full','focus:outline-none','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
-              {{ partner_form.field_email_partner|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'البريد الالكتروني' : 'Email','class':['border-b','w-full','focus:outline-none','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_first_name|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'الاسم الاول' : 'First Name', 'aria-label': (language.id == 'ar') ? 'الاسم الاول' : 'First Name', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_last_name|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'الاسم الاخير' : 'Last Name', 'aria-label': (language.id == 'ar') ? 'الاسم الاخير' : 'Last Name', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_phone|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'رقم الجوال' : 'Phone Number', 'aria-label': (language.id == 'ar') ? 'رقم الجوال' : 'Phone Number', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_email_partner|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'البريد الالكتروني' : 'Email', 'aria-label': (language.id == 'ar') ? 'البريد الالكتروني' : 'Email', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
             </div>
           </div>
 
@@ -95,6 +95,7 @@
               '#title_display': 'invisible',
               '#attributes': {
                 'placeholder': (language.id == 'ar') ? 'اكتب هنا...' : 'Type your message here...',
+                'aria-label': (language.id == 'ar') ? 'كيف ترغب الجهة بالمساهمة في برنامج الربط الجوي' : 'How would you like to contribute to Saudi Air Connectivity Program?',
                 'rows': '10',
                 'class': [
                   'border',
@@ -103,6 +104,8 @@
                   'w-full',
                   'rounded-xl',
                   'focus:outline-none',
+                  'focus:ring-2',
+                  'focus:ring-emerald-500',
                   'mt-5',
                   'border-gray-300',
                   'focus:border-gray-600',
@@ -116,7 +119,8 @@
           <div class="mt-4">
             {{ partner_form.actions.submit|merge({
               '#attributes': {
-                'class': ['bg-[#32D2A0]','text-white','px-8','sm:px-12','py-3','sm:py-4','rounded-lg','shadow','text-sm','w-full','sm:w-auto','flex','items-center','justify-center','partner-submit-btn']
+                'class': ['bg-[#32D2A0]','text-white','px-8','sm:px-12','py-3','sm:py-4','rounded-lg','shadow','text-sm','w-full','sm:w-auto','flex','items-center','justify-center','partner-submit-btn','focus:outline-none','focus:ring-2','focus:ring-emerald-500','focus:ring-offset-2','hover:bg-[#2AB890]','transition-colors'],
+                'aria-label': (language.id == 'ar') ? 'إرسال معلومات الشريك' : 'Send partner information'
               },
               '#value': (language.id == 'ar') ? 'إرسال' : 'Send'
             }) }}
@@ -149,11 +153,11 @@
       {# Close button #}
       <button
         type="button"
-        class="absolute top-3 {% if language.id == 'ar' %}left-3{% else %}right-3{% endif %} rounded-full p-1.5 hover:bg-gray-100 transition"
+        class="absolute top-3 {% if language.id == 'ar' %}left-3{% else %}right-3{% endif %} rounded-full p-1.5 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition"
         data-close-modal
         aria-label="{% if language.id == 'ar' %}إغلاق{% else %}Close{% endif %}"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" d="M10 8.586L13.95 4.636L15.364 6.05L11.414 10L15.364 13.95L13.95 15.364L10 11.414L6.05 15.364L4.636 13.95L8.586 10L4.636 6.05L6.05 4.636L10 8.586Z" clip-rule="evenodd" />
         </svg>
       </button>
@@ -191,7 +195,7 @@
           type="button"
           data-close-modal
           class="w-full inline-flex items-center justify-center rounded-xl border border-gray-200
-                 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+                 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition"
         >
           {% if language.id == 'ar' %}إغلاق{% else %}Close{% endif %}
         </button>

@@ -77,10 +77,22 @@ if (readMoreBtn) {
     e.preventDefault();
     openArticleModal();
   });
+  readMoreBtn.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      openArticleModal();
+    }
+  });
 }
 
 if (closeArticleModalBtn) {
   closeArticleModalBtn.addEventListener("click", closeArticleModal);
+  closeArticleModalBtn.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      closeArticleModal();
+    }
+  });
 }
 
 articleModal.addEventListener("click", (e) => {
@@ -110,10 +122,18 @@ function attachArticleClickHandlers() {
   const articleItems = document.querySelectorAll(".article-item");
 
   articleItems.forEach((item) => {
-    item.addEventListener("click", () => {
+    const handleArticleClick = () => {
       const id = parseInt(item.dataset.id, 10);
       const article = articlesData.find((a) => a.id == id);
       if (article) updateBigCard(article);
+    };
+    
+    item.addEventListener("click", handleArticleClick);
+    item.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleArticleClick();
+      }
     });
   });
 }
@@ -138,7 +158,10 @@ function renderArticles(filter) {
     .map(
       (article) => `
       <div
-        class="article-item flex flex-col md:flex-row gap-4 p-4 hover:bg-gray-50 rounded-lg transition-colors duration-200"
+        role="button"
+        tabindex="0"
+        aria-label="View article: ${article.title}"
+        class="article-item flex flex-col md:flex-row gap-4 p-4 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg transition-colors duration-200"
         data-id="${article.id}">
           <div class="flex-shrink-0">
               <img
@@ -207,7 +230,10 @@ function buildFilterDropdown() {
     .map(
       (cat) => `
       <div
-        class="filter-option cursor-pointer px-4 py-2 hover:bg-gray-100"
+        role="button"
+        tabindex="0"
+        aria-label="Filter by ${cat}"
+        class="filter-option cursor-pointer px-4 py-2 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500"
         data-filter="${cat}">
         ${cat}
       </div>`
@@ -216,9 +242,17 @@ function buildFilterDropdown() {
 
   // Attach events
   document.querySelectorAll(".filter-option").forEach((option) => {
-    option.addEventListener("click", (e) => {
+    const handleFilterClick = (e) => {
       const filter = option.getAttribute("data-filter");
       handleFilterSelect(filter);
+    };
+    
+    option.addEventListener("click", handleFilterClick);
+    option.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleFilterClick(e);
+      }
     });
   });
 }
@@ -246,10 +280,20 @@ function handleFilterSelect(filter) {
 
 
 // Event listeners
-filterBtn.addEventListener("click", (e) => {
-  e.stopPropagation();
-  toggleDropdown();
-});
+if (filterBtn) {
+  const handleFilterToggle = (e) => {
+    e.stopPropagation();
+    toggleDropdown();
+  };
+  
+  filterBtn.addEventListener("click", handleFilterToggle);
+  filterBtn.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleFilterToggle(e);
+    }
+  });
+}
 
 document.addEventListener("click", (e) => {
   if (!filterDropdown.contains(e.target) && !filterBtn.contains(e.target)) {
@@ -323,7 +367,15 @@ function togglePlayPause() {
   }
 }
 
-playPauseBtn.addEventListener("click", togglePlayPause);
+if (playPauseBtn) {
+  playPauseBtn.addEventListener("click", togglePlayPause);
+  playPauseBtn.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      togglePlayPause();
+    }
+  });
+}
 
 video.addEventListener("ended", () => {
   playIcon.classList.remove("hidden");
@@ -467,13 +519,21 @@ function renderVideoCardsSlider() {
         }
       });
 
-      playBtn.addEventListener("click", (e) => {
+      const handleVideoPlay = (e) => {
         e.stopPropagation();
         video.play();
         hasBeenPlayed = true;
         overlay.classList.add("opacity-0", "pointer-events-none");
         duration.classList.add("hidden");
         video.controls = true;
+      };
+      
+      playBtn.addEventListener("click", handleVideoPlay);
+      playBtn.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          handleVideoPlay(e);
+        }
       });
 
       video.addEventListener("ended", () => {
@@ -532,29 +592,52 @@ function updateVideoCardsNavigation() {
   videoCardsSliderTrack.style.transform = `translateX(${translateX}%)`;
 }
 
-document.getElementById("videoCardsPrevBtn").addEventListener("click", () => {
-  const totalVideoCardsSlides = Math.ceil(
-    videoCardsData.length / videoCardsPerSlide
-  );
-  if (videoCardsCurrentSlideIndex > 0) {
-    videoCardsCurrentSlideIndex--;
-  } else {
-    videoCardsCurrentSlideIndex = totalVideoCardsSlides - 1;
-  }
-  updateVideoCardsNavigation();
-});
+const videoCardsPrevBtn = document.getElementById("videoCardsPrevBtn");
+const videoCardsNextBtn = document.getElementById("videoCardsNextBtn");
 
-document.getElementById("videoCardsNextBtn").addEventListener("click", () => {
-  const totalVideoCardsSlides = Math.ceil(
-    videoCardsData.length / videoCardsPerSlide
-  );
-  if (videoCardsCurrentSlideIndex < totalVideoCardsSlides - 1) {
-    videoCardsCurrentSlideIndex++;
-  } else {
-    videoCardsCurrentSlideIndex = 0;
-  }
-  updateVideoCardsNavigation();
-});
+if (videoCardsPrevBtn) {
+  const handleVideoCardsPrev = () => {
+    const totalVideoCardsSlides = Math.ceil(
+      videoCardsData.length / videoCardsPerSlide
+    );
+    if (videoCardsCurrentSlideIndex > 0) {
+      videoCardsCurrentSlideIndex--;
+    } else {
+      videoCardsCurrentSlideIndex = totalVideoCardsSlides - 1;
+    }
+    updateVideoCardsNavigation();
+  };
+  
+  videoCardsPrevBtn.addEventListener("click", handleVideoCardsPrev);
+  videoCardsPrevBtn.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleVideoCardsPrev();
+    }
+  });
+}
+
+if (videoCardsNextBtn) {
+  const handleVideoCardsNext = () => {
+    const totalVideoCardsSlides = Math.ceil(
+      videoCardsData.length / videoCardsPerSlide
+    );
+    if (videoCardsCurrentSlideIndex < totalVideoCardsSlides - 1) {
+      videoCardsCurrentSlideIndex++;
+    } else {
+      videoCardsCurrentSlideIndex = 0;
+    }
+    updateVideoCardsNavigation();
+  };
+  
+  videoCardsNextBtn.addEventListener("click", handleVideoCardsNext);
+  videoCardsNextBtn.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleVideoCardsNext();
+    }
+  });
+}
 renderVideoCardsSlider();
 updateVideoCardsNavigation();
 // Video Section End

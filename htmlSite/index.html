@@ -98,9 +98,13 @@
             <div class="flex items-center space-x-4">
               <!-- Language Selector -->
               <div class="hidden md:flex">
-                <div
+                <button
                   id="language-selector"
-                  class="flex justify-center items-center cursor-pointer items-center bg-white rounded mx-2 py-2 space-x-3 px-4 text-emerald-500 hover:text-white hover:bg-emerald-500"
+                  type="button"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Change language"
+                  class="flex justify-center items-center cursor-pointer items-center bg-white rounded mx-2 py-2 space-x-3 px-4 text-emerald-500 hover:text-white hover:bg-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                 >
                   <span
                     class="text-sm font-semibold my-auto"
@@ -108,7 +112,7 @@
                     >العربية</span
                   >
                   <img src="./assets/language-selector.png" alt="" />
-                </div>
+                </button>
               </div>
 
               <!-- Become a Partner Button -->
@@ -190,12 +194,16 @@
                   id="language-selector-content-mobile"
                   >العربية</span
                 >
-                <div
+                <button
                   id="language-selector"
-                  class="flex justify-center items-center h-10 w-10 cursor-pointer items-center bg-[#C5BBFF] rounded mx-2 py-1"
+                  type="button"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Change language"
+                  class="flex justify-center items-center h-10 w-10 cursor-pointer items-center bg-[#C5BBFF] rounded mx-2 py-1 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                 >
                   <img src="./assets/language-selector.png" alt="" />
-                </div>
+                </button>
               </div>
               <a
                 href="./becomePartner.html"
@@ -7486,7 +7494,7 @@
         const languageSelectors =
           document.querySelectorAll("#language-selector");
         languageSelectors.forEach((selector) => {
-          selector.addEventListener("click", function () {
+          const handleLanguageToggle = function () {
             const currentLang = i18next.language;
             const languageSelectorContentDesktop = document.getElementById(
               "language-selector-content-desktop"
@@ -7505,6 +7513,13 @@
             // Save language to localStorage
             localStorage.setItem("appLanguage", newLang);
             setLanguage(newLang);
+          };
+          selector.addEventListener("click", handleLanguageToggle);
+          selector.addEventListener("keydown", function (e) {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              handleLanguageToggle();
+            }
           });
         });
       });

@@ -21,7 +21,15 @@
       <div class="right-actions">
         <!-- Language Selector -->
         <div class="language-selector-wrapper">
-          <div id="language-selector" data-lang="{{ language.id }}">
+          <button 
+            id="language-selector" 
+            type="button"
+            role="button"
+            tabindex="0"
+            aria-label="{{ 'Change language'|t }}"
+            data-lang="{{ language.id }}"
+            class="focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+          >
             <span id="language-selector-content-desktop">
               {% if language.id == 'ar' %}
                 English
@@ -29,8 +37,8 @@
                 العربية
               {% endif %}
             </span>
-            <img src="{{ base_path ~ directory }}/assets/language-selector.png" alt="{{ 'Language'|t }}">
-          </div>
+            <img src="{{ base_path ~ directory }}/assets/language-selector.png" alt="{{ 'Language'|t }}" aria-hidden="true">
+          </button>
         </div>
 
         <!-- Become a Partner Button -->
@@ -45,8 +53,14 @@
         {% endif %}
 
         <!-- Mobile Menu Button -->
-        <button id="mobile-menu-button">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <button 
+          id="mobile-menu-button"
+          type="button"
+          aria-label="{{ 'Toggle mobile menu'|t }}"
+          aria-expanded="false"
+          class="focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+        >
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -70,9 +84,16 @@
                 العربية
               {% endif %}
             </span>
-            <div id="language-selector">
-              <img src="{{ base_path ~ directory }}/assets/language-selector.png" alt="{{ 'Language'|t }}">
-            </div>
+            <button 
+              id="language-selector" 
+              type="button"
+              role="button"
+              tabindex="0"
+              aria-label="{{ 'Change language'|t }}"
+              class="focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+            >
+              <img src="{{ base_path ~ directory }}/assets/language-selector.png" alt="{{ 'Language'|t }}" aria-hidden="true">
+            </button>
           </div>
 
           {% if language.id == 'ar' %}
