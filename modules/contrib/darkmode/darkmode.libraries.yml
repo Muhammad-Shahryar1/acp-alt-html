@@ -1,6 +1,6 @@
 darkmodejs:
   js:
-    /libraries/darkmode-js/lib/darkmode-js.min.js: {minified: true}
+    https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js: { type: external, minified: true }
 initiator:
   js:
     js/init.js: {}
