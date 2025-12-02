@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   langButtons.forEach((langButton) => {
     const currentLang = langButton?.dataset.lang || "en";
 
-    langButton.addEventListener("click", () => {
+    const handleLanguageToggle = () => {
       const isArabic = currentLang === "ar";
       let newUrl =
         window.location.origin +
@@ -26,6 +26,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       window.location.href = newUrl;
+    };
+
+    langButton.addEventListener("click", handleLanguageToggle);
+    langButton.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleLanguageToggle();
+      }
     });
   });
 });
@@ -256,8 +264,18 @@ const mobileMenuButton = document.getElementById("mobile-menu-button");
 const mobileMenu = document.getElementById("mobile-menu");
 
 if (mobileMenuButton && mobileMenu) {
-  mobileMenuButton.addEventListener("click", function () {
+  const toggleMenu = function () {
+    const isHidden = mobileMenu.classList.contains("hidden");
     mobileMenu.classList.toggle("hidden");
+    mobileMenuButton.setAttribute("aria-expanded", !isHidden);
+  };
+  
+  mobileMenuButton.addEventListener("click", toggleMenu);
+  mobileMenuButton.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      toggleMenu();
+    }
   });
 }
 
@@ -560,7 +578,10 @@ function createNewsCard(news, index) {
 
   return `
     <div 
-      class="news-card w-[100%] sm:w-[100%] md:w-[50%] flex-shrink-0 border border-gray-300 bg-white rounded-md shadow-sm hover:shadow-sm transition-shadow duration-300 p-6 cursor-pointer opacity-[${
+      role="button"
+      tabindex="0"
+      aria-label="${readMoreText}: ${news.headline}"
+      class="news-card w-[100%] sm:w-[100%] md:w-[50%] flex-shrink-0 border border-gray-300 bg-white rounded-md shadow-sm hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition-shadow duration-300 p-6 cursor-pointer opacity-[${
         news.id == 1 ? 1 : 0.5
       }]" 
       data-id="${news.id}">
@@ -601,7 +622,9 @@ function createNewsCard(news, index) {
             }.date">${formatDate(news.date)}</span>
           </div>
           <button 
-            class="read-more-btn hover:bg-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2"
+            type="button"
+            aria-label="${readMoreText}"
+            class="read-more-btn hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 text-gray-700 px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center space-x-2"
             data-id="${news.id}">
             <span class="text-sm text-gray-600" data-i18n="buttons.readMore">${readMoreText}</span>
             <span class="w-8 h-8 rounded-full bg-gray-600 text-white flex items-center justify-center" aria-hidden="true">
@@ -654,9 +677,18 @@ sliderTrack.addEventListener("click", (e) => {
 });
 
 // close modal
-closeModalBtn.addEventListener("click", () => {
-  modal.classList.add("hidden");
-});
+if (closeModalBtn) {
+  const closeModal = () => {
+    modal.classList.add("hidden");
+  };
+  closeModalBtn.addEventListener("click", closeModal);
+  closeModalBtn.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      closeModal();
+    }
+  });
+}
 
 // close modal when clicking outside
 modal.addEventListener("click", (e) => {
@@ -702,7 +734,7 @@ function renderNewsSlider() {
   // 🔥 Add click listeners on cards
   const cards = document.querySelectorAll(".news-card");
   cards.forEach((card, idx) => {
-    card.addEventListener("click", () => {
+    const handleCardClick = () => {
       // Map DOM index -> real slide index
       let clickedRealIndex;
       if (idx === 0) {
@@ -712,12 +744,6 @@ function renderNewsSlider() {
       } else {
         clickedRealIndex = idx; // real slide
       }
-
-      // console.log("card clicked:", {
-      //   domIdx: idx,
-      //   clickedRealIndex,
-      //   currentNewsSlide,
-      // });
 
       if (clickedRealIndex === currentNewsSlide) {
         // active card clicked → do nothing
@@ -741,6 +767,14 @@ function renderNewsSlider() {
         updateSlideOpacity();
         updateNewsProgress();
         updateNewsNavigation();
+      }
+    };
+    
+    card.addEventListener("click", handleCardClick);
+    card.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleCardClick();
       }
     });
   });
@@ -877,12 +911,28 @@ function initializeNewsSlider() {
   renderNewsSlider();
 
   // Add event listeners
-  document
-    .getElementById("news-prev")
-    .addEventListener("click", () => slideNews("prev"));
-  document
-    .getElementById("news-next")
-    .addEventListener("click", () => slideNews("next"));
+  const newsPrevBtn = document.getElementById("news-prev");
+  const newsNextBtn = document.getElementById("news-next");
+  
+  if (newsPrevBtn) {
+    newsPrevBtn.addEventListener("click", () => slideNews("prev"));
+    newsPrevBtn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        slideNews("prev");
+      }
+    });
+  }
+  
+  if (newsNextBtn) {
+    newsNextBtn.addEventListener("click", () => slideNews("next"));
+    newsNextBtn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        slideNews("next");
+      }
+    });
+  }
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -1515,32 +1565,73 @@ function setupFlightSearchListeners() {
     }
   });
 
-  document.getElementById("flight-prev-page").addEventListener("click", () => {
-    if (currentFlightPage > 0) {
-      currentFlightPage--;
-      renderFlightCards();
-    }
-  });
+  const flightPrevBtn = document.getElementById("flight-prev-page");
+  const flightNextBtn = document.getElementById("flight-next-page");
+  const continentPrevBtn = document.getElementById("continent-prev");
+  const continentNextBtn = document.getElementById("continent-next");
 
-  document.getElementById("flight-next-page").addEventListener("click", () => {
-    if (currentFlightPage < totalFlightPages - 1) {
-      currentFlightPage++;
-      renderFlightCards();
-    }
-  });
+  if (flightPrevBtn) {
+    const handleFlightPrev = () => {
+      if (currentFlightPage > 0) {
+        currentFlightPage--;
+        renderFlightCards();
+      }
+    };
+    flightPrevBtn.addEventListener("click", handleFlightPrev);
+    flightPrevBtn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleFlightPrev();
+      }
+    });
+  }
 
-  document.getElementById("continent-prev").addEventListener("click", () => {
-    currentContinentPage = Math.max(0, currentContinentPage - 1);
-    updateContinentProgress();
-  });
+  if (flightNextBtn) {
+    const handleFlightNext = () => {
+      if (currentFlightPage < totalFlightPages - 1) {
+        currentFlightPage++;
+        renderFlightCards();
+      }
+    };
+    flightNextBtn.addEventListener("click", handleFlightNext);
+    flightNextBtn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleFlightNext();
+      }
+    });
+  }
 
-  document.getElementById("continent-next").addEventListener("click", () => {
-    console.log("click", currentContinentPage);
-    if (currentContinentPage < 1) {
-      currentContinentPage = Math.min(2, currentContinentPage + 1);
+  if (continentPrevBtn) {
+    const handleContinentPrev = () => {
+      currentContinentPage = Math.max(0, currentContinentPage - 1);
       updateContinentProgress();
-    }
-  });
+    };
+    continentPrevBtn.addEventListener("click", handleContinentPrev);
+    continentPrevBtn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleContinentPrev();
+      }
+    });
+  }
+
+  if (continentNextBtn) {
+    const handleContinentNext = () => {
+      console.log("click", currentContinentPage);
+      if (currentContinentPage < 1) {
+        currentContinentPage = Math.min(2, currentContinentPage + 1);
+        updateContinentProgress();
+      }
+    };
+    continentNextBtn.addEventListener("click", handleContinentNext);
+    continentNextBtn.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleContinentNext();
+      }
+    });
+  }
 }
 
 function displayFlightSearchResults(airports) {
@@ -1556,11 +1647,22 @@ function displayFlightSearchResults(airports) {
   const resultsHTML = airports
     .map(
       (airport) => `
-                <div class="p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0" onclick="selectFlightAirport('${
+                <div 
+                  role="button"
+                  tabindex="0"
+                  aria-label="Select ${airport.name} airport"
+                  class="p-3 hover:bg-gray-50 focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer border-b border-gray-100 last:border-b-0" 
+                  onclick="selectFlightAirport('${
                   airport.name
                 }', '${airport.city}', '${
         airport.code
-      }', ${saudiAirports.indexOf(airport)})">
+      }', ${saudiAirports.indexOf(airport)})"
+                  onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectFlightAirport('${
+                  airport.name
+                }', '${airport.city}', '${
+        airport.code
+      }', ${saudiAirports.indexOf(airport)});}"
+                >
                     <div class="font-medium text-gray-800">${airport.name}</div>
                     <div class="text-sm text-gray-600">${airport.city} (${
         airport.code
@@ -1671,7 +1773,16 @@ function renderContinents() {
       const imagePath = `${window.basePath || "/"}themes/custom/acp/${c.image}`;
 
       return `
-        <div id="continent-card-${globalIndex}" data-index="${globalIndex}" onclick="selectFlightContinent('${c.name}', 'continent-card-${globalIndex}')" class="flex flex-col items-center mt-2 mb-6 cursor-pointer">
+        <div 
+          id="continent-card-${globalIndex}" 
+          data-index="${globalIndex}" 
+          role="button"
+          tabindex="0"
+          aria-label="Select ${displayName} continent"
+          onclick="selectFlightContinent('${c.name}', 'continent-card-${globalIndex}')" 
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();selectFlightContinent('${c.name}', 'continent-card-${globalIndex}');}"
+          class="flex flex-col items-center mt-2 mb-6 cursor-pointer focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 rounded"
+        >
             <div class='w-24 h-24 border border-gray-200 rounded'>
                 <img src="${imagePath}" alt="${displayName}" class="w-full h-full object-fill"/>
             </div>

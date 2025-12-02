@@ -60,21 +60,21 @@
 
           <div class="grid grid-cols-1 sm:grid-cols-2 input-fields-container lg:grid-cols-3 overflow-hidden gap-4 sm:gap-6">
             {% if language.id == 'ar' %}
-              {{ contact_us_form.field_name|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'اسمك', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
-              {{ contact_us_form.field_email|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'عنوان البريد الإلكتروني', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
-              {{ contact_us_form.field_phone_number|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'رقم الهاتف (اختياري)', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm', 'sm:col-span-2', 'lg:col-span-1']}}) }}
+              {{ contact_us_form.field_name|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'اسمك', 'aria-label': 'اسمك', 'class': ['border-b', 'w-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+              {{ contact_us_form.field_email|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'عنوان البريد الإلكتروني', 'aria-label': 'عنوان البريد الإلكتروني', 'class': ['border-b', 'w-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+              {{ contact_us_form.field_phone_number|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'رقم الهاتف (اختياري)', 'aria-label': 'رقم الهاتف (اختياري)', 'class': ['border-b', 'w-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm', 'sm:col-span-2', 'lg:col-span-1']}}) }}
             {% else %}
-              {{ contact_us_form.field_name|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Your Name', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
-              {{ contact_us_form.field_email|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Email Address', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
-              {{ contact_us_form.field_phone_number|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Phone Number (optional)', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm', 'sm:col-span-2', 'lg:col-span-1']}}) }}
+              {{ contact_us_form.field_name|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Your Name', 'aria-label': 'Your Name', 'class': ['border-b', 'w-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+              {{ contact_us_form.field_email|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Email Address', 'aria-label': 'Email Address', 'class': ['border-b', 'w-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+              {{ contact_us_form.field_phone_number|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Phone Number (optional)', 'aria-label': 'Phone Number (optional)', 'class': ['border-b', 'w-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm', 'sm:col-span-2', 'lg:col-span-1']}}) }}
             {% endif %}
           </div>
 
           <div class="message-field-container">
             {% if language.id == 'ar' %}
-              {{ contact_us_form.field_message|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'الرسالة', 'rows': '3', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+              {{ contact_us_form.field_message|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'الرسالة', 'aria-label': 'الرسالة', 'rows': '3', 'class': ['border-b', 'w-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
             {% else %}
-              {{ contact_us_form.field_message|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Message', 'rows': '3', 'class': ['border-b', 'w-full', 'focus:outline-none', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
+              {{ contact_us_form.field_message|merge({'#title_display': 'invisible', '#attributes': {'placeholder': 'Message', 'aria-label': 'Message', 'rows': '3', 'class': ['border-b', 'w-full', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'placeholder:text-black', 'border-gray-300', 'focus:border-gray-600', 'pb-4', 'text-sm']}}) }}
             {% endif %}
           </div>
 
@@ -82,7 +82,8 @@
           <div class="pt-4">
             {{ contact_us_form.actions.submit|merge({
               '#attributes': {
-                'class': ['bg-[#32D2A0]', 'text-white', 'px-8', 'sm:px-12', 'py-3', 'sm:py-4', 'rounded-lg', 'shadow', 'text-sm', 'w-full', 'sm:w-auto', 'flex', 'items-center', 'justify-center', 'gap-2', 'contact-submit-btn']
+                'class': ['bg-[#32D2A0]', 'text-white', 'px-8', 'sm:px-12', 'py-3', 'sm:py-4', 'rounded-lg', 'shadow', 'text-sm', 'w-full', 'sm:w-auto', 'flex', 'items-center', 'justify-center', 'gap-2', 'contact-submit-btn', 'focus:outline-none', 'focus:ring-2', 'focus:ring-emerald-500', 'focus:ring-offset-2', 'hover:bg-[#2AB890]', 'transition-colors'],
+                'aria-label': (language.id == 'ar') ? 'إرسال الرسالة' : 'Send message'
               },
               '#value': (language.id == 'ar') ? 'إرسال' : 'Send'
             }) }}
@@ -115,11 +116,11 @@
       {# Close button #}
       <button
         type="button"
-        class="absolute top-3 {% if language.id == 'ar' %}left-3{% else %}right-3{% endif %} rounded-full p-1.5 hover:bg-gray-100 transition"
+        class="absolute top-3 {% if language.id == 'ar' %}left-3{% else %}right-3{% endif %} rounded-full p-1.5 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition"
         data-close-modal
         aria-label="{% if language.id == 'ar' %}إغلاق{% else %}Close{% endif %}"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
           <path fill-rule="evenodd" d="M10 8.586L13.95 4.636L15.364 6.05L11.414 10L15.364 13.95L13.95 15.364L10 11.414L6.05 15.364L4.636 13.95L8.586 10L4.636 6.05L6.05 4.636L10 8.586Z" clip-rule="evenodd" />
         </svg>
       </button>
@@ -157,7 +158,7 @@
           type="button"
           data-close-modal
           class="w-full inline-flex items-center justify-center rounded-xl border border-gray-200
-                 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 transition"
+                 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition"
         >
           {% if language.id == 'ar' %}إغلاق{% else %}Close{% endif %}
         </button>
