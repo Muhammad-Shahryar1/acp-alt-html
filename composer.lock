@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9cc3f94f050c7cea1111d22e00d49b21",
+    "content-hash": "56f256871c6df9007cb7d177d44db4ff",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1522,6 +1522,54 @@
             "time": "2024-11-11T20:19:58+00:00"
         },
         {
+            "name": "drupal/darkmode",
+            "version": "1.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/darkmode.git",
+                "reference": "1.0.8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/darkmode-1.0.8.zip",
+                "reference": "1.0.8",
+                "shasum": "5764515b7bba721baad70fa197c4fb798acf4a18"
+            },
+            "require": {
+                "drupal/core": "^9.2 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.8",
+                    "datestamp": "1747720929",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "arthur.baghdasar",
+                    "homepage": "https://www.drupal.org/user/3353890"
+                },
+                {
+                    "name": "bobi-mel",
+                    "homepage": "https://www.drupal.org/user/3741631"
+                }
+            ],
+            "description": "Integration of Darkmodejs library.",
+            "homepage": "https://www.drupal.org/project/darkmode",
+            "support": {
+                "source": "https://git.drupalcode.org/project/darkmode"
+            }
+        },
+        {
             "name": "drupal/libraries",
             "version": "4.1.1",
             "source": {
@@ -2486,6 +2534,18 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.6.1"
             },
             "time": "2025-08-13T20:13:15+00:00"
+        },
+        {
+            "name": "npm-asset/darkmode-js",
+            "version": "1.5.7",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/darkmode-js/-/darkmode-js-1.5.7.tgz"
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "pear/archive_tar",
@@ -6211,5 +6271,5 @@
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
