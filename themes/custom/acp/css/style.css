@@ -1,8 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
+/* Fix darkmode layer issue in Arabic/RTL mode - prevent right-side glitch */
+html[lang="ar"] .darkmode-layer--simple,
+html[dir="rtl"] .darkmode-layer--simple {
+  transform: scale(1) !important;
+  width: 100% !important;
+  right: 0 !important;
+  left: auto !important;
+}
+
 /* Darkmode overrides for specific headings */
 body.darkmode--activated h2.stats-heading,
 body.darkmode--activated h3.stats-subheading {
+  color: #ffffff;
+}
+/* Contact form dark theme overrides */
+body.darkmode--activated .contact-form-card {
+  background-color: #050505;
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+body.darkmode--activated .contact-form-card h1 {
+  color: #f1f5f9 !important;
+}
+body.darkmode--activated .contact-form-card .contact-form input,
+body.darkmode--activated .contact-form-card .contact-form textarea {
+  background-color: transparent;
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+body.darkmode--activated .contact-form-card .contact-form input::placeholder,
+body.darkmode--activated .contact-form-card .contact-form textarea::placeholder {
+  color: rgba(248, 250, 252, 0.7);
+}
+body.darkmode--activated .contact-form-card .contact-form .contact-submit-btn {
+  background-color: #1f9b74;
+}
+body.darkmode--activated .contact-form-card .contact-form .contact-submit-btn:hover {
+  background-color: #178460;
+}
+#exec-grid .team-card h4,
+#exec-grid .team-card .role,
+#exec-grid .team-card .department {
+  transition: color 0.2s ease;
+}
+body.darkmode--activated #exec-grid .team-card h4,
+body.darkmode--activated #exec-grid .team-card .role,
+body.darkmode--activated #exec-grid .team-card .department {
   color: #ffffff;
 }
 #block-acp-darkmodeswitcher {
@@ -672,7 +716,7 @@ background: rgba(0, 0, 0, 0.3);
   line-height: 1.6;
 }
 .minister-section {
-      padding: 0px 5% 40px 5%;
+  padding: 0px 5% 40px 5%;
   border-radius: 12px;
 }
 
@@ -713,6 +757,110 @@ background: rgba(0, 0, 0, 0.3);
   line-height: 1.6;
   font-size: 1.25rem;
   margin-top: 20px;
+}
+
+/* Dark mode styling for minister section */
+body.darkmode--activated .white-bg-minister {
+  background-color: #ffffff !important;
+}
+body.darkmode--activated .minister-section .section-heading,
+body.darkmode--activated .minister-section .minister-text h3,
+body.darkmode--activated .minister-section .minister-text p,
+body.darkmode--activated #block-acp-decsministrymessage {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for front page hero section (bg-[#EDEDED]) */
+body.darkmode--activated section:has(#animated-section),
+body.darkmode--activated section.bg-\[#EDEDED\] {
+  background-color: #000000 !important;
+}
+/* Make heading white in dark mode - override Tailwind classes and inline styles */
+body.darkmode--activated #animated-section h2,
+body.darkmode--activated #animated-section h2[data-i18n="sections.airConnectivityProgram"],
+body.darkmode--activated section:has(#animated-section) h2,
+body.darkmode--activated section:has(#animated-section) h2.text-3xl,
+body.darkmode--activated section:has(#animated-section) h2.font-bold {
+  color: #ffffff !important;
+}
+/* Make description white in dark mode (including during animations) - override everything */
+body.darkmode--activated #gsap-text,
+body.darkmode--activated p#gsap-text,
+body.darkmode--activated #gsap-text[dir],
+body.darkmode--activated #animated-section p#gsap-text,
+body.darkmode--activated section:has(#animated-section) p#gsap-text,
+body.darkmode--activated section:has(#animated-section) p {
+  color: #ffffff !important;
+}
+/* Override the animated word spans created by GSAP (they have text-gray-400 class) */
+body.darkmode--activated #gsap-text .word,
+body.darkmode--activated #gsap-text .word.text-gray-400,
+body.darkmode--activated #gsap-text span.word,
+body.darkmode--activated #gsap-text span.text-gray-400 {
+  color: #ffffff !important;
+}
+/* Force override for any inline styles applied during GSAP animation */
+body.darkmode--activated #animated-section h2[style],
+body.darkmode--activated #gsap-text[style] {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for all popups and modals */
+/* News Modal */
+body.darkmode--activated #newsModal .bg-white,
+body.darkmode--activated #newsModal > div > div.bg-white {
+  background-color: #000000 !important;
+}
+body.darkmode--activated #newsModal #modalTitle,
+body.darkmode--activated #newsModal #modalDate,
+body.darkmode--activated #newsModal #modalDescription,
+body.darkmode--activated #newsModal #closeModal {
+  color: #ffffff !important;
+}
+body.darkmode--activated #newsModal #closeModal:hover {
+  color: #cccccc !important;
+}
+
+/* Contact Success Modal */
+body.darkmode--activated #contactSuccessModal .bg-white,
+body.darkmode--activated #contactSuccessModal > div.bg-white {
+  background-color: #000000 !important;
+}
+body.darkmode--activated #contactSuccessModal h2,
+body.darkmode--activated #contactSuccessModal p,
+body.darkmode--activated #contactSuccessModal button[data-close-modal],
+body.darkmode--activated #contactSuccessModal .text-gray-500,
+body.darkmode--activated #contactSuccessModal .text-gray-600,
+body.darkmode--activated #contactSuccessModal .text-gray-700,
+body.darkmode--activated #contactSuccessModal .text-\[#1F2933\] {
+  color: #ffffff !important;
+}
+body.darkmode--activated #contactSuccessModal button[data-close-modal]:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+body.darkmode--activated #contactSuccessModal .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Partner Success Modal */
+body.darkmode--activated #partnerSuccessModal .bg-white,
+body.darkmode--activated #partnerSuccessModal > div.bg-white {
+  background-color: #000000 !important;
+}
+body.darkmode--activated #partnerSuccessModal h2,
+body.darkmode--activated #partnerSuccessModal p,
+body.darkmode--activated #partnerSuccessModal button[data-close-modal],
+body.darkmode--activated #partnerSuccessModal .text-gray-500,
+body.darkmode--activated #partnerSuccessModal .text-gray-600,
+body.darkmode--activated #partnerSuccessModal .text-gray-700,
+body.darkmode--activated #partnerSuccessModal .text-\[#1F2933\] {
+  color: #ffffff !important;
+}
+body.darkmode--activated #partnerSuccessModal button[data-close-modal]:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+body.darkmode--activated #partnerSuccessModal .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 /* --- EXECUTIVE MANAGEMENT --- */
