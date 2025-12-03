@@ -67,6 +67,28 @@
           </a>
         {% endif %}
 
+        <!-- Contrast Controls -->
+        <div class="contrast-controls">
+          <button 
+            id="contrast-decrease"
+            type="button"
+            aria-label="{{ 'Decrease contrast'|t }}"
+            class="contrast-btn contrast-minus focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            title="{{ 'Decrease contrast'|t }}"
+          >
+            <span aria-hidden="true">Contrast –</span>
+          </button>
+          <button 
+            id="contrast-increase"
+            type="button"
+            aria-label="{{ 'Increase contrast'|t }}"
+            class="contrast-btn contrast-plus focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            title="{{ 'Increase contrast'|t }}"
+          >
+            <span aria-hidden="true">Contrast +</span>
+          </button>
+        </div>
+
         <!-- Mobile Menu Button -->
         <button 
           id="mobile-menu-button"
@@ -138,6 +160,28 @@
               Become a Partner
             </a>
           {% endif %}
+
+          <!-- Contrast Controls (Mobile) -->
+          <div class="contrast-controls-mobile">
+            <button 
+              id="contrast-decrease-mobile"
+              type="button"
+              aria-label="{{ 'Decrease contrast'|t }}"
+              class="contrast-btn contrast-minus focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+              title="{{ 'Decrease contrast'|t }}"
+            >
+              <span aria-hidden="true">Contrast –</span>
+            </button>
+            <button 
+              id="contrast-increase-mobile"
+              type="button"
+              aria-label="{{ 'Increase contrast'|t }}"
+              class="contrast-btn contrast-plus focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+              title="{{ 'Increase contrast'|t }}"
+            >
+              <span aria-hidden="true">Contrast +</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

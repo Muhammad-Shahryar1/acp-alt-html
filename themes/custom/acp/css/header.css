@@ -373,3 +373,21 @@
 #main-header.header-scrolled #mobile-menu-button:hover {
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+/* Contrast controls in header */
+#main-header .contrast-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#main-header.header-transparent .contrast-btn {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #10b981;
+  border-color: #10b981;
+}
+
+#main-header.header-transparent .contrast-btn:hover:not(:disabled) {
+  background-color: #10b981;
+  color: white;
+}

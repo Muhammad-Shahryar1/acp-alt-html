@@ -38,6 +38,162 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Contrast Control Feature
+(function() {
+  // Three states: 'default', 'high', 'low'
+  const CONTRAST_STATES = {
+    DEFAULT: 'default',
+    HIGH: 'high',
+    LOW: 'low'
+  };
+
+  // Contrast values
+  const CONTRAST_VALUES = {
+    default: 1,
+    high: 1.3,
+    low: 0.7
+  };
+
+  // Get current contrast state from localStorage or default
+  function getContrastState() {
+    const saved = localStorage.getItem('contrastState');
+    return saved && CONTRAST_STATES[saved.toUpperCase()] ? saved : CONTRAST_STATES.DEFAULT;
+  }
+
+  // Save contrast state to localStorage
+  function saveContrastState(state) {
+    localStorage.setItem('contrastState', state);
+  }
+
+  // Apply contrast to the page
+  function applyContrast(state) {
+    const body = document.body;
+    const contrastValue = CONTRAST_VALUES[state] || CONTRAST_VALUES.default;
+
+    // Remove all contrast classes
+    body.classList.remove('contrast-high', 'contrast-low');
+    
+    // Apply appropriate class and filter
+    if (state === CONTRAST_STATES.HIGH) {
+      body.classList.add('contrast-high');
+      body.style.filter = `contrast(${contrastValue})`;
+    } else if (state === CONTRAST_STATES.LOW) {
+      body.classList.add('contrast-low');
+      body.style.filter = `contrast(${contrastValue})`;
+    } else {
+      body.style.filter = '';
+    }
+
+    saveContrastState(state);
+    updateButtonStates(state);
+  }
+
+  // Update button disabled states
+  function updateButtonStates(currentState) {
+    const increaseBtns = document.querySelectorAll('#contrast-increase, #contrast-increase-mobile');
+    const decreaseBtns = document.querySelectorAll('#contrast-decrease, #contrast-decrease-mobile');
+
+    // At high: can only decrease (back to default), so disable increase
+    // At low: can only increase (back to default), so disable decrease
+    // At default: both enabled
+    increaseBtns.forEach(btn => {
+      const shouldDisable = currentState === CONTRAST_STATES.HIGH;
+      btn.disabled = shouldDisable;
+      btn.setAttribute('aria-disabled', shouldDisable);
+    });
+
+    decreaseBtns.forEach(btn => {
+      const shouldDisable = currentState === CONTRAST_STATES.LOW;
+      btn.disabled = shouldDisable;
+      btn.setAttribute('aria-disabled', shouldDisable);
+    });
+  }
+
+  // Handle contrast increase
+  function handleContrastIncrease() {
+    const currentState = getContrastState();
+    if (currentState === CONTRAST_STATES.DEFAULT) {
+      applyContrast(CONTRAST_STATES.HIGH);
+    } else if (currentState === CONTRAST_STATES.LOW) {
+      // From low, go back to default
+      applyContrast(CONTRAST_STATES.DEFAULT);
+    }
+    // If already high, do nothing (button will be disabled)
+  }
+
+  // Handle contrast decrease
+  function handleContrastDecrease() {
+    const currentState = getContrastState();
+    if (currentState === CONTRAST_STATES.DEFAULT) {
+      applyContrast(CONTRAST_STATES.LOW);
+    } else if (currentState === CONTRAST_STATES.HIGH) {
+      // From high, go back to default
+      applyContrast(CONTRAST_STATES.DEFAULT);
+    }
+    // If already low, do nothing (button will be disabled)
+  }
+
+  // Initialize contrast on page load
+  function initContrast() {
+    const savedState = getContrastState();
+    applyContrast(savedState);
+  }
+
+  // Attach event listeners when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize contrast state
+    initContrast();
+
+    // Desktop buttons
+    const increaseBtn = document.getElementById('contrast-increase');
+    const decreaseBtn = document.getElementById('contrast-decrease');
+    
+    // Mobile buttons
+    const increaseBtnMobile = document.getElementById('contrast-increase-mobile');
+    const decreaseBtnMobile = document.getElementById('contrast-decrease-mobile');
+
+    if (increaseBtn) {
+      increaseBtn.addEventListener('click', handleContrastIncrease);
+      increaseBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleContrastIncrease();
+        }
+      });
+    }
+
+    if (decreaseBtn) {
+      decreaseBtn.addEventListener('click', handleContrastDecrease);
+      decreaseBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleContrastDecrease();
+        }
+      });
+    }
+
+    if (increaseBtnMobile) {
+      increaseBtnMobile.addEventListener('click', handleContrastIncrease);
+      increaseBtnMobile.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleContrastIncrease();
+        }
+      });
+    }
+
+    if (decreaseBtnMobile) {
+      decreaseBtnMobile.addEventListener('click', handleContrastDecrease);
+      decreaseBtnMobile.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleContrastDecrease();
+        }
+      });
+    }
+  });
+})();
+
 //team section about//
 
 document.addEventListener("DOMContentLoaded", async function () {
