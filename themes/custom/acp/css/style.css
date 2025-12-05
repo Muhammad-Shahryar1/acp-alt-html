@@ -121,6 +121,28 @@ body.contrast-low {
   filter: contrast(0.7);
 }
 
+/* Text Size Classes - Three levels with subtle increases */
+html.text-size-default {
+  font-size: 100% !important;
+}
+
+html.text-size-large {
+  font-size: 102% !important; /* Very subtle 2% increase - minimal visual impact, won't affect layout */
+}
+
+html.text-size-extra-large {
+  font-size: 105% !important; /* Slightly more noticeable 5% increase */
+}
+
+/* Only scale html element to avoid compounding effects */
+/* Rem-based sizes will automatically scale with html font-size */
+
+/* Screen Reader Mode - Applied to body when enabled */
+body.screen-reader-mode {
+  /* Add any screen reader specific styles here if needed */
+  /* This class can be used to enhance screen reader experience */
+}
+
 /* Responsive: Hide desktop contrast controls on mobile */
 @media (max-width: 767px) {
   .contrast-controls {

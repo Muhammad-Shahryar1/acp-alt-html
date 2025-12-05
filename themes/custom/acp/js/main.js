@@ -194,6 +194,450 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 })();
 
+// Accessibility Menu Feature
+(function() {
+  // Text Size Management
+  const TEXT_SIZE_STATES = {
+    DEFAULT: 'default',
+    LARGE: 'large',
+    EXTRA_LARGE: 'extra-large'
+  };
+
+  // Get current text size from localStorage or default
+  function getTextSize() {
+    const saved = localStorage.getItem('textSize');
+    // Check if saved value matches any of our valid states
+    if (saved && (saved === TEXT_SIZE_STATES.DEFAULT || saved === TEXT_SIZE_STATES.LARGE || saved === TEXT_SIZE_STATES.EXTRA_LARGE)) {
+      return saved;
+    }
+    return TEXT_SIZE_STATES.DEFAULT;
+  }
+
+  // Save text size to localStorage
+  function saveTextSize(size) {
+    localStorage.setItem('textSize', size);
+  }
+
+  // Apply text size to the page
+  function applyTextSize(size) {
+    const html = document.documentElement;
+    const body = document.body;
+    
+    // Remove all text size classes from both html and body
+    html.classList.remove('text-size-default', 'text-size-large', 'text-size-extra-large');
+    body.classList.remove('text-size-default', 'text-size-large', 'text-size-extra-large');
+    
+    // Apply appropriate class to both html and body for better inheritance
+    if (size === TEXT_SIZE_STATES.LARGE) {
+      html.classList.add('text-size-large');
+      body.classList.add('text-size-large');
+    } else if (size === TEXT_SIZE_STATES.EXTRA_LARGE) {
+      html.classList.add('text-size-extra-large');
+      body.classList.add('text-size-extra-large');
+    } else {
+      html.classList.add('text-size-default');
+      body.classList.add('text-size-default');
+    }
+
+    // Force a reflow to ensure styles are applied
+    html.offsetHeight;
+
+    saveTextSize(size);
+    updateTextSizeButtons(size);
+    
+    // Debug log (can be removed later)
+    console.log('Text size applied:', size, 'HTML classes:', html.className);
+  }
+
+  // Update text size button states
+  function updateTextSizeButtons(currentSize) {
+    const defaultBtn = document.getElementById('text-size-default');
+    const largeBtn = document.getElementById('text-size-large');
+    const extraLargeBtn = document.getElementById('text-size-extra-large');
+
+    if (defaultBtn) {
+      const isActive = currentSize === TEXT_SIZE_STATES.DEFAULT;
+      defaultBtn.classList.toggle('active', isActive);
+      defaultBtn.setAttribute('aria-checked', isActive);
+    }
+
+    if (largeBtn) {
+      const isActive = currentSize === TEXT_SIZE_STATES.LARGE;
+      largeBtn.classList.toggle('active', isActive);
+      largeBtn.setAttribute('aria-checked', isActive);
+    }
+
+    if (extraLargeBtn) {
+      const isActive = currentSize === TEXT_SIZE_STATES.EXTRA_LARGE;
+      extraLargeBtn.classList.toggle('active', isActive);
+      extraLargeBtn.setAttribute('aria-checked', isActive);
+    }
+  }
+
+  // Handle text size change
+  function handleTextSizeChange(size) {
+    applyTextSize(size);
+  }
+
+  // Initialize text size on page load
+  function initTextSize() {
+    const savedSize = getTextSize();
+    applyTextSize(savedSize);
+  }
+
+  // Accessibility Menu Toggle
+  function toggleAccessibilityMenu(buttonId, panelId, isOpen) {
+    const button = document.getElementById(buttonId);
+    const panel = document.getElementById(panelId);
+    
+    if (!button || !panel) return;
+
+    if (isOpen) {
+      panel.classList.remove('hidden');
+      button.setAttribute('aria-expanded', 'true');
+      // Focus first focusable element in panel
+      const firstFocusable = panel.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if (firstFocusable) {
+        setTimeout(() => firstFocusable.focus(), 100);
+      }
+    } else {
+      panel.classList.add('hidden');
+      button.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  // Close accessibility menu
+  function closeAccessibilityMenu() {
+    const desktopButton = document.getElementById('accessibility-menu-button');
+    const desktopPanel = document.getElementById('accessibility-menu-panel');
+    const mobileButton = document.getElementById('accessibility-menu-button-mobile');
+    
+    if (desktopButton && desktopPanel) {
+      toggleAccessibilityMenu('accessibility-menu-button', 'accessibility-menu-panel', false);
+    }
+    if (mobileButton) {
+      mobileButton.setAttribute('aria-expanded', 'false');
+    }
+  }
+
+  // Dark Mode Toggle
+  function toggleDarkMode() {
+    const darkModeBtn = document.getElementById('dark-mode-toggle');
+    if (!darkModeBtn) return;
+
+    // Check if darkmode-js is available (try multiple ways it might be initialized)
+    let darkmodeInstance = null;
+    if (typeof window.Darkmode !== 'undefined') {
+      // Try to find existing darkmode instance
+      const darkmodeToggle = document.querySelector('.darkmode-toggle');
+      if (darkmodeToggle && window.darkmode) {
+        darkmodeInstance = window.darkmode;
+      }
+    }
+
+    if (darkmodeInstance) {
+      darkmodeInstance.toggle();
+      const isActivated = darkmodeInstance.isActivated();
+      darkModeBtn.setAttribute('aria-checked', isActivated);
+      darkModeBtn.classList.toggle('active', isActivated);
+    } else {
+      // Fallback: toggle darkmode class manually and trigger existing darkmode button if it exists
+      const existingDarkmodeBtn = document.querySelector('.darkmode-toggle');
+      if (existingDarkmodeBtn) {
+        existingDarkmodeBtn.click();
+        // Wait a bit for the toggle to complete
+        setTimeout(() => {
+          const isActivated = document.body.classList.contains('darkmode--activated');
+          darkModeBtn.setAttribute('aria-checked', isActivated);
+          darkModeBtn.classList.toggle('active', isActivated);
+        }, 100);
+      } else {
+        // Manual toggle if no darkmode button exists
+        document.body.classList.toggle('darkmode--activated');
+        const isActivated = document.body.classList.contains('darkmode--activated');
+        darkModeBtn.setAttribute('aria-checked', isActivated);
+        darkModeBtn.classList.toggle('active', isActivated);
+        localStorage.setItem('darkmode', isActivated);
+      }
+    }
+  }
+
+  // Initialize dark mode state
+  function initDarkMode() {
+    const darkModeBtn = document.getElementById('dark-mode-toggle');
+    if (!darkModeBtn) return;
+
+    const isActivated = document.body.classList.contains('darkmode--activated') || 
+                       localStorage.getItem('darkmode') === 'true';
+    darkModeBtn.setAttribute('aria-checked', isActivated);
+    darkModeBtn.classList.toggle('active', isActivated);
+  }
+
+  // Screen Reader Mode Management
+  function getScreenReaderMode() {
+    const saved = localStorage.getItem('screenReaderMode');
+    return saved === 'true';
+  }
+
+  function saveScreenReaderMode(enabled) {
+    localStorage.setItem('screenReaderMode', enabled ? 'true' : 'false');
+  }
+
+  function applyScreenReaderMode(enabled) {
+    const body = document.body;
+    
+    if (enabled) {
+      body.classList.add('screen-reader-mode');
+    } else {
+      body.classList.remove('screen-reader-mode');
+    }
+
+    saveScreenReaderMode(enabled);
+    updateScreenReaderModeButton(enabled);
+  }
+
+  function updateScreenReaderModeButton(enabled) {
+    const screenReaderBtn = document.getElementById('screen-reader-mode-toggle');
+    if (!screenReaderBtn) return;
+
+    screenReaderBtn.setAttribute('aria-pressed', enabled);
+    screenReaderBtn.classList.toggle('active', enabled);
+  }
+
+  function toggleScreenReaderMode() {
+    const screenReaderBtn = document.getElementById('screen-reader-mode-toggle');
+    if (!screenReaderBtn) return;
+
+    const isEnabled = document.body.classList.contains('screen-reader-mode');
+    applyScreenReaderMode(!isEnabled);
+  }
+
+  function initScreenReaderMode() {
+    const savedState = getScreenReaderMode();
+    applyScreenReaderMode(savedState);
+  }
+
+  // Attach event listeners when DOM is ready
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize text size
+    initTextSize();
+
+    // Initialize dark mode state
+    initDarkMode();
+
+    // Initialize screen reader mode
+    initScreenReaderMode();
+
+    // Desktop accessibility menu button
+    const desktopButton = document.getElementById('accessibility-menu-button');
+    const desktopPanel = document.getElementById('accessibility-menu-panel');
+    const desktopCloseBtn = document.getElementById('accessibility-menu-close');
+
+    if (desktopButton && desktopPanel) {
+      desktopButton.addEventListener('click', function() {
+        const isOpen = desktopPanel.classList.contains('hidden');
+        toggleAccessibilityMenu('accessibility-menu-button', 'accessibility-menu-panel', isOpen);
+      });
+
+      desktopButton.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const isOpen = desktopPanel.classList.contains('hidden');
+          toggleAccessibilityMenu('accessibility-menu-button', 'accessibility-menu-panel', isOpen);
+        }
+      });
+    }
+
+    if (desktopCloseBtn) {
+      desktopCloseBtn.addEventListener('click', closeAccessibilityMenu);
+      desktopCloseBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          closeAccessibilityMenu();
+        }
+      });
+    }
+
+    // Mobile accessibility menu button - opens the same panel
+    const mobileButton = document.getElementById('accessibility-menu-button-mobile');
+    
+    if (mobileButton && desktopPanel) {
+      console.log('Mobile accessibility button found');
+      
+      mobileButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Mobile accessibility button clicked');
+        
+        const isOpen = !desktopPanel.classList.contains('hidden');
+        console.log('Panel is currently:', isOpen ? 'open' : 'closed');
+        toggleAccessibilityMenu('accessibility-menu-button', 'accessibility-menu-panel', !isOpen);
+        mobileButton.setAttribute('aria-expanded', !isOpen);
+      });
+
+      mobileButton.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          const isOpen = !desktopPanel.classList.contains('hidden');
+          toggleAccessibilityMenu('accessibility-menu-button', 'accessibility-menu-panel', !isOpen);
+          mobileButton.setAttribute('aria-expanded', !isOpen);
+        }
+      });
+    } else {
+      console.warn('Mobile accessibility button or panel not found', {
+        button: !!mobileButton,
+        panel: !!desktopPanel
+      });
+    }
+
+    // Text size buttons
+    const textSizeDefaultBtn = document.getElementById('text-size-default');
+    const textSizeLargeBtn = document.getElementById('text-size-large');
+    const textSizeExtraLargeBtn = document.getElementById('text-size-extra-large');
+
+    console.log('Text size buttons found:', {
+      default: !!textSizeDefaultBtn,
+      large: !!textSizeLargeBtn,
+      extraLarge: !!textSizeExtraLargeBtn
+    });
+
+    if (textSizeDefaultBtn) {
+      textSizeDefaultBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Default button clicked');
+        handleTextSizeChange(TEXT_SIZE_STATES.DEFAULT);
+        // Keep panel open for text size changes (user might want to switch back)
+      });
+      textSizeDefaultBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          handleTextSizeChange(TEXT_SIZE_STATES.DEFAULT);
+        }
+      });
+    } else {
+      console.warn('Text size default button not found');
+    }
+
+    if (textSizeLargeBtn) {
+      textSizeLargeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Large button clicked');
+        handleTextSizeChange(TEXT_SIZE_STATES.LARGE);
+        // Keep panel open for text size changes (user might want to switch back)
+      });
+      textSizeLargeBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          handleTextSizeChange(TEXT_SIZE_STATES.LARGE);
+        }
+      });
+    } else {
+      console.warn('Text size large button not found');
+    }
+
+    if (textSizeExtraLargeBtn) {
+      textSizeExtraLargeBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Extra large button clicked');
+        handleTextSizeChange(TEXT_SIZE_STATES.EXTRA_LARGE);
+        // Keep panel open for text size changes (user might want to switch back)
+      });
+      textSizeExtraLargeBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          handleTextSizeChange(TEXT_SIZE_STATES.EXTRA_LARGE);
+        }
+      });
+    } else {
+      console.warn('Text size extra large button not found');
+    }
+
+    // Dark mode toggle button
+    const darkModeBtn = document.getElementById('dark-mode-toggle');
+    if (darkModeBtn) {
+      darkModeBtn.addEventListener('click', function() {
+        toggleDarkMode();
+        // Keep panel open for dark mode toggle (user might want to toggle back)
+      });
+      darkModeBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleDarkMode();
+        }
+      });
+    }
+
+    // Screen Reader Mode toggle button
+    const screenReaderModeBtn = document.getElementById('screen-reader-mode-toggle');
+    if (screenReaderModeBtn) {
+      screenReaderModeBtn.addEventListener('click', function() {
+        toggleScreenReaderMode();
+        // Keep panel open for screen reader mode toggle (user might want to toggle back)
+      });
+      screenReaderModeBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleScreenReaderMode();
+        }
+      });
+    }
+
+    // Close menu on ESC key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeAccessibilityMenu();
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (desktopPanel && desktopButton) {
+        if (!desktopPanel.contains(e.target) && !desktopButton.contains(e.target)) {
+          if (!desktopPanel.classList.contains('hidden')) {
+            closeAccessibilityMenu();
+          }
+        }
+      }
+    });
+
+    // Update contrast button handlers to work with accessibility menu
+    // The existing contrast handlers should still work, but we ensure they're accessible
+    const contrastIncreaseBtn = document.getElementById('contrast-increase');
+    const contrastDecreaseBtn = document.getElementById('contrast-decrease');
+
+    if (contrastIncreaseBtn) {
+      contrastIncreaseBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          // Trigger click if not already handled
+          if (!e.defaultPrevented) {
+            contrastIncreaseBtn.click();
+          }
+        }
+      });
+    }
+
+    if (contrastDecreaseBtn) {
+      contrastDecreaseBtn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          // Trigger click if not already handled
+          if (!e.defaultPrevented) {
+            contrastDecreaseBtn.click();
+          }
+        }
+      });
+    }
+  });
+})();
+
 //team section about//
 
 document.addEventListener("DOMContentLoaded", async function () {
