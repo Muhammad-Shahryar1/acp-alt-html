@@ -321,6 +321,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Dark Mode Toggle
+  function updateDarkModeLabel(isActivated) {
+    const darkModeBtn = document.getElementById('dark-mode-toggle');
+    const label = document.getElementById('dark-mode-label');
+    if (!darkModeBtn || !label) return;
+
+    const darkLabel = label.dataset.labelDark || 'Dark Mode';
+    const lightLabel = label.dataset.labelLight || 'Light Mode';
+    const nextLabel = isActivated ? lightLabel : darkLabel;
+
+    label.textContent = nextLabel;
+    darkModeBtn.setAttribute('aria-label', nextLabel);
+    darkModeBtn.setAttribute('title', nextLabel);
+  }
+
   function toggleDarkMode() {
     const darkModeBtn = document.getElementById('dark-mode-toggle');
     if (!darkModeBtn) return;
@@ -340,6 +354,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const isActivated = darkmodeInstance.isActivated();
       darkModeBtn.setAttribute('aria-checked', isActivated);
       darkModeBtn.classList.toggle('active', isActivated);
+      updateDarkModeLabel(isActivated);
     } else {
       // Fallback: toggle darkmode class manually and trigger existing darkmode button if it exists
       const existingDarkmodeBtn = document.querySelector('.darkmode-toggle');
@@ -350,6 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const isActivated = document.body.classList.contains('darkmode--activated');
           darkModeBtn.setAttribute('aria-checked', isActivated);
           darkModeBtn.classList.toggle('active', isActivated);
+          updateDarkModeLabel(isActivated);
         }, 100);
       } else {
         // Manual toggle if no darkmode button exists
@@ -358,6 +374,7 @@ document.addEventListener("DOMContentLoaded", () => {
         darkModeBtn.setAttribute('aria-checked', isActivated);
         darkModeBtn.classList.toggle('active', isActivated);
         localStorage.setItem('darkmode', isActivated);
+        updateDarkModeLabel(isActivated);
       }
     }
   }
@@ -371,6 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
                        localStorage.getItem('darkmode') === 'true';
     darkModeBtn.setAttribute('aria-checked', isActivated);
     darkModeBtn.classList.toggle('active', isActivated);
+    updateDarkModeLabel(isActivated);
   }
 
   // Screen Reader Mode Management

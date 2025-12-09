@@ -448,14 +448,28 @@
   position: absolute;
   top: calc(100% + 0.5rem);
   right: 0;
+  left: auto;
   background-color: white;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   min-width: 280px;
+  width: min(360px, calc(100vw - 1.5rem));
   z-index: 1000;
   max-height: 80vh;
   overflow-y: auto;
+}
+
+html[dir="rtl"] .accessibility-menu-panel,
+html[lang="ar"] .accessibility-menu-panel {
+  right: auto;
+  left: 0;
+}
+
+@media (max-width: 1023px) {
+  .accessibility-menu-panel {
+    width: calc(100vw - 2rem);
+  }
 }
 
 .accessibility-menu-panel.hidden {
