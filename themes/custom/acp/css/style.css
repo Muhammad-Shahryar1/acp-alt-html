@@ -8,7 +8,21 @@ html[dir="rtl"] .darkmode-layer--simple {
   right: 0 !important;
   left: auto !important;
 }
+/* Hide the small black dot but keep the darkmode layer working */
+.darkmode-layer--button {
+    width: 0 !important;   /* back to invisible */
+    height: 0 !important;
+    border-radius: 50%;
+    right: 32px;
+    bottom: 64px;
+    left: unset;
+}
 
+/* When dark mode is active, let it fill the page */
+.darkmode-layer--button.darkmode-layer--simple {
+    width: 100% !important;
+    height: 100% !important;
+}
 
 
 /* Darkmode overrides for specific headings */
