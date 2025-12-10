@@ -1,53 +1,5 @@
 // Language toggle
-document.addEventListener("DOMContentLoaded", () => {
-  const langButtons = document.querySelectorAll("#language-selector");
 
-  langButtons.forEach((langButton) => {
-    const currentLang = langButton?.dataset.lang || "en";
-
-    const langMap = {
-      "/media": "/ar/node/4",
-      "/media/": "/ar/node/4",
-      "/ar/node/4": "/media",
-      "/node/4": "/media",
-    };
-
-    const handleLanguageToggle = () => {
-      const isArabic = currentLang === "ar";
-      const pathname = window.location.pathname;
-      const origin = window.location.origin;
-      const search = window.location.search;
-
-      let targetPath = pathname;
-
-      if (isArabic) {
-        // Arabic → English
-        if (langMap[pathname]) {
-          targetPath = langMap[pathname];
-        } else {
-          targetPath = pathname.replace(/^\/ar\//, "/");
-        }
-      } else {
-        // English → Arabic
-        if (langMap[pathname]) {
-          targetPath = langMap[pathname];
-        } else if (!pathname.startsWith("/ar/")) {
-          targetPath = `/ar${pathname}`;
-        }
-      }
-
-      window.location.href = origin + targetPath + search;
-    };
-
-    langButton.addEventListener("click", handleLanguageToggle);
-    langButton.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        handleLanguageToggle();
-      }
-    });
-  });
-});
 
 
 document.addEventListener("DOMContentLoaded", () => {

@@ -9,6 +9,8 @@ html[dir="rtl"] .darkmode-layer--simple {
   left: auto !important;
 }
 
+
+
 /* Darkmode overrides for specific headings */
 body.darkmode--activated h2.stats-heading,
 body.darkmode--activated h3.stats-subheading {

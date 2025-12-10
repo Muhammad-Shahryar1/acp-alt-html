@@ -743,3 +743,108 @@ if (videoCardsNextBtn) {
 renderVideoCardsSlider();
 updateVideoCardsNavigation();
 // Video Section End
+
+
+  (function () {
+    const modal = document.getElementById('videoPreviewModal');
+    const previewVideo = document.getElementById('previewVideo');
+    const closeBtn = document.getElementById('closeVideoPreview');
+
+    if (!modal || !previewVideo || !closeBtn) {
+      return;
+    }
+
+    function openPreviewFromVideo(videoEl) {
+      if (!videoEl) return;
+
+      const source = videoEl.querySelector('source');
+      const src =
+        videoEl.getAttribute('data-preview-src') ||
+        (source && source.getAttribute('src'));
+
+      if (!src) return;
+
+      // Clear previous sources
+      previewVideo.pause();
+      previewVideo.removeAttribute('src');
+      while (previewVideo.firstChild) {
+        previewVideo.removeChild(previewVideo.firstChild);
+      }
+
+      // Create new source
+      const newSource = document.createElement('source');
+      newSource.src = src;
+      newSource.type = source && source.type ? source.type : 'video/mp4';
+      previewVideo.appendChild(newSource);
+      previewVideo.load();
+
+      // Show modal
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      // Try to autoplay
+      previewVideo.play().catch(function () {
+        // Ignore autoplay errors (e.g. browser restrictions)
+      });
+    }
+
+    function closePreview() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      previewVideo.pause();
+    }
+
+    // Close button
+    closeBtn.addEventListener('click', closePreview);
+
+    // Click outside to close
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closePreview();
+      }
+    });
+
+    // ESC to close
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closePreview();
+      }
+    });
+
+    // Inject "Preview" buttons on top of all previewable videos
+    // Any <video> with data-generate-poster will get a preview badge
+    const videos = document.querySelectorAll('video[data-generate-poster]');
+
+    videos.forEach(function (videoEl) {
+      const wrapper = videoEl.parentElement;
+      if (!wrapper) return;
+
+      // Avoid duplicates
+      if (wrapper.querySelector('[data-role="video-preview-button"]')) return;
+
+      // Ensure wrapper is positioned (most of yours already have class "relative")
+      if (!wrapper.style.position) {
+        wrapper.style.position = 'relative';
+      }
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('data-role', 'video-preview-button');
+      btn.className =
+        'absolute top-3 left-3 bg-black/60 text-white text-xs px-3 py-1 ' +
+        'rounded-md backdrop-blur-sm';
+
+      // Basic Arabic/English label based on <html lang="">
+      btn.innerText = document.documentElement.lang === 'ar'
+        ? 'معاينة'
+        : 'Preview';
+
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        openPreviewFromVideo(videoEl);
+      });
+
+      wrapper.appendChild(btn);
+    });
+  })();
