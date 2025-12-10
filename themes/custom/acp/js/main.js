@@ -1,3 +1,55 @@
+// Language toggle
+document.addEventListener("DOMContentLoaded", () => {
+  const langButtons = document.querySelectorAll("#language-selector");
+
+  langButtons.forEach((langButton) => {
+    const currentLang = langButton?.dataset.lang || "en";
+
+    const langMap = {
+      "/media": "/ar/node/4",
+      "/media/": "/ar/node/4",
+      "/ar/node/4": "/media",
+      "/node/4": "/media",
+    };
+
+    const handleLanguageToggle = () => {
+      const isArabic = currentLang === "ar";
+      const pathname = window.location.pathname;
+      const origin = window.location.origin;
+      const search = window.location.search;
+
+      let targetPath = pathname;
+
+      if (isArabic) {
+        // Arabic → English
+        if (langMap[pathname]) {
+          targetPath = langMap[pathname];
+        } else {
+          targetPath = pathname.replace(/^\/ar\//, "/");
+        }
+      } else {
+        // English → Arabic
+        if (langMap[pathname]) {
+          targetPath = langMap[pathname];
+        } else if (!pathname.startsWith("/ar/")) {
+          targetPath = `/ar${pathname}`;
+        }
+      }
+
+      window.location.href = origin + targetPath + search;
+    };
+
+    langButton.addEventListener("click", handleLanguageToggle);
+    langButton.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleLanguageToggle();
+      }
+    });
+  });
+});
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const langButtons = document.querySelectorAll("#language-selector");
 
@@ -1563,8 +1615,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       lang === "ar" ? "/ar/acp-news/api/news" : "/acp-news/api/news";
 
     // Fetch from Drupal API
-    const response = await fetch(apiUrl);
-    const data = await response.json();
+    const response = await fetch(apiUrl, { headers: { Accept: "application/json" } });
+    console.log("[Main] News response status", response.status);
+    if (!response.ok) throw new Error(`News fetch failed (${response.status})`);
+    const data = await response.json().catch(() => {
+      throw new Error("News response is not valid JSON");
+    });
+    console.log("[Main] News items", data?.length ?? 0);
 
     // Map API fields to match your existing JS structure
     newsData = data.map((item) => ({

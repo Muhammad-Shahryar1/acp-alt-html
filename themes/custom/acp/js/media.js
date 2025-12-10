@@ -1,10 +1,62 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const langButtons = document.querySelectorAll("#language-selector");
+
+  langButtons.forEach((langButton) => {
+    const currentLang = langButton?.dataset.lang || "en";
+
+    const langMap = {
+      "/media": "/ar/node/4",
+      "/media/": "/ar/node/4",
+      "/ar/node/4": "/media",
+      "/node/4": "/media",
+    };
+
+    const handleLanguageToggle = () => {
+      const isArabic = currentLang === "ar";
+      const pathname = window.location.pathname;
+      const origin = window.location.origin;
+      const search = window.location.search;
+
+      let targetPath = pathname;
+
+      if (isArabic) {
+        // Arabic → English
+        if (langMap[pathname]) {
+          targetPath = langMap[pathname];
+        } else {
+          targetPath = pathname.replace(/^\/ar\//, "/");
+        }
+      } else {
+        // English → Arabic
+        if (langMap[pathname]) {
+          targetPath = langMap[pathname];
+        } else if (!pathname.startsWith("/ar/")) {
+          targetPath = `/ar${pathname}`;
+        }
+      }
+
+      window.location.href = origin + targetPath + search;
+    };
+
+    langButton.addEventListener("click", handleLanguageToggle);
+    langButton.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleLanguageToggle();
+      }
+    });
+  });
+});
+
+
+
 // Modal references
 const articleModal = document.getElementById("newsModal");
 const closeArticleModalBtn = document.getElementById("closeModal");
-const modalTitle = document.getElementById("modalTitle");
-const modalDate = document.getElementById("modalDate");
-const modalImage = document.getElementById("modalImage");
-const modalDescription = document.getElementById("modalDescription");
+const modalTitleNew = document.getElementById("modalTitle");
+const modalDateNew = document.getElementById("modalDate");
+const modalImageNew = document.getElementById("modalImage");
+const modalDescriptionNew = document.getElementById("modalDescription");
 
 // Read More button (BigCard button)
 const readMoreBtn = document.querySelector("#readMoreBtn");
@@ -15,6 +67,38 @@ let articlesData = []; // fetched data will live here
 const lang = document.documentElement.lang || "en";
 const allLabel = lang === "ar" ? "الكل" : "All";
 let currentFilter = allLabel;
+
+// Resolve Drupal base path (for subdirectory installs)
+function getBasePath() {
+  const base =
+    (window.drupalSettings &&
+      window.drupalSettings.path &&
+      window.drupalSettings.path.baseUrl) ||
+    "/";
+  return base.replace(/\/+$/, "") + "/";
+}
+
+
+
+async function fetchWithFallback(urls, label) {
+  for (const url of urls) {
+    try {
+      console.log(`[Media] Fetching ${label}`, url);
+      const res = await fetch(url, { headers: { Accept: "application/json" } });
+      console.log(`[Media] ${label} status`, res.status);
+      if (!res.ok) {
+        console.warn(`[Media] ${label} failed`, url, res.status);
+        continue;
+      }
+      const json = await res.json();
+      console.log(`[Media] ${label} items`, Array.isArray(json) ? json.length : "n/a");
+      return json;
+    } catch (err) {
+      console.warn(`[Media] ${label} error`, url, err);
+    }
+  }
+  throw new Error(`${label} fetch failed on all URLs`);
+}
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -56,11 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
 function openArticleModal() {
   if (!currentBigCardArticle) return;
 
-  modalTitle.textContent = currentBigCardArticle.title || "";
-  modalDate.textContent = new Date(currentBigCardArticle.date).toDateString();
-  modalImage.src = currentBigCardArticle.image_url || "/placeholder.svg";
-  modalImage.alt = currentBigCardArticle.title || "";
-  modalDescription.textContent = currentBigCardArticle.description || "";
+  modalTitleNew.textContent = currentBigCardArticle.title || "";
+  modalDateNew.textContent = new Date(currentBigCardArticle.date).toDateString();
+  modalImageNew.src = currentBigCardArticle.image_url || "/placeholder.svg";
+  modalImageNew.alt = currentBigCardArticle.title || "";
+  modalDescriptionNew.textContent = currentBigCardArticle.description || "";
 
   articleModal.classList.remove("hidden");
   articleModal.classList.add("flex");
@@ -309,19 +393,24 @@ document.addEventListener("keydown", (e) => {
 // INIT (Fetch API)
 // ======================
 document.addEventListener("DOMContentLoaded", async () => {
+
   try {
     const lang = document.documentElement.lang || "en";
-    const apiUrl = lang === "ar" ? "/ar/acp-news/api/news" : "/acp-news/api/news";
-
-    const response = await fetch(apiUrl);
-    articlesData = await response.json();
-    console.log(articlesData);
+    const base = getBasePath();
+    const urls = [
+      lang === "ar" ? "/ar/acp-news/api/news" : "/acp-news/api/news",
+      base + (lang === "ar" ? "ar/acp-news/api/news" : "acp-news/api/news"),
+    ];
+    articlesData = await fetchWithFallback(urls, "news");
     
     buildFilterDropdown();
     renderArticles(currentFilter);
     sectionTitle.textContent = currentFilter;
   } catch (error) {
     console.error("Failed to fetch articles:", error);
+    if (articlesContainer) {
+      articlesContainer.innerHTML = `<div class="text-red-600 p-3">${error.message}</div>`;
+    }
   }
 });
 
@@ -400,17 +489,30 @@ let videoCardsData = [];
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const lang = document.documentElement.lang || "en";
-    const apiUrl = lang === "ar" ? "/ar/api/videos" : "/api/videos";
+    const base = getBasePath();
+    const urls = [
+      lang === "ar" ? "/ar/api/videos" : "/api/videos",
+      base + (lang === "ar" ? "ar/api/videos" : "api/videos"),
+    ];
 
     // Fetch translated video data
-    const res = await fetch(apiUrl);
-    videoCardsData = await res.json();
+    videoCardsData = await fetchWithFallback(urls, "videos");
 
     // Render video cards
     renderVideoCardsSlider();
     updateVideoCardsNavigation();
+    if (!videoCardsData || videoCardsData.length === 0) {
+      const videoCardsSliderTrack = document.getElementById("videoCardsSliderTrack");
+      if (videoCardsSliderTrack) {
+        videoCardsSliderTrack.innerHTML = `<div class="text-gray-600 p-4">${lang === "ar" ? "لا توجد فيديوهات متاحة حالياً" : "No videos available right now."}</div>`;
+      }
+    }
   } catch (error) {
     console.error("Error fetching videos:", error);
+    const videoCardsSliderTrack = document.getElementById("videoCardsSliderTrack");
+    if (videoCardsSliderTrack) {
+      videoCardsSliderTrack.innerHTML = `<div class="text-red-600 p-4">${error.message}</div>`;
+    }
   }
 });
 
