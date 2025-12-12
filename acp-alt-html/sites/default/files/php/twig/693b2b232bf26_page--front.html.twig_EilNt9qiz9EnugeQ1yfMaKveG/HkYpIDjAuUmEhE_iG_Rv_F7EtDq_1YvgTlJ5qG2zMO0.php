@@ -1,0 +1,2501 @@
+<?php
+
+use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Extension\CoreExtension;
+use Twig\Extension\SandboxExtension;
+use Twig\Markup;
+use Twig\Sandbox\SecurityError;
+use Twig\Sandbox\SecurityNotAllowedTagError;
+use Twig\Sandbox\SecurityNotAllowedFilterError;
+use Twig\Sandbox\SecurityNotAllowedFunctionError;
+use Twig\Source;
+use Twig\Template;
+use Twig\TemplateWrapper;
+
+/* themes/custom/acp/templates/page--front.html.twig */
+class __TwigTemplate_1ef6e2a8b9aafb6a49042215037ffc0a extends Template
+{
+    private Source $source;
+    /**
+     * @var array<string, Template>
+     */
+    private array $macros = [];
+
+    public function __construct(Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->source = $this->getSourceContext();
+
+        $this->parent = false;
+
+        $this->blocks = [
+        ];
+        $this->sandbox = $this->extensions[SandboxExtension::class];
+        $this->checkSecurity();
+    }
+
+    protected function doDisplay(array $context, array $blocks = []): iterable
+    {
+        $macros = $this->macros;
+        // line 1
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, $this->extensions['Drupal\Core\Template\TwigExtension']->attachLibrary("acp/frontpage-scripts"), "html", null, true);
+        yield "
+";
+        // line 2
+        yield from $this->loadTemplate("@acp/header.html.twig", "themes/custom/acp/templates/page--front.html.twig", 2)->unwrap()->yield($context);
+        // line 3
+        yield "
+<main
+\tid=\"main-content\"
+\trole=\"main\">
+\t";
+        // line 8
+        yield "\t<section class=\"relative -mt-16 h-[100vh] pb-24 xl:pb-0 lg:h-[90vh] w-full overflow-hidden\"><!-- Background Video -->
+\t\t";
+        // line 11
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "heroVideo", [], "any", false, false, true, 11), "html", null, true);
+        yield "<div class=\"absolute inset-0 bg-black/40\"> </div>
+\t\t<!-- Hero Content -->
+\t\t<div class=\"container relative mx-auto z-10 h-full flex items-end px-8 pb-20\">
+  <div class=\"hero-text\">
+    <h1 id=\"hero-title\" class=\"opacity-0 translate-y-8 text-4xl sm:text-[51px] font-bold text-white\">
+      ";
+        // line 16
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, Twig\Extension\CoreExtension::striptags($this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "heroheading", [], "any", false, false, true, 16))), "html", null, true);
+        yield "
+    </h1>
+  </div>
+</div>
+
+\t</section>
+
+\t";
+        // line 24
+        yield "\t<section
+\t\tclass=\"pb-16 pt-44 sm:py-20 lg:pb-24 sm:pt-52 bg-[#EDEDED] rounded-3xl mt-[-5rem] xl:mt-[-1rem] relative z-20\">
+\t\t<!-- Panel container -->
+\t\t<div id=\"panel-container\" class=\"absolute -top-18 md:-top-15 left-[5%] max-w-3xl mx-auto pr-4 py-8\">
+\t\t\t<section
+\t\t\t\tclass=\"relative bg-[#596b74] rounded-2xl px-8 sm:px-10 py-4 md:py-8 shadow-md overflow-visible\">
+\t\t\t\t<!-- green accent bar -->
+\t\t\t\t<span class=\"absolute -top-2 md:-top-3 left-6 md:left-8 w-28 md:w-36 h-2 md:h-3 bg-lime-400 rounded-sm\"></span>
+
+\t\t\t\t<div>
+\t\t\t\t\t<div class=\"w-full\">
+\t\t\t\t\t\t<h2 class=\"text-white text-lg md:text-xl lg:text-2xl font-semibold\" data-i18n=\"content.discoverKingdom\">
+\t\t\t\t\t\t\t";
+        // line 36
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "heroBoxContent", [], "any", false, false, true, 36), "html", null, true);
+        yield "
+
+\t\t\t\t\t\t</h2>
+
+\t\t\t\t\t\t";
+        // line 40
+        if ((CoreExtension::getAttribute($this->env, $this->source, ($context["language"] ?? null), "id", [], "any", false, false, true, 40) == "ar")) {
+            // line 41
+            yield "\t\t\t\t\t\t\t<div class=\"mt-6 flex flex-wrap items-start gap-4\">
+\t\t\t\t\t\t\t\t<div class=\"flex flex-col\">
+\t\t\t\t\t\t\t\t\t<a href=\"";
+            // line 43
+            yield $this->extensions['Drupal\Core\Template\TwigExtension']->renderVar($this->extensions['Drupal\Core\Template\TwigExtension']->getUrl("<front>"));
+            yield "/node/3\" class=\"text-xs inline-flex items-center justify-center px-5 py-2 rounded-md bg-lime-400 text-gray-900 font-semibold shadow-sm hover:brightness-95 transition\">
+\t\t\t\t\t\t\t\t\t\tكن شريكاً
+\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"flex flex-col\">
+\t\t\t\t\t\t\t\t\t<a href=\"#routes\" class=\"text-xs inline-flex items-center justify-center px-5 py-2 rounded-md border border-white/60 text-white font-medium hover:bg-white/5 transition\">
+\t\t\t\t\t\t\t\t\t\tاكتشف المسارات
+\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t";
+        } else {
+            // line 54
+            yield "\t\t\t\t\t\t\t<div class=\"mt-6 flex flex-wrap items-start gap-4\">
+\t\t\t\t\t\t\t\t<div class=\"flex flex-col\">
+\t\t\t\t\t\t\t\t\t<a href=\"";
+            // line 56
+            yield $this->extensions['Drupal\Core\Template\TwigExtension']->renderVar($this->extensions['Drupal\Core\Template\TwigExtension']->getUrl("<front>"));
+            yield "become-partner\" class=\"text-xs inline-flex items-center justify-center px-5 py-2 rounded-md bg-lime-400 text-gray-900 font-semibold shadow-sm hover:brightness-95 transition\">
+\t\t\t\t\t\t\t\t\t\tBecome a Partner
+\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t<div class=\"flex flex-col\">
+\t\t\t\t\t\t\t\t\t<a href=\"#routes\" class=\"text-xs inline-flex items-center justify-center px-5 py-2 rounded-md border border-white/60 text-white font-medium hover:bg-white/5 transition\">
+\t\t\t\t\t\t\t\t\t\tExplore Routes
+\t\t\t\t\t\t\t\t\t</a>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t";
+        }
+        // line 67
+        yield "
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</section>
+\t\t</div>
+
+\t\t<div class=\"relative container mx-auto px-4 sm:px-6 lg:px-8\" id=\"animated-section\">
+\t\t\t<div
+\t\t\t\tclass=\"max-w-7xl mx-auto text-center\">
+\t\t\t\t<!-- Section Heading -->
+\t\t\t\t<h2 class=\"text-3xl sm:text-[51px] font-bold text-[#44505E] mb-8 text-balance\" data-i18n=\"sections.airConnectivityProgram\">
+\t\t\t\t\t";
+        // line 78
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, Twig\Extension\CoreExtension::striptags($this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "aboutHeading", [], "any", false, false, true, 78))), "html", null, true);
+        yield "
+\t\t\t\t</h2>
+
+\t\t\t\t<!-- Section Description -->
+\t\t\t\t<p id=\"gsap-text\" dir=\"ltr\" class=\"sm:!text-3xl !text-2xl text-gray-600 leading-tight text-pretty\" data-i18n=\"sections.programDescription\">
+\t\t\t\t\t";
+        // line 83
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, Twig\Extension\CoreExtension::striptags($this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "aboutDesc", [], "any", false, false, true, 83))), "html", null, true);
+        yield "
+\t\t\t\t</p>
+\t\t\t</div>
+\t\t</div>
+\t</section>
+
+\t";
+        // line 90
+        yield "\t<section class=\"py-16 sm:py-20 lg:py-32 bg-[#F6F6F6] overflow-hidden\">
+\t\t<div class=\"container mx-auto px-4 sm:px-6 lg:px-8\">
+\t\t\t<div
+\t\t\t\tclass=\"grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center\">
+
+\t\t\t\t<!-- Left Column - Content -->
+\t\t\t\t<div class=\"\">
+\t\t\t\t\t<div
+\t\t\t\t\t\tid=\"statistics-content\" class=\"space-y-6 text-center lg:text-left\">
+\t\t\t\t\t\t<!-- Placeholder text -->
+\t\t\t\t\t\t";
+        // line 101
+        yield "\t\t\t\t\t\t";
+        // line 102
+        yield "\t\t\t\t\t\t\t";
+        // line 103
+        yield "\t\t\t\t\t\t";
+        // line 104
+        yield "\t\t\t\t\t\t";
+        // line 105
+        yield "\t\t\t\t\t\t<!-- Main Heading -->
+\t\t\t\t\t\t<h2
+  class=\"text-3xl sm:text-[51px] font-bold text-black leading-tight stats-heading\"
+  data-i18n=\"stats.saudiAirConnectivity\">
+  ";
+        // line 109
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, Twig\Extension\CoreExtension::striptags($this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "statsHeading", [], "any", false, false, true, 109))), "html", null, true);
+        yield "
+</h2>
+
+<h3
+  class=\"text-3xl sm:text-[51px] font-bold text-black leading-tight stats-subheading\"
+  data-i18n=\"stats.vision2030Initiative\">
+  ";
+        // line 115
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, Twig\Extension\CoreExtension::striptags($this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "statsdesc", [], "any", false, false, true, 115))), "html", null, true);
+        yield "
+</h3>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+
+\t\t\t\t<!-- Right Column - Statistics Cards -->
+\t\t\t\t<div class=\"grid stats-card grid-cols-3 gap-3\">
+\t\t\t\t\t";
+        // line 122
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "statsBox1", [], "any", false, false, true, 122));
+        yield "
+\t\t\t\t\t";
+        // line 123
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "statsBox2", [], "any", false, false, true, 123));
+        yield "
+\t\t\t\t\t";
+        // line 124
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "statsBox3", [], "any", false, false, true, 124));
+        yield "
+\t\t\t\t\t";
+        // line 126
+        yield "\t\t\t\t</div>
+
+\t\t\t</div>
+\t\t</div>
+\t</section>
+\t";
+        // line 132
+        yield "\t<!-- Kingdom Airports Section -->
+\t<section class=\"xl:container mx-auto !pb-0 py-16 sm:py-20 lg:py-24 lg:!pb-24 bg-white\">
+\t\t<div class=\"max-w-8xl px-4 sm:px-6 lg:px-8\">
+\t\t\t<div
+\t\t\t\tclass=\"grid lg:grid-cols-12 grid-rows-1 lg:p-10 lg:grid-rows-1 gap-2 lg:gap-12\">
+\t\t\t\t<!-- Left Column - Narrower (4 columns) -->
+\t\t\t\t<div class=\"col-span-12 lg:col-span-5 space-y-6\">
+\t\t\t\t\t<!-- Top Row - International Airport Data Card -->
+\t\t\t\t\t<!-- card container (matches image width & spacing) -->
+\t\t\t\t\t\t<div
+\t\t\t\t\t\tclass=\"w-full max-w-4xl bg-[#34D19F] rounded-2xl px-6 md:px-10 py-6\"> <!-- Header -->
+\t\t\t\t\t\t<div
+\t\t\t\t\t\t\tclass=\"flex justify-start items-center gap-4 mb-2\">
+\t\t\t\t\t\t\t<!-- Icon Square -->
+\t\t\t\t\t\t\t<div class=\"p-1 w-10 h-10 flex-shrink-0 bg-[#009393] rounded-md flex items-center justify-center\">
+\t\t\t\t\t\t\t\t<img src=\"";
+        // line 147
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, ($context["base_path"] ?? null), "html", null, true);
+        yield "themes/custom/acp/assets/icons/airport.svg\" class=\"object-contain w-7 h-7\" alt=\"\"/>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<!-- Title -->
+\t\t\t\t\t\t\t<h2 id=\"airportName\" class=\"text-white text-left text-xl font-semibold\">
+\t\t\t\t\t\t\t\tAirport Name
+\t\t\t\t\t\t\t</h2>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<!-- Divider -->
+\t\t\t\t\t\t<div class=\"border-t border-white/80 mb-2\"></div>
+\t\t\t\t\t\t<!-- Table-like rows -->
+\t\t\t\t\t\t<div
+\t\t\t\t\t\t\tclass=\"space-y-1 text-[17px] font-semibold\">
+\t\t\t\t\t\t\t<!-- Years Row -->
+\t\t\t\t\t\t\t<div class=\"flex items-center border-b border-white/70 py-2\">
+\t\t\t\t\t\t\t\t<div class=\"flex items-center gap-4 flex-1\">
+\t\t\t\t\t\t\t\t\t<div class=\"w-8 h-8 rounded-md flex items-center justify-center\">
+\t\t\t\t\t\t\t\t\t\t<img src=\"";
+        // line 163
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, ($context["base_path"] ?? null), "html", null, true);
+        yield "themes/custom/acp/assets/icons/years.svg\" class=\"object-contain\" alt=\"\"/>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t<span id=\"labelYears\" class=\"text-white\">Years</span>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t";
+        // line 168
+        yield "\t\t\t\t\t\t\t\t";
+        // line 169
+        yield "\t\t\t\t\t\t\t\t";
+        // line 170
+        yield "\t\t\t\t\t\t\t\t<div id=\"year2\" class=\"ml-2 w-1/4 text-sm sm:text-base text-center text-white\">
+\t\t\t\t\t\t\t\t\t2023
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<!-- Flights Row (mapped from intl passengers) -->
+\t\t\t\t\t\t\t<div class=\"flex items-center border-b border-white/70 py-2\">
+\t\t\t\t\t\t\t\t<div class=\"flex items-center gap-4 flex-1\">
+\t\t\t\t\t\t\t\t\t<div class=\"w-8 h-8 rounded-md flex items-center justify-center\">
+\t\t\t\t\t\t\t\t\t\t<img src=\"";
+        // line 178
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, ($context["base_path"] ?? null), "html", null, true);
+        yield "themes/custom/acp/assets/icons/plane.svg\" class=\"object-contain\" alt=\"\"/>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t<span id=\"intlLabel\" class=\"text-white\">International Passengers</span>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t";
+        // line 183
+        yield "\t\t\t\t\t\t\t\t";
+        // line 184
+        yield "\t\t\t\t\t\t\t\t";
+        // line 185
+        yield "\t\t\t\t\t\t\t\t<div class=\"flex justify-center gap-2 ml-2 w-1/4 text-sm sm:text-base text-center text-white\" >
+    \t\t\t\t\t\t\t\t<div id=\"intl2\" class=\"\">
+    \t\t\t\t\t\t\t\t\t111
+    \t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<!-- Passengers Row (mapped from domestic) -->
+\t\t\t\t\t\t\t<div class=\"flex items-center border-b border-white/70 py-2\">
+\t\t\t\t\t\t\t\t<div class=\"flex items-center gap-4 flex-1\">
+\t\t\t\t\t\t\t\t\t<div class=\"w-8 h-8 rounded-md flex items-center justify-center\">
+\t\t\t\t\t\t\t\t\t\t<img src=\"";
+        // line 195
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, ($context["base_path"] ?? null), "html", null, true);
+        yield "themes/custom/acp/assets/icons/passangers.svg\" class=\"object-contain\" alt=\"\"/>
+\t\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t\t<span id=\"domLabel\" class=\"text-white\">Domestic Passengers</span>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t";
+        // line 200
+        yield "\t\t\t\t\t\t\t\t";
+        // line 201
+        yield "\t\t\t\t\t\t\t\t";
+        // line 202
+        yield "\t\t\t\t\t\t\t\t<div class=\"flex justify-center gap-2 ml-2 w-1/4 text-sm sm:text-base text-center text-white \" >
+        \t\t\t\t\t\t\t<div id=\"dom2\" class=\"\">
+    \t\t\t\t\t\t\t\t\t111
+    \t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+
+
+\t\t\t\t\t<!-- Bottom Row - Image Box with Auto Slider -->
+\t\t\t\t\t<div class=\"relative h-92 rounded-xl overflow-hidden bg-gradient-to-br from-purple-400 to-pink-400\">
+\t\t\t\t\t\t<div
+\t\t\t\t\t\t\tid=\"airport-image-slider\" class=\"relative w-full h-full\">
+\t\t\t\t\t\t\t<!-- Images will be populated by JavaScript -->
+\t\t\t\t\t\t\t<img id=\"airport-image\" src=\"";
+        // line 217
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, ($context["directory"] ?? null), "html", null, true);
+        yield "/assets/Mataratpictures/Arar.jpg\" alt=\"Saudi Airport\" class=\"w-full h-full object-cover transition-opacity duration-500\">
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<!-- Overlay Text -->
+\t\t\t\t\t</div>
+\t\t\t\t\t<!-- Description Text -->
+\t\t\t\t</div>
+
+\t\t\t\t<!-- Right Column - Map -->
+\t\t\t\t<div
+\t\t\t\t\tclass=\"overflow-hidden min-h-[500px] sm:min-h-[900px] lg:min-h-[760px] col-span-12 lg:col-span-7\">
+\t\t\t\t\t<!-- <div
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t            class=\"overflow-hidden min-h-[500px] sm:min-h-[900px] lg:min-h-[694px] col-span-12 lg:col-span-7\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t          > -->
+\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"899\" height=\"699\" viewbox=\"0 0 899 699\" fill=\"none\" class=\"w-full scale-[1.03] pl-3 lg:pl-0 sm:scale-none h-full object-contain\" id=\"saudi-map\">
+\t\t\t\t\t\t<path opacity=\"0.5\" d=\"M798.788 466.33C775.56 465.528 749.356 457.507 726.013 453.362C718.69 451.758 712.168 450.688 705.645 446.811C694.889 439.993 686.765 429.03 677.611 418.335C673.034 412.987 668.342 407.773 663.88 402.425C658.158 395.206 651.865 391.061 645.114 385.981C639.621 381.703 634.243 376.355 629.781 370.071C626.119 364.991 623.029 358.975 619.597 353.226C616.85 348.413 613.875 343.6 611.587 338.52C607.124 329.161 607.353 319.803 607.124 309.642C606.666 303.759 602.204 298.278 598.885 293.866C596.139 289.989 592.592 287.181 589.159 284.24C583.209 278.759 577.144 273.277 570.851 268.197C563.757 262.047 558.493 255.095 553.458 247.073C551.856 244.4 550.483 241.592 548.881 239.052C545.792 233.972 541.1 230.094 536.294 227.554C529.085 223.811 521.419 221.672 514.439 217.394C507.916 213.383 501.737 207.901 494.071 204.826C480.912 199.746 466.38 202.42 452.763 202.286C441.32 202.554 429.191 200.548 417.634 198.81C408.48 197.34 398.868 194.933 390.401 190.922C335.934 159.504 270.138 110.439 216.587 78.7537C210.637 75.8124 204.458 73.0049 197.935 71.8016C180.085 68.3256 163.607 79.6895 146.1 83.834C135.687 86.7753 124.588 89.7165 114.29 92.6578C109.598 94.1284 99.0708 96.1338 101.474 103.487C106.966 119.129 139.692 135.573 117.265 153.622C107.081 161.911 95.1803 165.521 84.4242 172.473C75.499 178.088 68.5189 187.58 59.5936 191.992C53.8723 194.666 47.8077 195.602 41.6287 196.136C33.2756 196.671 23.5493 196.003 16.226 201.083C7.30077 207.233 2.95259 227.153 9.81818 237.448C13.9375 243.464 19.7732 245.469 25.3801 250.817C32.4746 257.368 37.2805 266.325 43.2307 274.882C51.1261 286.647 59.2504 298.545 67.2603 310.177C75.8422 323.546 85.3397 335.445 93.464 349.081C98.6131 358.44 101.245 368.601 105.25 378.36C110.513 391.596 120.812 397.879 130.538 404.43C139.463 410.046 147.588 417.532 153.995 427.426C160.403 437.586 166.01 448.282 170.13 460.181C173.791 471.812 173.105 485.716 174.363 498.283C175.508 509.781 180.886 522.482 186.493 531.974C195.189 546.413 207.89 554.568 220.134 562.456C230.776 569.141 240.731 578.499 247.825 590.799C255.034 603.5 260.183 618.206 267.735 630.773C278.377 648.554 294.626 660.052 305.496 677.699C310.874 686.523 320.257 704.973 329.755 697.085C336.506 689.866 336.849 673.02 344.973 668.475C353.097 663.929 362.023 667.405 371.291 667.271C382.276 667.539 393.261 665.801 404.246 666.87C416.947 667.806 428.733 670.614 441.32 672.218C448.987 673.154 456.768 672.753 464.434 674.223C478.28 676.63 492.126 684.785 504.369 672.485C511.006 666.068 516.956 657.244 523.25 650.292C530.001 642.939 537.782 637.057 546.135 632.645C554.603 628.233 563.642 624.356 572.11 622.083C586.756 618.874 602.433 618.34 617.423 616.468C667.999 613.259 730.133 589.462 779.679 573.552C786.087 571.28 792.381 569.675 797.187 563.392C802.794 556.039 807.714 539.862 811.375 529.033C814.808 517.802 819.843 506.973 820.644 494.807C821.445 478.095 809.773 468.336 798.674 466.464H798.56L798.788 466.33Z\" fill=\"#E8E8E8\"/>
+\t\t\t\t\t\t<g style=\"mix-blend-mode: multiply\">
+\t\t\t\t\t\t\t<path d=\"M134.89 79.0199C131.686 65.7843 121.731 53.7519 114.179 43.0564C110.174 37.976 101.363 22.8687 97.9304 28.8849C96.214 32.6283 98.846 43.9923 104.911 54.554C108.687 60.9713 113.035 66.5864 117.269 72.6026C120.816 77.4156 124.134 82.4959 127.796 86.7741C135.806 95.8652 137.064 87.3089 134.89 79.2873V79.0199Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t\t<path d=\"M11.7639 151.75C11.7639 150.948 11.5351 151.215 11.5351 151.75C11.0773 157.098 11.4206 168.729 11.7639 171.938C11.7639 172.205 11.7639 172.74 11.9927 172.606C12.5649 166.724 12.336 157.499 11.9927 151.884L11.7639 151.75Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t\t<path d=\"M547.398 171.4C547.169 171.935 547.169 173.004 547.054 173.806C546.711 179.154 546.253 189.315 546.94 193.994C546.94 194.128 546.94 194.128 547.054 193.994C547.283 192.523 547.398 190.652 547.512 188.513C547.627 183.833 548.084 175.277 547.512 171.4H547.398Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t\t<path d=\"M556.33 208.3C557.131 204.022 558.619 190.118 555.872 187.177C555.529 187.177 555.415 187.712 555.3 188.113C554.385 190.519 553.47 198.407 553.584 203.888C553.47 206.83 554.843 216.456 556.33 208.568V208.3Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t\t<path d=\"M587.439 218.591C587.096 218.056 586.867 218.859 586.752 219.26C585.837 222.736 585.15 233.565 586.523 238.779C587.668 242.121 588.354 231.158 588.354 229.955C588.469 226.613 588.354 220.73 587.439 218.591Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t\t<path d=\"M604.029 256.294C606.661 252.417 606.547 243.994 605.174 238.914C604.601 237.042 604.258 235.304 602.999 234.77C600.825 235.304 600.024 241.588 600.024 244.93C600.024 250.011 601.626 258.567 604.029 256.428V256.294Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t\t<path d=\"M605.286 279.964C607.575 276.889 609.177 269.269 609.062 264.322C609.062 257.637 605.515 249.348 602.082 259.375C600.137 264.857 599.45 272.477 601.624 278.092C602.425 280.231 603.799 281.702 605.286 279.964Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t\t<path d=\"M620.867 294.129C620.521 300.145 620.521 310.439 620.752 316.055C621.098 310.306 621.098 299.878 620.867 294.263V294.129Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t\t<path d=\"M651.402 330.363C651.173 330.898 651.173 331.968 651.173 332.903C650.943 338.251 650.598 348.144 651.173 352.957C651.402 351.353 651.402 349.615 651.517 347.342C651.517 342.663 651.862 334.374 651.517 330.497L651.402 330.363Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t</g>
+\t\t\t\t\t\t<path d=\"M380.903 161.239C380.559 161.239 380.102 161.239 379.758 161.239H379.644C379.301 159.769 378.614 158.298 377.241 157.095H377.012C373.808 154.822 369.346 154.688 365.455 154.688C359.619 154.688 353.555 153.218 347.948 153.084C341.769 152.683 335.132 154.688 329.296 152.415C322.202 148.672 318.426 140.918 310.645 137.977C298.745 131.158 285.013 133.03 271.397 131.559C270.71 130.623 270.481 129.554 270.367 128.484C269.108 129.42 267.735 130.356 266.248 131.025C256.178 130.356 245.651 129.955 235.81 131.158C226.999 132.896 219.676 137.174 210.979 141.185C202.855 145.33 194.731 149.341 185.92 152.282C184.776 152.683 183.746 153.084 182.831 153.619C182.373 153.351 181.915 153.084 181.572 152.683C181.572 153.218 181.686 153.619 181.801 154.153C178.368 156.025 177.453 158.432 180.084 163.378C181.343 166.052 180.084 167.924 179.741 170.063C179.741 170.865 180.313 171.4 182.03 172.068C187.293 173.94 193.701 175.945 197.82 180.09C203.999 186.374 206.517 195.465 207.203 203.754C207.203 209.101 203.084 209.101 199.422 211.241C196.562 213.647 194.159 216.722 193.015 220.198C191.641 220.733 190.383 221.134 189.01 221.401C190.383 221.802 191.641 222.471 192.786 223.273C193.358 228.888 198.392 233.567 200.338 238.915C204.572 247.605 205.601 257.766 205.487 267.124C204.572 278.355 212.238 284.504 222.994 282.232C227.571 281.563 232.835 278.087 237.526 276.483C243.133 274.878 248.969 274.344 254.576 273.14C256.521 273.408 258.466 273.943 260.297 274.745C260.183 273.542 260.297 272.472 260.869 271.269C264.645 269.798 268.193 267.525 271.74 265.654C279.635 261.91 286.387 256.563 292.222 249.61C293.824 247.872 295.426 246.268 297.143 244.664C301.491 241.188 306.068 238.113 310.645 234.904C316.595 230.76 322.316 225.278 328.61 220.599C332.157 218.059 335.819 215.519 338.908 212.444C345.316 206.561 344.858 195.465 351.381 189.047C356.873 183.432 365.684 182.496 371.177 177.282C374.724 174.074 379.186 168.325 379.644 163.245C380.102 163.245 380.445 163.245 381.017 163.245C380.788 162.309 380.674 161.507 380.788 160.571L380.903 161.239Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M656.684 335.843C656.684 334.645 657.363 335.044 657.363 336.109C657.137 336.109 656.91 335.709 656.684 335.843Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t<path d=\"M300.128 657.237C299.79 657.636 299 657.104 299 656.306C299 655.241 300.128 656.306 300.241 657.237H300.128Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t<path d=\"M819.399 450.018C815.279 465.259 809.1 487.184 804.18 504.698C798.001 517.934 789.648 526.357 779.235 532.64C751.086 543.737 706.46 558.844 689.754 565.796C689.639 565.796 689.41 565.796 689.296 565.93C688.838 566.063 688.38 566.197 687.923 566.465C687.58 566.465 687.351 566.598 687.007 566.732C687.007 566.732 687.007 566.732 686.893 566.732C680.485 569.005 674.192 570.876 667.898 572.08C611.028 582.775 549.467 580.636 515.825 624.086C515.825 624.086 515.825 624.086 515.825 624.22C512.965 628.097 510.447 632.375 508.273 636.654C506.671 639.862 504.84 643.606 502.666 647.215C501.293 649.488 499.691 651.627 497.975 653.365C494.428 656.841 490.194 658.98 484.93 657.51C481.955 656.574 479.438 654.167 476.691 652.162C475.204 651.092 473.716 650.023 471.886 649.354C466.851 647.215 461.129 647.215 455.523 647.082C451.975 647.082 448.428 646.814 444.881 646.547C444.881 646.547 444.766 646.547 444.652 646.547C438.587 646.012 432.637 645.21 426.802 644.007C423.025 643.205 419.249 642.269 415.473 641.333C415.473 641.333 415.473 641.333 415.359 641.333C411.468 640.397 407.464 639.729 403.23 639.327C394.533 638.525 385.379 639.06 376.797 639.996C369.932 640.397 363.295 643.204 357.116 641.868H356.887C354.255 640.664 352.424 638.926 351.166 636.654C350.822 637.857 349.907 638.659 348.305 638.392C347.733 638.392 347.161 638.392 346.703 638.258C344.529 637.991 342.355 637.456 340.181 637.055C338.579 636.654 336.862 636.386 335.26 635.985C335.604 636.52 335.833 637.055 336.061 637.589C336.061 637.991 336.29 638.392 336.29 638.793C337.549 644.408 334.688 650.023 334.116 655.504C334.116 663.927 337.663 672.082 329.997 678.366C319.241 689.864 315.922 684.248 312.49 676.093C311.116 672.617 309.629 668.74 307.569 665.531C307.226 664.863 306.883 664.328 306.425 663.66C305.967 662.857 305.509 662.189 305.052 661.52C303.45 658.98 301.734 656.708 300.589 655.371C300.246 654.97 299.903 654.568 299.559 654.301C299.559 654.167 299.33 654.034 299.33 653.9C297.271 650.691 296.699 646.814 294.753 642.937C294.181 641.6 293.609 640.263 292.808 638.926C288.918 632.242 282.853 627.161 277.361 621.814C270.953 619.407 266.605 610.583 263.744 604.968V604.701C262.6 602.428 261.684 600.022 261.341 597.481C257.679 590.396 254.361 583.176 251.729 575.957C250.127 570.609 248.182 565.662 246.122 560.582C243.147 553.897 239.486 547.213 235.366 541.33C229.416 532.908 222.093 525.421 213.396 519.672C206.187 515.126 198.979 513.522 193.372 506.971C189.596 502.827 186.964 498.415 184.217 493.735C182.043 490.393 179.984 487.853 177.352 483.307C174.377 478.494 173.118 472.879 172.317 467.264V466.596C171.859 464.189 171.631 461.649 171.287 459.243C170.83 456.034 169.685 453.093 168.77 450.151C165.68 441.996 170.029 433.573 170.372 425.151C170.83 419.937 169.571 414.856 167.74 410.177C166.825 408.038 165.909 405.765 164.879 403.76C164.078 402.289 163.506 400.819 162.705 399.214C161.332 396.273 160.074 393.064 158.472 389.455C155.954 382.636 152.636 375.818 148.631 369.668C143.253 361.379 136.387 353.892 127.691 348.545C123.8 345.871 119.452 344.801 115.218 342.395C112.815 340.924 110.641 338.919 108.696 336.646C106.179 333.705 104.005 330.496 102.403 327.154C101.602 325.683 100.915 324.212 100.343 322.875C100.229 322.608 100.114 322.341 99.9996 322.073C99.9996 321.271 99.9996 320.335 99.9996 319.266C100.457 311.645 98.0543 305.094 94.5071 298.811C93.5917 296.939 92.6763 295.201 91.6465 293.463L89.5869 290.121C88.9003 289.051 88.2137 288.115 87.5271 287.046C76.8855 272.206 68.7612 256.296 58.9205 240.654C51.254 229.558 44.1596 218.194 37.5228 206.562C35.1199 203.086 32.9457 198.808 30.5428 194.931C30.5428 194.931 30.5428 194.664 30.5428 194.53C30.5428 194.396 30.314 194.129 30.0851 193.995C30.0851 193.995 29.9707 193.861 29.8563 193.728C29.8563 193.728 29.7418 193.728 29.6274 193.594C28.8264 192.391 28.0254 191.188 27.11 189.984C27.11 189.984 27.11 189.851 26.9956 189.851C26.9956 189.583 26.5379 189.316 26.4235 189.048C26.4235 188.915 26.309 188.781 26.1946 188.647C25.9657 188.38 25.8513 188.38 25.8513 188.647C25.8513 188.647 25.8513 188.781 25.8513 188.915C24.0205 186.909 22.3041 185.439 20.13 184.503C16.3539 182.899 11.4336 182.631 3.65257 183.166C2.96601 183.166 2.27947 182.765 2.16504 182.23C2.16504 180.759 2.62273 179.69 3.08044 178.353C6.16995 171.267 8.68737 163.379 10.0605 154.957C11.7769 146.4 12.6923 134.234 22.0753 131.961C31.3438 130.758 40.3835 133.833 49.3088 134.635C55.9455 135.17 62.5822 134.368 69.1045 129.555C69.5622 129.288 69.9055 128.887 70.3632 128.485C77.3432 123.138 81.8058 114.982 89.1291 110.303C92.5619 108.164 96.7957 106.426 101.03 105.624C111.442 98.9392 120.139 94.3936 124.601 89.3133C125.288 88.11 125.974 86.9068 126.432 85.7036C130.78 76.0777 121.169 70.5962 114.303 62.7083C108.009 56.0237 92.1042 43.7239 107.552 38.7772C112.472 37.3066 117.85 35.3012 122.885 35.0338C129.522 33.1621 136.273 31.1567 143.024 29.1513C164.765 22.8678 187.078 17.3863 207.561 19.5254C215.799 21.2634 224.038 23.6699 232.162 26.7449C251.5 34.098 270.495 44.7934 288.803 57.2269C301.39 65.7833 313.748 75.0081 325.649 84.5004C325.649 84.5004 325.649 84.5004 325.763 84.5004C332.972 90.1155 339.952 95.8643 346.817 101.479C346.817 101.479 346.932 101.479 347.046 101.613C353.225 106.426 359.519 110.972 366.156 115.25C386.295 128.619 407.692 139.047 431.264 141.454C431.035 141.454 430.807 141.721 430.578 141.855C430.807 141.721 431.035 141.587 431.264 141.454C435.155 139.582 441.563 140.785 448.886 140.919C452.09 140.919 455.408 141.053 458.612 141.186H458.727C467.537 140.652 476.463 140.384 484.816 142.39C508.159 147.47 498.433 159.77 515.825 163.112C515.825 163.112 515.825 163.112 516.054 163.112C516.283 163.112 516.512 163.112 516.741 163.112C516.97 163.112 517.084 163.112 517.313 163.112C518.915 163.379 520.746 163.513 522.805 163.647C522.805 163.647 522.805 163.647 522.92 163.647C524.751 163.78 526.467 163.914 528.069 164.182C530.129 164.449 531.845 164.85 533.218 165.518C534.935 166.187 536.536 167.256 537.91 168.994C539.969 171.535 541.457 175.412 543.288 178.487C545.576 182.23 548.895 187.578 550.725 191.054C551.526 192.926 551.183 194.797 551.298 196.803C551.526 198.006 552.099 199.209 552.9 200.145C556.447 203.621 562.855 203.354 565.944 207.364C567.088 208.568 566.745 210.573 567.66 212.044C568.004 212.578 568.461 213.247 568.805 213.915C569.835 215.386 570.865 216.589 572.009 217.926C575.098 220.734 578.302 221.536 581.392 224.21C585.053 226.884 590.431 231.563 594.322 234.772C597.297 237.178 598.784 238.114 599.128 241.189C598.899 246.403 604.163 254.424 603.476 260.307C603.018 262.713 600.615 264.451 599.814 265.521C599.242 266.323 599.357 267.393 599.586 268.462C600.501 271.671 603.018 275.815 604.163 278.489C604.849 280.361 605.421 281.832 606.222 283.57C607.824 286.778 611.829 290.388 613.889 293.73C623.272 309.105 626.132 329.293 648.674 329.426C650.391 329.426 651.65 329.426 652.107 331.164C652.336 333.036 651.878 335.977 652.451 338.116C652.908 339.721 653.824 341.058 654.739 342.395C656.341 344.266 658.286 346.004 660.117 347.742C661.605 349.614 662.863 351.887 664.236 354.026C672.818 367.796 687.351 384.642 698.908 396.941C701.425 398.947 704.4 399.749 707.604 400.418C712.753 401.353 720.534 402.824 729.459 404.562C729.459 404.562 729.574 404.562 729.688 404.562C743.648 407.771 760.24 411.514 774.887 412.985C778.32 413.653 781.409 414.188 784.041 414.723C786.787 415.258 788.961 415.792 791.593 415.792C796.971 415.792 800.175 411.247 805.324 414.589C807.27 415.926 808.871 417.798 810.245 419.803C810.588 420.338 810.931 420.873 811.274 421.407C812.304 423.012 813.22 424.616 814.135 426.087C814.707 427.023 815.394 427.958 815.966 428.894C815.966 428.894 816.08 429.162 816.195 429.162C816.424 429.563 816.652 430.097 816.996 430.499C817.225 431.033 817.568 431.568 817.911 432.103C818.369 432.905 818.712 433.707 819.055 434.643C821.23 439.991 821.802 445.472 819.628 451.087L819.399 450.018Z\" fill=\"#767676\"/>
+\t\t\t\t\t\t<path d=\"M656.684 319.797C656.684 318.599 657.363 318.998 657.363 320.063C657.137 320.063 656.91 319.664 656.684 319.797Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M300.128 641.192C299.79 641.591 299 641.059 299 640.261C299 639.196 300.128 640.261 300.241 641.192H300.128Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M819.399 433.972C815.279 449.213 809.1 471.139 804.18 488.653C798.001 501.889 789.648 510.311 779.235 516.595C751.086 527.691 706.46 542.799 689.754 549.751C689.639 549.751 689.41 549.751 689.296 549.884C688.838 550.018 688.38 550.152 687.923 550.419C687.58 550.419 687.351 550.553 687.007 550.687C687.007 550.687 687.007 550.687 686.893 550.687C680.485 552.959 674.192 554.831 667.898 556.034C611.028 566.73 549.467 564.591 515.825 608.041C515.825 608.041 515.825 608.041 515.825 608.175C512.965 612.052 510.447 616.33 508.273 620.608C506.671 623.817 504.84 627.56 502.666 631.17C501.293 633.443 499.691 635.582 497.975 637.32C494.428 640.796 490.194 642.935 484.93 641.464C481.955 640.528 479.438 638.122 476.691 636.117C475.204 635.047 473.716 633.977 471.886 633.309C466.851 631.17 461.129 631.17 455.523 631.036C451.975 631.036 448.428 630.769 444.881 630.501C444.881 630.501 444.766 630.501 444.652 630.501C438.587 629.967 432.637 629.165 426.802 627.961C423.025 627.159 419.249 626.223 415.473 625.287C415.473 625.287 415.473 625.287 415.359 625.287C411.468 624.352 407.464 623.683 403.23 623.282C394.533 622.48 385.379 623.015 376.797 623.951C369.932 624.352 363.295 627.159 357.116 625.822H356.887C354.255 624.619 352.424 622.881 351.166 620.608C350.822 621.811 349.907 622.614 348.305 622.346C347.733 622.346 347.161 622.346 346.703 622.212C344.529 621.945 342.355 621.41 340.181 621.009C338.579 620.608 336.862 620.341 335.26 619.94C335.604 620.474 335.833 621.009 336.061 621.544C336.061 621.945 336.29 622.346 336.29 622.747C337.549 628.362 334.688 633.977 334.116 639.459C334.116 647.882 337.663 656.037 329.997 662.32C319.241 673.818 315.922 668.203 312.49 660.048C311.116 656.572 309.629 652.695 307.569 649.486C307.226 648.817 306.883 648.283 306.425 647.614C305.967 646.812 305.509 646.144 305.052 645.475C303.45 642.935 301.734 640.662 300.589 639.325C300.246 638.924 299.903 638.523 299.559 638.256C299.559 638.122 299.33 637.988 299.33 637.855C297.271 634.646 296.699 630.769 294.753 626.892C294.181 625.555 293.609 624.218 292.808 622.881C288.918 616.196 282.853 611.116 277.361 605.768C270.953 603.362 266.605 594.538 263.744 588.923V588.655C262.6 586.383 261.684 583.976 261.341 581.436C257.679 574.35 254.361 567.131 251.729 559.911C250.127 554.564 248.182 549.617 246.122 544.537C243.147 537.852 239.486 531.167 235.366 525.285C229.416 516.862 222.093 509.375 213.396 503.627C206.187 499.081 198.979 497.477 193.372 490.926C189.596 486.781 186.964 482.369 184.217 477.69C182.043 474.348 179.984 471.808 177.352 467.262C174.377 462.449 173.118 456.834 172.317 451.219V450.55C171.859 448.144 171.631 445.604 171.287 443.197C170.83 439.989 169.685 437.047 168.77 434.106C165.68 425.951 170.029 417.528 170.372 409.105C170.83 403.891 169.571 398.811 167.74 394.132C166.825 391.993 165.909 389.72 164.879 387.714C164.078 386.244 163.506 384.773 162.705 383.169C161.332 380.228 160.074 377.019 158.472 373.409C155.954 366.591 152.636 359.773 148.631 353.623C143.253 345.334 136.387 337.847 127.691 332.499C123.8 329.825 119.452 328.756 115.218 326.349C112.815 324.879 110.641 322.873 108.696 320.6C106.179 317.659 104.005 314.451 102.403 311.108C101.602 309.638 100.915 308.167 100.343 306.83C100.229 306.563 100.114 306.295 99.9996 306.028C99.9996 305.226 99.9996 304.29 99.9996 303.22C100.457 295.6 98.0543 289.049 94.5071 282.765C93.5917 280.894 92.6763 279.156 91.6465 277.418L89.5869 274.075C88.9003 273.006 88.2137 272.07 87.5271 271C76.8855 256.16 68.7612 240.251 58.9205 224.609C51.254 213.512 44.1596 202.148 37.5228 190.517C35.1199 187.041 32.9457 182.763 30.5428 178.886C30.5428 178.886 30.5428 178.618 30.5428 178.484C30.5428 178.351 30.314 178.083 30.0851 177.95C30.0851 177.95 29.9707 177.816 29.8563 177.682C29.8563 177.682 29.7418 177.682 29.6274 177.549C28.8264 176.345 28.0254 175.142 27.11 173.939C27.11 173.939 27.11 173.805 26.9956 173.805C26.9956 173.538 26.5379 173.27 26.4235 173.003C26.4235 172.869 26.309 172.736 26.1946 172.602C25.9657 172.335 25.8513 172.335 25.8513 172.602C25.8513 172.602 25.8513 172.736 25.8513 172.869C24.0205 170.864 22.3041 169.393 20.13 168.457C16.3539 166.853 11.4336 166.586 3.65257 167.121C2.96601 167.121 2.27947 166.719 2.16504 166.185C2.16504 164.714 2.62273 163.645 3.08044 162.308C6.16995 155.222 8.68737 147.334 10.0605 138.911C11.7769 130.355 12.6923 118.189 22.0753 115.916C31.3438 114.713 40.3835 117.788 49.3088 118.59C55.9455 119.125 62.5822 118.323 69.1045 113.51C69.5622 113.242 69.9055 112.841 70.3632 112.44C77.3432 107.092 81.8058 98.937 89.1291 94.2577C92.5619 92.1186 96.7957 90.3806 101.03 89.5785C111.442 82.8938 120.139 78.3482 124.601 73.2679C125.288 72.0647 125.974 70.8614 126.432 69.6582C130.78 60.0323 121.169 54.5508 114.303 46.6629C108.009 39.9783 92.1042 27.6785 107.552 22.7318C112.472 21.2612 117.85 19.2558 122.885 18.9884C129.522 17.1167 136.273 15.1113 143.024 13.1059C164.765 6.82234 187.078 1.34092 207.561 3.48001C215.799 5.21802 224.038 7.6245 232.162 10.6994C251.5 18.0526 270.495 28.748 288.803 41.1815C301.39 49.7379 313.748 58.9627 325.649 68.4549C325.649 68.4549 325.649 68.4549 325.763 68.4549C332.972 74.07 339.952 79.8189 346.817 85.434C346.817 85.434 346.932 85.434 347.046 85.5677C353.225 90.3806 359.519 94.9262 366.156 99.2044C386.295 112.574 407.692 123.002 431.264 125.408C431.035 125.408 430.807 125.676 430.578 125.809C430.807 125.676 431.035 125.542 431.264 125.408C435.155 123.537 441.563 124.74 448.886 124.873C452.09 124.873 455.408 125.007 458.612 125.141H458.727C467.537 124.606 476.463 124.339 484.816 126.344C508.159 131.424 498.433 143.724 515.825 147.067C515.825 147.067 515.825 147.067 516.054 147.067C516.283 147.067 516.512 147.067 516.741 147.067C516.97 147.067 517.084 147.067 517.313 147.067C518.915 147.334 520.746 147.468 522.805 147.601C522.805 147.601 522.805 147.601 522.92 147.601C524.751 147.735 526.467 147.869 528.069 148.136C530.129 148.403 531.845 148.805 533.218 149.473C534.935 150.141 536.536 151.211 537.91 152.949C539.969 155.489 541.457 159.366 543.288 162.441C545.576 166.185 548.895 171.532 550.725 175.008C551.526 176.88 551.183 178.752 551.298 180.757C551.526 181.961 552.099 183.164 552.9 184.1C556.447 187.576 562.855 187.308 565.944 191.319C567.088 192.522 566.745 194.528 567.66 195.998C568.004 196.533 568.461 197.202 568.805 197.87C569.835 199.341 570.865 200.544 572.009 201.881C575.098 204.688 578.302 205.491 581.392 208.164C585.053 210.838 590.431 215.518 594.322 218.726C597.297 221.133 598.784 222.068 599.128 225.143C598.899 230.357 604.163 238.379 603.476 244.262C603.018 246.668 600.615 248.406 599.814 249.476C599.242 250.278 599.357 251.347 599.586 252.417C600.501 255.625 603.018 259.77 604.163 262.444C604.849 264.316 605.421 265.786 606.222 267.524C607.824 270.733 611.829 274.343 613.889 277.685C623.272 293.06 626.132 313.247 648.674 313.381C650.391 313.381 651.65 313.381 652.107 315.119C652.336 316.991 651.878 319.932 652.451 322.071C652.908 323.675 653.824 325.012 654.739 326.349C656.341 328.221 658.286 329.959 660.117 331.697C661.605 333.569 662.863 335.841 664.236 337.981C672.818 351.751 687.351 368.596 698.908 380.896C701.425 382.901 704.4 383.704 707.604 384.372C712.753 385.308 720.534 386.779 729.459 388.517C729.459 388.517 729.574 388.517 729.688 388.517C743.648 391.725 760.24 395.469 774.887 396.939C778.32 397.608 781.409 398.143 784.041 398.677C786.787 399.212 788.961 399.747 791.593 399.747C796.971 399.747 800.175 395.201 805.324 398.544C807.27 399.881 808.871 401.752 810.245 403.758C810.588 404.292 810.931 404.827 811.274 405.362C812.304 406.966 813.22 408.571 814.135 410.041C814.707 410.977 815.394 411.913 815.966 412.849C815.966 412.849 816.08 413.116 816.195 413.116C816.424 413.517 816.652 414.052 816.996 414.453C817.225 414.988 817.568 415.523 817.911 416.057C818.369 416.86 818.712 417.662 819.055 418.598C821.23 423.945 821.802 429.427 819.628 435.042L819.399 433.972Z\" fill=\"white\"/>
+\t\t\t\t\t\t<path d=\"M431.264 125.408C407.692 123.002 386.295 112.574 366.156 99.2044C359.519 94.9262 353.225 90.3806 347.046 85.5677C346.932 85.434 346.817 85.434 346.817 85.434C339.952 79.8189 332.972 74.07 325.763 68.4549C325.649 68.4549 325.649 68.4549 325.649 68.4549C313.748 58.9627 301.39 49.7379 288.803 41.1815C270.495 28.748 251.5 18.0526 232.162 10.6994C224.038 7.6245 215.799 5.21802 207.561 3.48001C187.078 1.34092 164.765 6.82234 143.024 13.1059C136.273 15.1113 129.522 17.1167 122.885 18.9884C117.85 19.2558 112.472 21.2612 107.552 22.7318C92.1042 27.6785 108.01 39.9783 114.303 46.6629C121.169 54.5508 130.78 60.0323 126.432 69.6582C125.974 70.8614 125.288 72.0647 124.601 73.2679C120.139 78.3482 111.442 82.8938 101.03 89.5785C96.7957 90.3806 92.5619 92.1186 89.1291 94.2577C81.8058 98.937 77.3432 107.092 70.3632 112.44C69.9055 112.841 69.5622 113.242 69.1045 113.51C62.5822 118.323 55.9455 119.125 49.3087 118.59C40.3835 117.788 31.3438 114.713 22.0753 115.916C12.6923 118.189 11.7769 130.355 10.0605 138.911C8.68737 147.334 6.16995 155.222 3.08044 162.308C2.62273 163.645 2.16504 164.714 2.16504 166.185C2.27947 166.719 2.96601 167.121 3.65257 167.121C11.4336 166.586 16.3539 166.853 20.13 168.457C22.3041 169.393 24.0205 170.864 25.8513 172.869C25.8513 172.736 25.8513 172.602 25.8513 172.602C25.8513 172.335 25.9657 172.335 26.1946 172.602C26.309 172.736 26.4235 172.869 26.4235 173.003C26.5379 173.27 26.9956 173.538 26.9956 173.805C27.11 173.805 27.11 173.939 27.11 173.939C28.0254 175.142 28.8264 176.345 29.6274 177.549C29.7418 177.682 29.8563 177.682 29.8563 177.682C29.9707 177.816 30.0851 177.95 30.0851 177.95C30.314 178.083 30.5428 178.351 30.5428 178.484C30.5428 178.618 30.5428 178.886 30.5428 178.886C32.9457 182.763 35.1199 187.041 37.5228 190.517C44.1596 202.148 51.254 213.512 58.9205 224.609C68.7612 240.251 76.8855 256.16 87.5271 271C88.2137 272.07 88.9003 273.006 89.5869 274.075L91.6465 277.418C92.6763 279.156 93.5917 280.894 94.5071 282.765C98.0543 289.049 100.457 295.6 99.9997 303.22C99.9997 304.29 99.9997 305.226 99.9997 306.028C100.114 306.295 100.229 306.563 100.343 306.83C100.915 308.167 101.602 309.638 102.403 311.108C104.005 314.451 106.179 317.659 108.696 320.6C110.641 322.873 112.815 324.879 115.218 326.349C119.452 328.756 123.8 329.825 127.691 332.499C136.387 337.847 143.253 345.334 148.631 353.623C152.636 359.773 155.954 366.591 158.472 373.409C160.074 377.019 161.332 380.228 162.705 383.169C163.506 384.773 164.078 386.244 164.879 387.714C165.909 389.72 166.825 391.993 167.74 394.132C169.571 398.811 170.83 403.891 170.372 409.105C170.029 417.528 165.68 425.951 168.77 434.106C169.685 437.047 170.83 439.989 171.287 443.197C171.631 445.604 171.859 448.144 172.317 450.55V451.219C173.118 456.834 174.377 462.449 177.352 467.262C179.984 471.808 182.043 474.348 184.217 477.69C186.964 482.369 189.596 486.781 193.372 490.926C198.978 497.477 206.187 499.081 213.396 503.627C222.093 509.375 229.416 516.862 235.366 525.285C239.486 531.167 243.147 537.852 246.122 544.537C248.182 549.617 250.127 554.564 251.729 559.911C254.361 567.131 257.679 574.35 261.341 581.436C261.684 583.976 262.6 586.383 263.744 588.655V588.923C266.605 594.538 270.953 603.362 277.361 605.768C282.853 611.116 288.918 616.196 292.808 622.881C293.609 624.218 294.181 625.555 294.753 626.892C296.699 630.769 297.271 634.646 299.33 637.855C299.33 637.988 299.559 638.122 299.559 638.256C299.903 638.523 300.246 638.924 300.589 639.325C301.734 640.662 303.45 642.935 305.052 645.475C305.509 646.144 305.967 646.812 306.425 647.614C306.883 648.283 307.226 648.817 307.569 649.486C309.629 652.695 311.116 656.572 312.49 660.048C315.922 668.203 319.241 673.818 329.997 662.32C337.663 656.037 334.116 647.882 334.116 639.459C334.688 633.977 337.549 628.362 336.29 622.747C336.29 622.346 336.061 621.945 336.061 621.544C335.833 621.009 335.604 620.474 335.26 619.94C336.862 620.341 338.579 620.608 340.181 621.009C342.355 621.41 344.529 621.945 346.703 622.212C347.161 622.346 347.733 622.346 348.305 622.346C349.907 622.614 350.822 621.811 351.166 620.608C352.424 622.881 354.255 624.619 356.887 625.822H357.116C363.295 627.159 369.932 624.352 376.797 623.95C385.379 623.015 394.533 622.48 403.23 623.282C407.464 623.683 411.468 624.352 415.359 625.287C415.473 625.287 415.473 625.287 415.473 625.287C419.249 626.223 423.025 627.159 426.802 627.961C432.637 629.165 438.587 629.967 444.652 630.501C444.766 630.501 444.881 630.501 444.881 630.501C448.428 630.769 451.975 631.036 455.523 631.036C461.129 631.17 466.851 631.17 471.886 633.309C473.716 633.977 475.204 635.047 476.691 636.117C479.438 638.122 481.955 640.528 484.93 641.464C490.194 642.935 494.428 640.796 497.975 637.32C499.691 635.582 501.293 633.443 502.666 631.17C504.84 627.56 506.671 623.817 508.273 620.608C510.447 616.33 512.965 612.052 515.825 608.175C515.825 608.041 515.825 608.041 515.825 608.041C549.467 564.591 611.028 566.73 667.898 556.034C674.192 554.831 680.485 552.959 686.893 550.687C687.007 550.687 687.007 550.687 687.007 550.687C687.351 550.553 687.58 550.419 687.923 550.419C688.38 550.152 688.838 550.018 689.296 549.884C689.41 549.751 689.639 549.751 689.754 549.751C706.46 542.799 751.086 527.691 779.235 516.595C789.648 510.311 798.001 501.889 804.18 488.653C809.1 471.139 815.279 449.213 819.399 433.972L819.628 435.042C821.802 429.427 821.23 423.945 819.055 418.598C818.712 417.662 818.369 416.86 817.911 416.057C817.568 415.523 817.225 414.988 816.996 414.453C816.652 414.052 816.424 413.517 816.195 413.116C816.08 413.116 815.966 412.849 815.966 412.849C815.394 411.913 814.707 410.977 814.135 410.041C813.22 408.571 812.304 406.966 811.274 405.362C810.931 404.827 810.588 404.292 810.245 403.758C808.871 401.752 807.27 399.881 805.324 398.544C800.175 395.201 796.971 399.747 791.593 399.747C788.961 399.747 786.787 399.212 784.041 398.677C781.409 398.143 778.32 397.608 774.887 396.939C760.24 395.469 743.648 391.725 729.688 388.517C729.574 388.517 729.46 388.517 729.46 388.517C720.534 386.779 712.753 385.308 707.604 384.372C704.4 383.704 701.425 382.902 698.908 380.896C687.351 368.596 672.818 351.751 664.236 337.981C662.863 335.841 661.605 333.569 660.117 331.697C658.286 329.959 656.341 328.221 654.739 326.349C653.824 325.012 652.908 323.675 652.451 322.071C651.878 319.932 652.336 316.991 652.107 315.119C651.65 313.381 650.391 313.381 648.674 313.381C626.132 313.247 623.272 293.06 613.889 277.685C611.829 274.343 607.824 270.733 606.222 267.524C605.421 265.786 604.849 264.316 604.163 262.444C603.018 259.77 600.501 255.625 599.585 252.417C599.357 251.347 599.242 250.278 599.814 249.476C600.615 248.406 603.018 246.668 603.476 244.262C604.163 238.379 598.899 230.357 599.128 225.143C598.784 222.068 597.297 221.133 594.322 218.726C590.431 215.518 585.053 210.838 581.392 208.164C578.302 205.491 575.098 204.688 572.009 201.881C570.864 200.544 569.835 199.341 568.805 197.87C568.461 197.202 568.004 196.533 567.66 195.998C566.745 194.528 567.088 192.522 565.944 191.319C562.855 187.308 556.447 187.576 552.9 184.1C552.099 183.164 551.526 181.961 551.298 180.757C551.183 178.752 551.526 176.88 550.725 175.008C548.895 171.532 545.576 166.185 543.288 162.441C541.457 159.366 539.969 155.489 537.91 152.949C536.536 151.211 534.935 150.141 533.218 149.473C531.845 148.805 530.129 148.403 528.069 148.136C526.467 147.869 524.751 147.735 522.92 147.601C522.805 147.601 522.805 147.601 522.805 147.601C520.746 147.468 518.915 147.334 517.313 147.067C517.084 147.067 516.97 147.067 516.741 147.067C516.512 147.067 516.283 147.067 516.054 147.067C515.825 147.067 515.825 147.067 515.825 147.067C498.433 143.724 508.159 131.424 484.816 126.344C476.463 124.339 467.537 124.606 458.727 125.141H458.612C455.408 125.007 452.09 124.873 448.886 124.873C441.563 124.74 435.155 123.537 431.264 125.408ZM431.264 125.408C431.035 125.408 430.807 125.676 430.578 125.809C430.807 125.676 431.035 125.542 431.264 125.408Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M235.015 524.883C239.134 530.766 242.796 537.317 245.771 544.135C247.945 549.215 249.776 554.162 251.378 559.51C254.01 566.729 257.328 573.949 260.99 581.034C260.875 579.831 260.761 578.762 260.99 577.558C261.562 573.28 264.651 570.072 265.223 566.596C266.253 561.649 263.736 555.633 266.253 551.087C269.343 546.274 278.497 548.413 279.87 541.996C280.557 538.119 279.527 531.167 278.154 526.755C277.124 524.215 276.437 522.076 276.208 519.669C271.174 526.488 264.766 534.375 256.642 534.108C251.721 533.573 249.547 527.825 247.144 523.279C244.856 519.001 241.308 515.257 239.935 510.578C237.647 505.23 239.477 496.139 244.398 493.198C247.716 491.326 249.89 491.193 252.865 485.711C257.557 475.951 258.93 464.989 272.203 472.208C279.641 476.219 293.258 474.347 291.313 485.577V485.845C290.969 486.914 290.512 487.984 290.054 489.053C295.432 488.385 301.725 493.198 311.909 486.246C322.551 479.294 332.735 466.459 346.924 469.935C365.118 474.748 366.72 484.107 370.038 501.086C371.068 505.364 372.327 509.642 373.128 513.92C374.043 519.268 373.585 525.552 376.332 530.097C377.819 532.236 379.421 534.509 380.565 536.782C384.227 531.969 393.152 531.434 398.874 532.637C404.938 533.707 409.286 540.258 415.465 539.188C434.231 539.723 465.584 538.386 500.942 537.049C501.171 535.712 501.857 533.974 502.315 532.771C505.862 523.413 515.016 500.551 519.822 488.251C521.081 485.043 522.454 481.166 521.882 477.823C520.738 471.941 516.161 467.261 514.215 461.513C511.011 454.026 510.096 445.871 513.758 439.453C515.016 437.18 516.847 434.774 518.335 432.902C519.593 431.031 520.166 430.228 519.708 428.891C519.365 428.089 518.792 427.555 517.877 426.886C515.245 425.148 511.126 423.009 511.24 419.132C511.813 410.576 516.504 402.688 517.877 394.131C520.738 379.559 521.768 364.318 522.569 349.611C522.912 339.05 524.857 326.482 518.449 317.391C515.932 314.316 512.957 312.044 510.897 308.568C507.007 302.685 506.549 293.728 507.808 286.909C509.295 279.422 509.409 271.401 508.036 263.78C507.235 257.363 506.434 249.743 502.658 244.261C499.226 239.181 493.275 236.774 487.44 234.234C477.942 229.689 467.415 228.619 457.346 225.945C450.48 224.207 443.729 222.469 437.435 219.26C432.973 217.255 429.197 213.779 425.306 211.64C421.072 209.367 416.838 207.897 413.177 204.822C409.401 201.88 406.883 197.468 403.794 193.859C402.878 192.789 401.849 191.72 400.704 190.917C400.933 191.319 401.048 191.72 401.277 192.254V192.522C403.68 199.073 402.192 208.298 400.132 214.046C396.013 221.533 384.914 214.046 382.739 227.148C381.481 236.774 384.113 246.935 388.918 255.09C391.894 260.572 400.018 270.866 390.52 274.075C383.54 275.946 376.332 276.749 369.58 279.957C363.287 282.23 358.481 284.904 352.416 286.909C346.009 289.717 338.228 291.856 333.879 297.204C332.163 299.343 332.163 301.749 331.591 304.557C330.561 308.701 327.471 311.509 323.009 313.514C315.571 316.857 307.905 313.514 301.268 309.904C299.094 308.568 296.805 307.498 294.745 306.161C296.347 316.054 294.746 327.151 290.855 335.707C284.905 346.269 267.855 344.531 264.766 357.499C262.935 365.387 264.651 372.072 256.527 376.885C253.781 378.489 250.806 379.692 248.288 381.698C245.199 384.104 242.567 387.179 239.249 389.452C233.985 393.463 227.348 397.741 220.368 395.602C209.498 393.596 206.294 383.971 199.428 377.286C197.254 375.414 194.165 375.28 191.304 375.414C188.329 375.548 185.125 375.414 182.493 374.211C175.513 370.735 170.707 361.51 162.468 359.906C159.265 359.104 155.832 358.435 153.086 356.831C151.255 355.761 149.996 354.424 148.737 352.82C152.742 359.104 156.061 365.788 158.578 372.607C160.18 376.35 161.439 379.425 162.697 382.366C163.384 383.971 164.07 385.441 164.757 386.912C165.672 388.917 166.702 391.19 167.618 393.329C169.448 398.008 170.707 403.222 170.25 408.436C169.906 416.859 165.558 425.282 168.648 433.437C169.563 436.378 170.707 439.32 171.165 442.528C171.508 444.935 171.737 447.341 172.08 449.881V450.55C172.996 456.165 174.254 461.78 177.23 466.593C179.861 471.005 181.921 473.545 184.095 476.887C186.841 481.433 189.473 485.845 193.249 489.989C198.856 496.54 206.065 498.278 213.274 502.69C221.97 508.439 229.294 515.926 235.244 524.348L235.015 524.883Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M290.17 335.975C284.22 346.537 267.17 344.799 264.081 357.767C262.25 365.655 263.966 372.34 255.842 377.153C253.096 378.757 250.121 379.96 247.604 381.966C244.514 384.372 241.882 387.447 238.564 389.72C233.3 393.731 226.663 398.009 219.683 395.87C208.813 393.864 205.609 384.239 198.743 377.554C196.569 375.682 193.48 375.549 190.619 375.682C187.644 375.816 184.44 375.682 181.808 374.479C174.828 371.003 170.022 361.778 161.784 360.174C158.58 359.372 155.147 358.703 152.401 357.099C150.57 356.029 149.311 354.692 148.053 353.088C142.674 344.665 135.809 337.312 127.112 331.965C123.336 329.291 118.874 328.221 114.64 325.815C112.237 324.344 110.063 322.339 108.118 320.066C105.6 317.125 103.426 313.916 101.71 310.574C103.541 312.312 106.287 312.846 109.262 312.713C110.749 310.707 113.152 308.969 116.7 307.499C121.391 305.36 126.655 304.825 127.456 299.878C127.685 298.541 127.456 296.536 126.884 295.199C124.595 289.316 121.963 282.765 121.391 276.482C121.391 270.332 119.446 265.385 116.471 260.706C114.869 258.166 112.924 255.626 110.978 253.085C110.406 252.283 109.72 251.615 109.148 250.813C105.944 244.93 102.168 240.251 98.8491 234.903C94.5009 227.015 92.2125 217.523 87.1777 210.036C83.8593 204.956 77.2225 196.533 85.3468 192.522C95.3019 188.244 106.745 190.651 117.272 191.319C120.819 191.854 123.565 193.592 126.083 195.865C126.197 195.865 126.311 196.132 126.426 196.266C126.769 196.533 126.998 196.801 127.341 197.068C128.829 198.405 130.202 199.876 131.689 201.213C135.809 205.491 141.874 208.967 147.252 213.111C149.311 214.716 151.485 216.186 153.888 217.122C164.072 221.801 178.147 217.924 188.788 221.801C190.161 222.202 191.42 222.871 192.564 223.673C193.137 229.288 198.171 233.967 200.117 239.315C204.35 248.005 205.38 258.166 205.266 267.524C204.35 278.755 212.017 284.904 222.773 282.632C227.35 281.963 232.614 278.487 237.305 276.883C242.912 275.279 248.748 274.744 254.355 273.541C256.3 273.808 258.245 274.343 260.076 275.145C260.419 278.354 262.822 281.696 265.912 283.568C270.26 286.509 275.409 288.514 279.3 291.589C282.504 293.996 284.907 297.338 287.195 300.547C289.026 303.087 291.314 304.825 293.832 306.429C295.434 316.322 293.832 327.419 289.941 335.975H290.17Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M656.684 319.79C656.684 318.592 657.363 318.991 657.476 320.056C657.25 320.056 657.023 319.657 656.684 319.79Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M299.998 641.325C299.66 641.591 298.983 641.059 298.87 640.261C298.87 639.196 299.998 640.261 300.111 641.192L299.998 641.325Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M818.823 417.525C818.48 416.723 818.137 415.921 817.679 414.985C817.45 414.45 817.107 413.915 816.878 413.381C816.649 412.98 816.421 412.445 816.077 412.044C816.077 412.044 815.963 411.91 815.848 411.776C815.276 410.841 814.704 409.905 814.018 408.969C813.102 407.498 812.072 405.894 811.157 404.29C810.814 403.755 810.47 403.22 810.127 402.685C808.754 400.68 807.152 398.808 805.207 397.471C800.058 393.995 796.854 398.674 791.476 398.674C788.844 398.674 786.67 398.14 783.809 397.605C781.177 397.07 778.088 396.535 774.655 395.867C759.894 394.263 743.416 390.519 729.456 387.444C729.456 387.444 729.342 387.444 729.228 387.444C720.302 385.84 712.521 384.369 707.372 383.3C704.168 382.631 701.193 381.963 698.676 379.824C687.119 367.524 672.586 350.679 664.004 336.908C662.746 334.769 661.373 332.496 659.885 330.625C658.054 328.887 656.109 327.149 654.507 325.277C653.477 323.94 652.676 322.603 652.218 320.999C651.646 318.726 652.219 315.918 651.875 314.047C651.418 312.442 650.159 312.442 648.442 312.309C625.786 312.309 623.04 291.987 613.657 276.612C611.597 273.27 607.592 269.527 605.99 266.318C605.075 264.58 604.617 263.109 603.931 261.238C602.786 258.564 600.269 254.419 599.353 251.211C599.125 250.141 599.01 249.205 599.582 248.27C600.383 247.2 602.786 245.462 603.244 243.055C603.931 237.173 598.552 229.151 598.896 223.937C598.552 220.862 597.065 219.927 594.09 217.52C590.199 214.311 584.707 209.632 581.16 206.958C577.956 204.284 574.752 203.482 571.662 200.675C570.404 199.338 569.488 198.135 568.458 196.664C568.115 196.129 567.657 195.461 567.314 194.792C566.513 193.322 566.742 191.316 565.598 190.113C562.508 186.102 555.986 186.37 552.553 182.893C551.752 181.958 551.18 180.888 550.951 179.551C550.837 177.679 551.18 175.674 550.379 173.802C548.663 170.326 545.23 164.845 542.941 161.235C541.11 158.16 539.508 154.417 537.563 151.743C536.19 150.139 534.588 149.069 532.872 148.267C531.499 147.598 529.897 147.064 527.723 146.93C526.121 146.663 524.404 146.529 522.573 146.395C522.573 146.395 522.573 146.395 522.459 146.395C520.399 146.395 518.568 146.128 516.966 145.86C516.738 145.86 516.623 145.86 516.394 145.86C516.165 145.86 515.937 145.86 515.708 145.86C515.708 145.86 515.593 145.86 515.479 145.86C498.086 142.384 507.812 130.218 484.469 125.138C476.116 123.133 467.191 123.4 458.38 123.935H458.266C455.062 123.935 451.743 123.801 448.539 123.667C441.331 123.667 434.808 122.464 431.032 124.202C428.858 125.272 427.485 127.277 427.256 131.021C430.002 134.363 431.147 139.042 430.574 143.32C430.231 146.128 428.973 149.738 425.883 150.272C422.336 150.807 417.53 145.593 413.067 144.657C407.003 143.32 402.197 148.668 397.505 152.144C392.928 155.754 386.52 160.968 381.371 161.369C381.371 162.305 381.371 163.107 381.6 164.043C390.182 165.914 391.555 178.214 395.789 183.696C397.505 186.102 399.336 188.642 400.48 191.45C401.625 192.386 402.654 193.322 403.57 194.391C406.659 198.001 409.062 202.413 412.953 205.354C416.614 208.429 420.848 209.9 425.082 212.172C428.972 214.311 432.748 217.654 437.211 219.793C443.505 223.001 450.256 224.739 457.121 226.478C467.191 229.151 477.718 230.221 487.216 234.767C493.051 237.307 499.001 239.713 502.434 244.793C506.21 250.275 506.897 257.895 507.812 264.313C509.3 271.933 509.071 279.955 507.583 287.442C506.325 294.26 506.782 303.217 510.673 309.1C512.733 312.576 515.708 314.715 518.225 317.924C524.633 327.015 522.688 339.582 522.344 350.144C521.543 364.85 520.628 380.091 517.653 394.664C516.28 403.086 511.588 411.108 511.016 419.664C511.016 423.541 515.021 425.68 517.653 427.419C518.568 428.087 519.14 428.622 519.484 429.424C519.827 430.761 519.255 431.697 518.111 433.435C516.738 435.306 514.792 437.847 513.534 439.986C509.872 446.537 510.673 454.692 513.991 462.045C516.051 467.66 520.514 472.473 521.658 478.356C522.23 481.698 520.857 485.575 519.598 488.784C514.792 501.217 505.638 524.079 502.091 533.304C501.633 534.641 500.947 536.245 500.718 537.582C549.12 535.71 604.96 533.838 645.238 536.379C661.945 537.715 674.417 540.122 679.91 544.266C679.91 544.266 680.139 544.266 680.139 544.4C683.228 546.138 683.342 548.277 684.372 550.684C684.944 551.218 685.86 551.218 686.775 550.951C686.775 550.951 686.775 550.951 686.89 550.951C687.233 550.951 687.462 550.684 687.805 550.684C688.263 550.55 688.721 550.283 689.178 550.149C689.293 550.149 689.522 550.149 689.636 550.015C706.228 543.197 750.969 528.09 779.117 516.993C789.645 510.576 797.883 502.153 804.062 488.917C808.868 471.404 815.162 449.478 819.281 434.237C821.455 428.488 820.769 423.007 818.709 417.793L818.823 417.525Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M399.566 214.309C395.447 221.796 384.348 214.309 382.173 227.411C380.915 237.037 383.547 247.197 388.353 255.353C391.328 260.834 399.452 271.129 389.955 274.337C382.974 276.209 375.766 277.011 369.014 280.22C362.721 282.492 357.915 285.166 351.85 287.172C345.443 289.979 337.662 292.118 333.313 297.466C331.597 299.605 331.597 302.012 331.025 304.819C329.995 308.964 326.906 311.771 322.443 313.777C315.005 317.119 307.339 313.777 300.702 310.167C298.528 308.83 296.239 307.761 294.179 306.424C291.662 304.953 289.374 303.081 287.543 300.541C285.254 297.332 282.851 293.99 279.647 291.584C275.757 288.509 270.608 286.637 266.26 283.562C263.17 281.69 260.767 278.482 260.424 275.139C260.309 273.936 260.424 272.867 260.996 271.663C264.772 270.193 268.319 267.92 271.866 266.048C279.762 262.305 286.513 256.957 292.349 250.005C293.951 248.267 295.553 246.663 297.269 245.058C301.617 241.582 306.194 238.507 310.771 235.299C316.721 231.154 322.443 225.673 328.736 220.994C332.284 218.453 335.945 215.913 339.035 212.838C345.443 206.956 344.985 195.859 351.507 189.442C357 183.827 365.81 182.891 371.303 177.677C374.85 174.468 379.313 168.72 379.771 163.639C380.228 163.639 380.571 163.639 381.144 163.639C389.726 165.511 391.099 177.811 395.332 183.292C397.049 185.699 398.88 188.239 400.024 191.046C400.253 191.447 400.367 191.848 400.596 192.383V192.651C402.999 199.202 401.511 208.426 399.452 214.175L399.566 214.309Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M184.446 40.1121C184.217 39.711 183.988 39.4437 183.645 39.1763C183.873 39.1763 183.988 39.1763 184.102 39.1763C185.704 39.5773 186.047 41.3154 187.192 42.3849C190.281 46.6631 194.858 48.6685 200.236 49.6043C204.585 50.4065 208.818 51.6097 212.823 52.2782C216.828 53.0804 221.176 53.214 225.639 53.3477C219.46 53.3477 213.395 53.0804 207.674 51.6097C201.037 49.738 193.485 49.6043 188.565 45.1925\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M261.334 61.1015C259.389 60.433 257.444 59.7645 255.727 58.9624C251.951 57.0907 248.29 55.0853 243.942 54.2831C241.653 53.882 239.479 53.7483 237.19 53.481C242.454 53.6147 247.489 54.1494 251.837 55.7537C255.384 56.957 258.016 59.8982 261.449 61.2352L261.334 61.1015Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M346.128 84.0952C338.919 78.4801 332.053 72.7313 325.073 67.1162C332.282 72.7313 339.262 78.4801 346.128 84.0952Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M444.29 630.364C438.225 629.83 432.275 629.027 426.44 627.824C422.664 627.022 418.887 626.086 415.111 625.15C424.723 626.621 434.564 628.894 444.404 630.231L444.29 630.364Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M497.632 637.319C494.085 640.795 489.851 642.934 484.587 641.463C481.612 640.527 479.095 638.121 476.349 636.115C481.155 638.655 485.388 641.998 490.08 641.329C492.712 641.062 495.229 639.458 497.632 637.319Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M515.581 608.168C512.72 612.045 510.203 616.323 508.029 620.601C506.427 623.676 504.596 627.553 502.422 631.163C506.084 622.339 510.546 614.719 515.581 608.168Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M686.89 550.68C680.482 552.953 674.189 554.825 667.895 556.028C611.026 566.724 549.464 564.718 515.823 608.035C515.823 608.035 515.823 608.035 515.708 608.168C510.673 614.719 506.211 622.34 502.549 631.164C501.176 633.436 499.574 635.576 497.858 637.314C495.455 639.453 492.937 640.923 490.306 641.324C485.614 641.993 481.266 638.65 476.574 636.11C475.087 635.041 473.485 633.971 471.768 633.303C466.734 631.164 461.012 631.164 455.405 631.03C451.858 631.03 448.311 630.763 444.764 630.495C444.764 630.495 444.649 630.495 444.535 630.495C434.694 629.158 424.968 626.885 415.242 625.415C415.242 625.415 415.242 625.415 415.127 625.415C411.237 624.613 407.232 623.81 402.998 623.409C394.302 622.607 385.148 623.142 376.566 624.078C369.7 624.479 363.063 627.287 356.884 625.95H356.655C354.024 624.746 352.193 623.008 350.934 620.736C348.073 615.388 348.646 607.634 349.447 601.751C350.934 593.596 355.511 586.109 358.944 578.756C360.889 575.146 362.148 571.536 363.979 567.927C366.382 562.98 370.387 558.969 373.591 554.691C375.078 552.686 376.794 550.413 377.595 548.006C378.854 544.53 378.397 540.787 380.113 537.712C380.113 537.578 380.342 537.311 380.456 537.177C384.118 532.364 393.043 531.83 398.764 533.033C404.829 534.102 409.177 540.653 415.356 539.584C434.122 540.118 465.475 538.782 500.833 537.445C549.235 535.573 605.075 533.701 645.353 536.241C662.06 537.578 674.532 539.985 680.025 544.129C680.025 544.129 680.253 544.129 680.253 544.263C683.343 546.001 683.457 548.14 684.487 550.547C685.059 551.081 685.975 551.081 686.89 550.814V550.68Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M291.208 485.846V486.113C290.865 487.183 290.407 488.252 289.949 489.322C288.233 493.466 285.601 497.343 283.999 501.889C282.054 506.836 281.024 512.183 278.163 516.729C277.477 517.665 276.676 518.734 275.989 519.804C270.955 526.622 264.547 534.51 256.422 534.243C251.502 533.708 249.328 527.959 246.925 523.414C244.637 519.135 241.089 515.392 239.716 510.713C237.428 505.365 239.258 496.274 244.179 493.333C247.497 491.461 249.671 491.327 252.646 485.846C257.338 476.086 258.711 465.123 271.984 472.343C279.422 476.354 293.039 474.482 291.094 485.712L291.208 485.846Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M261.334 61.1015C259.389 60.433 257.444 59.7645 255.727 58.9624C251.951 57.0907 248.29 55.0853 243.942 54.2831C241.653 53.882 239.479 53.7483 237.19 53.481C242.454 53.6147 247.489 54.1494 251.837 55.7537C255.384 56.957 258.016 59.8982 261.449 61.2352L261.334 61.1015Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M282.853 82.2193C280.45 86.4975 274.5 88.904 272.326 93.5833C267.863 100.535 273.584 108.691 273.127 116.044C273.127 120.188 270.266 124.6 270.609 128.745C269.351 129.814 267.978 130.616 266.49 131.285C256.42 130.616 245.893 130.215 236.053 131.418C227.242 133.156 220.033 137.435 211.222 141.445C203.098 145.59 194.974 149.601 186.163 152.542C185.018 152.943 183.988 153.344 183.073 153.879C182.615 153.612 182.158 153.344 181.814 152.943C181.586 151.74 181.471 150.403 181.242 149.2C179.755 139.975 168.884 132.889 165.566 124.333C164.193 119.386 160.76 112.835 154.581 115.509C152.063 116.578 150.004 119.787 147.715 121.124C141.307 124.333 144.168 109.626 140.163 106.819C136.845 102.942 130.437 102.14 126.318 99.332C122.313 96.5245 120.024 91.5778 115.447 89.3051C115.333 89.3051 115.104 89.1714 114.875 89.0377C110.412 87.166 105.263 87.166 100.343 88.2355C110.756 81.5509 119.452 77.0053 123.915 71.925C124.601 70.7217 125.288 69.5185 125.745 68.3152C130.094 58.5556 120.482 53.2079 113.616 45.1863C107.323 38.5016 91.4175 26.2019 106.865 21.1215C111.785 19.6509 117.163 17.6455 122.198 17.3781C128.835 15.5064 135.586 13.501 142.337 11.4956C138.104 13.6347 134.785 16.7096 133.183 21.9237C131.467 27.2714 131.352 33.8224 137.875 35.293C142.108 36.4962 140.392 41.9777 142.452 45.0526C146.914 51.3362 160.302 47.8602 167.854 46.9243C173.576 46.1222 177.466 41.3092 182.272 39.0364C182.73 38.769 183.188 39.0364 183.645 39.1701C183.874 39.1701 183.989 39.1701 184.103 39.0364C185.705 39.4375 186.048 41.1755 187.192 42.3787C190.282 46.6569 194.859 48.6623 200.237 49.5982C204.585 50.4003 208.819 51.6036 212.824 52.272C216.829 53.0742 221.177 53.2079 225.64 53.3416H225.869C229.301 53.3416 232.734 53.3416 236.167 53.4753C236.51 53.4753 236.739 53.4753 237.082 53.4753C242.346 53.609 247.381 54.1437 251.729 55.7481C255.276 56.9513 257.908 59.8926 261.341 61.2295C261.341 61.2295 261.455 61.2295 261.57 61.2295C261.798 61.2295 262.027 61.3632 262.256 61.4969C262.256 61.4969 262.371 61.4969 262.485 61.4969C265.46 62.4327 268.55 63.3686 271.181 64.9729C275.644 68.0479 285.714 76.8716 282.739 82.353L282.853 82.2193Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M426.785 130.886C429.531 134.229 430.79 138.908 430.103 143.186C429.76 145.994 428.501 149.603 425.412 150.138C421.864 150.673 417.058 145.459 412.596 144.523C406.531 143.186 401.725 148.534 397.034 152.01C392.457 155.62 386.049 160.834 380.9 161.235C380.557 161.235 380.099 161.235 379.756 161.235H379.641C379.412 159.764 378.611 158.293 377.238 157.09H377.009C373.805 154.817 369.343 154.684 365.452 154.684C359.616 154.684 353.552 153.213 347.945 153.079C341.766 152.545 335.129 154.684 329.293 152.411C322.199 148.668 318.423 140.913 310.642 137.972C298.742 131.154 285.01 133.025 271.394 131.555C270.822 130.619 270.478 129.549 270.364 128.48C270.021 124.469 272.996 120.057 272.881 115.779C273.453 108.56 267.618 100.404 272.08 93.3185C274.254 88.6392 280.204 86.3665 282.607 81.9546C285.583 76.6068 275.513 67.6494 271.05 64.5744C268.419 62.9701 265.329 62.0343 262.354 61.0984C262.011 61.0984 261.782 60.9647 261.439 60.831C261.439 60.831 261.324 60.831 261.21 60.831C257.777 59.6278 255.145 56.6865 251.598 55.3496C247.25 53.879 242.215 53.3442 236.951 53.0768C236.608 53.0768 236.379 53.0768 236.036 53.0768C232.603 52.9431 229.17 52.9431 225.738 52.9431H225.509C221.046 52.9431 216.698 52.6757 212.693 51.8736C208.688 51.2051 204.454 50.1356 200.106 49.1997C194.614 48.2639 190.036 46.2585 187.061 41.9803C185.917 40.777 185.574 39.039 183.972 38.6379C183.743 38.6379 183.629 38.6379 183.514 38.7716C183.056 38.5043 182.713 38.3706 182.141 38.6379C177.335 40.9107 173.445 45.7237 167.723 46.5259C160.171 47.328 146.783 50.9377 142.321 44.6541C140.375 41.5792 142.092 36.0978 137.744 34.8945C131.336 33.4239 131.45 26.8729 133.052 21.5252C134.654 16.3112 137.858 13.2362 142.206 11.0971C163.947 4.81355 186.26 -0.667869 206.743 1.47122C214.981 3.20924 223.22 5.61571 231.344 8.69065C250.683 16.0438 269.677 26.7392 287.986 39.1727C300.572 47.7291 312.93 56.9539 324.831 66.3125C324.831 66.3125 324.831 66.3125 324.945 66.3125C331.811 71.9276 338.791 77.8101 345.885 83.2915C345.885 83.2915 346.114 83.2915 346.114 83.4252C352.293 88.2381 358.587 92.7837 365.223 97.0619C385.362 110.431 406.76 120.859 430.332 123.266C428.158 124.335 426.785 126.341 426.556 130.084L426.785 130.886Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M339.835 621.009C342.009 621.544 344.183 621.945 346.357 622.212C344.069 621.41 341.895 620.742 339.835 621.009Z\" stroke=\"#999999\" stroke-width=\"0.2\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M380.443 537.184C380.329 537.318 380.214 537.451 380.1 537.719C378.383 540.794 378.841 544.537 377.582 548.013C376.781 550.42 375.065 552.692 373.577 554.698C370.373 558.976 366.369 562.987 363.966 567.933C362.135 571.543 360.876 575.153 358.931 578.763C355.498 585.982 350.921 593.469 349.433 601.758C348.632 607.64 348.06 615.395 350.921 620.742C350.578 621.945 349.662 622.748 348.06 622.48C347.488 622.48 347.031 622.48 346.458 622.347C344.17 621.544 341.996 620.876 339.936 621.143C338.334 620.742 336.618 620.475 335.016 620.074C329.523 610.18 317.737 604.565 306.752 605.1C304.006 604.966 301.603 604.298 299.429 602.961C296.225 600.956 292.907 596.677 289.817 596.677C285.469 596.677 281.807 602.025 282.151 606.036C282.151 606.437 282.151 606.838 282.38 607.239V607.507C283.867 611.384 287.758 614.325 289.932 617.935C290.962 619.539 291.762 621.143 292.449 622.748C288.559 616.063 282.494 610.983 277.001 605.635C270.594 603.228 266.245 594.405 263.385 588.79V588.522C262.241 586.249 261.325 583.843 260.982 581.303C260.867 580.1 260.753 579.03 260.982 577.827C261.554 573.549 264.643 570.34 265.216 566.864C266.245 561.917 263.728 555.901 266.245 551.356C269.335 546.543 278.489 548.682 279.862 542.264C280.549 538.387 279.519 531.435 278.146 527.023C277.116 524.483 276.429 522.344 276.201 519.938C277.001 518.868 277.688 517.798 278.375 516.863C281.121 512.317 282.265 506.969 284.21 502.023C285.812 497.477 288.33 493.6 290.16 489.455C295.539 488.787 301.832 493.6 312.016 486.648C322.658 479.696 332.842 466.861 347.031 470.337C365.224 475.15 366.826 484.509 370.145 501.488C371.174 505.766 372.433 510.044 373.234 514.322C374.15 519.67 373.692 525.954 376.438 530.499C377.926 532.638 379.528 534.911 380.672 537.184H380.443Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M333.772 639.324C333.772 647.747 337.319 655.902 329.652 662.186C318.896 673.683 315.578 668.068 312.145 659.913C310.772 656.437 309.284 652.56 307.225 649.351C306.882 648.683 306.538 648.148 306.081 647.479C305.623 646.677 305.165 646.009 304.707 645.34C303.105 642.8 301.389 640.527 300.245 639.19C299.902 638.789 299.558 638.522 299.215 638.121C299.215 637.987 298.986 637.853 298.986 637.72C297.041 634.377 296.354 630.634 294.523 626.757C293.951 625.42 293.265 624.083 292.578 622.88C291.892 621.275 291.091 619.671 290.061 618.067C287.887 614.457 283.996 611.516 282.623 607.639V607.371C282.394 606.97 282.394 606.569 282.28 606.168C281.822 602.024 285.598 596.81 289.946 596.81C293.036 596.81 296.354 601.088 299.558 603.093C301.732 604.564 304.135 605.099 306.882 605.232C317.867 604.697 329.767 610.313 335.145 620.206C335.488 620.741 335.717 621.275 335.946 621.81C336.06 622.211 336.175 622.612 336.289 623.013C337.548 628.629 334.687 634.244 334.115 639.725L333.772 639.324Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M91.0684 276.477C92.0982 278.215 93.128 279.953 93.929 281.825C97.4762 288.109 99.9937 294.793 99.4215 302.28C99.4215 303.35 99.4215 304.152 99.4215 305.088C99.4215 305.355 99.6505 305.622 99.7649 305.89C100.337 307.227 101.023 308.697 101.824 310.168C103.655 311.906 106.402 312.441 109.377 312.307C110.864 310.302 113.267 308.564 116.814 307.093C121.506 304.954 126.769 304.419 127.57 299.473C127.799 298.136 127.57 296.13 126.998 294.793C124.71 288.911 122.078 282.36 121.506 276.076C121.506 269.926 119.561 264.98 116.586 260.3C116.242 260.033 115.899 259.632 115.67 259.231C113.839 257.359 112.352 255.086 111.093 252.68C110.521 251.878 109.834 251.209 109.262 250.407C106.058 244.525 102.282 239.845 98.9638 234.498C94.6156 226.61 92.3271 217.117 87.2924 209.631C83.974 204.55 77.3373 196.128 85.4616 192.117C95.4167 187.839 106.859 190.245 117.386 190.914C120.934 191.448 123.68 193.186 126.197 195.459C126.312 195.459 126.426 195.727 126.541 195.86C126.884 196.128 127.113 196.395 127.456 196.662C128.944 197.999 130.317 199.47 131.804 200.807C135.924 205.085 141.988 208.561 147.366 212.706C149.426 214.31 151.6 215.781 154.003 216.716C164.187 221.396 178.261 217.519 188.903 221.396C190.276 221.128 191.649 220.727 192.908 220.192C194.052 216.716 196.455 213.641 199.316 211.235C202.978 208.962 207.097 209.096 207.097 203.748C206.296 195.326 203.893 186.234 197.714 180.085C193.595 175.94 187.187 173.935 181.923 172.063C180.207 171.394 179.52 170.86 179.634 170.058C180.092 167.918 181.236 166.047 179.978 163.373C177.46 158.426 178.376 156.02 181.694 154.148C181.694 153.613 181.465 153.212 181.465 152.677C181.236 151.474 181.122 150.137 180.893 148.934C179.406 139.709 168.535 132.623 165.217 124.067C163.844 119.12 160.411 112.569 154.232 115.243C151.714 116.313 149.655 119.521 147.366 120.858C140.958 124.067 143.819 109.494 139.814 106.553C136.496 102.676 130.088 101.874 125.968 99.0664C121.964 96.2588 119.675 91.3122 115.098 89.1731C114.869 89.1731 114.755 89.0394 114.526 88.9057C110.063 87.034 104.914 87.034 99.9937 88.1035C95.7599 89.0394 91.6405 90.7774 88.0933 92.7828C80.77 97.462 76.3074 105.617 69.3273 110.965C68.8696 111.366 68.5264 111.634 68.0687 111.901C61.5464 116.714 55.0241 117.516 48.2729 116.981C39.3477 116.313 30.1936 113.104 20.925 114.307C11.5421 116.58 10.7411 128.746 8.91026 137.303C7.53714 145.725 5.01972 153.613 1.9302 160.699C1.4725 162.036 0.900378 163.105 1.0148 164.442C1.24366 165.111 1.81578 165.378 2.50233 165.512C10.1689 164.977 15.0893 165.245 18.9798 166.849C21.1539 167.785 22.9847 169.255 24.7011 171.261C24.7011 171.127 24.7011 170.993 24.7011 170.86C24.7011 170.726 24.9299 170.726 25.0444 170.86C25.0444 170.86 25.1588 171.127 25.2732 171.261C25.5021 171.528 25.7309 171.929 25.8454 172.063C25.8454 172.063 25.8453 172.063 25.9598 172.063V172.197C26.8752 173.266 27.6762 174.469 28.4772 175.806C28.4772 175.806 28.4771 175.806 28.5915 175.806C28.5915 175.806 28.706 175.806 28.8204 175.94C28.8204 175.94 28.9349 175.94 29.0493 176.207C29.1637 176.341 29.3926 176.608 29.507 176.742C29.507 176.876 29.6214 177.01 29.507 177.143C31.91 181.154 34.084 185.432 36.487 188.775C43.1237 200.406 50.2181 211.77 57.8847 222.866C67.7254 238.508 75.9641 254.418 86.4913 269.258C87.1779 270.194 87.8645 271.263 88.551 272.333L90.6108 275.675L91.0684 276.477Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+\t\t\t\t\t\t<path d=\"M380.903 161.232C380.559 161.232 380.102 161.232 379.758 161.232H379.644C379.301 159.761 378.614 158.291 377.241 157.087H377.012C373.808 154.815 369.346 154.681 365.455 154.681C359.619 154.681 353.555 153.21 347.948 153.077C341.769 152.676 335.132 154.681 329.296 152.408C322.202 148.665 318.426 140.911 310.645 137.969C298.745 131.151 285.013 133.023 271.397 131.552C270.71 130.616 270.481 129.547 270.367 128.477C269.108 129.413 267.735 130.349 266.248 131.017C256.178 130.349 245.651 129.948 235.81 131.151C226.999 132.889 219.676 137.167 210.979 141.178C202.855 145.322 194.731 149.333 185.92 152.274C184.776 152.676 183.746 153.077 182.831 153.611C182.373 153.344 181.915 153.077 181.572 152.676C181.572 153.21 181.686 153.611 181.801 154.146C178.368 156.018 177.453 158.424 180.084 163.371C181.343 166.045 180.084 167.917 179.741 170.056C179.741 170.858 180.313 171.393 182.03 172.061C187.293 173.933 193.701 175.938 197.82 180.083C203.999 186.366 206.517 195.457 207.203 203.746C207.203 209.094 203.084 209.094 199.422 211.233C196.562 213.64 194.159 216.715 193.015 220.191C191.641 220.725 190.383 221.126 189.01 221.394C190.383 221.795 191.641 222.463 192.786 223.266C193.358 228.881 198.392 233.56 200.338 238.908C204.572 247.598 205.601 257.758 205.487 267.117C204.572 278.347 212.238 284.497 222.994 282.224C227.571 281.556 232.835 278.08 237.526 276.475C243.133 274.871 248.969 274.336 254.576 273.133C256.521 273.401 258.466 273.935 260.297 274.737C260.183 273.534 260.297 272.465 260.869 271.261C264.645 269.791 268.193 267.518 271.74 265.646C279.635 261.903 286.387 256.555 292.222 249.603C293.824 247.865 295.426 246.261 297.143 244.657C301.491 241.18 306.068 238.106 310.645 234.897C316.595 230.752 322.316 225.271 328.61 220.592C332.157 218.052 335.819 215.511 338.908 212.436C345.316 206.554 344.858 195.457 351.381 189.04C356.873 183.425 365.684 182.489 371.177 177.275C374.724 174.066 379.186 168.318 379.644 163.237C380.102 163.237 380.445 163.237 381.017 163.237C380.788 162.301 380.674 161.499 380.788 160.563L380.903 161.232Z\" stroke=\"#999999\" stroke-width=\"0.8\" stroke-miterlimit=\"10\"/>
+
+\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t<radialGradient id=\"paint0_radial_457_8067\" cx=\"0\" cy=\"0\" r=\"1\" gradientunits=\"userSpaceOnUse\" gradienttransform=\"translate(493.58 290.64) scale(623.84 623.84)\">
+\t\t\t\t\t\t\t\t<stop stop-color=\"#D4D4D4\"></stop>
+\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"#CACACA\" stop-opacity=\"0\"></stop>
+\t\t\t\t\t\t\t</radialGradient>
+\t\t\t\t\t\t\t<radialGradient id=\"highlight-gradient\" cx=\"50%\" cy=\"50%\" r=\"50%\">
+\t\t\t\t\t\t\t\t<stop offset=\"0%\" stop-color=\"rgb(52,209,159)\" stop-opacity=\"0.8\"/>
+\t\t\t\t\t\t\t\t<stop offset=\"100%\" stop-color=\"rgb(52,209,159)\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t</radialGradient>
+\t\t\t\t\t\t</defs>
+
+\t\t\t\t\t\t<g id=\"highlights\"></g>
+<g id=\"airport-labels\"></g>
+\t\t\t\t\t\t<!-- Airports (place cx, cy properly inside your map coordinates) -->
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"185\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"345\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"King Abdulaziz International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"JED\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                title=\"King Abdulaziz International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"185\" y=\"345\" data-name=\"King Abdulaziz International Airport\" data-code=\"JED\" title=\"King Abdulaziz International Airport\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"395\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"280\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"King Khalid International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"RUH\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"395\" y=\"280\" data-name=\"King Khalid International Airport\" data-code=\"RUH\" title=\"King Abdulaziz International Airport\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"560\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"190\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"King Fahd International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"DMM\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                d=\"\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"560\" y=\"190\" data-name=\"King Fahd International Airport\" data-code=\"DMM\" title=\"King Abdulaziz International Airport\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"165\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"125\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Prince Mohammad Bin Abdulaziz International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"MED\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"165\" y=\"125\" data-name=\"Prince Mohammad Bin Abdulaziz International Airport\" data-code=\"MED\" title=\"King Abdulaziz International Airport\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"215\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"240\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Taif International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"TIF\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"215\" y=\"240\" data-name=\"Taif International Airport\" data-code=\"TIF\" title=\"King Abdulaziz International Airport\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"280\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"450\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Abha International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"AHB\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"280\" y=\"450\" data-name=\"Abha International Airport\" data-code=\"AHB\" title=\"King Abdulaziz International Airport\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"235\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"80\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Hail International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"HAS\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"235\" y=\"80\" data-name=\"Hail International Airport\" data-code=\"HAS\" title=\"King Abdulaziz International Airport\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"285\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"545\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"King Abdullah Bin Abdulaziz International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"GIZ\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"285\" y=\"545\" data-name=\"King Abdullah Bin Abdulaziz International Airport\" data-code=\"GIZ\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"310\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"120\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Prince Naif Bin Abdulaziz International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"ELQ\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"310\" y=\"120\" data-name=\"Prince Naif Bin Abdulaziz International Airport\" data-code=\"ELQ\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"90\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"60\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Prince Sultan Bin Abdulaziz International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"TUU\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"90\" y=\"60\" data-name=\"Prince Sultan Bin Abdulaziz International Airport\" data-code=\"TUU\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"125\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"225\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Prince Abdul Mohsin Bin Abdulaziz International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"YNB\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"125\" y=\"225\" data-name=\"Prince Abdul Mohsin Bin Abdulaziz International Airport\" data-code=\"YNB\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"180\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"30\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Al-Jouf International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"AJF\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"180\" y=\"30\" data-name=\"Al-Jouf International Airport\" data-code=\"AJF\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"540\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"285\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Al-Ahsa International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"HOF\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                d=\"\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"540\" y=\"285\" data-name=\"Al-Ahsa International Airport\" data-code=\"HOF\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"380\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"50\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Qaisumah International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"AQI\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                d=\"\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"380\" y=\"50\" data-name=\"Qaisumah International Airport\" data-code=\"AQI\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"125\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"85\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Al-Ula International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"ULH\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"125\" y=\"85\" data-name=\"Al-Ula International Airport\" data-code=\"ULH\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"365\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"515\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Najran International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"EAM\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"365\" y=\"515\" data-name=\"Najran International Airport\" data-code=\"EAM\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"258\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"-40\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Arar International Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"RAE\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                d=\"\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"258\" y=\"-40\" data-name=\"Arar International Airport\" data-code=\"RAE\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"90\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"180\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Red Sea Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"RSI\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"90\" y=\"180\" data-name=\"Red Sea Airport\" data-code=\"RSI\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"25\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"90\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Neom Bay Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"NUM\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"25\" y=\"90\" data-name=\"Neom Bay Airport\" data-code=\"NUM\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"240\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"355\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"King Saud Bin Abdulaziz Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"ABT\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"240\" y=\"355\" data-name=\"King Saud Bin Abdulaziz Airport\" data-code=\"ABT\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"290\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"330\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Bisha Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"BHH\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"290\" y=\"330\" data-name=\"Bisha Airport\" data-code=\"BHH\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"295\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"220\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Dawadmi Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"DWD\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"295\" y=\"220\" data-name=\"Dawadmi Airport\" data-code=\"DWD\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"55\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"135\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Al-Wajh Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"EJH\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"55\" y=\"135\" data-name=\"Al-Wajh Airport\" data-code=\"EJH\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"320\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"15\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Rafha Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"RAH\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                d=\"\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"320\" y=\"15\" data-name=\"Rafha Airport\" data-code=\"RAH\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"160\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"270\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Rabigh Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"RGB\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"160\" y=\"270\" data-name=\"Rabigh Airport\" data-code=\"RGB\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"465\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"540\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Sharurah Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"SHW\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                d=\"\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"465\" y=\"540\" data-name=\"Sharurah Airport\" data-code=\"SHW\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"170\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"-70\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Turaif Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"TUI\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                d=\"\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"170\" y=\"-70\" data-name=\"Turaif Airport\" data-code=\"TUI\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"95\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"-55\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Qurayyat Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"URY\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                d=\"\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"95\" y=\"-55\" data-name=\"Qurayyat Airport\" data-code=\"URY\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+
+\t\t\t\t\t\t<!-- <image
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                class=\"airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                href=\"Pin.svg\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                x=\"385\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                y=\"400\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-name=\"Wadi Al Dawasir Airport\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t                data-code=\"WAE\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              ></image> -->
+
+\t\t\t\t\t\t<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"60\" height=\"115\" viewbox=\"0 0 60 115\" fill=\"none\" x=\"385\" y=\"400\" data-name=\"Wadi Al Dawasir Airport\" data-code=\"WAE\" class=\"airport overflow-visible\">
+\t\t\t\t\t\t\t<g filter=\"url(#filter0_d_601_68)\">
+\t\t\t\t\t\t\t\t<path d=\"M27.6504 86.29V23.29\" stroke=\"#A3A3A3\" stroke-width=\"0.75\" stroke-linecap=\"square\" stroke-linejoin=\"round\"/>
+\t\t\t\t\t\t\t\t<path d=\"M28.6958 88.437C29.3363 87.7965 29.3363 86.7581 28.6958 86.1177C28.0553 85.4772 27.0169 85.4772 26.3765 86.1177C25.736 86.7581 25.736 87.7965 26.3765 88.437C27.0169 89.0774 28.0554 89.0774 28.6958 88.437Z\" fill=\"#A3A3A3\"/>
+\t\t\t\t\t\t\t</g>
+\t\t\t\t\t\t\t<g filter=\"url(#filter1_d_601_68)\" class=\"plane-circle\">
+\t\t\t\t\t\t\t\t<path d=\"M43.3294 30.4058C47.0067 21.4797 42.7516 11.2626 33.8255 7.58534C24.8993 3.90807 14.6822 8.1631 11.005 17.0893C7.32769 26.0154 11.5828 36.2325 20.5089 39.9098C29.4351 43.587 39.6521 39.332 43.3294 30.4058Z\" fill=\"white\"/>
+
+\t\t\t\t\t\t\t\t<path style=\"mix-blend-mode: multiply\" d=\"M27.6352 39.2577C36.2086 39.0093 42.9573 31.8577 42.7088 23.2844C42.4604 14.711 35.3088 7.9623 26.7354 8.21076C18.162 8.45923 11.4133 15.6107 11.6618 24.1841C11.9103 32.7575 19.0618 39.5062 27.6352 39.2577Z\" fill=\"url(#paint0_linear_601_68)\"/>
+\t\t\t\t\t\t\t\t<path d=\"M27.1805 10.1499C34.7005 10.1499 40.8005 16.2499 40.8005 23.7699C40.8005 31.2899 34.7005 37.3899 27.1805 37.3899C19.6605 37.3899 13.5605 31.2899 13.5605 23.7699C13.5605 16.2499 19.6605 10.1499 27.1805 10.1499Z\" fill=\"#32D2A0\"/>
+
+\t\t\t\t\t\t\t\t<path d=\"M25.5898 23.5205L20.7998 20.3205L23.0798 19.2305L27.6099 20.4305L27.3098 21.5505L23.1898 20.4605L23.1298 20.4905L26.2299 22.5605L25.5898 23.5205Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M26.1194 31.7103L26.6394 26.2503L24.7994 27.1203L24.2994 26.0803L27.9695 24.3303L27.4495 29.7903L28.2494 29.4103L31.2494 22.7703L34.5695 21.1903C34.8195 21.0703 34.8594 20.8203 34.8694 20.7103C34.8894 20.4503 34.7795 20.2003 34.5895 20.0703C34.2995 19.8703 33.8194 19.9103 33.2494 20.1803L22.7694 25.1603L20.4795 23.4903L21.0995 24.7903L20.0594 25.2903L18.9395 22.9403L20.5995 22.1503L22.8994 23.8303L32.7594 19.1403C34.0594 18.5203 34.8794 18.8603 35.2494 19.1203C35.7794 19.4903 36.0794 20.1302 36.0294 20.8102C35.9794 21.4502 35.6195 21.9803 35.0695 22.2403L32.1294 23.6403L29.1294 30.2803L26.1095 31.7103H26.1194Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M35.0698 22.24L34.5698 21.2C34.8198 21.08 34.8598 20.83 34.8698 20.72C34.8898 20.46 34.7798 20.21 34.5898 20.08C34.2998 19.88 33.8198 19.92 33.2498 20.19L29.2998 22.07L28.7998 21.03L32.7498 19.15C34.0498 18.53 34.8699 18.87 35.2399 19.13C35.7699 19.5 36.0698 20.14 36.0198 20.82C35.9698 21.46 35.6098 21.99 35.0598 22.25L35.0698 22.24Z\" fill=\"white\"/>
+\t\t\t\t\t\t\t\t<path d=\"M21.6395 28.6303L20.3096 25.8403L21.3496 25.3403L22.1796 27.0903L23.7896 26.3203L24.2896 27.3703L21.6395 28.6303Z\" fill=\"#009393\"/>
+\t\t\t\t\t\t\t</g>
+
+\t\t\t\t\t\t\t<defs>
+\t\t\t\t\t\t\t\t<filter id=\"filter0_d_601_68\" x=\"25.2754\" y=\"20.915\" width=\"8.75\" height=\"71.75\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"2\" dy=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"2\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.717647 0 0 0 0 0.345098 0 0 0 0 0.345098 0 0 0 0.2 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<filter id=\"filter1_d_601_68\" x=\"0.682617\" y=\"3.26318\" width=\"48.9688\" height=\"48.9688\" filterunits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\">
+\t\t\t\t\t\t\t\t\t<feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/>
+\t\t\t\t\t\t\t\t\t<feOffset dx=\"-2\" dy=\"4\"/>
+\t\t\t\t\t\t\t\t\t<feGaussianBlur stddeviation=\"3.5\"/>
+\t\t\t\t\t\t\t\t\t<feComposite in2=\"hardAlpha\" operator=\"out\"/>
+\t\t\t\t\t\t\t\t\t<feColorMatrix type=\"matrix\" values=\"0 0 0 0 0.203922 0 0 0 0 0.823529 0 0 0 0 0.631373 0 0 0 1 0\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_601_68\"/>
+\t\t\t\t\t\t\t\t\t<feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_601_68\" result=\"shape\"/>
+\t\t\t\t\t\t\t\t</filter>
+\t\t\t\t\t\t\t\t<linearGradient id=\"paint0_linear_601_68\" x1=\"74.2535\" y1=\"-13.8938\" x2=\"-2.55654\" y2=\"47.5463\" gradientunits=\"userSpaceOnUse\">
+\t\t\t\t\t\t\t\t\t<stop stop-color=\"#9E9E9E\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.03\" stop-color=\"#A1A1A1\" stop-opacity=\"0.96\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.37\" stop-color=\"#C9C9C9\" stop-opacity=\"0.55\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.66\" stop-color=\"#E6E6E6\" stop-opacity=\"0.25\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"0.88\" stop-color=\"#F8F8F8\" stop-opacity=\"0.07\"/>
+\t\t\t\t\t\t\t\t\t<stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0\"/>
+\t\t\t\t\t\t\t\t</linearGradient>
+\t\t\t\t\t\t\t</defs>
+\t\t\t\t\t\t</svg>
+\t\t\t\t\t</svg>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t</section>
+
+\t";
+        // line 1955
+        yield "\t<section class=\"xl:container px-4 sm:px-6 lg:px-8 mx-auto\" id=\"routes\">
+\t\t<div
+\t\t\tclass=\"max-w-8xl px-4 sm:px-6 lg:px-8 bg-[#F5F5F5] py-12 sm:py-16 lg:py-20 rounded-md\">
+\t\t\t<!-- Row 1: Header -->
+\t\t\t<div class=\"flex justify-between items-center mb-8\">
+\t\t\t\t<h2 class=\"text-3xl sm:text-[51px] font-bold text-[#44505E]\" data-i18n=\"sections.routes\">
+\t\t\t\t\t";
+        // line 1961
+        if ((CoreExtension::getAttribute($this->env, $this->source, ($context["language"] ?? null), "id", [], "any", false, false, true, 1961) == "ar")) {
+            // line 1962
+            yield "\t\t\t\t\t\tشبكة المسارات
+\t\t\t\t\t";
+        } else {
+            // line 1964
+            yield "\t\t\t\t\t\tRoute Network
+\t\t\t\t\t";
+        }
+        // line 1966
+        yield "\t\t\t\t</h2>
+
+\t\t\t</div>
+
+\t\t\t<!-- Row 2: Search Controls -->
+\t\t\t<div
+\t\t\t\tclass=\"flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-12\">
+\t\t\t\t<!-- Search Bar -->
+\t\t\t\t<div class=\"flex-1 max-w-md\">
+\t\t\t\t\t<div class=\"relative\">
+\t\t\t\t\t\t<input type=\"text\" id=\"flight-search\" placeholder=\"";
+        // line 1976
+        if ((CoreExtension::getAttribute($this->env, $this->source, ($context["language"] ?? null), "id", [], "any", false, false, true, 1976) == "ar")) {
+            yield "ابحث عن مطارات المملكة العربية السعودية";
+        } else {
+            yield "Search Saudi Arabia Airports ...";
+        }
+        yield "\" class=\"w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400 outline-none transition-colors\" autocomplete=\"off\"/>
+
+\t\t\t\t\t\t<button class=\"absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600\">
+\t\t\t\t\t\t\t<svg class=\"w-5 h-5\" fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\">
+\t\t\t\t\t\t\t\t<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z\"></path>
+\t\t\t\t\t\t\t</svg>
+\t\t\t\t\t\t</button>
+\t\t\t\t\t\t<!-- Added search suggestions dropdown -->
+\t\t\t\t\t\t<div
+\t\t\t\t\t\t\tid=\"flight-search-results\" class=\"absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg z-50 hidden max-h-60 overflow-y-auto\"><!-- Search results will be populated here -->
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+
+\t\t\t<!-- Row 3: Flight Cards and Continent Sidebar -->
+\t\t\t<div
+\t\t\t\tclass=\"grid grid-cols-6 md:grid-row-2 gap-6\">
+\t\t\t\t<!-- Flight Cards Grid (9 columns) -->
+\t\t\t\t<div class=\"col-span-6 lg:col-span-5\">
+\t\t\t\t\t<div
+\t\t\t\t\t\tid=\"flight-cards-grid\" class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6\"><!-- Flight cards will be populated by JavaScript -->
+\t\t\t\t\t</div>
+
+\t\t\t\t\t<!-- Added flight pagination controls -->
+\t\t\t\t\t<!-- dir=\"ltr\"
+\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t              id=\"flightsPaginationSlider\" -->
+\t\t\t\t\t<div class=\"flex items-center justify-center space-x-4 pt-8\">
+\t\t\t\t\t\t<span id=\"current-flight-page\" class=\"text-sm text-gray-600\">01</span>
+\t\t\t\t\t\t<div class=\"flex items-center space-x-2\">
+\t\t\t\t\t\t\t<button id=\"flight-prev-page\" class=\"p-2 rounded-full hover:bg-gray-200 transition-colors\">
+\t\t\t\t\t\t\t\t<svg class=\"w-4 h-4 text-gray-600\" fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\">
+\t\t\t\t\t\t\t\t\t<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 19l-7-7 7-7\"></path>
+\t\t\t\t\t\t\t\t</svg>
+\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t\t<div class=\"w-16 h-1 bg-gray-300 rounded-full\">
+\t\t\t\t\t\t\t\t<div id=\"flight-page-progress\" class=\"h-full bg-gray-600 rounded-full transition-all duration-300\" style=\"width: 100%\"></div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<button id=\"flight-next-page\" class=\"p-2 rounded-full hover:bg-gray-200 transition-colors\">
+\t\t\t\t\t\t\t\t<svg class=\"w-4 h-4 text-gray-600\" fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\">
+\t\t\t\t\t\t\t\t\t<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 5l7 7-7 7\"></path>
+\t\t\t\t\t\t\t\t</svg>
+\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<span id=\"total-flight-pages\" class=\"text-sm text-gray-600\">01</span>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+
+\t\t\t\t<!-- Continent Sidebar (3 columns) -->
+\t\t\t\t<div class=\"col-span-6 lg:col-span-1\">
+\t\t\t\t\t<h3 class=\"text-lg font-semibold text-center text-gray-800 mb-4\" data-i18n=\"sections.chooseContinent\">
+\t\t\t\t\t\t";
+        // line 2027
+        if ((CoreExtension::getAttribute($this->env, $this->source, ($context["language"] ?? null), "id", [], "any", false, false, true, 2027) == "ar")) {
+            // line 2028
+            yield "\t\t\t\t\t\t\tاختر قارة
+\t\t\t\t\t\t";
+        } else {
+            // line 2030
+            yield "\t\t\t\t\t\t\tChoose A Continent
+\t\t\t\t\t\t";
+        }
+        // line 2032
+        yield "\t\t\t\t\t</h3>
+
+\t\t\t\t\t<div class=\"space-y-6 p-3 xl:p-6\">
+\t\t\t\t\t\t<!-- Continent Cards -->
+\t\t\t\t\t\t<!-- Dynamic Continent Cards --><div class=\"bg-white p-4 rounded-lg shadow-sm border border-gray-200\" id=\"continent-cards\"> <!-- <div id=\"continent-cards\" class=\"space-y-4 p-2\"> -->
+\t\t\t\t\t\t\t<!-- continent cards will be injected here -->
+\t\t\t\t\t\t\t<!-- </div> -->
+\t\t\t\t\t\t</div>
+\t\t\t\t\t</div>
+
+\t\t\t\t\t<!-- Pagination Controls -->
+\t\t\t\t\t<div
+\t\t\t\t\t\tid=\"continentPaginationSlider\" class=\"flex items-center justify-center space-x-2 pt-4\">
+\t\t\t\t\t\t<!-- Made continent pagination dynamic -->
+\t\t\t\t\t\t<span id=\"current-continent-page\" class=\"text-sm text-gray-600\">01</span>
+\t\t\t\t\t\t<div class=\"flex items-center space-x-2\">
+\t\t\t\t\t\t\t<button id=\"continent-prev\" class=\"rounded-full hover:bg-gray-200 transition-colors\">
+\t\t\t\t\t\t\t\t<svg class=\"w-4 h-4 text-gray-600\" fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\">
+\t\t\t\t\t\t\t\t\t<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 19l-7-7 7-7\"></path>
+\t\t\t\t\t\t\t\t</svg>
+\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t\t<div class=\"w-16 h-1 bg-gray-300 rounded-full\">
+\t\t\t\t\t\t\t\t<div id=\"continent-progress\" class=\"h-full bg-gray-600 rounded-full transition-all duration-300\" style=\"width: 4%\"></div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t<button id=\"continent-next\" class=\"rounded-full hover:bg-gray-200 transition-colors\">
+\t\t\t\t\t\t\t\t<svg class=\"w-4 h-4 text-gray-600\" fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\">
+\t\t\t\t\t\t\t\t\t<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 5l7 7-7 7\"></path>
+\t\t\t\t\t\t\t\t</svg>
+\t\t\t\t\t\t\t</button>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<span id=\"total-continent-pages\" class=\"text-sm text-gray-600\">03</span>
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t</section>
+
+\t<!-- News Modal -->
+\t<div
+\t\tid=\"newsModal\" class=\"fixed inset-0 bg-black/50 hidden z-103\">
+\t\t<!-- Flex to center the modal -->
+\t\t<div class=\"flex items-center justify-center w-full h-full\">
+\t\t\t<div
+\t\t\t\tclass=\"bg-white max-h-[90vh] overflow-y-auto rounded-xl max-w-[95%] lg:max-w-4xl w-full px-6 py-10 relative\">
+\t\t\t\t<!-- Close button -->
+\t\t\t\t<button id=\"closeModal\" class=\"absolute cursor-pointer top-3 right-3 text-gray-600 hover:text-black text-3xl\">
+\t\t\t\t\t&times;
+\t\t\t\t</button>
+
+\t\t\t\t<!-- Modal Content -->
+\t\t\t\t<h2 id=\"modalTitle\" class=\"text-xl font-bold mb-2 text-gray-900\"></h2>
+\t\t\t\t<p id=\"modalDate\" class=\"text-sm text-gray-500 mb-4\"></p>
+
+\t\t\t\t<div class=\"relative w-full h-56 mb-4\">
+\t\t\t\t\t<img id=\"modalImage\" src=\"/placeholder.svg\" alt=\"\" class=\"w-full h-full object-cover rounded-md\"/>
+\t\t\t\t</div>
+
+\t\t\t\t<p id=\"modalDescription\" class=\"text-gray-700 leading-relaxed\"></p>
+\t\t\t</div>
+\t\t</div>
+\t</div>
+
+\t<section class=\"xl:container mx-auto max-w-7xl py-16 sm:py-20 lg:py-24 bg-white\">
+\t\t<div
+\t\t\tclass=\"px-4 sm:px-6 lg:px-8\">
+\t\t\t<!-- Row 1: Header with Read More Button -->
+\t\t\t<div class=\"flex flex-col lg:px-10 space-y-4 md:space-y-0 md:flex-row justify-between items-center mb-12\">
+\t\t\t\t<div class=\"flex items-center space-x-8\">
+\t\t\t\t\t<h2 class=\"text-3xl sm:text-[51px] font-bold text-[#32D2A0]\" data-i18n=\"sections.news\">
+\t\t\t\t\t\t";
+        // line 2101
+        if ((CoreExtension::getAttribute($this->env, $this->source, ($context["language"] ?? null), "id", [], "any", false, false, true, 2101) == "ar")) {
+            // line 2102
+            yield "\t\t\t\t\t\t\tالأخبار
+\t\t\t\t\t\t";
+        } else {
+            // line 2104
+            yield "\t\t\t\t\t\t\tNews
+\t\t\t\t\t\t";
+        }
+        // line 2106
+        yield "\t\t\t\t\t</h2>
+
+\t\t\t\t</div>
+\t\t\t\t<div class=\"flex items-center space-x-8\"></div>
+\t\t\t\t";
+        // line 2110
+        if ((CoreExtension::getAttribute($this->env, $this->source, ($context["language"] ?? null), "id", [], "any", false, false, true, 2110) == "ar")) {
+            // line 2111
+            yield "                  <a
+                    href=\"";
+            // line 2112
+            yield $this->extensions['Drupal\Core\Template\TwigExtension']->renderVar($this->extensions['Drupal\Core\Template\TwigExtension']->getUrl("<front>"));
+            yield "/node/4\"
+                    class=\"mt-4 md:mt-0 flex items-center bg-gray-400 text-white px-3 py-2 rounded-md text-sm sm:text-base font-medium transition-colors hover:bg-gray-500\">
+                    <!-- Circle with arrow -->
+                    <span class=\"flex items-center justify-center p-1 rounded-full bg-white shadow mr-2\">
+                      <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"w-5 h-5 text-gray-400\">
+                        <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/>
+                        <polyline points=\"12 5 19 12 12 19\"/>
+                      </svg>
+                    </span>
+                
+                    <!-- Text -->
+                    <span class=\"mx-1\" data-i18n=\"buttons.readMore\">
+                      اقرأ المزيد
+                    </span>
+                  </a>
+                ";
+        } else {
+            // line 2128
+            yield "                  <a
+                    href=\"";
+            // line 2129
+            yield $this->extensions['Drupal\Core\Template\TwigExtension']->renderVar($this->extensions['Drupal\Core\Template\TwigExtension']->getUrl("<front>"));
+            yield "media\"
+                    class=\"mt-4 md:mt-0 flex items-center bg-gray-400 text-white px-3 py-2 rounded-md text-sm sm:text-base font-medium transition-colors hover:bg-gray-500\">
+                    <!-- Circle with arrow -->
+                    <span class=\"flex items-center justify-center p-1 rounded-full bg-white shadow mr-2\">
+                      <svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"w-5 h-5 text-gray-400\">
+                        <line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/>
+                        <polyline points=\"12 5 19 12 12 19\"/>
+                      </svg>
+                    </span>
+                
+                    <!-- Text -->
+                    <span class=\"mx-1\" data-i18n=\"buttons.readMore\">
+                      Read More
+                    </span>
+                  </a>
+                ";
+        }
+        // line 2145
+        yield "
+\t\t\t</div>
+
+\t\t\t<!-- Row 2: News Cards Slider -->
+\t\t\t<div class=\"mb-8\" id=\"sliderNewsSection\" dir=\"ltr\">
+\t\t\t\t<div id=\"news-slider\" class=\"overflow-hidden\">
+\t\t\t\t\t<div
+\t\t\t\t\t\tid=\"news-slider-track\" class=\"flex gap-0 md:gap-4 transition-transform duration-500 ease-in-out\"><!-- News slides will be populated by JavaScript -->
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+\t\t\t</div>
+
+\t\t\t<!-- Row 3: Progress Slider and Navigation -->
+\t\t\t<div
+\t\t\t\tclass=\"flex flex-col md:flex-row space-y-4 md:space-y-0 justify-between items-center\">
+\t\t\t\t<!-- Left: Progress Slider -->
+\t\t\t\t<div class=\"flex-1 w-full max-w-md\">
+\t\t\t\t\t<div
+\t\t\t\t\t\tid=\"news-progress-container\" class=\"flex space-x-1\"><!-- Progress segments will be populated by JavaScript -->
+\t\t\t\t\t</div>
+\t\t\t\t</div>
+
+\t\t\t\t<!-- Right: Navigation Controls -->
+\t\t\t\t<div id=\"newspaginationslider\" dir=\"ltr\" class=\"flex items-center space-x-4\">
+\t\t\t\t\t<span id=\"current-news-slide\" class=\"text-sm text-gray-600\">01</span>
+\t\t\t\t\t<div
+\t\t\t\t\t\tclass=\"flex items-center space-x-2\">
+\t\t\t\t\t\t<!-- For English -->
+\t\t\t\t\t\t<button id=\"news-prev\" class=\"p-2 rounded-full hover:bg-gray-200 transition-colors\">
+\t\t\t\t\t\t\t<svg class=\"w-4 h-4 text-gray-600\" fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\">
+\t\t\t\t\t\t\t\t<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 19l-7-7 7-7\"></path>
+\t\t\t\t\t\t\t</svg>
+\t\t\t\t\t\t</button>
+\t\t\t\t\t\t<div class=\"w-16 h-1 bg-gray-300 rounded-full\">
+\t\t\t\t\t\t\t<div id=\"news-slider-progress\" class=\"h-full bg-gray-600 rounded-full transition-all duration-300\" style=\"width: 50%\"></div>
+\t\t\t\t\t\t</div>
+\t\t\t\t\t\t<button id=\"news-next\" class=\"p-2 rounded-full hover:bg-gray-200 transition-colors\">
+\t\t\t\t\t\t\t<svg class=\"w-4 h-4 text-gray-600\" fill=\"none\" stroke=\"currentColor\" viewbox=\"0 0 24 24\">
+\t\t\t\t\t\t\t\t<path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 5l7 7-7 7\"></path>
+\t\t\t\t\t\t\t</svg>
+\t\t\t\t\t\t</button>
+\t\t\t\t\t</div>
+\t\t\t\t\t<span id=\"total-news-slides\" class=\"text-sm text-gray-600\"></span>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+\t</section>
+
+
+\t<!-- Added partners section with infinite scrolling logo carousel -->
+\t<!-- Partners Section -->
+\t<section class=\" max-w-7xl xl:container mx-auto  py-16 sm:py-20 lg:pt-24 lg:pb-8\" id=\"our-partners\">
+\t\t<div
+\t\t\tclass=\"px-4 sm:px-6 lg:px-8\">
+\t\t\t<!-- Row 1: Header Text -->
+\t\t\t<div class=\"flex px-0 md:px-10 flex-col lg:flex-col justify-between items-start lg:items-start gap-4 lg:gap-8\">
+\t\t\t\t<div class=\"\">
+\t\t\t\t\t<h2 class=\"text-3xl sm:text-[51px] font-bold text-[#44505E] mb-2\" data-i18n=\"sections.saudiAirConnectivity\">
+\t\t\t\t\t\t";
+        // line 2203
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, Twig\Extension\CoreExtension::striptags($this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "partnerHeading", [], "any", false, false, true, 2203))), "html", null, true);
+        yield "
+\t\t\t\t\t</h2>
+\t\t\t\t\t<!--<p class=\"text-lg text-gray-500\">Placeholder Text</p>-->
+\t\t\t\t</div>
+\t\t\t\t<div class=\"\">
+\t\t\t\t\t<p class=\"text-gray-600 leading-relaxed\" data-i18n=\"sections.partnersDescription\">
+\t\t\t\t\t\t";
+        // line 2209
+        yield $this->extensions['Drupal\Core\Template\TwigExtension']->escapeFilter($this->env, Twig\Extension\CoreExtension::striptags($this->extensions['Drupal\Core\Template\TwigExtension']->renderVar(CoreExtension::getAttribute($this->env, $this->source, ($context["page"] ?? null), "partnerDescription", [], "any", false, false, true, 2209))), "html", null, true);
+        yield "
+\t\t\t\t\t</p>
+\t\t\t\t</div>
+\t\t\t</div>
+\t\t</div>
+
+\t\t<!-- Row 2: Infinite Logo Carousel -->
+\t\t";
+        // line 2217
+        yield "\t\t";
+        // line 2218
+        yield "\t\t";
+        // line 2219
+        yield "\t\t";
+        // line 2220
+        yield "\t\t";
+        // line 2221
+        yield "\t\t";
+        // line 2222
+        yield "\t\t";
+        // line 2223
+        yield "\t\t";
+        // line 2224
+        yield "\t\t";
+        // line 2225
+        yield "\t\t";
+        // line 2226
+        yield "\t\t";
+        // line 2227
+        yield "\t\t";
+        // line 2228
+        yield "\t\t";
+        // line 2229
+        yield "\t\t";
+        // line 2230
+        yield "\t\t";
+        // line 2231
+        yield "\t\t";
+        // line 2232
+        yield "\t\t";
+        // line 2233
+        yield "\t\t";
+        // line 2234
+        yield "\t\t";
+        // line 2235
+        yield "\t\t";
+        // line 2236
+        yield "\t\t<!-- Row 2: Infinite Logo Carousel -->
+<div dir=\"ltr\" id=\"infiniteImagesSlider\" class=\"overflow-hidden w-full\">
+  <div class=\"infinite-scroll flex items-center space-x-16\">
+    <!-- Logos will be injected dynamically by JS -->
+    <div id=\"logosContainer\" class=\"flex items-center space-x-16 animate-scroll\"></div>
+  </div>
+</div>
+
+\t</section>
+
+
+\t";
+        // line 2247
+        yield from $this->loadTemplate("@acp/footer.html.twig", "themes/custom/acp/templates/page--front.html.twig", 2247)->unwrap()->yield($context);
+        $this->env->getExtension('\Drupal\Core\Template\TwigExtension')
+            ->checkDeprecations($context, ["page", "language", "base_path", "directory"]);        yield from [];
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getTemplateName(): string
+    {
+        return "themes/custom/acp/templates/page--front.html.twig";
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function isTraitable(): bool
+    {
+        return false;
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function getDebugInfo(): array
+    {
+        return array (  2439 => 2247,  2426 => 2236,  2424 => 2235,  2422 => 2234,  2420 => 2233,  2418 => 2232,  2416 => 2231,  2414 => 2230,  2412 => 2229,  2410 => 2228,  2408 => 2227,  2406 => 2226,  2404 => 2225,  2402 => 2224,  2400 => 2223,  2398 => 2222,  2396 => 2221,  2394 => 2220,  2392 => 2219,  2390 => 2218,  2388 => 2217,  2378 => 2209,  2369 => 2203,  2309 => 2145,  2290 => 2129,  2287 => 2128,  2268 => 2112,  2265 => 2111,  2263 => 2110,  2257 => 2106,  2253 => 2104,  2249 => 2102,  2247 => 2101,  2176 => 2032,  2172 => 2030,  2168 => 2028,  2166 => 2027,  2108 => 1976,  2096 => 1966,  2092 => 1964,  2088 => 1962,  2086 => 1961,  2078 => 1955,  338 => 217,  321 => 202,  319 => 201,  317 => 200,  310 => 195,  298 => 185,  296 => 184,  294 => 183,  287 => 178,  277 => 170,  275 => 169,  273 => 168,  266 => 163,  247 => 147,  230 => 132,  223 => 126,  219 => 124,  215 => 123,  211 => 122,  201 => 115,  192 => 109,  186 => 105,  184 => 104,  182 => 103,  180 => 102,  178 => 101,  166 => 90,  157 => 83,  149 => 78,  136 => 67,  122 => 56,  118 => 54,  104 => 43,  100 => 41,  98 => 40,  91 => 36,  77 => 24,  67 => 16,  59 => 11,  56 => 8,  50 => 3,  48 => 2,  44 => 1,);
+    }
+
+    public function getSourceContext(): Source
+    {
+        return new Source("", "themes/custom/acp/templates/page--front.html.twig", "/home/u492849996/domains/orangered-dragonfly-781009.hostingersite.com/public_html/themes/custom/acp/templates/page--front.html.twig");
+    }
+    
+    public function checkSecurity()
+    {
+        static $tags = ["include" => 2, "if" => 40];
+        static $filters = ["escape" => 1, "striptags" => 16, "render" => 16, "raw" => 122];
+        static $functions = ["attach_library" => 1, "url" => 43];
+
+        try {
+            $this->sandbox->checkSecurity(
+                ['include', 'if'],
+                ['escape', 'striptags', 'render', 'raw'],
+                ['attach_library', 'url'],
+                $this->source
+            );
+        } catch (SecurityError $e) {
+            $e->setSourceContext($this->source);
+
+            if ($e instanceof SecurityNotAllowedTagError && isset($tags[$e->getTagName()])) {
+                $e->setTemplateLine($tags[$e->getTagName()]);
+            } elseif ($e instanceof SecurityNotAllowedFilterError && isset($filters[$e->getFilterName()])) {
+                $e->setTemplateLine($filters[$e->getFilterName()]);
+            } elseif ($e instanceof SecurityNotAllowedFunctionError && isset($functions[$e->getFunctionName()])) {
+                $e->setTemplateLine($functions[$e->getFunctionName()]);
+            }
+
+            throw $e;
+        }
+
+    }
+}

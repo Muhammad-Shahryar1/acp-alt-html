@@ -1,0 +1,4 @@
+manage acp news:
+  title: 'Manage ACP news (create/edit/delete via API)'
+  description: 'Allows creation, editing and deletion of ACP news through the API.'
+  restrict access: true

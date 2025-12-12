@@ -1,0 +1,7 @@
+name: 'Flights API'
+type: module
+description: 'Provides a JSON API endpoint for Flights content.'
+core_version_requirement: ^10 || ^11
+package: 'Custom'
+dependencies:
+  - node

@@ -1,0 +1,114 @@
+<?php
+
+use Drupal\contact\Entity\ContactForm;
+use Drupal\views\Views;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function acp_page_attachments(array &$attachments) {
+  // Add inline script in head to prevent dark mode flicker
+  // This runs before page render to apply dark mode immediately
+  // Checks localStorage first, then defaults to system preference
+  $script = "(function(){var s=localStorage.getItem('darkmode');var shouldBeDark=s==='true'||(s===null&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(shouldBeDark){document.documentElement.classList.add('darkmode--activated');document.body.classList.add('darkmode--activated');}else if(s==='false'){document.documentElement.classList.remove('darkmode--activated');document.body.classList.remove('darkmode--activated');}})();";
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'script',
+      '#attributes' => [
+        'type' => 'text/javascript',
+      ],
+      '#value' => $script,
+    ],
+    'acp_darkmode_init',
+  ];
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function acp_preprocess_page(array &$variables) {
+  // Add theme path so we can reference images in Twig as {{ base_path ~ theme_path }}.
+  // Replaces deprecated/undefined drupal_get_path().
+  $variables['theme_path'] = \Drupal::service('extension.list.theme')->getPath('acp');
+
+  // =========================
+  // FRONT PAGE: Logo Carousel
+  // =========================
+  if (\Drupal::service('path.matcher')->isFrontPage()) {
+    $view = Views::getView('logos'); // Your View machine name
+    if ($view) {
+      $view->setDisplay('block_1'); // Your display ID
+      $view->preExecute();
+      $view->execute();
+      $variables['logos_view'] = $view->render();
+    }
+  }
+
+  // =========================
+  // CONTACT US PAGE (node/2)
+  // =========================
+  if (!empty($variables['node']) && $variables['node']->id() == 2) {
+    $contact_form = ContactForm::load('contact_us_form');
+    if ($contact_form) {
+      $form = \Drupal::entityTypeManager()
+        ->getFormObject('contact_message', 'default')
+        ->setEntity(
+          \Drupal::entityTypeManager()
+            ->getStorage('contact_message')
+            ->create(['contact_form' => $contact_form->id()])
+        );
+      $form = \Drupal::formBuilder()->getForm($form);
+      $variables['contact_us_form'] = $form;
+    }
+  }
+
+  // =========================
+  // PARTNER FORM PAGE (node/3)
+  // =========================
+  if (!empty($variables['node']) && $variables['node']->id() == 3) {
+    $partner_form = ContactForm::load('partner_form');
+    if ($partner_form) {
+      $form = \Drupal::entityTypeManager()
+        ->getFormObject('contact_message', 'default')
+        ->setEntity(
+          \Drupal::entityTypeManager()
+            ->getStorage('contact_message')
+            ->create(['contact_form' => $partner_form->id()])
+        );
+      $form = \Drupal::formBuilder()->getForm($form);
+      $variables['partner_form'] = $form;
+    }
+  }
+
+  // =========================
+  // EXECUTIVE MANAGEMENT DATA
+  // (You can later replace this with fields/blocks.)
+  // =========================
+  $variables['management_team'] = [
+    [
+      'name' => 'Majid Khan',
+      'role' => 'Chief Executive Officer',
+      'image' => 'team image.png',
+    ],
+    [
+      'name' => 'Sultan Otaify',
+      'role' => "Strategy & Communication<br><span>Vice President</span>",
+      'image' => 'team image.png',
+    ],
+    [
+      'name' => 'Rashed Alshammari',
+      'role' => "Commercial<br><span>Vice President</span>",
+      'image' => 'team image.png',
+    ],
+    [
+      'name' => 'Mousa Alskeat',
+      'role' => "Shared Services<br><span>Vice President</span>",
+      'image' => 'team image.png',
+    ],
+    [
+      'name' => 'Sultan Otaify',
+      'role' => "Head of Governance<br><span>Risk and Compliance</span>",
+      'image' => 'team image.png',
+    ],
+  ];
+}

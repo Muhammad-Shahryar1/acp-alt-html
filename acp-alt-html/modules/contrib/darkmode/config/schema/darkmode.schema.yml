@@ -1,0 +1,34 @@
+block.settings.darkmode_switcher:
+  type: block_settings
+  label: 'Settings for the Darkmode Switcher block'
+  mapping:
+    bottom:
+      type: string
+      label: 'Enter number of pixel for Bottom or unset'
+    right:
+      type: string
+      label: 'Enter number of pixel for Bottom or unset'
+    left:
+      type: string
+      label: 'Enter number of pixel for Bottom or unset'
+    time:
+      type: string
+      label: 'Enter number of Seconds'
+    mix_color:
+      type: string
+      label: 'Enter the color code Ex: #fff'
+    background_color:
+      type: string
+      label: 'Enter the color code Ex: #fff'
+    button_color_dark:
+      type: string
+      label: 'Enter the color code Ex: #fff'
+    button_color_light:
+      type: string
+      label: 'Enter the color code Ex: #fff'
+    save_in_cookies:
+      type: boolean
+      label: 'Save in Cookies'
+    auto_match_os_theme:
+      type: boolean
+      label: 'Auto Match os Theme'

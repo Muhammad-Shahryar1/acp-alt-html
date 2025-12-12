@@ -1,0 +1,1853 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* Fix darkmode layer issue in Arabic/RTL mode - prevent right-side glitch */
+html[lang="ar"] .darkmode-layer--simple,
+html[dir="rtl"] .darkmode-layer--simple {
+  transform: scale(1) !important;
+  width: 100% !important;
+  right: 0 !important;
+  left: auto !important;
+}
+/* Hide the small black dot but keep the darkmode layer working */
+.darkmode-layer--button {
+    width: 0 !important;   /* back to invisible */
+    height: 0 !important;
+    border-radius: 50%;
+    right: 32px;
+    bottom: 64px;
+    left: unset;
+}
+/* Partner Page Specific Dark Mode Overrides */
+body.darkmode--activated .contact-form-card p,
+body.darkmode--activated .contact-form-card p.text-gray-600 {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated .contact-form-card h2 {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated .partner-message-container label {
+  color: #ffffff !important;
+}
+.partner-message-container label {
+  color: #44505E !important;
+}
+/* When dark mode is active, let it fill the page */
+.darkmode-layer--button.darkmode-layer--simple {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+
+/* Darkmode overrides for specific headings */
+body.darkmode--activated h2.stats-heading,
+body.darkmode--activated h3.stats-subheading {
+  color: #ffffff;
+}
+
+/* Contact form dark theme overrides */
+body.darkmode--activated .contact-form-card {
+  background-color: #050505;
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.darkmode--activated .contact-form-card h1 {
+  color: #f1f5f9 !important;
+}
+
+body.darkmode--activated .contact-form-card .contact-form input,
+body.darkmode--activated .contact-form-card .contact-form textarea {
+  background-color: transparent;
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+body.darkmode--activated .contact-form-card .contact-form input::placeholder,
+body.darkmode--activated .contact-form-card .contact-form textarea::placeholder {
+  color: rgba(248, 250, 252, 0.7);
+}
+
+body.darkmode--activated .contact-form-card .contact-form .contact-submit-btn {
+  background-color: #1f9b74;
+}
+
+body.darkmode--activated .contact-form-card .contact-form .contact-submit-btn:hover {
+  background-color: #178460;
+}
+
+#exec-grid .team-card h4,
+#exec-grid .team-card .role,
+#exec-grid .team-card .department {
+  transition: color 0.2s ease;
+}
+
+body.darkmode--activated #exec-grid .team-card h4,
+body.darkmode--activated #exec-grid .team-card .role,
+body.darkmode--activated #exec-grid .team-card .department {
+  color: #ffffff;
+}
+
+#block-acp-darkmodeswitcher {
+  display: none;
+}
+
+/* Hide the floating darkmode icon – the toggle now lives in the menu */
+.darkmode-toggle {
+  display: none !important;
+}
+
+/* Contrast Controls */
+.contrast-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contrast-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  background-color: white;
+  color: #10b981;
+  border: 1px solid #10b981;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+  min-width: 100px;
+}
+
+.contrast-btn:hover:not(:disabled) {
+  background-color: #10b981;
+  color: white;
+}
+
+.contrast-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Scrolled header state for contrast buttons */
+#main-header.header-scrolled .contrast-btn {
+  background-color: white;
+  color: #10b981;
+  border-color: #10b981;
+}
+
+#main-header.header-scrolled .contrast-btn:hover:not(:disabled) {
+  background-color: #10b981;
+  color: white;
+}
+
+/* Mobile contrast controls */
+.contrast-controls-mobile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.contrast-controls-mobile .contrast-btn {
+  flex: 1;
+  width: 100%;
+}
+
+/* Contrast effects applied to body */
+body.contrast-high {
+  filter: contrast(1.3);
+}
+
+body.contrast-low {
+  filter: contrast(0.7);
+}
+
+/* Text Size Classes - Three levels with subtle increases */
+html.text-size-default {
+  font-size: 100% !important;
+}
+
+html.text-size-large {
+  font-size: 102% !important;
+  /* Very subtle 2% increase - minimal visual impact, won't affect layout */
+}
+
+html.text-size-extra-large {
+  font-size: 105% !important;
+  /* Slightly more noticeable 5% increase */
+}
+
+/* Only scale html element to avoid compounding effects */
+/* Rem-based sizes will automatically scale with html font-size */
+
+/* Screen Reader Mode - Applied to body when enabled - ENTIRE WEBSITE */
+/* Enhanced focus indicators for better screen reader navigation - ALL INTERACTIVE ELEMENTS */
+body.screen-reader-mode a:focus,
+body.screen-reader-mode button:focus,
+body.screen-reader-mode input:focus,
+body.screen-reader-mode select:focus,
+body.screen-reader-mode textarea:focus,
+body.screen-reader-mode [tabindex]:focus,
+body.screen-reader-mode [role="button"]:focus,
+body.screen-reader-mode [role="link"]:focus,
+body.screen-reader-mode [role="menuitem"]:focus,
+body.screen-reader-mode [role="menuitemcheckbox"]:focus,
+body.screen-reader-mode [role="menuitemradio"]:focus,
+body.screen-reader-mode [role="tab"]:focus,
+body.screen-reader-mode [role="option"]:focus,
+body.screen-reader-mode [contenteditable="true"]:focus {
+  outline: 4px solid #10b981 !important;
+  outline-offset: 3px !important;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.3) !important;
+  z-index: 9999 !important;
+  position: relative !important;
+}
+
+/* Enhanced focus for form elements */
+body.screen-reader-mode input:focus,
+body.screen-reader-mode textarea:focus,
+body.screen-reader-mode select:focus {
+  border-color: #10b981 !important;
+  border-width: 2px !important;
+}
+
+/* Make screen-reader-only content visible when Screen Reader Mode is enabled */
+body.screen-reader-mode .sr-only {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0.5rem !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  border: 1px solid #10b981 !important;
+  background-color: rgba(16, 185, 129, 0.1) !important;
+}
+
+/* Skip Links - Make visible in screen reader mode */
+body.screen-reader-mode .skip-link,
+body.screen-reader-mode .skip-to-content,
+body.screen-reader-mode a[href="#main-content"],
+body.screen-reader-mode a[href="#main"] {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0.75rem 1rem !important;
+  margin: 0.5rem !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  display: inline-block !important;
+  background-color: #10b981 !important;
+  color: white !important;
+  text-decoration: none !important;
+  border: 2px solid #059669 !important;
+  border-radius: 0.375rem !important;
+  font-weight: 600 !important;
+}
+
+body.screen-reader-mode .skip-link:focus,
+body.screen-reader-mode .skip-to-content:focus {
+  outline: 4px solid #ffffff !important;
+  outline-offset: 2px !important;
+}
+
+/* Landmark Regions - Visual indicators for screen reader users */
+body.screen-reader-mode header[role="banner"],
+body.screen-reader-mode header:not([role]),
+body.screen-reader-mode nav[role="navigation"],
+body.screen-reader-mode nav:not([role]),
+body.screen-reader-mode main[role="main"],
+body.screen-reader-mode main:not([role]),
+body.screen-reader-mode footer[role="contentinfo"],
+body.screen-reader-mode footer:not([role]),
+body.screen-reader-mode aside[role="complementary"],
+body.screen-reader-mode aside:not([role]),
+body.screen-reader-mode section[role="region"],
+body.screen-reader-mode section:not([role]),
+body.screen-reader-mode article[role="article"],
+body.screen-reader-mode article:not([role]),
+body.screen-reader-mode [role="banner"],
+body.screen-reader-mode [role="navigation"],
+body.screen-reader-mode [role="main"],
+body.screen-reader-mode [role="contentinfo"],
+body.screen-reader-mode [role="complementary"],
+body.screen-reader-mode [role="region"],
+body.screen-reader-mode [role="article"],
+body.screen-reader-mode [role="search"],
+body.screen-reader-mode [role="form"] {
+  position: relative !important;
+}
+
+body.screen-reader-mode header[role="banner"]::before,
+body.screen-reader-mode header:not([role])::before {
+  content: "[Header/Banner]";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(16, 185, 129, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10000;
+  border: 1px solid #059669;
+}
+
+body.screen-reader-mode nav[role="navigation"]::before,
+body.screen-reader-mode nav:not([role])::before,
+body.screen-reader-mode [role="navigation"]::before {
+  content: "[Navigation]";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(16, 185, 129, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10000;
+  border: 1px solid #059669;
+}
+
+body.screen-reader-mode main[role="main"]::before,
+body.screen-reader-mode main:not([role])::before,
+body.screen-reader-mode [role="main"]::before {
+  content: "[Main Content]";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(16, 185, 129, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10000;
+  border: 1px solid #059669;
+}
+
+body.screen-reader-mode footer[role="contentinfo"]::before,
+body.screen-reader-mode footer:not([role])::before,
+body.screen-reader-mode [role="contentinfo"]::before {
+  content: "[Footer]";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(16, 185, 129, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  z-index: 10000;
+  border: 1px solid #059669;
+}
+
+/* RTL support for landmark labels */
+html[dir="rtl"] body.screen-reader-mode header::before,
+html[dir="rtl"] body.screen-reader-mode nav::before,
+html[dir="rtl"] body.screen-reader-mode main::before,
+html[dir="rtl"] body.screen-reader-mode footer::before {
+  left: auto;
+  right: 0;
+}
+
+/* Form Labels - Ensure they're visible and properly associated */
+body.screen-reader-mode label {
+  font-weight: 600 !important;
+  color: #111827 !important;
+  display: block !important;
+  margin-bottom: 0.5rem !important;
+}
+
+body.screen-reader-mode label:focus-within {
+  outline: 2px solid #10b981 !important;
+  outline-offset: 2px !important;
+  padding: 0.25rem !important;
+  border-radius: 0.25rem !important;
+}
+
+body.screen-reader-mode input[type="checkbox"] + label,
+body.screen-reader-mode input[type="radio"] + label {
+  display: inline-block !important;
+  margin-left: 0.5rem !important;
+}
+
+/* Required field indicators */
+body.screen-reader-mode input[required],
+body.screen-reader-mode textarea[required],
+body.screen-reader-mode select[required] {
+  border-left: 4px solid #10b981 !important;
+}
+
+body.screen-reader-mode label[for]::after {
+  content: " (Label)";
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: normal;
+}
+
+/* Error messages and validation */
+body.screen-reader-mode .error-message,
+body.screen-reader-mode .form-item--error-message,
+body.screen-reader-mode [role="alert"],
+body.screen-reader-mode [aria-live="polite"],
+body.screen-reader-mode [aria-live="assertive"] {
+  border: 2px solid #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.1) !important;
+  padding: 0.75rem !important;
+  margin: 0.5rem 0 !important;
+  border-radius: 0.375rem !important;
+  font-weight: 600 !important;
+}
+
+body.screen-reader-mode [role="alert"]::before {
+  content: "[Alert] ";
+  font-weight: 700;
+  color: #ef4444;
+}
+
+/* Images - Highlight missing or empty alt text */
+body.screen-reader-mode img:not([alt])::after,
+body.screen-reader-mode img[alt=""]::after {
+  content: "[Image: Missing Alt Text]";
+  display: block;
+  background-color: rgba(239, 68, 68, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+body.screen-reader-mode img[alt]::after {
+  content: "[Image: " attr(alt) "]";
+  display: block;
+  background-color: rgba(16, 185, 129, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+/* Decorative images should be hidden */
+body.screen-reader-mode img[role="presentation"],
+body.screen-reader-mode img[aria-hidden="true"] {
+  opacity: 0.3 !important;
+}
+
+body.screen-reader-mode img[role="presentation"]::after,
+body.screen-reader-mode img[aria-hidden="true"]::after {
+  content: "[Decorative Image]";
+  display: block;
+  background-color: rgba(107, 114, 128, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  border-radius: 0.25rem;
+}
+
+/* Links - Show destination and external link indicators */
+body.screen-reader-mode a[href^="http"]:not([href*=""]):not([href*="localhost"]):not([href*="127.0.0.1"])::after {
+  content: " [External Link]";
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+body.screen-reader-mode a[target="_blank"]::after {
+  content: " [Opens in New Tab]";
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 600;
+}
+
+body.screen-reader-mode a[href^="#"]::after {
+  content: " [Internal Link]";
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 600;
+}
+
+/* Buttons - Show type and state */
+body.screen-reader-mode button[type="submit"]::after {
+  content: " [Submit Button]";
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+body.screen-reader-mode button[type="reset"]::after {
+  content: " [Reset Button]";
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+body.screen-reader-mode button[disabled]::after {
+  content: " [Disabled]";
+  font-size: 0.75rem;
+  color: #ef4444;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+body.screen-reader-mode button[aria-expanded="true"]::after {
+  content: " [Expanded]";
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+body.screen-reader-mode button[aria-expanded="false"]::after {
+  content: " [Collapsed]";
+  font-size: 0.75rem;
+  color: #6b7280;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+/* Headings hierarchy - Visual structure */
+body.screen-reader-mode h1 {
+  border-left: 4px solid #10b981 !important;
+  padding-left: 0.75rem !important;
+}
+
+body.screen-reader-mode h2 {
+  border-left: 3px solid #10b981 !important;
+  padding-left: 0.5rem !important;
+}
+
+body.screen-reader-mode h3 {
+  border-left: 2px solid #10b981 !important;
+  padding-left: 0.5rem !important;
+}
+
+body.screen-reader-mode h4,
+body.screen-reader-mode h5,
+body.screen-reader-mode h6 {
+  border-left: 2px solid rgba(16, 185, 129, 0.5) !important;
+  padding-left: 0.5rem !important;
+}
+
+/* Lists - Better structure visibility */
+body.screen-reader-mode ul,
+body.screen-reader-mode ol {
+  border: 1px dashed rgba(16, 185, 129, 0.3) !important;
+  padding: 1rem !important;
+  margin: 1rem 0 !important;
+  border-radius: 0.375rem !important;
+}
+
+body.screen-reader-mode li {
+  margin: 0.5rem 0 !important;
+  padding-left: 0.5rem !important;
+}
+
+/* Tables - Better accessibility */
+body.screen-reader-mode table {
+  border: 2px solid #10b981 !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+}
+
+body.screen-reader-mode th {
+  background-color: rgba(16, 185, 129, 0.1) !important;
+  border: 1px solid #10b981 !important;
+  padding: 0.75rem !important;
+  font-weight: 700 !important;
+}
+
+body.screen-reader-mode td {
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  padding: 0.75rem !important;
+}
+
+body.screen-reader-mode caption {
+  font-weight: 700 !important;
+  color: #10b981 !important;
+  margin-bottom: 0.5rem !important;
+  text-align: left !important;
+}
+
+/* ARIA live regions */
+body.screen-reader-mode [aria-live] {
+  border: 2px dashed #10b981 !important;
+  padding: 0.5rem !important;
+  margin: 0.5rem 0 !important;
+  background-color: rgba(16, 185, 129, 0.05) !important;
+}
+
+body.screen-reader-mode [aria-live="polite"]::before {
+  content: "[Live Region - Polite] ";
+  font-weight: 700;
+  color: #10b981;
+}
+
+body.screen-reader-mode [aria-live="assertive"]::before {
+  content: "[Live Region - Assertive] ";
+  font-weight: 700;
+  color: #ef4444;
+}
+
+/* Hidden content indicators */
+body.screen-reader-mode [hidden],
+body.screen-reader-mode [aria-hidden="true"]:not(img) {
+  position: relative !important;
+  opacity: 0.5 !important;
+}
+
+body.screen-reader-mode [hidden]::before,
+body.screen-reader-mode [aria-hidden="true"]:not(img)::before {
+  content: "[Hidden Content]";
+  display: block;
+  background-color: rgba(107, 114, 128, 0.9);
+  color: white;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Ensure all interactive elements are keyboard accessible */
+body.screen-reader-mode *:focus {
+  outline: 4px solid #10b981 !important;
+  outline-offset: 2px !important;
+}
+
+/* Improve contrast for better visibility */
+body.screen-reader-mode {
+  --focus-color: #10b981;
+  --focus-outline-width: 4px;
+}
+
+/* Ensure proper heading structure is visible */
+body.screen-reader-mode h1:first-of-type::before {
+  content: "[Page Title] ";
+  font-size: 0.75rem;
+  color: #10b981;
+  font-weight: 700;
+  margin-right: 0.5rem;
+}
+
+/* Screen reader only class - Hide visually but keep accessible to screen readers */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+  left: -9999px !important;
+}
+
+/* Skip Links - Hidden off-screen, only visible when focused (keyboard navigation) */
+.skip-link {
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+  z-index: 10001 !important;
+}
+
+.skip-link:focus {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  padding: 0.75rem 1rem !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: normal !important;
+  background-color: #10b981 !important;
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  border-radius: 0 0 0.375rem 0 !important;
+  outline: 4px solid #ffffff !important;
+  outline-offset: 2px !important;
+}
+
+.skip-link:focus:hover {
+  background-color: #059669 !important;
+  color: white !important;
+}
+
+/* Prevent horizontal scroll/extra width on RTL pages */
+html[lang="ar"],
+body[dir="rtl"] {
+  overflow-x: hidden;
+}
+
+/* Responsive: Hide desktop contrast controls on mobile */
+@media (max-width: 767px) {
+  .contrast-controls {
+    display: none;
+  }
+}
+
+/* Show mobile contrast controls only on mobile */
+@media (min-width: 768px) {
+  .contrast-controls-mobile {
+    display: none;
+  }
+}
+
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertThin/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertThin/font.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertThinItalic/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertThinItalic/font.woff") format("woff");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Light (300) */
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertLight/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertLight/font.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertLightItalic/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertLightItalic/font.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular (400) */
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertRegular/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertRegular/font.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertItalic/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertItalic/font.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertBold/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertBold/font.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertBoldItalic/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertBoldItalic/font.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExtraBold (800) */
+@font-face {
+  font-family: "FSAlbert";
+  src: url("../assets/fonts/webFonts/FSAlbertExtraBold/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertExtraBold/font.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== FS ALBERT — ARABIC ===== */
+@font-face {
+  font-family: "FSAlbertArabic";
+  src: url("../assets/fonts/webFonts/FSAlbertArabicThin/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertArabicThin/font.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FSAlbertArabic";
+  src: url("../assets/fonts/webFonts/FSAlbertArabicLight/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertArabicLight/font.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FSAlbertArabic";
+  src: url("../assets/fonts/webFonts/FSAlbertArabicRegular/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertArabicRegular/font.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FSAlbertArabic";
+  src: url("../assets/fonts/webFonts/FSAlbertArabicBold/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertArabicBold/font.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "FSAlbertArabic";
+  src: url("../assets/fonts/webFonts/FSAlbertArabicExtraBold/font.woff2") format("woff2"),
+       url("../assets/fonts/webFonts/FSAlbertArabicExtraBold/font.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== Defaults & language switch ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "FSAlbert", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+/* When the page is Arabic, switch the base family */
+html[lang="ar"] body,
+[dir="rtl"] body {
+  font-family: "FSAlbertArabic", "FSAlbert", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+  p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  p {
+    font-size: 16px;
+  }
+}
+
+/* Mobile view: 1 column */
+@media (max-width: 640px) {
+  .stats-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*Forms */
+
+input:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+.message-field-container {
+    margin-top: 40px !important;
+    margin-bottom: 20px !important;
+}
+
+.message-field-container .js-form-item {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.input-fields-container input {
+    display: block !important;
+    width: 100% !important;
+}
+
+.partner-info-container input {
+    display: block !important;
+    width: 100% !important;
+}
+
+.partner-contactinfo-container input {
+    display: block !important;
+    width: 100% !important;
+}
+
+.partner-message-container .js-form-item label {
+    display: none !important;
+}
+
+.partner-message-container textarea {
+  width: 100% !important;
+    display: block !important;
+    border: none !important;
+    outline: none !important;
+}
+
+/* Privacy Policy Content */
+.privacy-policy-content #block-privacypolicycontent p span,
+.privacy-policy-content #block-privacypolicycontent ul li span {
+  font-size: 20px !important;
+}
+
+
+.privacy-policy-content #block-privacypolicycontent h1 span,
+.privacy-policy-content #block-privacypolicycontent h2 span,
+.privacy-policy-content #block-privacypolicycontent h3 span,
+.privacy-policy-content #block-privacypolicycontent h4 span,
+.privacy-policy-content #block-privacypolicycontent h5 span,
+.privacy-policy-content #block-privacypolicycontent h6 span {
+  font-weight: 600 !important;
+  font-size: 22px !important;
+}
+
+.privacy-policy-arabiccontent {
+    text-align: right !important;
+}
+
+.privacy-policy-arabiccontent p,
+.privacy-policy-arabiccontent ul li {
+  font-size: 20px !important;
+}
+
+.privacy-policy-arabiccontent h1,
+.privacy-policy-arabiccontent h2,
+.privacy-policy-arabiccontent h3,
+.privacy-policy-arabiccontent h4,
+.privacy-policy-arabiccontent h5,
+.privacy-policy-arabiccontent h6 {
+  font-weight: 600 !important;
+  font-size: 24px !important;
+}
+
+/* Partner Page */
+.partner-page-section {
+  margin-bottom: 700px;
+}
+
+/* Mobile styles (for screens up to 768px wide) */
+@media (max-width: 768px) {
+  .partner-page-section {
+    margin-bottom: 200px;
+  }
+}
+
+.hero-text {
+  max-width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .hero-text {
+    max-width: 42rem;
+    /* equivalent to Tailwind's max-w-2xl */
+  }
+}
+
+
+/* ========== 404 Page Styling ========== */
+
+.custom-404-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background-color: #f9fafb;
+  color: #333;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.error-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-code {
+  font-size: 6rem;
+  font-weight: 800;
+  color: #9acc2e;
+  /* lime accent */
+  margin-bottom: 0.5rem;
+}
+
+.error-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #222;
+}
+
+.error-message {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.error-button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: #9acc2e;
+  color: #111;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.25s, transform 0.15s;
+}
+
+.error-button:hover {
+  background-color: #86b526;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .error-code {
+    font-size: 4rem;
+  }
+
+  .error-title {
+    font-size: 1.5rem;
+  }
+
+  .error-message {
+    font-size: 0.95rem;
+  }
+}
+
+
+
+/* Added infinite scroll animation for partner logos */
+.infinite-scroll {
+  width: 200%;
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.infinite-scroll:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* Hero Title Start */
+#block-herotitle {
+  width: 600px;
+  margin-bottom: 40px;
+}
+
+#block-herotitle p {
+  transform: translateY(2rem);
+  color: #ffffff;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+}
+
+@media (min-width: 640px) {
+  #block-herotitle p {
+    font-size: 51px;
+    line-height: 1.2;
+  }
+}
+
+/* Hero Title End */
+/* Hero Box Start */
+/* Base styles for the <p> inside the block */
+#block-heroboxcontent p {
+  color: #ffffff;
+  /* text-white */
+  font-size: 1.125rem;
+  /* text-lg = 18px */
+  line-height: 1.75rem;
+  /* text-lg line-height */
+  font-weight: 600;
+  /* font-semibold */
+}
+
+/* Medium screens (≥768px) */
+@media (min-width: 768px) {
+  #block-heroboxcontent p {
+    font-size: 1.25rem;
+    /* text-xl = 20px */
+    line-height: 1.75rem;
+    /* text-xl line-height */
+  }
+}
+
+/* Large screens (≥1024px) */
+@media (min-width: 1024px) {
+  #block-heroboxcontent p {
+    font-size: 1.5rem;
+    /* text-2xl = 24px */
+    line-height: 2rem;
+    /* text-2xl line-height */
+  }
+}
+
+/* Hero Box End */
+
+/* Selected Cards Start */
+/* Selected state */
+.card-selected {
+  transform: scale(1.05);
+  /* slightly bigger */
+  background-color: #10b981;
+  /* emerald-500 */
+  border-color: #34d399;
+  /* emerald-400 */
+  color: white;
+  border-radius: 4px !important;
+}
+
+.card-selected>div {
+  background-color: #10b981;
+}
+
+.card-selected .cls-1 {
+  stroke: white !important;
+}
+
+/* Force all hover styles when selected */
+.card-selected * {
+  color: white !important;
+}
+
+/* Selected Cards End */
+
+/* Smooth hero text reveal */
+#hero-title {
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+#hero-title.show {
+  opacity: 1;
+  transform: translateY(-2rem);
+}
+
+.airport {
+  cursor: pointer;
+  fill: #00c896;
+  transition: transform 0.2s, fill 0.2s;
+  transform-box: fill-box;
+  /* important for SVG */
+  transform-origin: center;
+  /* scale from center */
+}
+
+.plane-circle {
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.plane-circle.active {
+  transform: scale(1.3);
+  /* enlarge on click */
+}
+
+/* .airport:hover {
+        transform: scale(1.5); stays centered on x,y
+        fill: #009f6b;
+      } */
+
+circle.highlight {
+  transition: r 0.4s ease;
+  /* animate radius */
+}
+
+/* Custom styles for smooth animations */
+      .footer-overlay {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateY(100%);
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 50;
+        /* Responsive height constraints */
+        max-height: 85vh;
+        overflow-y: auto;
+        /* Prevent interactions while hidden */
+        pointer-events: none;
+        /* Add safe-area padding on modern phones */
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+        background-clip: padding-box;
+        opacity: 1;
+      }
+
+      /* start fully invisible */
+      .footer-overlay.hidden-init {
+        opacity: 0;
+        transform: translateY(1000%);
+      }
+
+      .footer-overlay.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .footer-overlay.no-transition {
+        transition: none !important;
+      }
+
+      .footer-overlay.active {
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      /* Mobile specific adjustments */
+      @media (max-width: 768px) {
+        .footer-overlay {
+          max-height: 80vh;
+          padding-top: 2rem !important;
+          padding-bottom: calc(1rem + env(safe-area-inset-bottom)) !important;
+        }
+
+        .footer-overlay .grid {
+          gap: 1.5rem !important;
+        }
+
+        .footer-overlay h3 {
+          font-size: 1rem !important;
+          margin-bottom: 1rem !important;
+        }
+
+        .footer-overlay ul {
+          gap: 0.5rem !important;
+        }
+
+        .footer-overlay .text-sm {
+          font-size: 0.75rem !important;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-overlay {
+          max-height: 75vh;
+          padding-top: 1.5rem !important;
+          padding-bottom: calc(0.5rem + env(safe-area-inset-bottom)) !important;
+        }
+      }
+
+      /* Background overlay when footer is active */
+      .page-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0);
+        pointer-events: none;
+        transition: background 0.6s ease;
+        z-index: 40;
+      }
+
+      .page-overlay.active {
+        /* background: rgba(0, 0, 0, 0.3); */
+        pointer-events: auto;
+      }
+
+
+      /* about page style */
+
+      
+#main-about {
+  background: #EDEDED;
+  margin: 0px;
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+  position: relative;
+  background-image: url('../assets/img/hero-image-about.png');
+  /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero-overlay {
+background: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 7%;
+    justify-content: center;
+    padding-right: 7%;
+}
+
+.white-bg-minister {
+  background: #fff;
+    padding: 5%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.hero-overlay h1 {
+  font-size: 3.219rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* --- ABOUT SECTION (Overlapping) --- */
+.about-section {
+  margin-left: 5%;
+  background-image: url("../assets/img/bg\ about.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #009595;
+  color: #fff;
+  position: relative;
+  padding: 80px 20% 80px 5%;
+  margin-top: -80px;
+  /* overlap hero */
+  z-index: 10;
+  border-radius: 12px 0px 0px 12px;
+}
+
+/* .about-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -120px;
+  width: 70%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  transform: skewX(-20deg);
+} */
+
+.about-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 200px;
+  align-items: flex-start;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.section-title-team {
+    display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+  padding: 0px 8% 0px 8%;
+}
+
+.about-title h2 {
+  font-size: 3.188rem;
+  font-weight: 700;
+  min-width: 120px;
+}
+
+.about-content h2 {
+  font-size: 3.188rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#block-acp-highlightedtextabout {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  max-width: 700px;
+  padding-top: 25px;
+}
+
+#block-acp-aboutdescription {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+.minister-section {
+  padding: 0px 5% 40px 5%;
+  border-radius: 12px;
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #32D2A0;
+  position: relative;
+}
+
+.minister-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  align-items: flex-start;
+}
+
+.minister-image img {
+  width: 480px;
+  height: auto;
+  border-radius: 12px;
+}
+
+.minister-text {
+  flex: 1;
+  min-width: 280px;
+  margin-top: 21px;
+}
+
+.minister-text h3 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.381rem;
+  color: #44505E;
+}
+
+#block-acp-decsministrymessage {
+  line-height: 1.6;
+  font-size: 1.25rem;
+  margin-top: 20px;
+}
+
+/* Dark mode styling for minister section */
+body.darkmode--activated .white-bg-minister {
+  background-color: #ffffff !important;
+}
+
+html[lang="ar"] body.darkmode--activated .minister-section .section-heading {
+  color: #ffffff !important;
+}
+
+html[lang="ar"] body.darkmode--activated .minister-section .minister-text h3,
+html[lang="ar"] body.darkmode--activated .minister-section .minister-text p,
+html[lang="ar"] body.darkmode--activated #block-acp-decsministrymessage {
+  color: #000000 !important;
+}
+
+body.darkmode--activated .minister-section .section-heading {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated .minister-section .minister-text h3,
+body.darkmode--activated .minister-section .minister-text p,
+body.darkmode--activated #block-acp-decsministrymessage {
+  color: #000000 !important;
+}
+
+
+/* Dark mode styling for front page hero section (bg-[#EDEDED]) */
+body.darkmode--activated section:has(#animated-section),
+body.darkmode--activated section.bg-\[#EDEDED\] {
+  background-color: #000000 !important;
+}
+
+/* Make heading white in dark mode - override Tailwind classes and inline styles */
+body.darkmode--activated #animated-section h2,
+body.darkmode--activated #animated-section h2[data-i18n="sections.airConnectivityProgram"],
+body.darkmode--activated section:has(#animated-section) h2,
+body.darkmode--activated section:has(#animated-section) h2.text-3xl,
+body.darkmode--activated section:has(#animated-section) h2.font-bold {
+  color: #ffffff !important;
+}
+
+/* Make description white in dark mode (including during animations) - override everything */
+body.darkmode--activated #gsap-text,
+body.darkmode--activated p#gsap-text,
+body.darkmode--activated #gsap-text[dir],
+body.darkmode--activated #animated-section p#gsap-text,
+body.darkmode--activated section:has(#animated-section) p#gsap-text,
+body.darkmode--activated section:has(#animated-section) p {
+  color: #ffffff !important;
+}
+
+/* Override the animated word spans created by GSAP (they have text-gray-400 class) */
+body.darkmode--activated #gsap-text .word,
+body.darkmode--activated #gsap-text .word.text-gray-400,
+body.darkmode--activated #gsap-text span.word,
+body.darkmode--activated #gsap-text span.text-gray-400 {
+  color: #ffffff !important;
+}
+
+/* Force override for any inline styles applied during GSAP animation */
+body.darkmode--activated #animated-section h2[style],
+body.darkmode--activated #gsap-text[style] {
+  color: #ffffff !important;
+}
+
+/* Dark mode styling for all popups and modals */
+/* News Modal */
+body.darkmode--activated #newsModal .bg-white,
+body.darkmode--activated #newsModal>div>div.bg-white {
+  background-color: #000000 !important;
+}
+
+body.darkmode--activated #newsModal #modalTitle,
+body.darkmode--activated #newsModal #modalDate,
+body.darkmode--activated #newsModal #modalDescription,
+body.darkmode--activated #newsModal #closeModal {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated #newsModal #closeModal:hover {
+  color: #cccccc !important;
+}
+
+/* News Section Dark Mode Styles */
+/* News section container */
+body.darkmode--activated section:has(#sliderNewsSection),
+body.darkmode--activated section:has(#news-slider),
+body.darkmode--activated section.bg-white:has(#sliderNewsSection) {
+  background-color: #ffffff !important;
+}
+
+/* News cards */
+body.darkmode--activated .news-card,
+body.darkmode--activated .news-card.bg-white {
+  background-color: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.darkmode--activated .news-card:hover {
+  box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* News card text */
+body.darkmode--activated .news-card h4,
+body.darkmode--activated .news-card .text-gray-800,
+body.darkmode--activated .news-card .text-xl {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated .news-card .text-gray-600,
+body.darkmode--activated .news-card p.text-gray-600 {
+  color: #cccccc !important;
+}
+
+body.darkmode--activated .news-card .text-gray-400 {
+  color: #999999 !important;
+}
+
+body.darkmode--activated .news-card .text-gray-700 {
+  color: #e0e0e0 !important;
+}
+
+/* News card borders and badges */
+body.darkmode--activated .news-card .border-gray-300 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Read More button in news cards */
+body.darkmode--activated .news-card .read-more-btn,
+body.darkmode--activated .news-card button.read-more-btn {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated .news-card .read-more-btn:hover,
+body.darkmode--activated .news-card button.read-more-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.darkmode--activated .news-card .read-more-btn .bg-gray-600 {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.darkmode--activated .news-card .read-more-btn .text-gray-600 {
+  color: #ffffff !important;
+}
+
+/* News section heading */
+body.darkmode--activated section:has(#sliderNewsSection) h2,
+body.darkmode--activated section:has(#sliderNewsSection) h2.text-\[#32D2A0\] {
+  color: #32D2A0 !important;
+}
+
+/* Read More link button in news section header */
+body.darkmode--activated section:has(#sliderNewsSection) a.bg-gray-400 {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+body.darkmode--activated section:has(#sliderNewsSection) a.bg-gray-400:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.darkmode--activated section:has(#sliderNewsSection) a.bg-gray-400 .bg-white {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.darkmode--activated section:has(#sliderNewsSection) a.bg-gray-400 .text-gray-400 {
+  color: #ffffff !important;
+}
+
+/* News navigation controls */
+body.darkmode--activated #newspaginationslider .text-gray-600,
+body.darkmode--activated #current-news-slide,
+body.darkmode--activated #total-news-slides {
+  color: #000000 !important;
+}
+
+body.darkmode--activated #news-prev,
+body.darkmode--activated #news-next {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated #news-prev:hover,
+body.darkmode--activated #news-next:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.darkmode--activated #news-prev .text-gray-600,
+body.darkmode--activated #news-next .text-gray-600 {
+  color: #000000 !important;
+}
+html[lang="ar"] body.darkmode--activated #news-prev .text-gray-600,
+html[lang="ar"] body.darkmode--activated #news-next .text-gray-600 {
+  color: #ffffff !important;
+}
+body.darkmode--activated #news-next .text-gray-600 {
+  color: #000000 !important;
+}
+/* News progress bar */
+body.darkmode--activated #news-progress-container .bg-gray-300,
+body.darkmode--activated #news-progress-container > div.bg-gray-300 {
+  background-color: #000000 !important;
+}
+
+body.darkmode--activated #news-progress-container .bg-gray-600,
+body.darkmode--activated #news-progress-container > div.bg-gray-600,
+body.darkmode--activated #news-slider-progress.bg-gray-600 {
+  background-color: #32D2A0 !important;
+}
+
+/* Contact Success Modal */
+body.darkmode--activated #contactSuccessModal .bg-white,
+body.darkmode--activated #contactSuccessModal>div.bg-white {
+  background-color: #000000 !important;
+}
+
+body.darkmode--activated #contactSuccessModal h2,
+body.darkmode--activated #contactSuccessModal p,
+body.darkmode--activated #contactSuccessModal button[data-close-modal],
+body.darkmode--activated #contactSuccessModal .text-gray-500,
+body.darkmode--activated #contactSuccessModal .text-gray-600,
+body.darkmode--activated #contactSuccessModal .text-gray-700,
+body.darkmode--activated #contactSuccessModal .text-\[#1F2933\] {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated #contactSuccessModal button[data-close-modal]:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.darkmode--activated #contactSuccessModal .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Partner Success Modal */
+body.darkmode--activated #partnerSuccessModal .bg-white,
+body.darkmode--activated #partnerSuccessModal>div.bg-white {
+  background-color: #000000 !important;
+}
+
+body.darkmode--activated #partnerSuccessModal h2,
+body.darkmode--activated #partnerSuccessModal p,
+body.darkmode--activated #partnerSuccessModal button[data-close-modal],
+body.darkmode--activated #partnerSuccessModal .text-gray-500,
+body.darkmode--activated #partnerSuccessModal .text-gray-600,
+body.darkmode--activated #partnerSuccessModal .text-gray-700,
+body.darkmode--activated #partnerSuccessModal .text-\[#1F2933\] {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated #partnerSuccessModal button[data-close-modal]:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.darkmode--activated #partnerSuccessModal .border-gray-200 {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* --- EXECUTIVE MANAGEMENT --- */
+.management-section {
+  padding: 80px 10%;
+}
+
+.management-grid {
+  display: grid;
+  padding: 0px 8% 0px 8%;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* always 3 columns */
+  gap: 40px;
+  margin-top: 40px;
+  padding-bottom: 20px;
+}
+
+/* Prevent content overflow in narrow columns */
+.management-grid>* {
+  min-width: 0;
+}
+
+/* .team-card {
+  padding: 20px;
+  border-radius: 12px;
+} */
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* pushes last elements down */
+  height: 100%;
+  /* ensures equal height cards */
+  position: relative;
+}
+
+.team-card .underline {
+  margin-top: 10px;
+  /* pushes underline to the bottom */
+}
+
+
+.department {
+color: #44505D;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    font-weight: 600;
+    padding-bottom: 8px;
+}
+
+.image-box {
+  position: relative;
+  display: inline-block;
+}
+
+.image-box img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.team-card h4 {
+  margin: 15px 0 5px;
+  font-weight: 600;
+  color: #44505D;
+  ;
+}
+
+.role {
+  color: #44505D;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.role span {
+  display: block;
+  color: #22bfa0;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+
+.underline {
+  width: 84px;
+    height: 5px;
+    background-color: #32D2A0;
+    border-radius: 2px;
+    margin-top: 20px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2rem;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .minister-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .minister-text {
+    text-align: left;
+  }
+
+  .management-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .about-container {
+    gap: 0px;
+  }
+}

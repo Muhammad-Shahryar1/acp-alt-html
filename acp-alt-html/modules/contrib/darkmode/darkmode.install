@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Darkmode installation and upgrade tasks.
+ */
+
+/**
+ * Implements hook_update_N().
+ *
+ * Moving configuration from module settings to block settings.
+ */
+function darkmode_update_10001(&$sandbox) : void {
+  $block_repository = \Drupal::service('block.repository');
+  // Get block configuration without default_config_hash..
+  $config = \Drupal::configFactory()->getEditable('darkmode.config');
+  $config_raw_data = $config->getRawData();
+  unset($config_raw_data['_core']);
+
+  $block_instances = $block_repository->getVisibleBlocksPerRegion();
+  foreach ($block_instances as $region => $blocks) {
+    /** @var \Drupal\block\Entity\Block $block */
+    foreach ($blocks as $block) {
+      if ($block->getPluginId() === 'darkmode_switcher') {
+        $block_config = $block->get('settings');
+        $settings = array_merge($block_config, $config_raw_data);
+        $block->set('settings', $settings);
+        $block->save();
+        $config->delete();
+      }
+    }
+  }
+}

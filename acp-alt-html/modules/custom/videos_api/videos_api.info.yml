@@ -1,0 +1,5 @@
+name: 'Videos API'
+type: module
+description: 'Provides a JSON API endpoint for Videos content type.'
+core_version_requirement: ^10 || ^11
+package: Custom

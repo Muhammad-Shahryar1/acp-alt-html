@@ -1,0 +1,7 @@
+airports_api.get_airports:
+  path: '/api/airports'
+  defaults:
+    _controller: '\Drupal\airports_api\Controller\AirportsController::getAirports'
+    _title: 'Airports API'
+  requirements:
+    _access: 'TRUE'

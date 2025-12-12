@@ -1,0 +1,298 @@
+{% include '@acp/sec-header.html.twig' %}
+{# Partner Page #}
+
+<div class="partner-page-section bg-[#009595]">
+  <div class="py-20 container mx-auto px-4 xl:px-16 pb-10 md:pt-10 gap-5 flex flex-col items-center justify-center">
+
+    <!-- Page Navigation -->
+    <div id="pageNavigation" class="flex gap-1 pl-5 my-10 items-center container mx-auto">
+      {% if language.id == 'ar' %}
+        <a href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">الرئيسية</a>
+        <svg class="w-4 h-4 text-green-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="{{ url('<front>') }}/node/3" class="text-green-400 hover:text-green-400">نموذج الشريك</a>
+      {% else %}
+        <a href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">Home</a>
+        <svg class="w-4 h-4 text-green-200" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+        <a href="{{ url('<front>') }}become-partner" class="text-green-400 hover:text-green-400">Become a Partner</a>
+      {% endif %}
+    </div>
+
+    <div class="relative w-full flex justify-center">
+      <!-- Green card -->
+      <div class="absolute top-0 right-8 md:right-4 w-[90%] xl:h-[100%] lg:h-[110%] md:h-[400px] sm:h-[350px] h-[400px] bg-[#32D2A0] -rotate-5 z-10"></div>
+
+      <!-- White card -->
+      <div class="relative bg-white contact-form-card rounded-2xl space-y-12 sm:space-y-16 md:space-y-20 -mb-32 md:-mb-[700px] shadow-md w-full p-6 sm:p-8 md:p-20 lg:py-40 py-10 z-10">
+
+        <!-- Header Text -->
+        <div class="mb-4 sm:mb-6">
+          <h1 id="hero-heading" class="text-2xl md:text-3xl lg:text-4xl xl:text-[51px] mb-4 leading-[1.1em] text-[#44505E] font-bold">
+            {% if language.id == 'ar' %}
+              نموذج الشريك
+            {% else %}
+              Partner Information
+            {% endif %}
+          </h1>
+
+          <p class="text-gray-600 font-medium text-sm sm:text-base lg:text-lg">
+            {% if language.id == 'ar' %}
+             سجّل اهتمامك في أن تصبح شريكًا قيّمًا اليوم! من خلال انضمامك إلى شبكتنا، ستحصل على إمكانية الوصول إلى موارد حصرية وبيئة تعاونية مصممة لتسريع نجاحك. املأ النموذج أدناه للبدء، وسيتواصل معك أحد أعضاء فريق الشراكات لدينا لاستكشاف كيفية عملنا معًا لتحقيق الأهداف المشتركة.
+            {% else %}
+             Register your interest in becoming a valued partner today! By joining our network, you’ll gain access to exclusive resources and collaborative environment designed to accelerate your success. Fill out the form below to get started, and one of our partnership team will reach out to explore how we can work together to achieve shared goals.
+            {% endif %}
+          </p>
+        </div>
+
+        <!-- Form (AJAX submission, no redirect) -->
+        <form{{ partner_form.attributes.addClass(['space-y-6', 'contact-form']) }} class="overflow-hidden" action="/contact/partner_form" method="post" id="contact-message-partner-form" accept-charset="UTF-8">
+          {{ partner_form.form_build_id }}
+          {{ partner_form.form_token }}
+          {{ partner_form.form_id }}
+
+          <!-- Organization Info -->
+          <div class="space-y-10 mt-10">
+            <h2 class="text-xl sm:text-2xl font-bold text-[#44505E]">
+              {% if language.id == 'ar' %} معلومات الجهة {% else %} Organization Information {% endif %}
+            </h2>
+
+            <div class="grid grid-cols-1 partner-info-container sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {{ partner_form.field_organization_name|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'اسم الجهة' : 'Organization Name', 'aria-label': (language.id == 'ar') ? 'اسم الجهة' : 'Organization Name', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_organization_website|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'الموقع الالكتروني' : 'Organization Website', 'aria-label': (language.id == 'ar') ? 'الموقع الالكتروني' : 'Organization Website', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_organization_industry|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'القطاع' : 'Industry', 'aria-label': (language.id == 'ar') ? 'القطاع' : 'Industry', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_country|merge({'#title_display':'invisible', '#attributes':{'placeholder': (language.id == 'ar') ? 'الدولة' : 'Country', 'aria-label': (language.id == 'ar') ? 'الدولة' : 'Country', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="space-y-10 mt-10">
+            <h2 class="text-xl sm:text-2xl font-bold text-[#44505E]">
+              {% if language.id == 'ar' %} ممثّل الجهة {% else %} Contact Information {% endif %}
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 partner-contactinfo-container max-w-4xl gap-10">
+              {{ partner_form.field_first_name|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'الاسم الاول' : 'First Name', 'aria-label': (language.id == 'ar') ? 'الاسم الاول' : 'First Name', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_last_name|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'الاسم الاخير' : 'Last Name', 'aria-label': (language.id == 'ar') ? 'الاسم الاخير' : 'Last Name', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_phone|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'رقم الجوال' : 'Phone Number', 'aria-label': (language.id == 'ar') ? 'رقم الجوال' : 'Phone Number', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+              {{ partner_form.field_email_partner|merge({'#title_display':'invisible','#attributes':{'placeholder': (language.id == 'ar') ? 'البريد الالكتروني' : 'Email', 'aria-label': (language.id == 'ar') ? 'البريد الالكتروني' : 'Email', 'class':['border-b','w-full','focus:outline-none','focus:ring-2','focus:ring-emerald-500','border-gray-300','focus:border-gray-600','pb-2','text-sm']}}) }}
+            </div>
+          </div>
+
+          <!-- Partner Message -->
+          <div class="flex partner-message-container flex-col mt-10">
+            <label for="edit-field-partner-message-0-value" class="font-semibold" data-i18n="form.contributionLabel">
+              {% if language.id == 'ar' %}
+                كيف ترغب الجهة بالمساهمة في برنامج الربط الجوي
+              {% else %}
+                How would you like to contribute to Saudi Air Connectivity Program?
+              {% endif %}
+            </label>
+
+            {{ partner_form.field_partner_message|merge({
+              '#title_display': 'invisible',
+              '#attributes': {
+                'placeholder': (language.id == 'ar') ? 'اكتب هنا...' : 'Type your message here...',
+                'aria-label': (language.id == 'ar') ? 'كيف ترغب الجهة بالمساهمة في برنامج الربط الجوي' : 'How would you like to contribute to Saudi Air Connectivity Program?',
+                'rows': '10',
+                'class': [
+                  'border',
+                  'p-4',
+                  'max-w-4xl',
+                  'w-full',
+                  'rounded-xl',
+                  'focus:outline-none',
+                  'focus:ring-2',
+                  'focus:ring-emerald-500',
+                  'mt-5',
+                  'border-gray-300',
+                  'focus:border-gray-600',
+                  'text-sm'
+                ]
+              }
+            }) }}
+          </div>
+
+          <!-- Submit -->
+          <div class="mt-4">
+            {{ partner_form.actions.submit|merge({
+              '#attributes': {
+                'class': ['bg-[#32D2A0]','text-white','px-8','sm:px-12','py-3','sm:py-4','rounded-lg','shadow','text-sm','w-full','sm:w-auto','flex','items-center','justify-center','partner-submit-btn','focus:outline-none','focus:ring-2','focus:ring-emerald-500','focus:ring-offset-2','hover:bg-[#2AB890]','transition-colors'],
+                'aria-label': (language.id == 'ar') ? 'إرسال معلومات الشريك' : 'Send partner information'
+              },
+              '#value': (language.id == 'ar') ? 'إرسال' : 'Send'
+            }) }}
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="padding-bottom:100px;"></div>
+
+{# ========================== #
+   Success Popup Modal (Partner form)
+   ========================== #}
+<div 
+  id="partnerSuccessModal"
+  class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 px-4"
+  aria-hidden="true"
+>
+  <div
+    class="relative w-full max-w-md mx-auto rounded-2xl bg-white shadow-xl overflow-hidden
+    {% if language.id == 'ar' %} text-right {% endif %}"
+    {% if language.id == 'ar' %} dir="rtl" {% endif %}
+  >
+    {# Top accent bar #}
+    <div class="h-1 w-full bg-gradient-to-r from-[#009595] via-[#32D2A0] to-[#00D3B4]"></div>
+
+    <div class="p-6 sm:p-8">
+      {# Close button #}
+      <button
+        type="button"
+        class="absolute top-3 {% if language.id == 'ar' %}left-3{% else %}right-3{% endif %} rounded-full p-1.5 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition"
+        data-close-modal
+        aria-label="{% if language.id == 'ar' %}إغلاق{% else %}Close{% endif %}"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M10 8.586L13.95 4.636L15.364 6.05L11.414 10L15.364 13.95L13.95 15.364L10 11.414L6.05 15.364L4.636 13.95L8.586 10L4.636 6.05L6.05 4.636L10 8.586Z" clip-rule="evenodd" />
+        </svg>
+      </button>
+
+      {# Icon #}
+      <div class="flex justify-center mb-4">
+        <div class="flex items-center justify-center h-14 w-14 rounded-full bg-[#E6FFF7]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-[#32D2A0]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+      </div>
+
+      {# Title + Text #}
+      <h2 class="text-xl sm:text-2xl font-semibold text-[#1F2933] mb-2 text-center">
+        {% if language.id == 'ar' %}
+          شكرًا لاهتمامك بأن تصبح شريكًا!
+        {% else %}
+          Thank you for your interest in becoming a partner!
+        {% endif %}
+      </h2>
+
+      <p class="text-sm sm:text-base text-gray-600 mb-6 text-center leading-relaxed">
+        {% if language.id == 'ar' %}
+          سيقوم فريق الشراكات لدينا بالتواصل معك قريبًا.
+        {% else %}
+          Our partnerships team will contact you soon.
+        {% endif %}
+      </p>
+
+      {# Buttons #}
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <button
+          type="button"
+          data-close-modal
+          class="w-full inline-flex items-center justify-center rounded-xl border border-gray-200
+                 px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition"
+        >
+          {% if language.id == 'ar' %}إغلاق{% else %}Close{% endif %}
+        </button>
+
+        <a
+          href="{{ path('<front>') }}"
+          class="w-full inline-flex items-center justify-center rounded-xl bg-[#32D2A0]
+                 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#2AB38A] transition"
+        >
+          {% if language.id == 'ar' %}العودة إلى الرئيسية{% else %}Back to Home{% endif %}
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{# ========================== #
+   Script: AJAX submit + modal for Partner form
+   ========================== #}
+<script>
+  (function () {
+    var form = document.getElementById('contact-message-partner-form');
+    var modal = document.getElementById('partnerSuccessModal');
+    if (!form || !modal) return;
+
+    var closeButtons = modal.querySelectorAll('[data-close-modal]');
+    var submitBtn = form.querySelector('.partner-submit-btn');
+    var originalBtnText = submitBtn ? (submitBtn.value || submitBtn.innerText) : '';
+
+    function openModal() {
+      modal.classList.remove('hidden');
+      modal.classList.add('flex'); // so items-center/justify-center work
+      document.body.classList.add('overflow-hidden');
+    }
+
+    function closeModal() {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    closeButtons.forEach(function (btn) {
+      btn.addEventListener('click', closeModal);
+    });
+
+    // Close on backdrop click
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Handle AJAX submit
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        if (submitBtn.tagName.toLowerCase() === 'input') {
+          submitBtn.value = '{% if language.id == "ar" %}جارٍ الإرسال...{% else %}Sending...{% endif %}';
+        } else {
+          submitBtn.innerText = '{% if language.id == "ar" %}جارٍ الإرسال...{% else %}Sending...{% endif %}';
+        }
+      }
+
+      var formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        credentials: 'same-origin'
+      })
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+        // Reset the form and show success modal
+        form.reset();
+        openModal();
+      })
+      .catch(function (error) {
+        console.error('Form submission error:', error);
+        alert('{% if language.id == "ar" %}حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.{% else %}There was an error submitting the form. Please try again.{% endif %}');
+      })
+      .finally(function () {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          if (submitBtn.tagName.toLowerCase() === 'input') {
+            submitBtn.value = originalBtnText;
+          } else {
+            submitBtn.innerText = originalBtnText;
+          }
+        }
+      });
+    });
+  })();
+</script>
+
+{% include '@acp/footer.html.twig' %}
