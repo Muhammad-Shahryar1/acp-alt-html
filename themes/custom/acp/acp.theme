@@ -4,6 +4,26 @@ use Drupal\contact\Entity\ContactForm;
 use Drupal\views\Views;
 
 /**
+ * Implements hook_page_attachments().
+ */
+function acp_page_attachments(array &$attachments) {
+  // Add inline script in head to prevent dark mode flicker
+  // This runs before page render to apply dark mode immediately
+  // Checks localStorage first, then defaults to system preference
+  $script = "(function(){var s=localStorage.getItem('darkmode');var shouldBeDark=s==='true'||(s===null&&window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(shouldBeDark){document.documentElement.classList.add('darkmode--activated');document.body.classList.add('darkmode--activated');}else if(s==='false'){document.documentElement.classList.remove('darkmode--activated');document.body.classList.remove('darkmode--activated');}})();";
+  $attachments['#attached']['html_head'][] = [
+    [
+      '#tag' => 'script',
+      '#attributes' => [
+        'type' => 'text/javascript',
+      ],
+      '#value' => $script,
+    ],
+    'acp_darkmode_init',
+  ];
+}
+
+/**
  * Implements hook_preprocess_page().
  */
 function acp_preprocess_page(array &$variables) {

@@ -79,7 +79,13 @@
           <!-- Accessibility Menu Panel -->
           <div id="accessibility-menu-panel" class="accessibility-menu-panel hidden" role="menu" aria-label="{{ 'Accessibility options'|t }}">
             <div class="accessibility-menu-header">
-              <h3>{{ 'Accessibility Options'|t }}</h3>
+              <h3>
+                {% if language.id == 'ar' %}
+                  خيارات إمكانية الوصول
+                {% else %}
+                  {{ 'Accessibility Options'|t }}
+                {% endif %}
+              </h3>
               <button 
                 id="accessibility-menu-close"
                 type="button"
@@ -96,7 +102,13 @@
             <div class="accessibility-menu-content">
               <!-- Text Size Adjustment -->
               <div class="accessibility-menu-section">
-                <label class="accessibility-menu-label">{{ 'Text Size'|t }}</label>
+                <label class="accessibility-menu-label">
+                  {% if language.id == 'ar' %}
+                    حجم النص
+                  {% else %}
+                    {{ 'Text Size'|t }}
+                  {% endif %}
+                </label>
                 <div class="accessibility-menu-controls">
                   <button 
                     id="text-size-default"
@@ -108,7 +120,13 @@
                     data-size="default"
                   >
                     <span aria-hidden="true">A</span>
-                    <span class="accessibility-control-label">{{ 'Default'|t }}</span>
+                    <span class="accessibility-control-label">
+                      {% if language.id == 'ar' %}
+                        الافتراضي
+                      {% else %}
+                        {{ 'Default'|t }}
+                      {% endif %}
+                    </span>
                   </button>
                   <button 
                     id="text-size-large"
@@ -120,7 +138,13 @@
                     data-size="large"
                   >
                     <span aria-hidden="true">A</span>
-                    <span class="accessibility-control-label">{{ 'Large'|t }}</span>
+                    <span class="accessibility-control-label">
+                      {% if language.id == 'ar' %}
+                        كبير
+                      {% else %}
+                        {{ 'Large'|t }}
+                      {% endif %}
+                    </span>
                   </button>
                   <button 
                     id="text-size-extra-large"
@@ -132,14 +156,26 @@
                     data-size="extra-large"
                   >
                     <span aria-hidden="true">A</span>
-                    <span class="accessibility-control-label">{{ 'Extra Large'|t }}</span>
+                    <span class="accessibility-control-label">
+                      {% if language.id == 'ar' %}
+                        كبير جداً
+                      {% else %}
+                        {{ 'Extra Large'|t }}
+                      {% endif %}
+                    </span>
                   </button>
                 </div>
               </div>
 
               <!-- Contrast Adjustment -->
               <div class="accessibility-menu-section">
-                <label class="accessibility-menu-label">{{ 'Contrast'|t }}</label>
+                <label class="accessibility-menu-label">
+                  {% if language.id == 'ar' %}
+                    التباين
+                  {% else %}
+                    {{ 'Contrast'|t }}
+                  {% endif %}
+                </label>
                 <div class="accessibility-menu-controls">
                   <button 
                     id="contrast-decrease"
@@ -150,7 +186,13 @@
             title="{{ 'Decrease contrast'|t }}"
           >
                     <span aria-hidden="true">−</span>
-                    <span class="accessibility-control-label">{{ 'Decrease'|t }}</span>
+                    <span class="accessibility-control-label">
+                      {% if language.id == 'ar' %}
+                        تقليل
+                      {% else %}
+                        {{ 'Decrease'|t }}
+                      {% endif %}
+                    </span>
           </button>
           <button 
             id="contrast-increase"
@@ -161,14 +203,26 @@
             title="{{ 'Increase contrast'|t }}"
           >
                     <span aria-hidden="true">+</span>
-                    <span class="accessibility-control-label">{{ 'Increase'|t }}</span>
+                    <span class="accessibility-control-label">
+                      {% if language.id == 'ar' %}
+                        زيادة
+                      {% else %}
+                        {{ 'Increase'|t }}
+                      {% endif %}
+                    </span>
                   </button>
                 </div>
               </div>
 
               <!-- Dark Mode Toggle -->
               <div class="accessibility-menu-section">
-                <label class="accessibility-menu-label">{{ 'Dark Mode'|t }}</label>
+                <label class="accessibility-menu-label">
+                  {% if language.id == 'ar' %}
+                    الوضع الداكن
+                  {% else %}
+                    {{ 'Dark Mode'|t }}
+                  {% endif %}
+                </label>
                 <div class="accessibility-menu-controls">
                   <button 
                     id="dark-mode-toggle"
@@ -185,10 +239,14 @@
                     <span
                       id="dark-mode-label"
                       class="accessibility-control-label"
-                      data-label-dark="{{ 'Dark Mode'|t }}"
-                      data-label-light="{{ 'Light Mode'|t }}"
+                      data-label-dark="{% if language.id == 'ar' %}الوضع الداكن{% else %}{{ 'Dark Mode'|t }}{% endif %}"
+                      data-label-light="{% if language.id == 'ar' %}الوضع الفاتح{% else %}{{ 'Light Mode'|t }}{% endif %}"
                     >
-                      {{ 'Dark Mode'|t }}
+                      {% if language.id == 'ar' %}
+                        الوضع الداكن
+                      {% else %}
+                        {{ 'Dark Mode'|t }}
+                      {% endif %}
                     </span>
                   </button>
                 </div>
@@ -196,7 +254,13 @@
 
               <!-- Screen Reader Mode Toggle -->
               <div class="accessibility-menu-section">
-                <label class="accessibility-menu-label">{{ 'Screen Reader Mode'|t }}</label>
+                <label class="accessibility-menu-label">
+                  {% if language.id == 'ar' %}
+                    وضع قارئ الشاشة
+                  {% else %}
+                    {{ 'Screen Reader Mode'|t }}
+                  {% endif %}
+                </label>
                 <div class="accessibility-menu-controls">
                   <button 
                     id="screen-reader-mode-toggle"
@@ -213,7 +277,13 @@
                       <line x1="1" y1="12" x2="1.01" y2="12"></line>
                       <line x1="23" y1="12" x2="22.99" y2="12"></line>
                     </svg>
-                    <span class="accessibility-control-label">{{ 'Screen Reader Mode'|t }}</span>
+                    <span class="accessibility-control-label">
+                      {% if language.id == 'ar' %}
+                        وضع قارئ الشاشة
+                      {% else %}
+                        {{ 'Screen Reader Mode'|t }}
+                      {% endif %}
+                    </span>
                   </button>
                 </div>
               </div>

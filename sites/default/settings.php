@@ -830,13 +830,12 @@ $settings['migrate_node_migrate_type_classic'] = FALSE;
 // $settings['config_sync_directory'] = 'sites/default/files/config_YX841Xn2Lv6cdcCaW4u9PfWi_nmXuUv7qPo6WOWHpWnm0kuAmxQCR4-UvSe4uTekR5aR3VsGNA/sync';
 
 $databases['default']['default'] = array (
-  'database' => 'acp_uat_latest',
-  'username' => 'drupal',
-  'password' => 'Njd734#nd8mE',
+  'database' => 'u492849996_acp',
+  'username' => 'u492849996_acp',
+  'password' => 'Needhelp1122',
   'prefix' => '',
-  'host' => '10.244.152.10',
+  'host' => 'localhost',
   'port' => '3306',
-  'isolation_level' => 'READ COMMITTED',
   'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
   'driver' => 'mysql',
   'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',

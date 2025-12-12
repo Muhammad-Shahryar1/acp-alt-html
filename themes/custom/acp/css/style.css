@@ -17,7 +17,22 @@ html[dir="rtl"] .darkmode-layer--simple {
     bottom: 64px;
     left: unset;
 }
+/* Partner Page Specific Dark Mode Overrides */
+body.darkmode--activated .contact-form-card p,
+body.darkmode--activated .contact-form-card p.text-gray-600 {
+  color: #ffffff !important;
+}
 
+body.darkmode--activated .contact-form-card h2 {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated .partner-message-container label {
+  color: #ffffff !important;
+}
+.partner-message-container label {
+  color: #44505E !important;
+}
 /* When dark mode is active, let it fill the page */
 .darkmode-layer--button.darkmode-layer--simple {
     width: 100% !important;
@@ -1472,7 +1487,7 @@ html[lang="ar"] body.darkmode--activated .minister-section .section-heading {
 html[lang="ar"] body.darkmode--activated .minister-section .minister-text h3,
 html[lang="ar"] body.darkmode--activated .minister-section .minister-text p,
 html[lang="ar"] body.darkmode--activated #block-acp-decsministrymessage {
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 body.darkmode--activated .minister-section .section-heading {
@@ -1482,7 +1497,7 @@ body.darkmode--activated .minister-section .section-heading {
 body.darkmode--activated .minister-section .minister-text h3,
 body.darkmode--activated .minister-section .minister-text p,
 body.darkmode--activated #block-acp-decsministrymessage {
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 
@@ -1541,6 +1556,133 @@ body.darkmode--activated #newsModal #closeModal {
 
 body.darkmode--activated #newsModal #closeModal:hover {
   color: #cccccc !important;
+}
+
+/* News Section Dark Mode Styles */
+/* News section container */
+body.darkmode--activated section:has(#sliderNewsSection),
+body.darkmode--activated section:has(#news-slider),
+body.darkmode--activated section.bg-white:has(#sliderNewsSection) {
+  background-color: #ffffff !important;
+}
+
+/* News cards */
+body.darkmode--activated .news-card,
+body.darkmode--activated .news-card.bg-white {
+  background-color: #1a1a1a !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.darkmode--activated .news-card:hover {
+  box-shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* News card text */
+body.darkmode--activated .news-card h4,
+body.darkmode--activated .news-card .text-gray-800,
+body.darkmode--activated .news-card .text-xl {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated .news-card .text-gray-600,
+body.darkmode--activated .news-card p.text-gray-600 {
+  color: #cccccc !important;
+}
+
+body.darkmode--activated .news-card .text-gray-400 {
+  color: #999999 !important;
+}
+
+body.darkmode--activated .news-card .text-gray-700 {
+  color: #e0e0e0 !important;
+}
+
+/* News card borders and badges */
+body.darkmode--activated .news-card .border-gray-300 {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Read More button in news cards */
+body.darkmode--activated .news-card .read-more-btn,
+body.darkmode--activated .news-card button.read-more-btn {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated .news-card .read-more-btn:hover,
+body.darkmode--activated .news-card button.read-more-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.darkmode--activated .news-card .read-more-btn .bg-gray-600 {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.darkmode--activated .news-card .read-more-btn .text-gray-600 {
+  color: #ffffff !important;
+}
+
+/* News section heading */
+body.darkmode--activated section:has(#sliderNewsSection) h2,
+body.darkmode--activated section:has(#sliderNewsSection) h2.text-\[#32D2A0\] {
+  color: #32D2A0 !important;
+}
+
+/* Read More link button in news section header */
+body.darkmode--activated section:has(#sliderNewsSection) a.bg-gray-400 {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+body.darkmode--activated section:has(#sliderNewsSection) a.bg-gray-400:hover {
+  background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.darkmode--activated section:has(#sliderNewsSection) a.bg-gray-400 .bg-white {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.darkmode--activated section:has(#sliderNewsSection) a.bg-gray-400 .text-gray-400 {
+  color: #ffffff !important;
+}
+
+/* News navigation controls */
+body.darkmode--activated #newspaginationslider .text-gray-600,
+body.darkmode--activated #current-news-slide,
+body.darkmode--activated #total-news-slides {
+  color: #000000 !important;
+}
+
+body.darkmode--activated #news-prev,
+body.darkmode--activated #news-next {
+  color: #ffffff !important;
+}
+
+body.darkmode--activated #news-prev:hover,
+body.darkmode--activated #news-next:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.darkmode--activated #news-prev .text-gray-600,
+body.darkmode--activated #news-next .text-gray-600 {
+  color: #000000 !important;
+}
+html[lang="ar"] body.darkmode--activated #news-prev .text-gray-600,
+html[lang="ar"] body.darkmode--activated #news-next .text-gray-600 {
+  color: #ffffff !important;
+}
+body.darkmode--activated #news-next .text-gray-600 {
+  color: #000000 !important;
+}
+/* News progress bar */
+body.darkmode--activated #news-progress-container .bg-gray-300,
+body.darkmode--activated #news-progress-container > div.bg-gray-300 {
+  background-color: #000000 !important;
+}
+
+body.darkmode--activated #news-progress-container .bg-gray-600,
+body.darkmode--activated #news-progress-container > div.bg-gray-600,
+body.darkmode--activated #news-slider-progress.bg-gray-600 {
+  background-color: #32D2A0 !important;
 }
 
 /* Contact Success Modal */

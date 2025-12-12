@@ -1,6 +1,7 @@
+
+
+
 // Language toggle
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const langButtons = document.querySelectorAll("#language-selector");
@@ -356,6 +357,13 @@ document.addEventListener("DOMContentLoaded", () => {
     if (darkmodeInstance) {
       darkmodeInstance.toggle();
       const isActivated = darkmodeInstance.isActivated();
+      // Save preference to localStorage for persistence
+      localStorage.setItem('darkmode', isActivated);
+      // Ensure darkmode layer is properly expanded for mix-blend-mode to work
+      const darkmodeLayer = document.querySelector('.darkmode-layer');
+      if (darkmodeLayer && isActivated) {
+        darkmodeLayer.classList.add('darkmode-layer--expanded', 'darkmode-layer--simple');
+      }
       darkModeBtn.setAttribute('aria-checked', isActivated);
       darkModeBtn.classList.toggle('active', isActivated);
       updateDarkModeLabel(isActivated);
@@ -367,6 +375,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Wait a bit for the toggle to complete
         setTimeout(() => {
           const isActivated = document.body.classList.contains('darkmode--activated');
+          // Save preference to localStorage for persistence
+          localStorage.setItem('darkmode', isActivated);
           darkModeBtn.setAttribute('aria-checked', isActivated);
           darkModeBtn.classList.toggle('active', isActivated);
           updateDarkModeLabel(isActivated);
@@ -375,6 +385,15 @@ document.addEventListener("DOMContentLoaded", () => {
         // Manual toggle if no darkmode button exists
         document.body.classList.toggle('darkmode--activated');
         const isActivated = document.body.classList.contains('darkmode--activated');
+        // Ensure darkmode layer is properly expanded for mix-blend-mode to work
+        const darkmodeLayer = document.querySelector('.darkmode-layer');
+        if (darkmodeLayer) {
+          if (isActivated) {
+            darkmodeLayer.classList.add('darkmode-layer--expanded', 'darkmode-layer--simple', 'darkmode-layer--no-transition');
+          } else {
+            darkmodeLayer.classList.remove('darkmode-layer--expanded', 'darkmode-layer--simple', 'darkmode-layer--no-transition');
+          }
+        }
         darkModeBtn.setAttribute('aria-checked', isActivated);
         darkModeBtn.classList.toggle('active', isActivated);
         localStorage.setItem('darkmode', isActivated);
@@ -388,8 +407,43 @@ document.addEventListener("DOMContentLoaded", () => {
     const darkModeBtn = document.getElementById('dark-mode-toggle');
     if (!darkModeBtn) return;
 
-    const isActivated = document.body.classList.contains('darkmode--activated') || 
-                       localStorage.getItem('darkmode') === 'true';
+    // Check saved preference first, then body class
+    const savedPreference = localStorage.getItem('darkmode');
+    let isActivated = false;
+    
+    if (savedPreference !== null) {
+      // Use saved preference
+      isActivated = savedPreference === 'true';
+      // Ensure body class matches saved preference
+      if (isActivated) {
+        document.body.classList.add('darkmode--activated');
+        document.documentElement.classList.add('darkmode--activated');
+        // Ensure darkmode layer is expanded for mix-blend-mode to work
+        const darkmodeLayer = document.querySelector('.darkmode-layer');
+        if (darkmodeLayer) {
+          darkmodeLayer.classList.add('darkmode-layer--expanded', 'darkmode-layer--simple', 'darkmode-layer--no-transition');
+        }
+      } else {
+        document.body.classList.remove('darkmode--activated');
+        document.documentElement.classList.remove('darkmode--activated');
+        // Remove darkmode layer expansion
+        const darkmodeLayer = document.querySelector('.darkmode-layer');
+        if (darkmodeLayer) {
+          darkmodeLayer.classList.remove('darkmode-layer--expanded', 'darkmode-layer--simple', 'darkmode-layer--no-transition');
+        }
+      }
+    } else {
+      // No saved preference, check body class (set by inline script based on system preference)
+      isActivated = document.body.classList.contains('darkmode--activated');
+      // If activated, ensure layer is expanded
+      if (isActivated) {
+        const darkmodeLayer = document.querySelector('.darkmode-layer');
+        if (darkmodeLayer) {
+          darkmodeLayer.classList.add('darkmode-layer--expanded', 'darkmode-layer--simple', 'darkmode-layer--no-transition');
+        }
+      }
+    }
+    
     darkModeBtn.setAttribute('aria-checked', isActivated);
     darkModeBtn.classList.toggle('active', isActivated);
     updateDarkModeLabel(isActivated);
@@ -446,6 +500,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initialize dark mode state
     initDarkMode();
+    
+    // Sync custom button with darkmode-js library state and ensure layer is expanded
+    // Listen for changes when library's button is clicked
+    function syncButtonWithLibraryState() {
+      const darkModeBtn = document.getElementById('dark-mode-toggle');
+      if (!darkModeBtn) return;
+      
+      const isActivated = document.body.classList.contains('darkmode--activated');
+      
+      // Ensure darkmode layer is properly expanded for mix-blend-mode to work
+      const darkmodeLayer = document.querySelector('.darkmode-layer');
+      if (darkmodeLayer) {
+        if (isActivated) {
+          darkmodeLayer.classList.add('darkmode-layer--expanded', 'darkmode-layer--simple');
+        } else {
+          darkmodeLayer.classList.remove('darkmode-layer--expanded', 'darkmode-layer--simple');
+        }
+      }
+      
+      darkModeBtn.setAttribute('aria-checked', isActivated);
+      darkModeBtn.classList.toggle('active', isActivated);
+      updateDarkModeLabel(isActivated);
+    }
+    
+    // Watch for body class changes (when darkmode-js library toggles)
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          syncButtonWithLibraryState();
+        }
+      });
+    });
+    
+    if (document.body) {
+      observer.observe(document.body, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+    }
+    
+    // Also sync after library initializes - check multiple times to catch when layer is created
+    setTimeout(syncButtonWithLibraryState, 100);
+    setTimeout(syncButtonWithLibraryState, 500);
+    setTimeout(syncButtonWithLibraryState, 1000);
+    setTimeout(syncButtonWithLibraryState, 2000);
 
     // Initialize screen reader mode
     initScreenReaderMode();
