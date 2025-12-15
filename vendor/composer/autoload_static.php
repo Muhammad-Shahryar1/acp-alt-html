@@ -90,10 +90,6 @@ class ComposerStaticInit4b6344e297196cc4b3da3288d1693c52
             'Peast\\' => 6,
             'PHPMailer\\PHPMailer\\' => 20,
         ),
-        'O' =>
-        array (
-            'OomphInc\\ComposerInstallersExtender\\' => 36,
-        ),
         'M' =>
         array (
             'Masterminds\\' => 12,
@@ -332,10 +328,6 @@ class ComposerStaticInit4b6344e297196cc4b3da3288d1693c52
         'PHPMailer\\PHPMailer\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
-        ),
-        'OomphInc\\ComposerInstallersExtender\\' =>
-        array (
-            0 => __DIR__ . '/..' . '/oomphinc/composer-installers-extender/src',
         ),
         'Masterminds\\' =>
         array (

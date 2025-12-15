@@ -26,7 +26,7 @@
       <div class="absolute top-0 right-8 md:right-4 w-[90%] xl:h-[100%] lg:h-[110%] md:h-[400px] sm:h-[350px] h-[400px] bg-[#32D2A0] -rotate-5 z-10"></div>
 
       <!-- White card -->
-      <div class="relative bg-white rounded-2xl space-y-12 sm:space-y-16 md:space-y-20 -mb-32 md:-mb-[700px] shadow-md w-full p-6 sm:p-8 md:p-20 lg:py-40 py-10 z-10">
+      <div class="relative bg-white contact-form-card rounded-2xl space-y-12 sm:space-y-16 md:space-y-20 -mb-32 md:-mb-[700px] shadow-md w-full p-6 sm:p-8 md:p-20 lg:py-40 py-10 z-10">
 
         <!-- Header Text -->
         <div class="mb-4 sm:mb-6">
@@ -48,7 +48,7 @@
         </div>
 
         <!-- Form (AJAX submission, no redirect) -->
-        <form{{ partner_form.attributes.addClass('space-y-6') }} class="overflow-hidden" action="/contact/partner_form" method="post" id="contact-message-partner-form" accept-charset="UTF-8">
+        <form{{ partner_form.attributes.addClass(['space-y-6', 'contact-form']) }} class="overflow-hidden" action="/contact/partner_form" method="post" id="contact-message-partner-form" accept-charset="UTF-8">
           {{ partner_form.form_build_id }}
           {{ partner_form.form_token }}
           {{ partner_form.form_id }}
@@ -83,7 +83,7 @@
 
           <!-- Partner Message -->
           <div class="flex partner-message-container flex-col mt-10">
-            <label for="edit-field-partner-message-0-value" class="font-semibold !text-[#44505E]" data-i18n="form.contributionLabel">
+            <label for="edit-field-partner-message-0-value" class="font-semibold" data-i18n="form.contributionLabel">
               {% if language.id == 'ar' %}
                 كيف ترغب الجهة بالمساهمة في برنامج الربط الجوي
               {% else %}

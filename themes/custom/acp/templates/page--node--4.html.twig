@@ -331,6 +331,27 @@
     </div>
   </div>
 </section>
+
+<!-- Video Preview Modal -->
+<div id="videoPreviewModal"
+     class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+  <div class="bg-black rounded-2xl overflow-hidden max-w-3xl w-[95%] relative">
+    <!-- Close button -->
+    <button id="closeVideoPreview"
+            type="button"
+            class="absolute top-3 right-4 text-white text-3xl leading-none">
+      &times;
+    </button>
+
+    <!-- Preview Video -->
+    <video id="previewVideo"
+           class="w-full h-full max-h-[80vh]"
+           controls
+           playsinline>
+    </video>
+  </div>
+</div>
+
 <div style="padding-bottom:20px;"></div>
 
 {% include '@acp/footer.html.twig' %}
