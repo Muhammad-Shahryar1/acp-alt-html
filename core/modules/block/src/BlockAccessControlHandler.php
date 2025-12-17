@@ -116,23 +116,32 @@ class BlockAccessControlHandler extends EntityAccessControlHandler implements En
       elseif ($this->resolveConditions($conditions, 'and') !== FALSE) {
         // Delegate to the plugin.
         $block_plugin = $entity->getPlugin();
-        try {
-          if ($block_plugin instanceof ContextAwarePluginInterface) {
-            $contexts = $this->contextRepository->getRuntimeContexts(array_values($block_plugin->getContextMapping()));
-            $this->contextHandler->applyContextMapping($block_plugin, $contexts);
-          }
-          $access = $block_plugin->access($account, TRUE);
-        }
-        catch (MissingValueContextException $e) {
-          // The contexts exist but have no value. Deny access without
-          // disabling caching.
+
+        // If the block plugin cannot be loaded (for example, because the
+        // providing module was uninstalled or the plugin ID is invalid),
+        // deny access instead of triggering a fatal error.
+        if (!$block_plugin) {
           $access = AccessResult::forbidden();
         }
-        catch (ContextException $e) {
-          // If any context is missing then we might be missing cacheable
-          // metadata, and don't know based on what conditions the block is
-          // accessible or not. Make sure the result cannot be cached.
-          $access = AccessResult::forbidden()->setCacheMaxAge(0);
+        else {
+          try {
+            if ($block_plugin instanceof ContextAwarePluginInterface) {
+              $contexts = $this->contextRepository->getRuntimeContexts(array_values($block_plugin->getContextMapping()));
+              $this->contextHandler->applyContextMapping($block_plugin, $contexts);
+            }
+            $access = $block_plugin->access($account, TRUE);
+          }
+          catch (MissingValueContextException $e) {
+            // The contexts exist but have no value. Deny access without
+            // disabling caching.
+            $access = AccessResult::forbidden();
+          }
+          catch (ContextException $e) {
+            // If any context is missing then we might be missing cacheable
+            // metadata, and don't know based on what conditions the block is
+            // accessible or not. Make sure the result cannot be cached.
+            $access = AccessResult::forbidden()->setCacheMaxAge(0);
+          }
         }
       }
       else {
