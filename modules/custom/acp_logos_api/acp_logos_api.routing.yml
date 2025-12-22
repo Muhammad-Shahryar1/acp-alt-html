@@ -1,0 +1,7 @@
+acp_logos_api.get_logos:
+  path: '/api/logos'
+  defaults:
+    _controller: '\Drupal\acp_logos_api\Controller\LogosController::getLogos'
+    _title: 'Logos API'
+  requirements:
+    _access: 'TRUE'

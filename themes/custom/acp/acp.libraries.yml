@@ -1,0 +1,51 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+      css/tailwind.output.css: {}
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js: { type: external, minified: true }
+    https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js: { type: external, minified: true }
+  dependencies:
+   - core/drupal
+   - core/jquery
+   - core/once
+
+frontpage-scripts:
+  js:
+    js/main.js: {}
+  dependencies:
+    - acp/global-styling
+    - core/drupal
+    - core/jquery
+    - core/once
+
+media-scripts:
+  js:
+    js/media.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+footer-scripts:
+  js:
+    js/footer.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+header-styling:
+  css:
+    theme:
+      css/header.css: {}
+
+secheader-styling:
+  css:
+    theme:
+      css/secheader.css: {}
+  js:
+    js/secheader.js: {}       
+login:
+  css:
+    theme:
+      css/login.css: {}

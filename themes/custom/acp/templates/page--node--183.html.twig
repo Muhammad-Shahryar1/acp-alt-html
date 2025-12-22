@@ -1,0 +1,142 @@
+{{ attach_library('acp/secheader-styling') }}
+{{ attach_library('acp/frontpage-scripts') }}
+
+
+{#
+  Single-file template for the “Air Connectivity Program” page.
+  - No includes.
+  - Uses theme assets under /themes/custom/acp/assets/img/ by default.
+  - If your preprocess sets `theme_path`, we’ll use that; otherwise we fall back.
+#}
+
+{{ attach_library('acp/global-styling') }}
+
+{# Helpers #}
+{% set is_ar = (language.id == 'ar') %}
+{% set theme_path = theme_path|default('themes/custom/acp') %}
+{% set polygon_icon = (base_path ~ theme_path ~ '/assets/img/Polygon 1.png')|replace({' ': '%20'}) %}
+{% set ministry_img = (base_path ~ theme_path ~ '/assets/img/ministry image.png')|replace({' ': '%20'}) %}
+{% set team_img     = (base_path ~ theme_path ~ '/assets/img/team image.png')|replace({' ': '%20'}) %}
+
+{% include '@acp/sec-header.html.twig' %}
+
+<main id="main-content" lang="{{ is_ar ? 'ar' : 'en' }}" dir="{{ is_ar ? 'rtl' : 'ltr' }}">
+  {# =========================
+     Hero Section
+     ========================= #}
+  <section class="hero-section">
+    <div class="hero-overlay">
+      <div id="pageNavigation" class="flex gap-1 my-6 items-center container mx-auto">
+        {% if is_ar %}
+          <a href="{{ path('<front>') }}" class="text-gray-100 hover:text-gray-200">الرئيسية</a>
+          <svg class="w-4 h-4 text-green-400 rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+          {# Current page (no link). Adjust slug if you want it linked. #}
+          <span class="text-green-400">برنامج الربط الجوي</span>
+        {% else %}
+          <a href="{{ path('<front>') }}" class="text-green-400 hover:text-green-400">Home</a>
+          <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+          {# Current page (no link). Adjust slug if your URL differs (e.g., ~ 'air-connectivity-program'). #}
+          <span class="text-green-400">Air Connectivity Program</span>
+        {% endif %}
+      </div>
+
+      <h1>{{page.aboutPageHeroSection}}</h1>
+    </div>
+  </section>
+
+  {# =========================
+     About Section
+     ========================= #}
+  <section class="about-section">
+    <div class="about-container">
+      <div class="about-title {{ is_ar ? 'text-right' : '' }}">
+        <h2>{{ is_ar ? 'نبذة' : 'About' }}</h2>
+      </div>
+
+      <div class="about-content {{ is_ar ? 'text-right' : '' }}">
+        <h2>{{page.aboutPageHeading }}</h2>
+
+        <p class="highlight-text">
+          {{page.aboutPageHighlightedText}}
+        </p>
+
+        <p>
+          {{page.aboutpagedescription2}}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {# =========================
+     Minister’s Message
+     ========================= #}
+  <section class="minister-section">
+    <div class="white-bg-minister">
+      <div class="section-title {{ is_ar ? 'text-right' : '' }}">
+            <img
+  src="{{ polygon_icon }}"
+  alt="icon"
+  class="title-icon"
+  {% if is_ar %}style="transform: scaleX(-1);" {% endif %}
+/>
+        <h2 class="section-heading">{{ is_ar ? 'كلمة معالي وزير السياحة' : 'Minister’s Message' }}</h2>
+      </div>
+
+      <div class="minister-content">
+        <div class="minister-image">
+          {{page.aboutImage1}}
+        </div>
+
+        <div class="minister-text {{ is_ar ? 'text-right' : '' }}">
+          <h3>
+           {{page.MinistryMessageName}}
+          </h3>
+          <div class="underline"></div>
+
+          <p>
+            {{page.MinistryMesssageDesc}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# =========================
+     Executive Management
+     ========================= #}
+  {# keep your section title exactly as you have it #}
+   
+<div class="section-title-team {{ is_ar ? 'text-right' : '' }}"> <img
+  src="{{ polygon_icon }}"
+  alt="icon"
+  class="title-icon"
+  {% if is_ar %}style="transform: scaleX(-1);" {% endif %}
+/> <h2 class="section-heading">{{page.TeamManagmentHeading}}</h2> </div>
+
+<div
+  id="exec-grid"
+  class="management-grid {{ is_ar ? 'text-right' : '' }}"
+  data-fallback-img="{{ team_img }}"
+>
+  {% for member in team %}
+    <div class="team-card">
+      <div class="image-box">
+        <img src="{{ team_img }}" alt="{{ member.name }}" />
+      </div>
+      <h4>{{ member.name }}</h4>
+      <p class="department"></p> {# JS will fill when API present #}
+      <p class="role">{{ member.role|raw }}</p>
+      <div class="underline"></div>
+    </div>
+  {% endfor %}
+</div>
+
+
+
+</main>
+
+{% include '@acp/footer.html.twig' %}
