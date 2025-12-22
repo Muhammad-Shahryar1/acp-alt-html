@@ -1,8 +1,0 @@
-name: ACP Team API
-type: module
-description: "JSON API for ACP Team members (mirrors News API style)"
-package: ACP
-core_version_requirement: ^10
-dependencies:
-  - drupal:node
-  - drupal:file

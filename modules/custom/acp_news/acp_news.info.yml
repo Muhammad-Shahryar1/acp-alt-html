@@ -1,5 +1,0 @@
-name: "ACP News API"
-type: module
-description: "Simple JSON CRUD API for the ACP news cards."
-core_version_requirement: ^10
-package: Custom

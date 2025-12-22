@@ -1,7 +1,0 @@
-videos_api.get_videos:
-  path: '/api/videos'
-  defaults:
-    _controller: '\Drupal\videos_api\Controller\VideosController::getVideos'
-    _title: 'Videos API'
-  requirements:
-    _access: 'TRUE'

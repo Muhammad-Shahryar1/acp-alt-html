@@ -1,7 +1,0 @@
-acp_news.api_list:
-  path: "/acp-news/api/news"
-  defaults:
-    _controller: '\Drupal\acp_news\Controller\NewsApiController::listNews'
-  requirements:
-    _permission: "access content"
-  methods: [GET]
