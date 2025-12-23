@@ -1,36 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
   const langButtons = document.querySelectorAll("#language-selector");
 
-  // Define known URL mappings between English and Arabic pages
-  const langMap = {
-    "/media": "/ar/node/4",
-    "/become-partner": "/ar/node/3",
-    "/contact-us": "/ar/node/2",
-    "/privacy-policy": "/ar/node/1",
-    "/about": "/ar/node/183",
-  };
-
   langButtons.forEach((langButton) => {
-    langButton.addEventListener("click", () => {
-      const currentPath = window.location.pathname;
-      const baseUrl = window.location.origin;
-      const isArabic = currentPath.startsWith("/ar/");
+    const currentLang = langButton?.dataset.lang || "en";
 
-      let targetUrl = baseUrl; // default base
+    const langMap = {
+      "/media": "/ar/node/4",
+      "/media/": "/ar/node/4",
+      "/ar/node/4": "/media",
+      "/node/4": "/media",
+      "/become-partner": "/ar/node/3",
+      "/become-partner/": "/ar/node/3",
+      "/ar/node/3": "/become-partner",
+      "/node/3": "/become-partner",
+      "/contact-us": "/ar/node/2",
+      "/contact-us/": "/ar/node/2",
+      "/ar/node/2": "/contact-us",
+      "/node/2": "/contact-us",
+    };
+
+    const handleLanguageToggle = () => {
+      const isArabic = currentLang === "ar";
+      let pathname = window.location.pathname;
+      const origin = window.location.origin;
+      const search = window.location.search;
+
+      // Normalize pathname (remove trailing slash for matching)
+      const normalizedPath = pathname.endsWith('/') && pathname !== '/' 
+        ? pathname.slice(0, -1) 
+        : pathname;
+
+      let targetPath = pathname;
 
       if (isArabic) {
         // Arabic → English
-        // Find the English equivalent of current Arabic node
-        const englishPath = Object.keys(langMap).find(
-          (enPath) => langMap[enPath] === currentPath
-        );
-        targetUrl += englishPath ? englishPath : currentPath.replace("/ar", "");
+        if (langMap[normalizedPath]) {
+          targetPath = langMap[normalizedPath];
+        } else if (langMap[pathname]) {
+          targetPath = langMap[pathname];
+        } else {
+          targetPath = pathname.replace(/^\/ar\//, "/");
+        }
       } else {
         // English → Arabic
-        targetUrl += langMap[currentPath] ? langMap[currentPath] : "/ar" + currentPath;
+        if (langMap[normalizedPath]) {
+          targetPath = langMap[normalizedPath];
+        } else if (langMap[pathname]) {
+          targetPath = langMap[pathname];
+        } else if (!pathname.startsWith("/ar/")) {
+          targetPath = `/ar${pathname}`;
+        }
       }
 
-      window.location.href = targetUrl;
+      window.location.href = origin + targetPath + search;
+    };
+
+    langButton.addEventListener("click", handleLanguageToggle);
+    langButton.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleLanguageToggle();
+      }
     });
   });
 });

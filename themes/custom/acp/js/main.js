@@ -9,28 +9,55 @@ document.addEventListener("DOMContentLoaded", () => {
   langButtons.forEach((langButton) => {
     const currentLang = langButton?.dataset.lang || "en";
 
+    const langMap = {
+      "/media": "/ar/node/4",
+      "/media/": "/ar/node/4",
+      "/ar/node/4": "/media",
+      "/node/4": "/media",
+      "/become-partner": "/ar/node/3",
+      "/become-partner/": "/ar/node/3",
+      "/ar/node/3": "/become-partner",
+      "/node/3": "/become-partner",
+      "/contact-us": "/ar/node/2",
+      "/contact-us/": "/ar/node/2",
+      "/ar/node/2": "/contact-us",
+      "/node/2": "/contact-us",
+    };
+
     const handleLanguageToggle = () => {
       const isArabic = currentLang === "ar";
-      let newUrl =
-        window.location.origin +
-        window.location.pathname +
-        window.location.search;
+      let pathname = window.location.pathname;
+      const origin = window.location.origin;
+      const search = window.location.search;
+
+      // Normalize pathname (remove trailing slash for matching)
+      const normalizedPath = pathname.endsWith('/') && pathname !== '/' 
+        ? pathname.slice(0, -1) 
+        : pathname;
+
+      let targetPath = pathname;
 
       if (isArabic) {
         // Arabic → English
-        newUrl = newUrl.replace("/ar/", "/");
+        if (langMap[normalizedPath]) {
+          targetPath = langMap[normalizedPath];
+        } else if (langMap[pathname]) {
+          targetPath = langMap[pathname];
+        } else {
+          targetPath = pathname.replace(/^\/ar\//, "/");
+        }
       } else {
         // English → Arabic
-        if (!window.location.pathname.startsWith("/ar/")) {
-          newUrl =
-            window.location.origin +
-            "/ar" +
-            window.location.pathname +
-            window.location.search;
+        if (langMap[normalizedPath]) {
+          targetPath = langMap[normalizedPath];
+        } else if (langMap[pathname]) {
+          targetPath = langMap[pathname];
+        } else if (!pathname.startsWith("/ar/")) {
+          targetPath = `/ar${pathname}`;
         }
       }
 
-      window.location.href = newUrl;
+      window.location.href = origin + targetPath + search;
     };
 
     langButton.addEventListener("click", handleLanguageToggle);
