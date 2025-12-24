@@ -20,6 +20,20 @@
       <!-- Desktop Navigation -->
       <div class="sec-header-menu">
         {{ page.header }}
+        {% if language.id == 'ar' %}
+         
+		<a class="arabic-vist-nav" href="https://www.visitsaudi.com/ar" >
+			روح السعودية
+		</a>
+   
+              {% else %}
+         
+	
+		<a class="english-vist-nav" href="https://www.visitsaudi.com/en" >
+			Visit Saudi
+		</a>
+	
+              {% endif %}
       </div>
 
       <!-- Right Side Actions -->
@@ -311,6 +325,24 @@
     <div id="mobile-menu" class="hidden">
       <div class="mobile-menu-content">
         {{ page.header }}
+        <div>
+            {% if language.id == 'ar' %}
+        <div style="text-align:right; margin-right: 16px;">
+		<a  href="https://www.visitsaudi.com/ar" >
+			زوروا السعودية
+		</a>
+   </div>
+              {% else %}
+         
+	<div style="text-align:left; margin-left:16px;">
+		<a href="https://www.visitsaudi.com/en"  >
+			Visit Saudi
+		</a>
+	</div>
+              {% endif %}
+
+            
+        </div>
 
         <!-- Mobile Actions -->
         <div class="mobile-actions">

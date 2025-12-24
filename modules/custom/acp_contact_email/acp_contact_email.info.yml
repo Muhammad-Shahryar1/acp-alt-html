@@ -1,6 +1,6 @@
 name: 'ACP Contact Email'
 type: module
-description: 'Customizes the contact_us_form notification email layout and link formatting.'
+description: 'Customizes the contact_us_form and partner_form notification email layout and link formatting.'
 core_version_requirement: ^9 || ^10
 package: 'ACP Custom'
 

@@ -55,7 +55,7 @@
 .secondary-header .sec-header-menu {
     display: none;
     align-items: center;
-    gap: 2rem;
+    gap: 0rem;
     color: #000000;
 }
 
@@ -560,7 +560,7 @@ html[lang="ar"] .accessibility-menu-panel {
 @media (min-width: 1024px) {
     .secondary-header nav {
         padding-left: 2rem;
-        padding-right: 2rem;
+        padding-right: 1.5rem;
     }
 
     .secondary-header .sec-header-menu {

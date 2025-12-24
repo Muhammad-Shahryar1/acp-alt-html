@@ -5,147 +5,194 @@ use Drupal\Core\Url;
 
 /**
  * @file
- * Custom email formatting for the Contact Us form notifications.
+ * Custom email formatting for the Contact Us and Partner form notifications.
  */
+
+/**
+ * Implements hook_install().
+ */
+function acp_contact_email_install() {
+  // Configure mail system to use our custom plugin for contact emails
+  $config = \Drupal::configFactory()->getEditable('system.mail');
+  $interface = $config->get('interface') ?: [];
+  
+  // Set our custom mail plugin for contact form emails
+  $interface['contact_page_mail'] = 'acp_contact_mail';
+  $interface['contact_page_copy'] = 'acp_contact_mail';
+  
+  $config->set('interface', $interface)->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function acp_contact_email_uninstall() {
+  // Remove our mail plugin configuration
+  $config = \Drupal::configFactory()->getEditable('system.mail');
+  $interface = $config->get('interface') ?: [];
+  
+  unset($interface['contact_page_mail']);
+  unset($interface['contact_page_copy']);
+  
+  $config->set('interface', $interface)->save();
+}
 
 /**
  * Implements hook_mail_alter().
  */
 function acp_contact_email_mail_alter(array &$message) {
-  // We only care about the site-wide contact form emails:
-  // - contact_page_mail  (notification to recipients)
-  // - contact_page_copy  (copy to sender).
-  if (empty($message['id']) || !in_array($message['id'], ['contact_page_mail', 'contact_page_copy'], TRUE)) {
+  // Only process contact form emails
+  if (empty($message['id']) || strpos($message['id'], 'contact_') !== 0) {
+    return;
+  }
+  
+  // Only process page_mail and page_copy (not autoreply or user messages)
+  $mail_key = str_replace('contact_', '', $message['id']);
+  if (!in_array($mail_key, ['page_mail', 'page_copy'], TRUE)) {
     return;
   }
 
-  // Ensure we have the contact_message entity and that it's the contact_us_form.
-  if (
-    empty($message['params']['contact_message']) ||
-    !$message['params']['contact_message'] instanceof ContactMessageInterface
-  ) {
+  // Ensure we have the contact_message entity
+  if (empty($message['params']['contact_message'])) {
     return;
   }
-
-  /** @var \Drupal\contact\ContactMessageInterface $contact_message */
-  $contact_message = $message['params']['contact_message'];
-  if ($contact_message->bundle() !== 'contact_us_form') {
-    // Do not touch other contact forms (e.g., partner form).
+  
+  $contact_message_obj = $message['params']['contact_message'];
+  
+  // Get the form bundle
+  $form_bundle = NULL;
+  if (method_exists($contact_message_obj, 'bundle')) {
+    $form_bundle = $contact_message_obj->bundle();
+  } elseif (method_exists($contact_message_obj, 'getContactForm')) {
+    $contact_form = $contact_message_obj->getContactForm();
+    if ($contact_form) {
+      $form_bundle = $contact_form->id();
+    }
+  } elseif (isset($contact_message_obj->bundle)) {
+    $form_bundle = $contact_message_obj->bundle;
+  }
+  
+  if (empty($form_bundle) || !in_array($form_bundle, ['contact_us_form', 'partner_form'], TRUE)) {
     return;
   }
-
+  
+  $contact_message = $contact_message_obj;
   $langcode = $message['langcode'] ?? $contact_message->language()->getId();
   $is_ar = ($langcode === 'ar');
+  $is_partner_form = ($form_bundle === 'partner_form');
 
-  // Extract submitted fields.
-  $name = $contact_message->get('field_name')->value ?? '';
-  $email = $contact_message->get('field_email')->value ?? '';
-  $phone = $contact_message->get('field_phone_number')->value ?? '';
-  $body = $contact_message->get('field_message')->value ?? '';
+  // Extract submitted fields based on form type
+  if ($is_partner_form) {
+    $org_name = $contact_message->get('field_organization_name')->value ?? '';
+    $org_website = $contact_message->get('field_organization_website')->value ?? '';
+    $org_industry = $contact_message->get('field_organization_industry')->value ?? '';
+    $country = $contact_message->get('field_country')->value ?? '';
+    $first_name = $contact_message->get('field_first_name')->value ?? '';
+    $last_name = $contact_message->get('field_last_name')->value ?? '';
+    $phone = $contact_message->get('field_phone')->value ?? '';
+    $email = $contact_message->get('field_email_partner')->value ?? '';
+    $body = $contact_message->get('field_partner_message')->value ?? '';
+    $name = trim($first_name . ' ' . $last_name);
+  } else {
+    $name = $contact_message->get('field_name')->value ?? '';
+    $email = $contact_message->get('field_email')->value ?? '';
+    $phone = $contact_message->get('field_phone_number')->value ?? '';
+    $body = $contact_message->get('field_message')->value ?? '';
+    $org_name = '';
+    $org_website = '';
+    $org_industry = '';
+    $country = '';
+  }
 
-  // Build a clean, labeled link to the form page.
+  // Build form URL
   $language = \Drupal::languageManager()->getLanguage($langcode);
   $form_url = Url::fromRoute('<current>', [], [
     'absolute' => TRUE,
     'language' => $language,
   ])->toString();
 
-  $form_link_label = $is_ar
-    ? t('Open the contact form on the website', [], ['langcode' => 'ar'])
-    : t('Open the contact form on the website', [], ['langcode' => $langcode]);
-
-  // Determine direction and alignment for mixed LTR/RTL content.
-  $direction = $is_ar ? 'rtl' : 'ltr';
-  $align = $is_ar ? 'right' : 'left';
-
-  // Build the intro line without exposing the raw URL.
+  // Get sender name
   $sender = $message['params']['sender'] ?? NULL;
   $sender_name = '';
   if ($sender && method_exists($sender, 'getDisplayName')) {
     $sender_name = $sender->getDisplayName();
   }
 
-  if ($is_ar) {
-    $intro = t(
-      '@sender-name أرسل رسالة عبر نموذج "تواصل معنا" على الموقع.',
-      ['@sender-name' => $sender_name],
-      ['langcode' => 'ar']
-    );
-  }
-  else {
-    $intro = t(
-      '@sender-name sent a message using the "Contact Us" form on the website.',
-      ['@sender-name' => $sender_name],
-      ['langcode' => $langcode]
-    );
+  // Build intro message
+  if ($is_partner_form) {
+    $intro = $is_ar
+      ? t('@sender-name أرسل رسالة عبر نموذج "الشريك" على الموقع.', ['@sender-name' => $sender_name], ['langcode' => 'ar'])
+      : t('@sender-name sent a message using the "Partner" form on the website.', ['@sender-name' => $sender_name], ['langcode' => $langcode]);
+  } else {
+    $intro = $is_ar
+      ? t('@sender-name أرسل رسالة عبر نموذج "تواصل معنا" على الموقع.', ['@sender-name' => $sender_name], ['langcode' => 'ar'])
+      : t('@sender-name sent a message using the "Contact Us" form on the website.', ['@sender-name' => $sender_name], ['langcode' => $langcode]);
   }
 
-  // Safely escape field values for HTML context.
+  // Escape function
   $escape = static function ($value) {
     return htmlspecialchars((string) $value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
   };
 
-  // Build table rows only for fields that have values.
-  $rows = [];
-  if ($name !== '') {
-    $rows[] = sprintf(
-      '<tr><th align="%s">%s</th><td>%s</td></tr>',
-      $align,
-      $escape($is_ar ? 'الاسم' : 'Name'),
-      $escape($name)
-    );
+  // Build organized email body with theme colors
+  $body_lines = [];
+  $body_lines[] = $intro;
+  $body_lines[] = '';
+  $body_lines[] = str_repeat('═', 60);
+  $body_lines[] = '';
+  
+  // Add all fields in an organized format
+  if ($is_partner_form) {
+    if ($org_name !== '') {
+      $body_lines[] = ($is_ar ? 'اسم الجهة' : 'Organization Name') . ': ' . $org_name;
+    }
+    if ($org_website !== '') {
+      $body_lines[] = ($is_ar ? 'الموقع الالكتروني' : 'Organization Website') . ': ' . $org_website;
+    }
+    if ($org_industry !== '') {
+      $body_lines[] = ($is_ar ? 'القطاع' : 'Industry') . ': ' . $org_industry;
+    }
+    if ($country !== '') {
+      $body_lines[] = ($is_ar ? 'الدولة' : 'Country') . ': ' . $country;
+    }
+    if ($first_name !== '') {
+      $body_lines[] = ($is_ar ? 'الاسم الاول' : 'First Name') . ': ' . $first_name;
+    }
+    if ($last_name !== '') {
+      $body_lines[] = ($is_ar ? 'الاسم الاخير' : 'Last Name') . ': ' . $last_name;
+    }
+  } else {
+    if ($name !== '') {
+      $body_lines[] = ($is_ar ? 'الاسم' : 'Name') . ': ' . $name;
+    }
   }
+  
   if ($email !== '') {
-    $rows[] = sprintf(
-      '<tr><th align="%s">%s</th><td><a href="mailto:%s">%s</a></td></tr>',
-      $align,
-      $escape($is_ar ? 'البريد الإلكتروني' : 'Email'),
-      $escape($email),
-      $escape($email)
-    );
+    $body_lines[] = ($is_ar ? 'البريد الإلكتروني' : 'Email') . ': ' . $email;
   }
   if ($phone !== '') {
-    $rows[] = sprintf(
-      '<tr><th align="%s">%s</th><td>%s</td></tr>',
-      $align,
-      $escape($is_ar ? 'رقم الهاتف' : 'Phone'),
-      $escape($phone)
-    );
+    $body_lines[] = ($is_ar ? 'رقم الهاتف' : 'Phone') . ': ' . $phone;
   }
+  
+  $body_lines[] = '';
+  $body_lines[] = str_repeat('─', 60);
+  $body_lines[] = '';
+  
   if ($body !== '') {
-    $rows[] = sprintf(
-      '<tr><th valign="top" align="%s">%s</th><td>%s</td></tr>',
-      $align,
-      $escape($is_ar ? 'الرسالة' : 'Message'),
-      nl2br($escape($body))
-    );
+    $body_lines[] = ($is_ar ? 'الرسالة' : 'Message') . ':';
+    $body_lines[] = '';
+    // Indent the message body
+    $message_lines = explode("\n", $body);
+    foreach ($message_lines as $line) {
+      $body_lines[] = '  ' . $line;
+    }
   }
-
-  $table_html = sprintf(
-    '<table dir="%s" style="border-collapse:collapse;width:100%%;margin-top:12px;">%s</table>',
-    $direction,
-    implode('', $rows)
-  );
-
-  $link_html = sprintf(
-    '<p dir="%s" style="margin-top:16px;">' .
-    '<a href="%s" ' .
-    'style="display:inline-block;padding:10px 18px;background-color:#32D2A0;color:#ffffff;' .
-    'text-decoration:none;border-radius:4px;font-weight:600;">%s</a></p>',
-    $direction,
-    $escape($form_url),
-    $escape($form_link_label)
-  );
-
-  // Set the body to our clean, HTML-formatted content.
-  $message['body'] = [
-    sprintf('<p dir="%s" style="margin:0 0 8px 0;">%s</p>', $direction, $escape($intro)),
-    $table_html,
-    $link_html,
-  ];
-
-  // Ensure the email is sent as HTML so our layout and link styling render.
-  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8';
+  
+  $body_lines[] = '';
+  $body_lines[] = str_repeat('═', 60);
+  $body_lines[] = '';
+  $body_lines[] = ($is_ar ? 'رابط النموذج' : 'Form Link') . ': ' . $form_url;
+  
+  // Replace the entire body array with our organized content
+  $message['body'] = [implode("\n", $body_lines)];
 }
-
-
